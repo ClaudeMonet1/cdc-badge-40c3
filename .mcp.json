@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "openwiki": {
-      "command": "openwiki",
+      "command": "${HOME}/.npm-global/bin/openwiki",
       "args": [
         "mcp",
         "--host",
