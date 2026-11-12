@@ -1,0 +1,46 @@
+# CDC Badge OS - OS UI (cdc_os_ui)
+# OS-level views and app flow (LockScreen, AppUi, etc.)
+
+idf_component_register(
+    SRCS
+        "src/HardwareInfo.cpp"
+        "src/FirmwareCheck.cpp"
+        "src/AppUi.cpp"
+        "src/WifiMenuUi.cpp"
+        "src/BluetoothMenuUi.cpp"
+        "src/MsgTransferUi.cpp"
+        "src/ExpertMenuUi.cpp"
+        "src/UsbServicesUi.cpp"
+        "src/WifiHandlers.cpp"
+        "src/SettingsHandlers.cpp"
+        "src/SleepManager.cpp"
+        "src/BackupManager.cpp"
+        "src/BackupMenuUi.cpp"
+        "src/SystemSettingsBackup.cpp"
+        "src/views/PinChangeView.cpp"
+        "src/views/LockScreenView.cpp"
+        "src/views/BlePairingPromptView.cpp"
+        "src/views/BlePairingView.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        cdc_core
+        cdc_hal
+        cdc_log
+        cdc_ui
+        cdc_views
+        cdc_msg
+        serial_cmd
+        plugin_manager
+        Adafruit-GFX
+        nvs_flash
+        esp_timer
+        esp_hw_support
+        freertos
+        mbedtls
+        esp_http_client
+        esp-tls
+        json
+        espressif__tinyusb
+        usb_badge
+)

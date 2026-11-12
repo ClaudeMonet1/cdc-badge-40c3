@@ -1,0 +1,16 @@
+# Nix / direnv
+result
+result-*
+.direnv/
+
+# Rust / wasm build output
+target/
+*.wasm.tmp
+
+# JS
+node_modules/
+
+# Editors
+.vscode/
+.idea/
+*.swp

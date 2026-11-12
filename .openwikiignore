@@ -1,0 +1,17 @@
+# Bulky generated or binary material in vendored references: not useful wiki evidence.
+references/GxEPD2/src/bitmaps/
+references/GxEPD2/extras/
+references/**/package-lock.json
+references/cdc-badge-hardware/cdc-badge/cdc-badge.kicad_pcb
+references/cdc-badge-hardware/cdc-badge/cdc-badge.3dshapes/
+references/cdc-badge-hardware/pics/
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bin
+*.wasm
+*.step
+*.wrl
+*.stl

@@ -1,0 +1,8 @@
+include:
+  - project: library/ci-templates
+    ref: main
+    file: /docker-image.yml
+
+variables:
+  IMAGE_PLATFORMS: linux/amd64
+  RELEASE_MODE: gittag

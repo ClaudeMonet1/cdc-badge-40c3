@@ -1,0 +1,90 @@
+# CDC Badge Plugins
+
+WebAssembly plugins for [CDC Badge OS](https://github.com/krim404/cdc-badge-os) - the hardware security key based on ESP32-S3 and TROPIC01.
+
+Plugins run inside a sandboxed WAMR runtime on the badge and interact with the firmware through a stable C-ABI host API. They are uploaded as `.wasm` files over the serial command interface or through the web flasher - no firmware rebuild required.
+
+## Status
+
+Pre-alpha. Host API Level `0.6`. Breaking changes between minor versions until `1.0`.
+
+## Repository Layout
+
+```
+sdk/
+  host_api.h               Canonical C ABI header (mirrored from cdc-badge-os)
+  plugin_lifecycle.h       Plugin lifecycle export contract
+  cdc-badge-plugin/        Rust crate with safe wrappers
+  plugin_template_rust/    Starting point for a new Rust plugin
+  plugin_template_c/       Starting point for a new C plugin
+examples/                  Demo plugins kept short for learning
+plugins/                   Shipped plugins (catalog default)
+webflasher/                WebSerial-based plugin installer (also hosted on GitHub Pages)
+docs/                      Getting started, API reference, manifest schema
+tools/
+  generate_catalog.py      Builds catalog.json from examples/ + plugins/ meta.json
+  validate_manifest.py     JSON schema validator
+.github/workflows/         CI for builds, releases, drift checks
+```
+
+## Plugins
+
+### `examples/` - learning material
+
+Compact plugins focused on one or two host API areas each. Read these first
+when porting your own plugin.
+
+| Plugin | Capabilities | What it shows |
+|--------|--------------|---------------|
+| `hello_world` | (none) | Lifecycle skeleton, toast output, i18n string lookup. The smallest possible plugin. |
+| `battery_widget` | (none) | Polling the read-only Power API and rendering a live widget. |
+| `grove_blink` | `grove` | GPIO output on the Grove port and a simple ListView toggle driven by key events. |
+| `gpio_mqtt` | `wifi`, `socket`, `grove`, `sao`, `nvs_namespace`, `ui_exclusive` | GPIO input polling, MQTT 3.1.1 publish over generic TCP sockets, Canvas status view, and NVS-persisted settings. |
+| `news_feed` | `wifi`, `http`, `nvs_namespace`, `ui_exclusive` | Wi-Fi prerequisite handling, HTTP fetch, Atom/RSS parsing, NVS-persisted feed URL with T9 editing, reload on key press. |
+
+### `plugins/` - shipped in the default catalog
+
+Full-UX plugins with persistence, settings menus, and i18n. Heavier than the
+examples but still framed as reference implementations.
+
+| Plugin | Capabilities | What it does |
+|--------|--------------|--------------|
+| `grove_led` | `background`, `pixel_strip`, `nvs_namespace` | Controls a WS2813 strip on the Grove port. Settings menu for count, brightness, color, and effects (rainbow, static, blink, breathing). Runs in the background. |
+| `home_assistant` | `wifi`, `http`, `rmem` (token), `nvs_namespace` | Toggles a curated list of Home Assistant lights and switches via the REST API. Settings menu, favorites flow, token stored in secure memory. Long-lived access tokens are unpleasant to type on T9, so paste them over serial with `PASTE <token>` while the API-key input field is open on the badge. |
+| `ble_scanner` | `ble`, `prevent_sleep`, `vfat` | Continuously scans for BLE devices, sorted by RSSI with a per-device sighting counter. |
+| `sdk_probe` | (many) | Serial diagnostic that exercises every SDK binding once. Reference for the full capability surface. |
+
+#### A note on `home_assistant`
+
+The `home_assistant` plugin is intentionally **only an example**. It is too
+large and feature-rich to belong in `examples/`, so it lives in `plugins/`, but
+it is not a full Home Assistant client and never will be. Home Assistant
+exposes hundreds of integrations, entity types, and dashboard concepts; porting
+all of that onto a monochrome badge with a few hundred KB of WASM memory is
+neither practical nor the point. The plugin implements a small, opinionated
+slice (a handful of switchable entities, REST authentication, persistent
+favorites) to demonstrate how a real-world networked plugin is structured.
+Treat it as a recipe to adapt, not a product.
+
+## Quickstart
+
+Copy `sdk/plugin_template_rust/` to a new directory, rename `my_plugin`, edit
+`meta.json`, then build and install. The full build and install flow lives in
+[docs/getting_started.md](docs/getting_started.md).
+
+## Host API Reference
+
+The canonical contract between plugin and firmware is
+[`sdk/host_api.h`](sdk/host_api.h) - mirrored byte-identical from
+[the firmware repo's source](https://github.com/krim404/cdc-badge-os/blob/release/components/plugin_manager/include/plugin_manager/host_api.h)
+by a CI drift check. The Rust SDK auto-derives its constants from this file
+via `build.rs`, so there is one source of truth. The compatibility rule and
+return codes are documented in [docs/host_api_reference.md](docs/host_api_reference.md).
+
+The curated reference is at **https://krim404.github.io/cdc-badge-os/dev/host-api/**,
+with the full Doxygen rendering of `host_api.h` (refreshed on every firmware push)
+at **https://krim404.github.io/cdc-badge-os/api/host__api_8h.html**.
+
+## License
+
+GPL-3.0 - see [LICENSE.md](LICENSE.md).

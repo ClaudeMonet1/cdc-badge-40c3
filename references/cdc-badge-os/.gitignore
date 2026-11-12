@@ -1,0 +1,85 @@
+# macOS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+.pio/
+build/
+managed_components/
+dependencies.lock
+sdkconfig.old
+sdkconfig.*.old
+# Generated full sdkconfig of the opt-in lockdown env (only the overlay
+# sdkconfig.release is source-controlled)
+sdkconfig.cdc_badge_release
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+.worktrees/
+docs/plans/
+
+# Patch marker files
+components/*/.patched
+components/wamr_runtime/wasm-micro-runtime/.patched
+
+# Custom TROPIC01 pairing key (never commit real keys)
+components/cdc_hal/include/cdc_hal/pairing_key_custom.h
+
+# Backup/temp files
+*.bak
+*.orig
+*~
+__pycache__/
+
+# Logs
+*.log
+
+# Core dumps
+coredump*.bin
+
+# Legacy code
+legacy/
+
+# Web flasher local test files
+web-flasher/*.bin
+web-flasher/manifest.json
+
+# Doxygen output
+doxygen_output/
+
+# open-mem: Auto-generated folder context files.
+# Uncomment to exclude from version control (recommended for large projects):
+# **/AGENTS.md
+skill/
+
+# PI subagent artifacts
+.pi-subagents/
+
+# AI assistant local state
+CLAUDE.md
+agents.md
+.claude/
+.specify/
+/find.md
+/plan.md
+/plan2.md
+.claude.json
+CLAUDE.local.md
+.agent/
+.ai-scratch/
+*.transcript.md
+*.session.md
+
+# Spec-driven design artifacts (kept local, not tracked)
+specs/
+
+# Local plan draft (not tracked)
+SPLAN.MD
+
+# Provisioning secrets (sync keys, FE/SB keys) - never commit
+tools/secrets/

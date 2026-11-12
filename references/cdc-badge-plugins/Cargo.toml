@@ -1,0 +1,33 @@
+[workspace]
+resolver = "2"
+members = [
+    "sdk/cdc-badge-plugin",
+    "examples/hello_world",
+    "examples/battery_widget",
+    "examples/grove_blink",
+    "examples/gpio_mqtt",
+    "examples/news_feed",
+    "examples/sci_calc",
+    "examples/canvas_demo",
+    "examples/mini_messenger",
+    "examples/print_counter",
+    "plugins/home_assistant",
+    "plugins/matrix",
+    "plugins/grove_led",
+    "plugins/name_badge",
+    "plugins/sdk_probe",
+    "plugins/snake",
+    "plugins/ble_scanner",
+    "plugins/thermo_printer",
+    "plugins/webserver",
+]
+exclude = [
+    "sdk/plugin_template_rust",
+]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

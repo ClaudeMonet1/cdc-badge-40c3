@@ -1,0 +1,34 @@
+# CDC Badge OS - Hardware Abstraction Layer
+
+idf_component_register(
+    SRCS
+        "src/EpaperDisplay.cpp"
+        "src/SpiBus.cpp"
+        "src/I2cBus.cpp"
+        "src/TCA9535Keypad.cpp"
+        "src/EspHardware.cpp"
+        "src/Rtc.cpp"
+        "src/SleepController.cpp"
+        "src/Tropic01Element.cpp"
+        "src/BQ25895Power.cpp"
+        "src/libtropic_port_esp32.cpp"
+        "src/WifiController.cpp"
+        "src/BluetoothController.cpp"
+        "src/BleAdvParser.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        cdc_core
+        cdc_log
+        driver
+        nvs_flash
+        freertos
+        CalEPD
+        cdc_spi_lock
+        libtropic_sdk
+        mbedtls
+        esp_wifi
+        esp_netif
+        esp_phy
+        bt
+)

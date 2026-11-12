@@ -1,0 +1,240 @@
+name: Deploy Codeberg Pages
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  firmware:
+    runs-on: codeberg-medium
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.15'
+
+      - name: Install PlatformIO
+        run: |
+          python -m pip install --upgrade pip
+          pip install platformio
+
+      - name: Restore PlatformIO cache
+        id: pio-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ~/.platformio
+          key: pio-${{ runner.os }}-${{ hashFiles('platformio.ini') }}
+          restore-keys: |
+            pio-${{ runner.os }}-
+
+      - name: Download platform, framework and toolchain
+        run: pio pkg install -e cdc_badge_usb
+
+      - name: Save PlatformIO cache
+        if: steps.pio-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ~/.platformio
+          key: pio-${{ runner.os }}-${{ hashFiles('platformio.ini') }}
+
+      - name: Build firmware
+        run: pio run
+
+      - name: Build initial plugins FAT image
+        run: |
+          pip install construct
+          python tools/build_lang_image.py \
+            --lang-dir assets/i18n \
+            --output build/plugins_initial.bin
+
+      - name: Stage firmware artifacts
+        run: |
+          mkdir -p fw
+          cp .pio/build/cdc_badge_usb/bootloader.bin fw/
+          cp .pio/build/cdc_badge_usb/partitions.bin fw/
+          cp .pio/build/cdc_badge_usb/firmware.bin   fw/
+          cp build/plugins_initial.bin               fw/
+
+      - name: Upload firmware artifact
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v5
+        with:
+          name: firmware
+          path: fw/
+
+  doxygen:
+    runs-on: codeberg-small
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install Doxygen 1.16.1
+        run: |
+          set -euo pipefail
+          DOXYGEN_VERSION="1.16.1"
+          DOXYGEN_ARCHIVE="/tmp/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz"
+          for URL in \
+            "https://www.doxygen.nl/files/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz" \
+            "https://downloads.sourceforge.net/project/doxygen/rel-${DOXYGEN_VERSION}/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz"
+          do
+            echo "Downloading ${URL}"
+            if curl --fail --location --retry 3 --retry-delay 5 --output "${DOXYGEN_ARCHIVE}" "${URL}"; then
+              break
+            fi
+          done
+          test -s "${DOXYGEN_ARCHIVE}"
+          tar -tzf "${DOXYGEN_ARCHIVE}" > /dev/null
+          sudo rm -rf /opt/doxygen-1.16.1
+          sudo mkdir -p /opt/doxygen-1.16.1
+          sudo tar -xzf "${DOXYGEN_ARCHIVE}" -C /opt/doxygen-1.16.1 --strip-components=1
+          sudo ln -sf /opt/doxygen-1.16.1/bin/doxygen /usr/local/bin/doxygen
+
+      - name: Build Doxygen documentation
+        run: doxygen Doxyfile
+
+      - name: Upload doxygen artifact
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v5
+        with:
+          name: doxygen
+          path: doxygen_output/html/
+
+  website:
+    runs-on: codeberg-small
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+
+      - name: Build documentation site
+        run: |
+          npm --prefix website ci
+          SITE_BASE=/cdc-badge-os/ SITE_URL=https://krim.codeberg.page npm --prefix website run build
+          SITE_BASE=/cdc-badge-os/ npm --prefix website run check:links
+
+      - name: Upload website artifact
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v5
+        with:
+          name: website
+          path: website/dist/
+
+  deploy:
+    runs-on: codeberg-small
+    needs: [doxygen, website]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Download firmware artifact
+        continue-on-error: true
+        uses: https://code.forgejo.org/forgejo/download-artifact@v7
+        with:
+          name: firmware
+          path: fw
+
+      - name: Download doxygen artifact
+        uses: https://code.forgejo.org/forgejo/download-artifact@v7
+        with:
+          name: doxygen
+          path: doxygen
+
+      - name: Download website artifact
+        uses: https://code.forgejo.org/forgejo/download-artifact@v7
+        with:
+          name: website
+          path: site
+
+      - name: Resolve version tag
+        id: version
+        env:
+          GIT_REF: ${{ github.ref }}
+        run: |
+          VERSION="${GIT_REF#refs/tags/}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Assemble pages content
+        env:
+          TAG: ${{ steps.version.outputs.version }}
+          PAGES_FLASHER: 'https://${{ forge.repository_owner }}.codeberg.page/cdc-badge-os/flasher'
+        run: |
+          set -euo pipefail
+          # Documentation site (Astro Starlight) at the root
+          mkdir -p _site
+          cp -r site/. _site/
+          # Doxygen code reference under /api/
+          mkdir -p _site/api
+          cp -r doxygen/. _site/api/
+          # Web flasher + firmware binaries + manifests under /flasher/
+          mkdir -p _site/flasher
+          cp web-flasher/index.html _site/flasher/
+          if [ -f web-flasher/badge.jpg ]; then cp web-flasher/badge.jpg _site/flasher/; fi
+          # Fresh firmware when the build job produced it, otherwise reuse the
+          # binaries already published on the live Pages site so the flasher
+          # keeps working even when the firmware build failed.
+          if [ -f fw/firmware.bin ]; then
+            cp fw/bootloader.bin _site/flasher/bootloader.bin
+            cp fw/partitions.bin _site/flasher/partitions.bin
+            cp fw/firmware.bin   _site/flasher/firmware.bin
+            cp fw/plugins_initial.bin _site/flasher/plugins_initial.bin
+          else
+            for f in bootloader.bin partitions.bin firmware.bin plugins_initial.bin; do
+              curl --fail --location --retry 3 --retry-delay 5 \
+                --output "_site/flasher/$f" "$PAGES_FLASHER/$f" \
+                || echo "WARNING: could not fetch last-good $f"
+            done
+          fi
+
+          cat > _site/flasher/manifest.json <<MANIFEST
+          {
+            "name": "CDC Badge OS (Firmware Update)",
+            "version": "${TAG}",
+            "new_install_prompt_erase": true,
+            "builds": [
+              {
+                "chipFamily": "ESP32-S3",
+                "parts": [
+                  { "path": "bootloader.bin", "offset": 0 },
+                  { "path": "partitions.bin", "offset": 32768 },
+                  { "path": "firmware.bin", "offset": 327680 }
+                ]
+              }
+            ]
+          }
+          MANIFEST
+
+          cat > _site/flasher/manifest_factory.json <<MANIFEST
+          {
+            "name": "CDC Badge OS (Factory Setup)",
+            "version": "${TAG}",
+            "builds": [
+              {
+                "chipFamily": "ESP32-S3",
+                "parts": [
+                  { "path": "bootloader.bin",      "offset": 0 },
+                  { "path": "partitions.bin",      "offset": 32768 },
+                  { "path": "firmware.bin",        "offset": 327680 },
+                  { "path": "plugins_initial.bin", "offset": 14614528 }
+                ]
+              }
+            ]
+          }
+          MANIFEST
+
+      - name: Deploy to Codeberg Pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: 'https://${{ forge.repository_owner }}.codeberg.page/cdc-badge-os/'
+          token: ${{ forge.token }}
+          source: _site/

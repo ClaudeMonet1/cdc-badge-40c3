@@ -1,0 +1,37 @@
+# GPG Module (OpenPGP + CCID)
+
+idf_component_register(
+    SRCS
+        "src/GpgModule.cpp"
+        "src/GpgRecvStore.cpp"
+        "src/GpgSelfCertStore.cpp"
+        "src/GpgKeyPayload.cpp"
+        "src/GpgCertPayload.cpp"
+        "src/gpg.cpp"
+        "src/GpgStorage.cpp"
+        "src/openpgp/algo_attr.cpp"
+        "src/openpgp/ecdh.cpp"
+        "src/openpgp/fingerprint.cpp"
+        "src/openpgp/kdf.cpp"
+        "src/openpgp/openpgp.cpp"
+        "src/openpgp/rsa.cpp"
+        "src/openpgp/tlv.cpp"
+        "src/openpgp/xsig.cpp"
+    INCLUDE_DIRS
+        "include"
+        "src/openpgp"
+    REQUIRES
+        cdc_core
+        cdc_scard
+        cdc_ui
+        cdc_views
+        cdc_os_ui
+        cdc_hal
+        cdc_msg
+        usb_badge
+        serial_cmd
+        cdc_log
+        mbedtls
+        nvs_flash
+        freertos
+)
