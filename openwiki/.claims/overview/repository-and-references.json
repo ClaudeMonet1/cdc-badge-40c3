@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:052360f80b247cd678c16bc45ee49bc8f2dfca150580ed96ba07cbaa97291e34",
+  "claims": [
+    {
+      "id": "claim_2b2781f2a66d4021b179660a9ef7c750",
+      "statement": "The references directory vendors nine upstream repositories as plain files with pinned commits recorded in references/SOURCES.md, and they must not be edited.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        }
+      ]
+    },
+    {
+      "id": "claim_5b60cbbc3934479d833c695d966f9d94",
+      "statement": "krim404/cdc-badge was not publicly available, so krim404/cdc-badge-development is vendored in its place.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        }
+      ]
+    },
+    {
+      "id": "claim_c64d0f82df1746c1a51a2c21fae13e26",
+      "statement": "Nested upstream submodules (WAMR, libtropic, CalEPD, the ESP-IDF Adafruit-GFX port, libtropic for libtropic-arduino, and the development repo's vendor pins) are not vendored, and the development repo's pins are older than the vendored snapshots.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/.gitmodules",
+          "version": "repo-file-v1:sha256:aafa08098d04c520da35763137ff00d106f4f6c4095621b701450997dfdecf5e"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/.gitmodules",
+          "version": "repo-file-v1:sha256:98bcb761aff248ac931e3756c3565a450e5f86ee0e1a29a51ffc3729624e5881"
+        }
+      ]
+    },
+    {
+      "id": "claim_e81fba1c485141dd9fa3a75a93ca7bf4",
+      "statement": "scripts/fetch-references.sh shallow-clones each reference at its upstream branch tip, strips .git, replaces the directory, prints the new commit and force-stages the result, without fetching nested submodules.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/fetch-references.sh",
+          "version": "repo-file-v1:sha256:1377989419c04935070dcefedbc37f1fda0b58ff184646c4179236d1565ef0c0"
+        }
+      ]
+    },
+    {
+      "id": "claim_e8340415b31246568f43c30fecc93d38",
+      "statement": "The Nix dev shell provides stable Rust with wasm32-unknown-unknown and wasm32-wasip1 targets, binaryen, wabt, wasm-tools, wasmtime, esptool, espflash, Python with pyserial, CMake/SDL2 for the emulator and Node 22, and prepends ~/.npm-global/bin to PATH.",
+      "evidence": [
+        {
+          "resource": "repo://flake.nix#L19-L60",
+          "version": "repo-lines-v1:sha256:5d32a4e77d7b8f8c2f63814846cd771e8f8f7a570d56301d63a2149fc75959bc:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1Y2RlZjgwODVhZTc0YWI2MzZkNjQ1OWY1YzZkNWZiZmIwZGIyNjRmMWIwZDc1YmFjNTE5YzliM2Y2NzE3YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiODdmYTk1ZmI0NDMyMzM1MjY5ZmY3YTI3ODQwZTliN2EzOWYyY2E4NzhhZDUzOTc5NjJmMTgwZWIzOTkxMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5YTlhMGQyY2I2N2M5N2Y0YmZjMTMxNTkxOWM5M2VlNjI1ODFlNjdhMWNiOTIyNDFjNmQ0YjY2MGQzOTU4MDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzNGMzODIwMjE3NGRlNGZlMDEzNjdhYzcwMDFiMTViNGRhNDM0N2UyMjMyNjBkZWM3ZTRiNTM4MWIzMmUzZDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1770f948aee540cdabe67aaec7beffee",
+      "statement": "The OpenWiki MCP server is launched via an absolute ${HOME}/.npm-global/bin/openwiki path in .mcp.json.",
+      "evidence": [
+        {
+          "resource": "repo://.mcp.json",
+          "version": "repo-file-v1:sha256:8ffd844b6ab13d0b2c26a8f53c7669a5e0585df5e2eb0d5ebd4f43cd6494a253"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e13fbeb9d424a038da04dce1dece36b",
+      "statement": ".openwikiignore excludes GxEPD2 bitmaps and extras, lockfiles, the KiCad PCB and 3D shapes, pictures, PDFs and binary/CAD files from the wiki.",
+      "evidence": [
+        {
+          "resource": "repo://.openwikiignore",
+          "version": "repo-file-v1:sha256:b363a6bf6e2ed17e551d8bfa74a6b052a12c42eb25ceb83991ce3d78ccad677a"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

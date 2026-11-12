@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:cb08fa40e3a1adca20de2b6d3a5600bc8c8bea59f3b34a420f6c0fc4ae88c5a6",
+  "claims": [
+    {
+      "id": "claim_9998dc5347b54f3ebfa20fdd7e24f106",
+      "statement": "build_all.sh builds the no_std plugins in one cargo invocation and the std matrix plugin separately, optimises with wasm-opt -Oz with bulk memory and non-trapping float-to-int enabled, and fails if a manifest id differs from its directory name.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/tools/build_all.sh",
+          "version": "repo-file-v1:sha256:73251e98de1b5f87383293ba26719289f19e3b6775349d6c5884e6e49ad1297b"
+        }
+      ]
+    },
+    {
+      "id": "claim_70dd1016fc53468f95a956d40db3d141",
+      "statement": "Upstream plugin CI fails any plugin .wasm larger than 768 KB.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/.github/workflows/build.yml#L52-L62",
+          "version": "repo-lines-v1:sha256:1cd0c789a386e0b5e7deefa426bdfe454f3b7f122de328083ac81eb234cb65ea:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxMGEyNTYwNDY4ODU1MTIwNjExNzNhNzJhZDBiN2M2N2QzNmE5OWFiYzE0N2VkNDI1YmIwZjBlYmZjYmE0ZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4MTMzM2RmNjZkNTk1YzYyMjM3NDEyZTdkMTYwN2I1Y2ZiMDExNDdmMGYzYTlkYjdiN2FjNGU3MjljNDNkMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwY2MxNmI5MWM3OTZiYmQxMzYyMjcwM2Y0ZGI4OGUxMmFjMGNhMzM0MTJmZWMzZmQyN2M2ZDMwYzU3ZjgxYmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY4MmRkNzM5ZjQ1MDMyN2I4M2IyZWE5NDVmNjk0M2I1NjFmMTk1Y2EzOGNmYTk5YzY3ZmNkYTliZWE3ODc2NDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_889e6671026b4be29ec7cdd6f13ecc58",
+      "statement": "The badge CLI offers new, build, test, flash, monitor, emulate and plugin management commands, and flash delegates the upload to the firmware's upload.py from the vendored OS submodule.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/tools/badge.py#L140-L445",
+          "version": "repo-lines-v1:sha256:85db3585f0de0c20ed0af6b467b2143dfff5af124042169d1898f915c3b1f247:eyJzZWxlY3RlZExpbmVDb3VudCI6MzA2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI0NmIzOGZlNzJkYWM2NGVhZjc4OTM2OGQ3NzNhNDNhNzY0MjdlYzFhZTg5NDMyMjg0Yjc1ZGIwOWUyNDU0YTliIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0YzBiYjI4NmU5MDI0NTIzYTc1NzRmNzJkN2JjZTMzZDRhYzRjMDlhYTYxMDNlMWVmMzIxOWRjMjUwMDNlMTZlIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJjYzA0ZDYzNWQ0ZjEzNWIzMDQ3YTlhYzNiZmM2NGRhZjYwZmNmZmZiOGQ5MmY2NjY1NGEyYjRiMzE5OWVlNWI4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIyZTU2MWY4MWE2MjQ3MjVhYmJjN2FmOTU0Y2IwMDFiNWVjMjc3NjNjMzgyYWYzMDRjYmEwYmQ0YTgxMDk3NGU2In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_026ea723bca448bf94a0c444a48b8ea5",
+      "statement": "The plugin serial command set is LIST, INFO, START, STOP, CMD, DISABLE, ENABLE, DELETE, UPLOAD, UPLOAD_AOT, UPLOAD_META, UPLOAD_LANG, ABORT, DEBUG and FEATURES.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginSerialCommands.cpp#L589-L605",
+          "version": "repo-lines-v1:sha256:3828d60e17f5cd7dc1dd2d04c55201bea18ccc83b97469135c7ec225ec9a440c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OTZmZmNmYmFjNWJiODk3ZjlkZjIxNjcyOWI2Yzk3OWRjOWE0NmZlNGMyZTQ5NGVjMTg3NTZlMmQ5MmM4YjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzOWE5ZTg4ODgxZGE2MjM5MGQwZTRkYTFhYjc5ZWVmMjhhMzMxMWNiZGQyZWZhNTdkYmYyNzNkZGE2MmFkMGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI0OTM0NGI4MDY0ZDRiYjU4NTI4YTdiYjg2NDJhOWY1NmNlODllODg4NDZkMWM4Mzc4ZDkwMDVlYTJmZTMwYzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlMWJlNjhiMzFkYmMwZjc0NDNmYTRhNTc0MTE0NDM2YjFmYmM1MGU5OGUyY2Q0MjE2OWQ1MGZiYTZiMWE5OTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_83aaf75c67774fde91b8d6609ff57763",
+      "statement": "The current upload protocol sends PLUGIN UPLOAD <id> <size> <crc32>, waits for READY, streams raw bytes through a byte interceptor and expects OK <size>, while the firmware file's header comment still documents an older hex-chunk ACK protocol.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginSerialCommands.cpp#L1-L17",
+          "version": "repo-lines-v1:sha256:a2aee281a0e8c88c026bae06e853f14a832cd1e77ad1b7e044d82a84d63db46b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkYTI1Zjc0MzI1OWNlZmNiZjU3OTU4NTJjYmUzNGY5Mzg4NGUzMjllOWRlZjgwYzZiZTZjZDRhZDE3MmM2ODMifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/webflasher/js/chunk-protocol.js#L1-L20",
+          "version": "repo-lines-v1:sha256:38d7ea9fb58193261b34274e83939f514df81e59a43daab9e69eb97faf65aba5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5ZWRkMGYxYzcwYjE5YTYzMDZhNGQzOTk4M2FhZmMyZmI3MjI4ZDMyZmM4NjczMzkwMTI5YTNlNjBhNjEyODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5MzhjYzEwN2FhNDg1MWIyYTdkMzg2ZjY0ZDEwMzk1OWNlYmZhM2MyYjM5YTNkMDMxMzBkY2E2Y2FjN2YwMzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ0OGNmZjRlZGFmYzhlMzM2YzE2YjNmMDhhM2EyN2Q1YTQ5ZGE2YjBjNGY4OWMyOGY1YTU0YWQyM2IyMjQ0ODAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb9c5b93b45c44b1922c0146f843009a",
+      "statement": "tools/upload.py in cdc-badge-os is a unified pyserial tool for plugin install and management, language overlays and file transfer to the plugins partition, with an optional AUTH PIN.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/tools/upload.py#L1-L35",
+          "version": "repo-lines-v1:sha256:cb3ae8683f94631d935446c698acd347d4eb8ea48073dc2bde229abb233278c6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2ODJjYmRiNGM4YjA3NTE4YmY0ODZjNTg5OTBmYzM5MTc4M2FhMjBhOTE2YmZiMjdhZDIxMWViMWQ1YzM2NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3NWViYTAwN2IwMzBlODFjZjVmMWNkMTJjOWYyYWJiMDEzYWY4YWM4NTA5ZjQ1MTg3NWU1ZGNkYTU5Nzc3NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU3NzI2ZDJlNmExZmM2NzkyMTFkNTQyZjNmNTNmM2IzMjYzZDdiMzE1ZjMyM2E0NjA3NTljYzJjNjUxZjk5YjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_21269f91497644dbab4f474fcb53b32c",
+      "statement": "generate_catalog.py builds a catalog of all example and plugin manifests with release asset URLs for the web installer, and the release workflow builds all plugins, generates the catalog and publishes a release.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/.github/workflows/release.yml",
+          "version": "repo-file-v1:sha256:87b94960f0688a339c1b71d90724306a242581701fc825506ec030b61e3c428d"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/tools/generate_catalog.py",
+          "version": "repo-file-v1:sha256:6113f79915e336c1dc30016ce5a184076ac36ea85b9e9b1e96591eb972e8ce4e"
+        }
+      ]
+    },
+    {
+      "id": "claim_4515af07ec9844e9a901050778da584e",
+      "statement": "The development Dockerfile is based on rust:1-bookworm with the wasm32 target, binaryen version_119, SDL2/cmake and pyserial.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/Dockerfile",
+          "version": "repo-file-v1:sha256:bf9090cbe7751d35c4db032a377607d21bf0778bfcc3a08117cc51211bda92cc"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

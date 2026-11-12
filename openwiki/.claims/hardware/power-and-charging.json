@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:bcdcb35a7838e56b06785f56cf0b776283a22b26a8f0931a0f90a83eb9541254",
+  "claims": [
+    {
+      "id": "claim_ccd4302e54914675a6f13d7ac154e051",
+      "statement": "Because the auxiliary ICs keep no settings, firmware must on every boot lower BQ25895 fast-charge current below 1200 mA, set minimum system voltage to 3.3 V, handle or disable USB charger-port detection, watch charger interrupts, offer ship-mode power-off and put the TROPIC01 to sleep.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/firmware-checklist.md",
+          "version": "repo-file-v1:sha256:3c3551df8741d48c4e3b7282f3fc333d91a55c1167c6b9f768f375169da11d13"
+        }
+      ]
+    },
+    {
+      "id": "claim_57ae815d7b9a4b42bad0b9e1d7f22d2c",
+      "statement": "With the ESP32-S3 running and not yielding the USB bus, the BQ25895 only negotiates the USB 2.0 default 5 V / 0.5 A.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/measurements.md#L24-L36",
+          "version": "repo-lines-v1:sha256:8b16b313a4df28dcb6d024ef65d8f0054bb60fb65fc4262e827d70506a1778f0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MjFiMjE3MWYzNGFjYjNjZmE2ODEyZTRmZTcyODFkZTc4ZThlMjhiYTVmZTY5NzEzYWEyZjFkMTg5MjBlNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0NTk4OTJiMDA1NDZjMDNmYzIwMGEzMDNiZDMwN2M0NTVjOGVlM2Q5ZmU3MjA4ZmI4NDkyMzk4ZTgwOWYxZmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_30c34d11e61c4da08ceee434f1764500",
+      "statement": "cdc-badge-os configures the BQ25895 at boot with ILIM disabled, SYS_MIN 3.3 V, OTG disabled, 512 mA charge current and D+/D- detection disabled, and caps charge current at 1024 mA.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BQ25895Power.cpp#L261-L287",
+          "version": "repo-lines-v1:sha256:edd04553a3852e655d97552c2495f129274372fcd98b4f53b1709942deec9bc8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4OGU5ZGQzM2IwNzBkYTc4MzJjOGZkNGQxMzdlNWQ4Nzg5OTMxNmE5NGRlZjhkMzExYjdlMDQ3MmYxZmFhZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFmOWI2ZGYxMWMzYTc0ODNkZTg3NTI0MDgxNGY5ZmE5ODk2N2U0YzIwMDE0NGE2ODZiNzVlNmY2MjAxYzRiNGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkzZGYxNGExNmE5ZGY0NzlhYzJmZGI3NjhlZjMzOGViZDE2MjliN2IxZWIyNTQ0NDRiMzAzMDVlNjM2NDIzOWUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BQ25895Power.cpp#L45-L50",
+          "version": "repo-lines-v1:sha256:c7cb0bf4bc475e9df2c10b31793b1b8ee8ba30443f392e575fd7ebdb5b4106f6:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODFkMzRlNzEyNjEwMmUwZjNkMzYxMmI2M2VkNGU0YWVjYTMyNmRhNWQwMzZhM2E0YTdiNmEzYjJmNWNmOWQ4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRhMWM0NTMxNTQwYTRkYjJjZGRiYTU3YjBlOWM2MWE5NTY4ZjlhZjUzNTNkYTUzYWY1NThiY2FiOGU0N2YxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZjYzcwZmRmMzliYjkyMjU5ZDg0NDFhMDg1OWI1YzE0ODFjMGEwNWZkYzMwYmRiYzk2MWM1Y2RlNjcxNTZmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWM0OTIwNGRhZTFjYTMzNWFhZmNhZDIxZjliNGVhZTQ4OGM4MTE5MjZmNjQwNjhhMTE5YmFjNzg3YmY3YmYzYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a46c0efdb64e4da49e37eea807915c18",
+      "statement": "The OS estimates battery percentage linearly between 3200 mV and 4200 mV and reports low battery below 20 %.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BQ25895Power.cpp#L483-L530",
+          "version": "repo-lines-v1:sha256:4cc73332f43dd4ea85d68ae5464ac518963d97f93034114d6950c098f007053b:eyJzZWxlY3RlZExpbmVDb3VudCI6NDgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjNDI5M2EwN2I1NTUwOGZkNGU0NjRhMWE5NDA5ODhmMjEzNTdhNTBmZTQwMjBhMTRlZjk5OGUzNWZlYzBjNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3OTI5ZTkxZTBmOTljM2U4MjVkZTY5YjQzNWZiNjQ4NGQxYjBhMWRmMmY0NjU2MWFiZjFhMjlmMDQxODhiODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjOTdiNzJlMDRlYWQ3NWI1YjRmMGM1ODFiMjQzOTY0NGI1NjM2ZDNmOWE5OTMyM2ExMjBkNTJlMDY1ZGM0NmYifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BQ25895Power.cpp#L52-L60",
+          "version": "repo-lines-v1:sha256:e1760ca86244498acf5e964b32bc07f2073ece107184333fd7ee01ea0654369f:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmMjJjZjA3MzI1OTJjMjQ3MTQxY2JlNjFlZmExMTAxMjYxMmY1YTMxMjJiOWFmOWJiYWY1MmY1NzI0ZDE5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q3YjU0YmQ0YjQ1Y2Q2NmU2YzI2OWYwZjNkMDZkOTdhYWY2NzNiMmIxMTAzMTIxMmJhNGM5MWY0YWRiNzZhYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGIxNmRhMzJlZTg4NjZmYTNmY2Y2ZTEyZDMxNThiNDcxOWEwZGJhOGMzNzYwZWUzZGIzNzk4NzgwZmVhYjI4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmQxOGQzM2Q2ZTEwZWEyYWJjMTNhZTA2M2M2MDNjMTE5OWJjMDI0OWJjODhkMDI4NDgxN2RlYzU4ZDE1NmNiZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_870557842005484fb119caf771b6709d",
+      "statement": "Holding the Flash button for 3 seconds puts the badge into ship mode by setting BATFET_DIS (REG09[5]) after drawing a notice on the e-paper.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BQ25895Power.cpp#L560-L585",
+          "version": "repo-lines-v1:sha256:36c91718e8b5f6c4d339e1e6b835b99aeafef310209fba82478f2ffa4e28afc3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0ODU5MDRjM2FlMjBmYjM3ZjE5MDY1NTQzY2M0NjNmNmU1YWMwNmVmNGMxNGI1YTgxMjQxNmFlMDYzYWRlOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhYWFhNTdiYTk5MzE2MzE3M2RiNTlkZjM0NGI5YjI3OWM1M2FmMmM0NDkwMDNkZjc1YTJjM2M1ZTg2MTIwZGIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BQ25895Power.cpp#L63-L66",
+          "version": "repo-lines-v1:sha256:baf116a07921b868ff9564d059d877dc7813ef05ff9b5b69a3257d1faec3f944:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmMjJjZjA3MzI1OTJjMjQ3MTQxY2JlNjFlZmExMTAxMjYxMmY1YTMxMjJiOWFmOWJiYWY1MmY1NzI0ZDE5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc0MzIxYWIyNTVhYTEwMjI3NDA4MWQ4Yzk2NjJhMzdiNTA1MTJiNDJjYjQ2MDMwZmVhZGVhNDkxMjVkNmRiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODhiNjhiMmQ3ODg1ZDYyNDBiNDBmZGZjNGU3OTBhNTA2ZDc4ZDAxN2IyOGE0MzkxNjRhZjA1N2Y5YjMxODNmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc0ZmQ3MDlkM2IwMTg0MDBjMjAxOWQyMjQzYjA4MTg2MmM0YjEzYjIwZTg3ZGJlNmJiMGQ5ZmJiNGU5Y2UzZSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/guide/power-sleep.md#L56-L80",
+          "version": "repo-lines-v1:sha256:203fdfc6f77115c8cb6eda796f13494d1740478bdb950344499db8dac958d00d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3ZGJhZjhkMTNlNGY0MzcyY2M3OTRlODE2Njc3N2UzZGVhNDI1YzliNDBiNjRmZmE0YzIyODNiYzkxYWEzMWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiZTI0NDcxNDA3YWU3ZGFiNjc5YmI5YTgyNmI1MDQ3ZGZkMGEwMGI1ZWUwMTYzY2UwYjQ2NDZjMjJjNTg0ZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMzUwZjE2NjQ1MzdkNDA3YmU3YmM3OGE5MDNiY2U5MjIwM2U0Y2RjYWZmZDIxZDY5MzQ4MjUyMmYwYmEyNGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2ZWYxZmEwZTcwYmFiZDY0YjdhMmQ0NWFlM2Q5OWU3ZDUxN2UwNjFkOGE4ODBhNzA5YzNlNjQyOWZjMWUyZWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f721e5a3e6b541c397dc54306f8b2c33",
+      "statement": "Light sleep wakes on keypad or charger interrupt (level-low GPIO wakeup) or a timer, while deep sleep wakes only on the keypad via ext1 and restarts the badge.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/SleepController.cpp#L140-L216",
+          "version": "repo-lines-v1:sha256:f5ab9165aca22c9c7bc418fa0c99a1a03ea318e9026524f822cc3178fc9bd409:eyJzZWxlY3RlZExpbmVDb3VudCI6NzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwMTBlMGIyZjRlZjJmM2E2YzExN2QxNDc3MjBhZWYwMDY1MThjODJhZmM3MjM1MTk5MTFiMDY0MzRjZTU0NmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiOTEwYjE1ZDRkOThjZjQxZmQ2ZjA2NTgxZDdhYWViNDAzOGIxNjAyM2QyNmJjNTFjODNmNWIyNjlkYzk0OWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ee301e6cbdcd4c6dab709df1c05c5267",
+      "statement": "Light sleep starts only from the lock screen after 2 minutes idle and is suppressed while USB is connected or a sleep inhibitor is held; deep sleep is entered by holding N for 5 seconds on the lock screen.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/guide/power-sleep.md#L11-L55",
+          "version": "repo-lines-v1:sha256:fbe714db7af44f8226565fe664665f94a637ca5dda948f69e9f085c77d9b3fad:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmMTAxMzUwNzQ3ODg1YTRkMjNkYzgzN2JjODMyOWE3ZDM5ODc0NjA5MGU0ZTgyNThkM2RjNjVmZmNmMGI2NWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM2ZmZhN2ViZTFiZTBkZmNkNmI5YjQwZmUxN2E2ZDk0NmJjNmZjYzZmZjNiNGE3MDFlOTlmMmIzMzMzMmMzZTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiMjBkMzI4OWQ4MjdjNDliYzdlMjA5MGRhYmY0MzZjYjMxYjlmYWYzNWY0MmE5ODJlOWIzN2QwYzBlZThiODAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bdcbda73a3344d879f13c4039bc89977",
+      "statement": "The vendor nametag firmware disables ILIM and OTG and implements ship mode but does not program the BQ25895 charge current or minimum system voltage.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/power_management.cpp",
+          "version": "repo-file-v1:sha256:b8451f3a7cf8e8db26fdf936666de35d848131ebc674ac05dfb63f492befcf32"
+        }
+      ]
+    },
+    {
+      "id": "claim_53b38129e5ff4fb982e1d6b02e813162",
+      "statement": "Plugins can read battery voltage, percentage, USB presence, power source and charge status, and can hold a light-sleep inhibitor keyed by plugin id that is released automatically on unload.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L135-L168",
+          "version": "repo-lines-v1:sha256:338e2c34d020acf476647599ffac54a41143279cd64854d6d79d140010d05e2a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4Y2FjYzIwYzU4MGEwMWQ4ODhkMzI2MjAxZDBlZTNkMjBiZTllYTVhYzIxMWQ4YTI2ZDBkODk4ODc2ZDNhMGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUwMGEyNDgxOGQxNThmMzI1NDY5OGJiNjA0MzI4NDM0MDBkY2I2MWI5NWI1MTE1YTA3YzZkZDkwZTA2MDAwODMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_power.cpp#L60-L80",
+          "version": "repo-lines-v1:sha256:e7aa2cd1c7636d3511321a841923779f8728f5e4b84ed4474ddd2e61ef81770a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkMDg3YWM3NzFmY2E2YmVkZDFkNTgxYTU2NGViNzUyNTY3NTMxZmE3OWVkZTY5MDU1Y2Y1YTE0NDlkY2M5ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4MjY2ODhjMGVmOTdkNzk3OGYzOTlkMDZjOTk4NTZhMGQ1YjAxNTk5NmEwMTMwNTE3NTM5NGE4YmM0NjhhMmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhZmFkYjZlMWY4ZTMxZWJmNGMxOTcxYjg1ZjVmNzI3Nzc3NzZkOTAzZjA4OTJhZTk2OWJiZjI5MWM0ZmVlOTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

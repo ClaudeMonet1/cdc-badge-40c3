@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:33ede7796181caad6bc5f4dc7976ee544226131c761ccec7ae13eaadcf2971e8",
+  "claims": [
+    {
+      "id": "claim_1cc74df4e9e0465db9296f3af614a76f",
+      "statement": "WAMR is built for ESP-IDF/Xtensa with the fast interpreter and AOT compiled in, JIT disabled, libc-builtin without WASI, reference types and bulk memory enabled, no multi-module, shared memory or pthreads, and instruction metering enabled.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/wamr_runtime/CMakeLists.txt#L9-L27",
+          "version": "repo-lines-v1:sha256:ffed78d01f340e95fe3d41dd51add1a55f7559cece164f5c4bcc9c1e67d63a39:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZTRmMDM3MGYyOGM3MTZmNjBiOTM3OWQ3MjcxMDFjM2E1OWU3OWU5NjUwM2I5YmUwNWVjMjY3ZDc2NTE2NWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3NzZiYzllMWZmMGM3ZmNmMzI3MDc0NzQyOWNhNmZmYTVlMzQ0OGY1ODA4NDA1ZDA1OGM0NmY3MGVkM2IxY2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwNDU4MWE2ZmM0MDA4MzczNWVlNWEwZGY5NDRiYjlhN2I3OGY0YzhhMGFhODkyM2U2YjNmMGQxZTY2MDM1NjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc4ZGRjODZiYTdkMTQ4NDVkNTgxZTBhN2U0ODNkZDQ2NzliN2ZmNjg5ZDE1MzA0YmY5MjYxMGVlOGEyNTI1YjgifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/wamr_runtime/README.md",
+          "version": "repo-file-v1:sha256:4c465ad483dac109d4e9b8bdbe780bfd06d6e7e8ebe2d23af91884741c6103c4"
+        }
+      ]
+    },
+    {
+      "id": "claim_e09f03d134554f23a0091f618ea619e6",
+      "statement": "All WAMR allocations are routed to PSRAM through custom allocator hooks passed to wasm_runtime_full_init.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/wamr_runtime/src/Wamr.cpp",
+          "version": "repo-file-v1:sha256:7621fb8b26c8424dc2ce8765c0a216091a7ae11b641c07f7b543bad3a98e6f9e"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/wamr_runtime/src/wamr_psram_alloc.c#L1-L45",
+          "version": "repo-lines-v1:sha256:1e98d3824d2114e6e4a772d4b5171aebc6d21b6e66268ed0fd116bd76d15b817:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFmYTgyYjYyYzc0ZGI5YTZlYWNkZjc2YjVkYzJjOTk3ZjI1NWMxNWY4YWE5MmUzYzRmMDMyYTkyMjM4YjI1ZmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b035eef116d948b09251a94eacebc340",
+      "statement": "With FEATURE_PLUGIN_AOT off, the loader rejects any plugin file that is not WASM bytecode.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/Plugin.cpp#L84-L95",
+          "version": "repo-lines-v1:sha256:97da031b7ad8bd289f104f6a0f73789538d28504bce6b7b550f0aa7ece3d0341:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyNTRjY2Q1YzliYWYzZTU2ZmEwYWZlZjgzM2QzMmY4NGI1MjBmNTE0ODY3ODE5NzU5NDBlYzQ5NjkwNGEzMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmNGU3ZGFjZWJiMDliNDE4YzRiMjQyNmI0ZDI5NDVlNDU2NWNmOTNhY2IzYzc3NmI2NWRkNzc0NDU1ZDU5ODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjMjVlODNlMTQ3NTg3NzY0YTFlNWVhMDZhNDY0NzY1MjBmYjBiODZlMDQ5MjgzODcxODE4OTJkMjY0ZjkwY2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2MTIzY2NhOGYzMmEyNDAwOWRmOTFmMTg0ODk2Y2VkMWUyNjhmZTkwZTE5MTBmNDJkZjU3ZGFkMGNkYjIyYTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1a92c73765d14d36863191b5bdd4f241",
+      "statement": "Plugins are instantiated with a 64 KiB stack and heap size 0, required for Rust because a non-zero WAMR heap would collide with Rust's allocator, and the manifest linear_memory_kb is not used for sizing.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/Plugin.cpp#L96-L134",
+          "version": "repo-lines-v1:sha256:38e1cfeca930171b43b4333a2c4f5ec8921d87f92e543d18afc8e34367b37159:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2ODliMWFkMjExMzU3MzRjNzIwNGFiYTUwYWRhMTg4ZmZmMWExZWRlOGMwNDk5MmY0Y2NkNWVjOTc5YmI1MzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2ODliMWFkMjExMzU3MzRjNzIwNGFiYTUwYWRhMTg4ZmZmMWExZWRlOGMwNDk5MmY0Y2NkNWVjOTc5YmI1MzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzZDU3ZGUwODMxYWIyMzc0ZjJkZWE2YjAyNGQxYTNjMGZiNWY3NzFiNWQ4NjFkOTBmODdmYTkxZmQ5ZDM0YjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU2YjI2MDQ1Y2MyYjY1M2E5MTg4ZWQ5N2E3ZTcwMDhlYjNlNjhlYWRkMTc5MDNlOTM3N2UyZmVlOGI4NWEzMDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3bf3d137cc064eedb63709fb2fe80674",
+      "statement": "Each call into a plugin resets a 500,000,000 instruction budget so runaway loops trap instead of hanging the tick task, and traps record the WAMR exception message.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/Plugin.cpp#L150-L200",
+          "version": "repo-lines-v1:sha256:c89728638b7ec7dec2e8e2383368ce3ad28abcf407710ddcb8127898c4c1ed96:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxZDY5MzZhMjcwZDliZDYxMTdhNzE1MmM5NTJhN2Y4MzhjZWU0ZDMxNTY3NmZkNjI1NTBjMDE5ZTQwNzM4ZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4YTBiZDZiMDg2MmRlMzA4NWFmZWM5MzUyMzk0YmFhODk5Mzk0MTM5N2UzNjZkMDAxZjE5ZDk0ZjUyY2Q4YzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhYmVmMDY1OTJlOTJkYTdmNDc1NWY3YjRhZjI2MjViNjFkY2NkMjc1YmFjOTM2NmZkYzFiMWZjODk1ODFmZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlOWEwYTczMTMwOWE1N2VhOTE2NTI2ZmVkODY4MmU3NDEyZjU2YWZhZjUyMDg2YmUwNzZlNDA0NDIzZmRhZjgifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/Plugin.cpp#L42-L48",
+          "version": "repo-lines-v1:sha256:9cf5045a4747502dffc9466bc8089bbfea709207b181e2cec0cbb9afeff8db28:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJhMDZhZjljNDBhZTRiMzNmYzlkZjRmM2EwNWM2N2YzNWIwZmUzMTA4ODMxNGJmNDQ2ODZhMDQ5MWU0MGQzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzgwNDA2ODk0MTAwYjMzZDdiODA3ODIxNDkwYWExMzZkNjNjMDlkMjUzZGE1OWQ4NDQ4Y2E5YzAwZjAzNTdlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjA5NGY3ZDdlOWI5NjZiN2QyNjExOTk3MzhiMzgwYzlkZjllNTM4NmMwMTY0OGFlYWZmMDJkMjM4MTZlNjg3ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cecafe527c664584bf893a4d45db5ecc",
+      "statement": "The Kconfig options WAMR_PSRAM_LINEAR_MEMORY_KB_DEFAULT and WAMR_PSRAM_OPERAND_STACK_KB are defined but not referenced by any source in the snapshot.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/wamr_runtime/Kconfig",
+          "version": "repo-file-v1:sha256:9b8c01f570cfada6aba7704beec77e2abecd047a0cf33057c41850b96b6e0f4f"
+        }
+      ]
+    },
+    {
+      "id": "claim_04ffffeca4ee4cc5818d21827c037113",
+      "statement": "The matrix plugin shrinks the wasm-ld shadow stack to 256 KiB because the 1 MiB default raised __heap_base enough that PSRAM-backed memory growth eventually failed.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/matrix/build.rs",
+          "version": "repo-file-v1:sha256:c61fb4e5a438634f3b695f0af79926af66cc407d5e25aaba13a02fff19c806ac"
+        }
+      ]
+    },
+    {
+      "id": "claim_90d10e7ccbdf4b5d902a4a9169e97a37",
+      "statement": "The plugins workspace pins the stable toolchain with only the wasm32-unknown-unknown target and configures a custom getrandom backend for it.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/.cargo/config.toml",
+          "version": "repo-file-v1:sha256:5fa36a76a4d88e836829865e8411e9262bb5c1f4827a0f92be34ae1c10721557"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/rust-toolchain.toml",
+          "version": "repo-file-v1:sha256:46433d7246dd0d3dd012dea2b48a36f470a20b68e747efdc6dc3faa166c1fb54"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:78e69535a5883b51c0fc8d88f20da4f6f6a472ac23e0c094aac93bca7be98226",
+  "claims": [
+    {
+      "id": "claim_6672a06aaa5246e8b4e8669e67097755",
+      "statement": "Plugins execute as interpreted WebAssembly with AOT native code disabled by default, linear memory in PSRAM, per-call pointer validation and capability checks, and a hard GPIO block list plus manifest whitelist.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0006-plugin-sandbox-capability-model.md",
+          "version": "repo-file-v1:sha256:79ee1b32ffecf4155d070ff409d15d970a4de48c4c97964db970c3bf5fcd545e"
+        }
+      ]
+    },
+    {
+      "id": "claim_eea1fb5ed54e4929852ebfe0a4939db8",
+      "statement": "The manifest requires id, version, host_api_level_min and linear_memory_kb, and optionally carries author, icon, i18n, capabilities and prerequisites.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/manifest_schema.md",
+          "version": "repo-file-v1:sha256:a71e915ee8e832952d34706709da09282ef5b89c5a141f6ebc7165758c36bd1f"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/tools/validate_manifest.py#L14-L14",
+          "version": "repo-lines-v1:sha256:bfd65518a1cf7e3df0a993ebc53df954c93e799a2c90860c5716b89d115dcd97:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmZkNjU1MThhMWNmN2UzZGYwYTk5M2ViYzUzZGY5NTRjOTNlNzk5YTJjOTA4NjBjNTcxNmI4OWQxMTVkY2Q5NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmZkNjU1MThhMWNmN2UzZGYwYTk5M2ViYzUzZGY5NTRjOTNlNzk5YTJjOTA4NjBjNTcxNmI4OWQxMTVkY2Q5NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTkxYmYzZDk2ZjFiMTE5Njg4ZGVlYTlhMDA0YjJiM2ZlYmIxODBiYjhmYjIzNDQ2MjU2MTRhZGM4NTk1NjNhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzc1MjRhZDA3YzgyMjk0ZmRhYmYwYjlhMjE3ZWM1NDc2NWE3YTY4NGMyOTJhNTY5Njg5NjFjZTdkYjhiYWUwNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4f6bae8a4555475db133419c33bd2b5b",
+      "statement": "The firmware accepts linear_memory_kb in 16-4096 while the SDK manifest validator and schema doc only allow 16-1024.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/CapabilityChecker.cpp#L19-L57",
+          "version": "repo-lines-v1:sha256:57e6fbf15a3353eef6ba17e1e8b125d3bc9d575a2876af5f65735a2bafc0cab6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3ZGMwOWU4YTA3NTAzNzNkZWJjMGVmODA5MTNkMzhmYjQ2NzY4MmU5ZmQ3YjAyMzZhYzQxZTMxZWM0YWY3Y2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4ODNlN2E4YjcxZjc4ZGU2MDQyMDU5NGYwMDJhMjAzMzZhZGRmODgxZmRhM2YyOTM2MmViZjgxZWY0MjY4MjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAyNjMxNDVmODJlZTcwY2ZlNmZlMjA0OTQ3ZDNhOGY4OGQ0MjAxYmYyOGJiMDU5NWM1NDFlYzkwZjM2ZGE2YzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2ZWVlOWJiYzM0Yzc4NDYxYzJiOGY3ZDdmM2Q4Y2YyNjBjMmE3NzY1MTEwNDFmZTVhNTQxYTAzMzFjMjc5ZjcifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/manifest_schema.md",
+          "version": "repo-file-v1:sha256:a71e915ee8e832952d34706709da09282ef5b89c5a141f6ebc7165758c36bd1f"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/tools/validate_manifest.py#L55-L57",
+          "version": "repo-lines-v1:sha256:719892f88cd7c6649b62f4eed2b83c8b988e7771661fc086e83d7e3811f8e151:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQzNmZkODIwYWQ1OGViODFhMTEyZjBiZjBkYjMxZDI4Mzg4NGYwMTBjZDM3ZTkyMzVlMmFmZTQ1MjVjYTM0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhhYTFmOTU3YzU3NTI2ZTJlMjk2YjdmZDUxYzA4NGE0NTBlOWFmODViMDcwNmMxMzg2MDhhZjc1ZThiMGMzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjk5MGMxNjg1MzNkZWU2ZWVkN2U4ZTU0ZTc0MmRmNDM4NGFiYWUyZGIyYzQ1NTdmNTE5YTA2NzcwYTJjYzM4NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODI4OGRjZDM4NWIxZmRlYTg1ODZkNzE3Nzc3Zjc0OWFhMmVlY2I5YTc5ODAzYjRkZmIzZjlkMjI2NTdkZjI2YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4400e92ad1584cd7b0525709f0231685",
+      "statement": "A declared nvs_namespace must start with plg_ or plugin_, use only [a-z0-9_], be at most 15 characters and must not be the reserved plg_ecc_map.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/CapabilityChecker.cpp#L120-L135",
+          "version": "repo-lines-v1:sha256:099ca28eba6b8cbab75b1248446c02a0d8e657e5572d6f29662a7522114cff4e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5NWNlYWE5NzJiZDMwZTUxMjU2NWVjNzM2OGI1OWM4ODU2MmU3MDNjOTIzODAwYWU2NDcxZjZjNDlhNzVhOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4N2Q0ZDllZWJhZWMyZDk5ZDMzOTU0MjI2ZTBlZDUzNDFkM2JlMzU3NTk2NmEyNjdlOTFjYmMyNzEyYThmMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmNWNiZWM0MGZhZDU0Njk4MTljMzA2NzQ0ZGNhYzM1N2YxMWRkNjgyM2U3MjZhYjgwYmExYzFlZjE3NjI3NmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkNjA0Yzg4OTRlMjU1YTNlZTFjMGE3MjVlNTM5MjJlNWVmOWE5OGVhYjRiNTljMjExNDZlMTBhNzMzZTEyOTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fdc9465cd1cb43f5a8048c393528eb25",
+      "statement": "Plugin NVS uses the declared nvs_namespace or else plugin_<id>, and any namespace failing the prefix/charset/15-character rule makes NVS calls return HOST_ERR_NO_CAPABILITY.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_nvs.cpp#L1-L50",
+          "version": "repo-lines-v1:sha256:9e3ed4396023250988887ea7c3b383de67051859ed17f841df73fb70d996099a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwNWIyYWU4OTdhNmE5MTk2NWRmODhmN2NkYmJjY2E0MjExYmI1ZTc2Mzk0M2MyNjJmMzlkNTE0OWZhOWFhYzUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE2MDM0NGFmMjU4NmNhZTYzYTE5MTc3YmZhZTBhZGNiNDYxOGMwZTgyZTE4ODg0YzZhYmU2Y2Y5NjA1NmVmOTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4fad8162307648e8a3f59eb75147efc4",
+      "statement": "Plugin file storage is confined to a per-plugin directory under the FAT mount and accepts only bare filenames without separators or a leading dot, gated by the vfat capability.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginStorage.cpp#L20-L30",
+          "version": "repo-lines-v1:sha256:28095d6b0aea5c4480c81a3f20688f5026959ae574a303a8c3d68ffa6f8351df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4NjE3NGUzYTJlODYxZTg4N2Y2ODBiN2U5Nzk2MDA3YTUwZGY3YmNjNmRmMTQ3ZDMwOTQ4ZDQ0ZTIyMWRkODEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzY2UwMWJiOWZjYjZlY2VmZTlmNWU0MzcwNWNhOTM3Mjg0NDljZjliMWQ4YzMxNjIwN2UyZjU0Yzg0ZjkzNDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk0MzUwYTY4OGZiNzIyNDFhZDMzNmE1ZjNiOWRlZTY3NGY4MDQ2NWI1ZmQyZTI3YTEyMmJlOTI4MTAyNDY4ZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4MzY2YWI4YWY0MjUxNmI0M2I0Njk2Y2MwZWY3YzA5YzFlZjFmMWY3YjkzMjViMzEyN2UyODQwZTRhZGMxOWYifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_fs.cpp#L1-L72",
+          "version": "repo-lines-v1:sha256:55bfaecc6b52376cff6ac1d5f9bc4b50359868364a4e3a748170924738b10f86:eyJzZWxlY3RlZExpbmVDb3VudCI6NzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkMGNjODRlMGQzMDQyOWYwMzlkZGFkOGM2OGNlZmM5MzAxNmY5MDI5ZTQyZTJhNGFmNDA3ODg3MTM3ZTg4MmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ab946d30a3b34becb2ea6c08e8b10d1a",
+      "statement": "Supported prerequisites are wifi_connected, time_synced, battery_min, usb_connected, not_charging, min_free_psram, min_free_dram and unlocked.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/Prerequisites.cpp#L25-L100",
+          "version": "repo-lines-v1:sha256:315eb4a2264fc371c5889539584542bc019f74c73c52dc10c491e88e6847693b:eyJzZWxlY3RlZExpbmVDb3VudCI6NzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxNGQzZjNlYWVmNTBmN2VmM2JiYzZhZTZjMzM2N2FhMjc2OWEwZTRkMzUwNWQ4ZjA1ZTk4M2I4OWJmMWVjNDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3MTVjMWJkOTk3ZDU0NzkxYzE3ZmQ2NTRmMzNhNzk4YjFmZWVlN2VmY2JlOGE1Y2RiYWYzNDE1MmY3ZmI0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3MmM5NWFlNWY1YWZlYzFmMGY1OWZlNDkwZDQzZWRhNTQxNjBmYzMyMDcyNjY2OGRjM2I4MmMwNDM5YmFiYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyZjQ2MTI4OWZiZmY4MzYzOTI0MTYxNjkwODgxZGY2ZWVlZjY1MzA0ZWYxMjI0ZjQ2MGEzNDcyOTdkZGE1ZTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e19a71720f3049df9546163bf55ad8f9",
+      "statement": "Plugin upload over serial is protected only by CRC32 checksums with no signature verification.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginSerialCommands.cpp#L1-L70",
+          "version": "repo-lines-v1:sha256:a5ba0a53fc9070afc40daf11023e0357decd1da5cc4b696da35e9e395a07d254:eyJzZWxlY3RlZExpbmVDb3VudCI6NzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4MGJiZDJkMDk0YTJlOTE2YzI3MWI3YWRjMmVlYWFhNjU1NTRjZTg2NGY2MTVhYzFiZDU2MDQwYzY5ZjA0NDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY1MDFkOGYxNzU5NzE3YTVkMDQxNjQ5MTFjZThlOWY2NGUyNjhiMWYyNmZkNjljZjc3OWZjMmE3ZGJhNWRmNmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1320083086514f80990f271b9b935902",
+      "statement": "Capability denials at call time return HOST_ERR_NO_CAPABILITY and log an entry while the plugin keeps running; behavioral capabilities background, autoload and prevent_sleep change host behavior instead of gating calls.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/capabilities.md",
+          "version": "repo-file-v1:sha256:e793299a13d9f5aa37a224c677f5bc29ac5009d719873f74ed0817b10620d855"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

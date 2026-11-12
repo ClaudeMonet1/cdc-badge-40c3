@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d3ba04fae8ca8e77f88adf3af12029063732c36fe460b78130a435ded4da79d1",
+  "claims": [
+    {
+      "id": "claim_9a319d54677a4e8aa748b4f9c6241eb4",
+      "statement": "All plugin host functions are imported from the WAMR module \"cdc\", registered as a NativeSymbol table in WamrImports.cpp, and the registered set matches the functions declared in host_api.h.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/WamrImports.cpp#L1-L10",
+          "version": "repo-lines-v1:sha256:7aa40692e9d93122fc55d0b63ee874f4f8c2f3cd020d2871f07bd00d1eb939ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYwM2UyZjM3ZjZiYjQyZjI5OTY5Y2JkMWZkZWIxNjdlNWI2ZjQ1ZDdiZThhY2IyZDdjNDI2ZTE3YWFlNjcxNzIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/WamrImports.cpp#L1281-L1300",
+          "version": "repo-lines-v1:sha256:27676f97ab638859425a0989b08a754bff4d141b81649097703a4217fa40170d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3MjhkMDk3YWRmMGM4MzM1ODA3ZDlmNGU2OWIwNDNjNTFjMzdjOGRkMzQ0YmQxNGQyZTg1ZjJmMGRkMTgyZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzNWE4YzI3NWUyY2YwMDJhOTA2NGI4ODgyY2RlNTMyODg0ZWRjZDhkZTRlNGU5MDZlZGM4M2Q5NzFiZjA1MDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5YzRiNjExMjBlMWQwNjlkMmFkMjk4ZDZhNTk3OTE1ZDMzYjg0ZDAzNjFlMjJmNWU0ZDU3MDk2YmNmMzExZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUxYzAxMWU3MGE5MzIzZTkzNDYxY2EzNGZmOTg3OWQwYzk3YTU0N2VlZjJiNzFhZDEzZTVjM2JkNzU3ODRhZDkifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/WamrImports.cpp#L1620-L1650",
+          "version": "repo-lines-v1:sha256:23cfe3a67bf6b0cb09fdf38db654084ddcee7c33ac5589949ad4b39a8852e80e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYjA5ZjExOTljZmYxOGJhZmYzYTAzZjgxMDYyZWY2NmQ0NWJmMGIyZjRmNzllZTE0OTYxN2JkZmZjZDkyZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzOTA4YzhhM2MyMDI1MDZmM2U4OGJkMDUyZDM5N2ZiNGQzOTJiZjg4N2E0MDQ2ZGFjMzE0MDcyZWY5ZDcyODMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3ZWM4M2U5ZjY0ZTk0ZDM2Njc5N2I0ZWI5MGRhMDliYzQ4YWUwZDNhOTQxZjYzMGRjN2I2NTgyODEyYTM5ZDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_38bcbd85e87547fdaf9c2dd6de5d4d61",
+      "statement": "The SDK copy sdk/host_api.h is byte-identical to the canonical OS header in the vendored snapshots, and ADR-0007 requires it to be copied from the OS header and changed in both repos together.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h",
+          "version": "repo-file-v1:sha256:625a2717db464ae63a2a436616a789d9b3146c1a97c861dacdf98109c76c6f69"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0007-host-api-canonical-sdk-mirror.md",
+          "version": "repo-file-v1:sha256:65e710cef5b6f91ca15b26e5ac4e91a89c78a20213b6c1d4275a6378bbaeac5b"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/host_api.h",
+          "version": "repo-file-v1:sha256:625a2717db464ae63a2a436616a789d9b3146c1a97c861dacdf98109c76c6f69"
+        }
+      ]
+    },
+    {
+      "id": "claim_a1de608c86b24c3f9ce8533f5c406fda",
+      "statement": "A daily workflow in cdc-badge-plugins downloads the OS host_api.h from the release branch, diffs it against the SDK copy and opens an issue on drift.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/.github/workflows/sync-host-api.yml",
+          "version": "repo-file-v1:sha256:c43b538c9b8078d8e8ec5243aa0af01cec93aa576ccd03ae2e5795b4b6c66de0"
+        }
+      ]
+    },
+    {
+      "id": "claim_f5a4b0a44d1e40248a3d8ae35c15e8fd",
+      "statement": "The host API level is 0.8 and a plugin loads only if its required major equals the host major and its minor is not greater than the host minor; ADR-0007's mention of 0.7 is outdated.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L41-L50",
+          "version": "repo-lines-v1:sha256:3a5ed1701be818281d34556b09106186121d32825e585b2bdc5c1f00e73ddac4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNTQ0NmM4NjkwZTRlZGFkMGY0ZmFiNzY1NzhlNTk2NmM4NzkwZGZjMGFlYjlmY2YyY2Y2MjA0MzgyZmNhNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2YzRhZWVlN2Y4ZDY3YTc0MThmNDBhNGRkMjM2NjEzYWM3N2YzZWRjY2Y2YTllOTE2NTNkMjUzYzQyMThjNjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2ZmU1YjIzNGFhODdmOTVmZDc1YTRlYzk0MzllODE0ODExNzcxMmNmN2UwZTY1ODg1M2M2YTBhNzQ0NTAwYmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2ODY3NWJiZDEyNGM0NDM3YTMxODRmNWU0NjRmZDkxMjA4NDBjZjYwMWMxNTdjNTA2ZTBkYWZmMmQzNTIyNWYifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0007-host-api-canonical-sdk-mirror.md",
+          "version": "repo-file-v1:sha256:65e710cef5b6f91ca15b26e5ac4e91a89c78a20213b6c1d4275a6378bbaeac5b"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/host_api_reference.md",
+          "version": "repo-file-v1:sha256:484ccbe584d58ef5124ada1ae1cb8a4f62098aa30f6d4600f46f24079b94b653"
+        }
+      ]
+    },
+    {
+      "id": "claim_6597acb8f5134e7fa5412d81ab5a88cd",
+      "statement": "Six host functions with size_t* in/out lengths are imported in a wasm32 form that takes capacity by value and returns the byte count or a negative error code.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L23-L36",
+          "version": "repo-lines-v1:sha256:1e636bb4ab0c98e02895c69e818e0b20c4e73c68a7533440f2fc654fc2e0fd7f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2NTYzNWQ5NWFjZjljMDFlZmRjNmMzYjFlZTc1MDUzNjhiYzZjOWUxZWUwOGYwMjNjNmRiOGJmN2YzYTEyMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcwMWJiN2IzODlkODQ2MWRmMDE1NTBiMDk5OTc5YzEzYmE4OGE2NzA0MmIyMjM5OWIxNzRkYTI5NTgwODk4ZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5YTExY2IyNDE4ZjEyZDY5NzAyNGRiZmM1NjQ3YWE5ZjkyMmFkNzAwYWY0ZTRmOWMwNzgyYjhjZWIyYjgwNTIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/host-api.md#L59-L72",
+          "version": "repo-lines-v1:sha256:7d0fc6eb6ea5cc45dfd081d19371392a15aec9422451e77c26bd77b9c35620ea:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlMTExNGJhYWE4OGFjYjM1Mzg1NjRjYjI3NDk2NGI4OTk0MTdjNDQ5OGIzYTUxZjcxNzczMThiZjIxN2VlOTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwYzM2MGNkZTdkMTBkZGRhNTIyMDJhMjJkM2NiNTE3OTZmZmFlMGUwMWM0MzE4MDcwMGQ4MTI0NDMxZjc5YmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVmMjA4YTRhN2JjYzMwZGY3NzUyZmFmZmU4Y2Y3MDQ4MGMzODUwNjM4Y2IwYzhiNDBjNDYwYmNiZWMyMTAxY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE5NjJhNWYxNWYyNWIwZDE0NjJkZjA5MjEwM2FlZmVjZjc5ZTgxOWRiNDZmODQzNjc4NjYyZTcwZjVkM2FlMDUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a1e684bbf35c4aaa9ccb082aeb575f0f",
+      "statement": "Host wrappers re-validate the full extent of bare pointer parameters against the plugin's linear memory because WAMR validates only one byte for them.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/WamrImports.cpp#L25-L43",
+          "version": "repo-lines-v1:sha256:900f5a77ea44dffc6ad93f009873d41f0db32d399350c1d868993117af14f53c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxZWJjZGQzNWI1MmMxMTliN2QwOTMzODljZDdkMDY2ODE0OWJjMzVkZTM3NDBmNmRkOGJjMmE2YjQ3ODIyMjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU3NTExOTczYmE1OTJhYzAzNTBjMGU2ZjUyMThhYWQxNDRjZWUwZTY3NjcwYjc4NmZiNzI2NmJjYTEzODYxNGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYwODhmYzFlNmZmMWY0OGM5MDkyMmZkOGQ5Mjg5OGUzNWZjY2Y0YWZiOTM0ODA5NmU4Yzk5ZmU2MDI2NjE4NjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f5cd69d1ce52479e9f80a1b498fe4f9b",
+      "statement": "Host return codes are HOST_OK 0 and negative errors GENERIC, INVALID_ARG, NO_CAPABILITY, NOT_FOUND, TIMEOUT, NO_MEMORY, BUSY, NOT_SUPPORTED and RMEM_FULL (-1 to -9).",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L52-L62",
+          "version": "repo-lines-v1:sha256:22f0ce3709e04a55cb800d258b65d8d27d3250e0af6db41178a79a6a10f78d98:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4MzI3YmE1MzgxZDBmYTJmNWFjODE5YWNiMjUyMWQ3OWE1MmQ5ZmRjMzY5MDA4YmM1NDgxZjVlODhhYTI1ZDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg2YTk3ZmYyM2FlYmNjMmZhN2RjMTE3YWZlNTMzNWFmNDIyOTQ0MDE5ODc3ZjA0MDhhNGViZWIzNTU5ZjY4NTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3NzQ1ZjRiZmViODQ2ZmYyODQ3NzRiZTAyN2U4NzJlODliYTE4ZWNiZWE3MjllYTdiYWIzNWY5YzYyODAwNTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e6bf583ddaed40b18310feb90289f8c0",
+      "statement": "The whole host API takes and returns UTF-8 text and converts to the display codepage internally.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/host-api.md#L74-L89",
+          "version": "repo-lines-v1:sha256:fc6686c7c73abac5548147884fe95580cf2364fb82bd567507ef0dc76ed1c4a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2NWRiNmIwMjdjNWRjNzJlOWNlNzZlZjA2ZGRjMjliNzMxMDc4ZGZiMzJhNjQyMzdjNzk4ODYwOTUwMzliZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2YjU1OTQ1ZWZjMzU4ODA0ZTMzZTI5MDEwM2Y4OTE1ODFjZmEyMjI4YmFjOGM1NWJlZjBjYjNmYjViMTU1NzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzZDFhMzZlYWQ4NzUwNGJiN2EwYmZmYWE1MGE3YWE4ZmFkZTFlNWNkYjczNzc1NmEwZTEzMGRlMmQyZmI2ZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMwYzQyNmY0ZjExMDRmNDRiNjBjNDRhMmMyYmJhODkzZTI2MDE2MWNlMDJkOTkzYzE3ZmJhMDg5N2U0MWQ2ZWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f470201dfc8b4c688083e743f53d59ff",
+      "statement": "Wi-Fi and HTTP host calls enforce the wifi and http manifest capabilities at call time, returning HOST_ERR_NO_CAPABILITY when absent.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_http.cpp#L150-L210",
+          "version": "repo-lines-v1:sha256:02f95e06f1ba9aca678382b3fb41279b0fc4ecfdb710d9de352ca5194c9d6d55:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMjRhN2RjM2JiOGQ1NjlkZmE2MmU4MDI5ZWJiZWMxMWU1MDgxMzZjNjk4ZGYzOWYzZTQzYThiODIyM2NlZWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlNjhkNDkxNTc5OWU0NjVjMmM4N2M2YjJhZjdlNWVmNmY1Zjg2Mjk3YjE3OThiNWE4Y2Y4YmU3YTc2OTFhMTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllZTYyMjFkNzk2OTk5ODliYTVkZTQ2ZGI0OThiMDdiNGRiNzc0OWFkYWZkMjMzNzA3ZTM1ZWFkOTYwNTRlMjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1NjJkZjg1Yzg0ZTY3YjU2NmFjNmQ2M2YyMjI0MjJkNjU0NjEwNTkzMmZlYTY3NzQ0N2YzYjk0OWZiNGM3MWQifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_wifi.cpp#L30-L45",
+          "version": "repo-lines-v1:sha256:b6b22cf7f4a4d8e9042997c0b19d3ad4d7397518579f5bd6a1799119967bdb94:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFmOTBhNjQxMmE2MWUzYTcxYmQ4MzIwYTJmMDQ4ZTExNzM1ZTY4YTU4ZmY3ZTFhMzAwNDU4M2MxYTc3YTM3NTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMzODAwNzNmZDMwMjkyNjk0MDU2MWM0ZjU2MTA2Y2JhNGRiMzRmZTg1MDU3NTU3MGZmNzRkNjUyMjVjM2ZjN2YifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6fab41e2bb943d0b10aa4651cab9472",
+      "statement": "The Rust SDK binds host functions in an extern block annotated with wasm_import_module = \"cdc\".",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/src/ffi.rs#L48-L52",
+          "version": "repo-lines-v1:sha256:6369a3505c998dabc846cf0beb295b768c356399d8f767e6ddaec3eb5f1d5b25:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTA2YmU2MGQxNTAxOThhNDkxM2I3MGNmMTllYmFhN2Q0MThmOWYzM2MzNzEzMzhlYmYyM2E5NDBiMGZkNGRlOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRlMTA0Y2RlNDlhNDZlNzFmNmQ2ODhmMTI1ZTA0MTMwMjc5MTdlNWU3ZTA4ZDAyMjExNWFhODgxYjZiYzJlYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjUwNDJiMDcwOWMwNzUzZWQwNGFjOGUxZDFlZjFjOGUyZmZiYTIzMmI5OTg5ZTg1ZDgzZTRhMmI2ZWExOGFjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTIxZTQxYzExM2IzOTM1NTFjYmE1MjMzZGFkNTlkNzVlZmNhNDc1MDgzMTliMTVkYzlkZmVmN2ExMmNiMWE0OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1abd8fe009334418a0a77b714095fd8b",
+      "statement": "No host functions exist for the lock screen/PIN system, BLE bond management, charger control, deep sleep or raw HID reports.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/capabilities.md",
+          "version": "repo-file-v1:sha256:e793299a13d9f5aa37a224c677f5bc29ac5009d719873f74ed0817b10620d855"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

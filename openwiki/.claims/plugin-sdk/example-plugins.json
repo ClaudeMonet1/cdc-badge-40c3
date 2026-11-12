@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f050483ad5f82d663feb3771319008ecab05f4ada9697e14e05dc9ab4fd3e408",
+  "claims": [
+    {
+      "id": "claim_fd2bff7503fa4249a1818a51d4619bdc",
+      "statement": "The starter plugin separates host-testable pure logic from wasm-only plugin glue, is no_std only on wasm32, depends on the SDK only for wasm32 with the panic_handler feature, and builds release with opt-level z, LTO, one codegen unit, abort on panic and stripping.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/plugins/starter/Cargo.toml",
+          "version": "repo-file-v1:sha256:c31661f8d6617b524426b66d0c14cce52ffb3ce5523965f0043d6d82a8e30c98"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/plugins/starter/src/lib.rs",
+          "version": "repo-file-v1:sha256:46fdbff6dcd53144ba2279ec240c32727deb44bf3d230a57a69da432d163a9a5"
+        }
+      ]
+    },
+    {
+      "id": "claim_fbf77959a54140988506648547c36bf4",
+      "statement": "The starter plugin's SDK dependency path points into the development repo's vendor submodule, which is not vendored in this repository.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/plugins/starter/Cargo.toml",
+          "version": "repo-file-v1:sha256:c31661f8d6617b524426b66d0c14cce52ffb3ce5523965f0043d6d82a8e30c98"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc731465258241ae8611205d6ad1b13b",
+      "statement": "gpio_mqtt declares wifi, socket, grove, sao, ui_exclusive and prevent_sleep, the GPIO pins 4-7, 9, 14, 38, 40, 43 and 44, an rmem secret mqtt_pass and a wifi_connected prerequisite.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/examples/gpio_mqtt/meta.json",
+          "version": "repo-file-v1:sha256:b75fced80f00c8a997bd5c2acf271e8fcaee760636183f06f99c5c2d101a51ba"
+        }
+      ]
+    },
+    {
+      "id": "claim_9777ec6136b141239bd17baa2f36bb57",
+      "statement": "The matrix plugin declares 1024 KB linear memory, four rmem names and wifi/http/ui_exclusive/prevent_sleep capabilities.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/matrix/meta.json",
+          "version": "repo-file-v1:sha256:aa5e301c4f68531f54bc05c66cd942bd2072fe9c342c31826ae0e006a9ba0b34"
+        }
+      ]
+    },
+    {
+      "id": "claim_8a0301bdbb274f5092abd229097bc4c8",
+      "statement": "thermo_printer provides the thermo_print external feature and declares ble, vcard, vfat, wifi, net_listen, background and autoload with image/jpeg message type.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/thermo_printer/meta.json",
+          "version": "repo-file-v1:sha256:46cb75e4e48bbec4faabbe30ae34eb0ef609af48483470c00f9596d3c4a34562"
+        }
+      ]
+    },
+    {
+      "id": "claim_ce734fd11ae64062aba86746e62f8eec",
+      "statement": "sdk_probe is a serial diagnostic that exercises every SDK binding and declares nearly all capabilities including ecc, rmem, display_lowlevel, i2c bus 1 and a provided feature.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/sdk_probe/meta.json",
+          "version": "repo-file-v1:sha256:5111b18975592fd82e09f7b4b8a504904988361ba7c5685b681a820483f19d38"
+        }
+      ]
+    },
+    {
+      "id": "claim_c8af2467fdf747a4a9e578a9ba0bdf60",
+      "statement": "webserver serves files from its vFAT folder over HTTP on port 80 using the net_listen capability as an autoload background plugin.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/webserver/meta.json",
+          "version": "repo-file-v1:sha256:0dcf3d48c42bab23a0924a426ab61436d863734c10a4acda764ce1258b8d25d5"
+        }
+      ]
+    },
+    {
+      "id": "claim_883c4171b38c4c05b3479dbdc673a1d8",
+      "statement": "grove_led is an autoload background plugin driving a WS2813 strip through the pixel_strip capability.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/grove_led/meta.json",
+          "version": "repo-file-v1:sha256:b97a22bd1a40eec85b3308a430ea9a1ff21c217b64b942340e78b301c701df34"
+        }
+      ]
+    },
+    {
+      "id": "claim_dfc1743ab733400da1f7c37fcb595dc7",
+      "statement": "canvas_demo steps through canvas primitives, bitmaps, CP437 symbols, shades, elements, tweens, sprites and z-order layers without any capability.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/examples/canvas_demo/meta.json",
+          "version": "repo-file-v1:sha256:57d30bb7e5e45010e0a1fc08448721312b92e54ace3e12f5e6a27a171eff6633"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

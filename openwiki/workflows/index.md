@@ -1,0 +1,4 @@
+# Files
+
+- [Off-device plugin emulator](emulator.md) - The cdc-badge-development emulator that runs a plugin .wasm on a desktop by re-hosting the real cdc-badge-os WAMR runtime, host-API bodies, view stack and e-paper drawing code behind host backends — what is real versus stubbed, CLI and console, deterministic snapshot testing, the dev-only software secure element, and how to build it from this repository.
+- [Building, packaging and installing a plugin](plugin-build-and-install.md) - End-to-end path from Rust source to a running plugin on the CDC Badge — cargo build for wasm32-unknown-unknown, wasm-opt flags, the dist/ artifact layout and catalog, the badge CLI (new/build/test/flash/monitor/emulate), the firmware upload.py and the PLUGIN serial command set with its raw-stream CRC32 upload protocol, the browser plugin installer, on-device management, and upstream CI.

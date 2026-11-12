@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:efebbbe8b1e03022bfd7e0f581480ad28de3cf0183ad69f006955161b443d7f7",
+  "claims": [
+    {
+      "id": "claim_92a3884b0a06407e88c592a2e8af39dc",
+      "statement": "A stock badge authenticates to the TROPIC01 with the public libtropic production pairing key and the ESP32-S3 ships without flash encryption, secure boot or a closed download mode, which the production-hardening workflow addresses.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L20-L36",
+          "version": "repo-lines-v1:sha256:51c2c4a82b49ea6d1e1826644b600cbf11f4010916cd586383b267a89579dca2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4MWQ4YzNhZmExMmMxMzg3YTNhZGZkYzRkZmFjZGVmMTk2YjU3ZTFkYzU4MWRmNzY1YTc1NmVmZmU2YWFjNjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2NmYxYWUyMjI0Y2RiMzY1MDQ4MDIyYjY4NzVjMDFmNTY2MzM5Yzk0NDE3MjRkMDI0NTZmNzE0YzE1ZjI5NzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY0NDFlOTUwZjI2ODQ5ZmJmMTA1MzIzYThlODcxMjI4YjQyMjMyOGIxYTY4MTRjNWM5ODk2ODc1ZjI4N2NhOTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1dd6cd248d9a429fa92561f9bec7371c",
+      "statement": "The firmware has a single factory app partition and no OTA slots, so updates are only possible by serial reflashing.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/partitions.csv",
+          "version": "repo-file-v1:sha256:77d80e618350491279f8904fec08f6d6cdf19f244901d1003b638ffb2e99689b"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L30-L36",
+          "version": "repo-lines-v1:sha256:3902de3adc2fd3578cc4e6dd11e54af8d20c1373e436ca906c72f287c95dbee3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmY1Y2M5MTViNzI4MGM2MjdjMTU5NDczNTU1MTA4NzlkZjFiNzdiNzdkYWNlZmYzODczMTFlMzdjZTIzNTMzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjJmYmQ4MGEyOTkyODU5NDUxMGI0MjRmYTliZWIyYzViZTU4NGMzNWJiYmE0NDM2NWEwNWVhNTc4NDQ1N2IxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQ0MWU5NTBmMjY4NDlmYmYxMDUzMjNhOGU4NzEyMjhiNDIyMzI4YjFhNjgxNGM1Yzk4OTY4NzVmMjg3Y2E5MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_92116aed9e674309b1c681823642353f",
+      "statement": "The OS and SDK copies of host_api.h are byte-identical in the vendored snapshots.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h",
+          "version": "repo-file-v1:sha256:625a2717db464ae63a2a436616a789d9b3146c1a97c861dacdf98109c76c6f69"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/host_api.h",
+          "version": "repo-file-v1:sha256:625a2717db464ae63a2a436616a789d9b3146c1a97c861dacdf98109c76c6f69"
+        }
+      ]
+    },
+    {
+      "id": "claim_b6ba31c0095242338e8204e5a33651ac",
+      "statement": "The development repository pins cdc-badge-os and cdc-badge-plugins as submodules under vendor/, at commits older than the vendored snapshots.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/.gitmodules",
+          "version": "repo-file-v1:sha256:aafa08098d04c520da35763137ff00d106f4f6c4095621b701450997dfdecf5e"
+        }
+      ]
+    },
+    {
+      "id": "claim_01aad4c626764be89636306038e66337",
+      "statement": "The OS documents that every flash may wipe stored data and that it has a no-migration policy during the pre-1.0 beta.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/security/caveats.md#L14-L51",
+          "version": "repo-lines-v1:sha256:bace7f46ad6cef9b711745a5e6643f824339ba41563873e053fca3619d786c43:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMjE3MmQxMGM0NmExOTM0YzVlYmVmYWYwZGI2MDBkNDA2NmY0ZjNkMTM2NDc1OThkM2IwYjczZDExYTgxOGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcxY2I1NDYxMjBkOWU5YTY3YWEwYTk3NDdmYTEyMWIyNTc1NGFlMDQ3ZjA0YTZmYzQ5YTQ3YzI2YzI0ZDQ3MzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhlOGYyZTVkMmQwMzdhN2E3ZGVjYjI1NDQyZTI5NTVlNGU1NmRlYzE2MjM2NmFjNjE4MjZlYjBiYjc5N2E3NTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_22aea931fd794e57a156a7519db8d9a0",
+      "statement": "Several upstream submodules (WAMR, libtropic, CalEPD, the ESP-IDF Adafruit-GFX port) are not vendored, and krim404/cdc-badge was unavailable.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

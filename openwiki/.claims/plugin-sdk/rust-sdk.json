@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3617c5538059e988c5634f24121db59f41e74b338c90dbb5970a642352b73e51",
+  "claims": [
+    {
+      "id": "claim_a7b2f0b382e6454ba6850ac4897f03e1",
+      "statement": "The cdc-badge-plugin crate is version 0.8.0 under GPL-3.0, with a default allocator feature that installs dlmalloc as the wasm32 global allocator and an optional panic_handler feature.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/Cargo.toml",
+          "version": "repo-file-v1:sha256:e6b0b6c6598cea9fe62b364e65bd5fc35ca87cc9ed0ee78c8825ab4dc1e19b96"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/src/lib.rs#L150-L153",
+          "version": "repo-lines-v1:sha256:0902786c70ed6cb7c9efcc8ea1cf5df763d1c94914ee2740ddb4bc0ee9f230b4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGMxNjVmZWJkNTAxOTdlOTI0MzVhMWNlYmNhNTgzMmZiMDk0ODg0N2RjZjkxZDk4NTZkOTg5ODk4ZTIwOGVjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDk3ZWU0OWNlMmYxOWExNTI4YjU0N2ZmMjNhYTI5Yzk4MmE0ZTdkNTBiOGE2OTllOTljOTEzMTYwOTk1YWQ0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNmMTEyMmM4NzE4N2ZiNWY4YmE1MTc5MGY2YWE5ZDY2MzEzZDM4M2ZkNWU3ZTc2NjRjYjU5NzUxMDA2MWI1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU1NTFhZjRkNjQ2N2Y0MDQ3MDNhMGI4OTMyNTQ3YmFkNGM3YmJmYmEyOWY4OWUwMDlhNDAzYTdkNmNiMzVlNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_26a70645121d46f09242e99d4badb58a",
+      "statement": "The SDK is no_std with alloc, targets host API level 0.8, and exposes a unified Error enum mirroring HOST_ERR_* codes with an Other(code) fallback and a Result alias.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/src/lib.rs#L1-L110",
+          "version": "repo-lines-v1:sha256:0d90690f0f1fe58c5b0c1639a25667fcd183cabcd696058b70c746270aa63b25:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEwLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlNGE1MmNmMzM4MmFjYmNmYTU0YjQ3MzQzOGUwYzJiZGFmYzBlYmY5YTg5NDI1MTEwYzc0MWEyNTg4YzE0ZGY2IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0ODkzZjQwZTM3ODFlYjg5NmM4MmQwNDZhMDgwNjdhMTFlMzVjZGYyZjFkZmFmMjZmZWE5MGI4ZGI2Njc2NDEzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIxMDFkNWQ4MDJlZTFkNTg2MzNkZDljODM4OTYzZmFiN2QwMTRhYWE5Y2Q2YmM4ZmY4NDYzZGRiZjkxMzQ2MzliIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_d7aabdaa7c4a4c36a44ae843dbaa9c96",
+      "statement": "The plugin_main! macro generates the plugin_required_api_major and plugin_required_api_minor exports from the SDK constants.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/src/lib.rs#L154-L172",
+          "version": "repo-lines-v1:sha256:102000df4d1b1ff9f8de972da778bd70662555feb42b8b124af89a764ad08522:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwNTQ0MDIyZmUxNTQ4MGQ3MDNiNzhhNmEyZjYxOTc5NGI0OWFjZDdkOTQ3NThmMDA5MjQ2ZjY4OTVlY2QyYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOWUxMjU0NjQyNTU3NmQzZGVhZThjOWI5ZGJmMTI4ZDVkNmRkYWY1ZDdmZTg1NzkzNDkyN2RlZmZhM2I5ZGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVhMjBmYTRkNjVmOTE0MTU0MmI1NmNkMDFhMTVkZDM3YTdjNGQxZTc1N2E4ZjE3OTQzZWE2ZGU0ZGJiZTY0ODMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkYzdmMjk4NWI5NGE2MTkxNDI4ZmZhZThmZDAwYjEzNjU5ODA4ZDE5YzZiZmIwMGMzNDM5NTkzNjU4NDM5MTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8dea044ff333465d9384a574fff80b38",
+      "statement": "The SDK panic handler formats the panic into a fixed 256-byte buffer without allocating, logs it via host_log with tag PANIC and then traps with unreachable.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/src/lib.rs#L173-L210",
+          "version": "repo-lines-v1:sha256:64c86d9fd37263a44f86ca85d6eab051cf85314e001a081e72bd045c4f39e423:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0ZDQwYmE3MmU5MmMxODZlNGY4YzNmYjBiOTIxOTkxZmY2NTkxODNmNmJmN2FlYTE0NzBiMWZiMjk5YjdiNGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM3ZmIwMzg1NTc5N2VjYWRhNTY4NmYzMTc3MmIyYmRkOWRiYjcyOGU0ZjA1ZjY1MmMzZWQxYjI1ZjBmMDBhYmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3OTRkMDJhODEyMTk0NGQxNzZkMjY1ZTliYjljYzU5ZjZhYjg5MGJjYWRmOGFlZmRlYmRiYmI0ZjJlYTg0NDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4ca96c4bf12345b09e793566a1efeb93",
+      "statement": "The SDK build script generates Rust constants from sdk/host_api.h for UI icon, error, log level, ext feature, msg, vcard, surface, sprite, anim and easing prefixes so they cannot drift from the header.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/build.rs",
+          "version": "repo-file-v1:sha256:854965f861889d567428be3cea12b04d926fe9d5d82e27a3daa07f033c7dff2c"
+        }
+      ]
+    },
+    {
+      "id": "claim_743921b846424e6dbf777f399f615092",
+      "statement": "The plugins workspace builds release with opt-level z, LTO, one codegen unit, abort on panic and stripping.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/Cargo.toml",
+          "version": "repo-file-v1:sha256:002c441ccbd86591e60c3d9f3aa57815809fcb9c048306348b37e1f7b62441f4"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0be2ad9b95e499a8df28e5bc85b3901",
+      "statement": "The Rust template is a cdylib that depends on the SDK from the upstream git repository with the panic_handler feature.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/plugin_template_rust/Cargo.toml",
+          "version": "repo-file-v1:sha256:e28fb3b258f20a0bc7cab80976a2b974c771123b53cebbeb6ce795bcf26cf892"
+        }
+      ]
+    },
+    {
+      "id": "claim_926cdcebd9be4a24838903509c800d29",
+      "statement": "The matrix plugin is a std crate because its vodozemac dependency needs std, unlike the no_std examples.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/plugins/matrix/Cargo.toml#L11-L21",
+          "version": "repo-lines-v1:sha256:034252af78d11b1d0fea1b51d91aaee553bd461983701ec4e334b9ec3ab4c17f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5ZjBhMTI0ZDIyNjgxYTQzN2UzZjdjZDA4NzA2MWYyYmIyNWJiOGExNjBlMzk1ZDViYjc4MzhhZmE3ZDYyY2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwNjRkOWRhODBjNTZhNjg4ODMyMDg5YWE5ZDRhMWMyNDdlZDk4ODBiMzY0NDU4OTc0NzNmMzUzYzIyZjkxZWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ0MGQ2NzliNTM1ZGY3N2RlNjI5MDU5ZTUzMGExZTJiYzU2NDFhOTU2M2YxYTM3NDgyMjIyY2ZlYzczNWRkOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5ZDAyZjA4MTZjYTg4MjYxYTMxNTVmMmIzZWI5MDVjM2M1ZGY3OWVjZWI5ZTViNDI5NmQ0YTc3YzQ3NjcyOGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0663b6b919f44c6dab1541451db3b4c4",
+      "statement": "SDK guidance is to propagate cdc_badge_plugin::Result with ?, use Option for lookups that may be empty, and never unwrap host calls because NoCapability can be returned unexpectedly.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/rust_sdk_guide.md#L58-L84",
+          "version": "repo-lines-v1:sha256:e5cc780b3d56057ba6f1a115f3f0c8a3eeb7380abe24ce7a299fa460d76b30ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3YjE4MGRkY2U1YmQ0NjUzMjIyMWYwNGFlMDY1NTkzN2EzMTU2NGI5ZTczZWU0YjJjODEyMTI4ZGMwOWM3YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiMTNhNjkzZGEzZDFlODdmOWI5MWE3NWEwOWIxNTZiM2YzMTgzMTJmMTM3OTJkNWUzNTE5ZmRiODc0OGY0MzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk1YjY2NzExZWYyNmYxMzRjOWJmMDkwMGM3MzU4ZjI3OWVkNjgzYmI4ZTQ0NTVhODMxZGI1YWNhMGM3ODU3OTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

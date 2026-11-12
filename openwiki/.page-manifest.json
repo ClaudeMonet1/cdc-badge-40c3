@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/hardware/board-overview.md": {
+      "pageVersion": "sha256:10d0aedf24236611640dea092f2447b764196c310aeda10611906fd0bcb42a45",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/hardware/display-and-graphics.md": {
+      "pageVersion": "sha256:f2a6e24878454286750f1725caea432d1e5558d5aaed99d69ddeb17d884564e2",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/hardware/keypad-and-io-expander.md": {
+      "pageVersion": "sha256:91bc44b00ebd2e37be0862a8d923ab117c06f879a823b73947338a7f9a2620dd",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/hardware/pin-map-and-buses.md": {
+      "pageVersion": "sha256:69779e854a3e6b5d825e97a021ec429d4d692a40660333614e586176ce8dbd96",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/hardware/power-and-charging.md": {
+      "pageVersion": "sha256:bcdcb35a7838e56b06785f56cf0b776283a22b26a8f0931a0f90a83eb9541254",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/hardware/secure-element.md": {
+      "pageVersion": "sha256:f7b17c99bd4b0d3980417738a17f9d5007cc771749e4b18e875682db6b1988e6",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/os/architecture.md": {
+      "pageVersion": "sha256:6a1a40f8142fab754ab7ebeeee5c00ed98861a28f944f796b7995a671e536091",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/os/build-flash-and-partitions.md": {
+      "pageVersion": "sha256:91bbf0920b2940652e6bec62e3a9286731d738becdc3b405cd7a230976408299",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/overview/repository-and-references.md": {
+      "pageVersion": "sha256:052360f80b247cd678c16bc45ee49bc8f2dfca150580ed96ba07cbaa97291e34",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/plugin-runtime/host-api-reference.md": {
+      "pageVersion": "sha256:d3ba04fae8ca8e77f88adf3af12029063732c36fe460b78130a435ded4da79d1",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/plugin-runtime/lifecycle-events-and-ui.md": {
+      "pageVersion": "sha256:f8a70761cc1e5a056ee5404b6d0561d786317d6a435d28d0ddad5566ac31ee18",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/plugin-runtime/manifest-and-capabilities.md": {
+      "pageVersion": "sha256:78e69535a5883b51c0fc8d88f20da4f6f6a472ac23e0c094aac93bca7be98226",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/plugin-runtime/wamr-runtime.md": {
+      "pageVersion": "sha256:33ede7796181caad6bc5f4dc7976ee544226131c761ccec7ae13eaadcf2971e8",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/plugin-sdk/example-plugins.md": {
+      "pageVersion": "sha256:f050483ad5f82d663feb3771319008ecab05f4ada9697e14e05dc9ab4fd3e408",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/plugin-sdk/rust-sdk.md": {
+      "pageVersion": "sha256:3617c5538059e988c5634f24121db59f41e74b338c90dbb5970a642352b73e51",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:661b66fb18e427174a97e85912f1b8119099feffce4d0de1033d122acb608949",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/reference/open-questions-and-discrepancies.md": {
+      "pageVersion": "sha256:efebbbe8b1e03022bfd7e0f581480ad28de3cf0183ad69f006955161b443d7f7",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/vendor/nametag-firmware.md": {
+      "pageVersion": "sha256:8e7d595d7e8d2efee83e4d8b05fa6db659b2f26f623f383518df61a675d8f438",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/workflows/emulator.md": {
+      "pageVersion": "sha256:9bd5c742d827647856562f7f56cc1fd3ccc7c79a9999e85fb8430b5d98305698",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    },
+    "/openwiki/workflows/plugin-build-and-install.md": {
+      "pageVersion": "sha256:cb08fa40e3a1adca20de2b6d3a5600bc8c8bea59f3b34a420f6c0fc4ae88c5a6",
+      "completedBy": "claude-code",
+      "completedRunId": "cbb0163a-8445-453e-8fb8-5463c5c1429c",
+      "gitHead": "31d4fafd5231c7c46a71e49698173e5d70d402ea",
+      "sourceFingerprint": "sha256:3142104f39ae0b5453c03b3377f8e13fbd27d7b78dc189a4bab8fe4466806b63"
+    }
+  }
+}

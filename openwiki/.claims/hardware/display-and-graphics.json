@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f2a6e24878454286750f1725caea432d1e5558d5aaed99d69ddeb17d884564e2",
+  "claims": [
+    {
+      "id": "claim_8c709e5025e34e27b5f4e74192af15ef",
+      "statement": "The badge display is the Good Display GDEY029T94-FL03, a 2.9-inch black/white 128x296 panel with an SSD1680 controller and a bonded frontlight.",
+      "evidence": [
+        {
+          "resource": "repo://references/GxEPD2/README.md#L111-L111",
+          "version": "repo-lines-v1:sha256:60039a176b15803bc55de191cd3813aafb04b043f64c231ba92307812a1a7a35:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAwMzlhMTc2YjE1ODAzYmM1NWRlMTkxY2QzODEzYWFmYjA0YjA0M2Y2NGMyMzFiYTkyMzA3ODEyYTFhN2EzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAwMzlhMTc2YjE1ODAzYmM1NWRlMTkxY2QzODEzYWFmYjA0YjA0M2Y2NGMyMzFiYTkyMzA3ODEyYTFhN2EzNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmYwNmEzYmU0MTliYWUwZWQ0YjgzMTBjNzAxNmI1YTk0ZTkxYTMzZjA1NGE3ZTQwMDJlMzhmNGI4MjczM2Y5NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM4MGExMmI3Nzg1Y2JmZTc3YjQxZDQ0MzMyZTg1MDFlZWMxMWExY2JmNTJmZjMwMmZkODc5MWQ0ZWU0ZTBhMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L242-L247",
+          "version": "repo-lines-v1:sha256:f4cae9d7748391a68fa41b73f2478fc3452ff78288fd956dd4c55a4616d0699b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA1Y2E4NDViZmMzODI5OWQzY2IyNThkNzFmN2NhNWQ0MTczZTU4M2Y4ZDA2ODZjMWQwNmNkNjlmNjRmZjUzMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGJlMWE0MmFmODQ2OTcxNmNkMjNmZTAxMGU3NjY5ZWE0ODkzMGY3MWIyMjNmZGRlM2EyM2FlMzdiYWJiNmI3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTllY2ZlMmQ2M2U1OTM3ZmQ2YzM1NjQzYTA3NzE4M2NhM2E3ZDEwMTdiYTQ2ZjE0YjRmNzQ3ZTllOWQ3NTQyMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a5413f3d8e024fbc982b0ade37f3328d",
+      "statement": "The vendor nametag firmware drives the panel with GxEPD2_BW<GxEPD2_290_T94_V2, HEIGHT> (a GDEM029T94/Waveshare V2 SSD1680 driver class) rather than GxEPD2's dedicated GDEY029T94 class, on the shared SPI bus at 4 MHz mode 0 with rotation 1 and a full-screen partial window.",
+      "evidence": [
+        {
+          "resource": "repo://references/GxEPD2/src/epd/GxEPD2_290_T94_V2.h#L5-L36",
+          "version": "repo-lines-v1:sha256:3109e39bdd23fef1c0c712cf962dc4526c330383025ca2e4c94adf9832c23842:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlNWIzODllY2Q4Yjc0NWZkODFlYTA4OTBhODM0NzlhYjg0OTdmM2IzZDg1Yzc0Nzk3MWUwYTY0Njc3ODE4NmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzMjYxYmMzYzQ5NDJiZGQzNmU3NTgxOTgzZGExNWRjNDZmNTlhMWUxMTkxMjllM2UwOGE4YTAxZDAxNDMzZjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgwNTNiMjNiNDg4OGEwM2UxZDJlZWU1MjE1MTViNjVkMjk4M2MyODJiYjYyNjUyZjNiYjAxMTc0MWRjYTg2MjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljZjlhZWJlYmRiZGIwMTI0OTEwMmZjNzg2ZDVhNDAyZmE3ZGQ3YzdjNWU0Y2NlYTA3NWZlMGYxYzE3NWE1YTgifQ"
+        },
+        {
+          "resource": "repo://references/GxEPD2/src/gdey/GxEPD2_290_GDEY029T94.h#L23-L34",
+          "version": "repo-lines-v1:sha256:30f04cf4f02ab2151c256872da929f258f6377e7cbaa6d45b73d877021a0b698:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhYTgzZWNhOTU3MTMyYjJmZTk3MWZjNGE4OGQyMTFiMTEwODhkZWYwZGI4YTVjMDlkOTU3ODQ0ODQ4ZjYxYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1MGQ0OTc2ZWY0MjJjNzMyOWMxNzljZGJmNzAzYjlkZDU4OTRjZDA3ODVkODlkNWE4NDA0N2RjZDZmNTZmMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyNjY0M2M5MWJkYjdlYjdiY2Q5ODQyYTJkM2I3N2MzZmQwY2NjOTJmMzA1YWI3ZTQ5NWZiMmY1OWI0Mzc3NzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkMzE1Y2NkNmI0MWM4ZmM4MTBjMmFhNmZhMzk2ZjNkMTNmZDBkMTM2YzFiZjYxNmNhYTRhNTI4MzQ4OThlMWEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/display.cpp#L9-L63",
+          "version": "repo-lines-v1:sha256:3091cbc9a03520153c8338cd5fc4fa163881b3d1351ce01d9458ef034617befd:eyJzZWxlY3RlZExpbmVDb3VudCI6NTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzZjY4YjNmZThmMzdiYjk4NTgzNzY4M2M0YjY0OWM3NzMzOWQ4ZDA3ZGU0ZjUwY2Q4MDUzOWQxY2NhMDEzZDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmY2QwZGI3OWNjY2RmYmNmZmQ0MTk2MWM2ODc1MWVhOWEyOTM3NWExODdiMzUxMzEzOTc4YTc0MGY4YTJiMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkOWNmMDcwZjc0ODI4YzQ3YTE1NDQxY2FkOTYwZjViZmQxMTg0Yjk2NWI3NjZiODlhYTk0ZTU4M2Q3NzY0MzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7d2ab307fa35489a8d8c7cee913426e5",
+      "statement": "GxEPD2_BW is an Adafruit_GFX subclass holding a paged 1-bit buffer packed MSB-first where a set bit is white.",
+      "evidence": [
+        {
+          "resource": "repo://references/GxEPD2/src/GxEPD2_BW.h#L236-L306",
+          "version": "repo-lines-v1:sha256:7a10eb8779c6efed11afd317685271e5285a3af2e4dcdafe530937596080fd26:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjM2IyMDY1MThhMWVhYjNlZGFhZjc0NjQzYTY3OTdmN2RjZDIzNmI3MGY4ZWQ4NDVlODBlOTJiZDk1MjMzMmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmNzdkMDg1ZjE5ZThkNTI2NDdlMjc1OTYxMjNhZDE0NTJjOWU5OWYwZGEzNTVhMWFhMmRhMWRkMjQzM2UzYmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkNGY4ZmUxMDA4MTZlNjRjZDQ1MjE5ZDViMzFiMmY1YzUwMjlkNDFkMTg4YzRkZWU5ZjI3N2JhZWZhNGZlYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0YzkxZjBhYzBmZTg2ZGE0YjU5MzE1YjQxNjFlMTE0NTQ2ZTdmMWJhYzJjMmQyODUxZjgzMDc5ZTdkNjlhOGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_414bd2aeded44714a84e130046f6b46f",
+      "statement": "Adafruit GFX fonts are GFXfont structs combining a concatenated glyph bitmap, a GFXglyph table and a contiguous first..last code range; subclasses need only implement drawPixel.",
+      "evidence": [
+        {
+          "resource": "repo://references/Adafruit-GFX-Library/src/Adafruit_GFX.h#L16-L37",
+          "version": "repo-lines-v1:sha256:5f653c3b575ac9709ba31e26801708aa376327a526f8b861423efb42e4a64c27:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1MjU4ZDBiMWEyYjI4YmI3NTRjZDAyODRhZWZmN2IyZmNkMTVmZmNiYjU2ZjQ2MDhkNDUxMmVkOTJmMmMyNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyZWViZTU0MmU0NjNkMzNiNTY1NTEwYmQ0MjU0NzkwZjY4ZDNhNWU5MDdiNDc2Nzg2ZWYxYTFmM2NkM2E1ZTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQxYTdlNjU0NjFkMTNlZDgxM2ZkYzRiNzZlY2I1ZmM5OTllOWExMzZhODg4Y2ZhNDUxZjg3ZjUzNWUxMDZjMzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkZWRlZTIwOWE4MmI3YTg2YzQyM2I2NWUwOTNjZGU5YTFmZTllNjFiYWQ0NzE5ZTY4ZWE0Y2RhYjNlNjBkNzEifQ"
+        },
+        {
+          "resource": "repo://references/Adafruit-GFX-Library/src/gfxfont.h#L11-L27",
+          "version": "repo-lines-v1:sha256:28625cbae501b5f4bd8603fd0f3f4e9e60d4b9134acd99b364ad6d5a273bc450:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyN2IxNjk2ZTJhZjhiODZjOTFlZWVkNjQ4OTI4ZDU1Yjk4ZDY5M2IwMTUyYzU4YjA5MmE1ZTQ5NGY5NDZkMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyZTJhNDFhNzdlMmEzMjEyNGExM2RlNjE2N2U1OTdmZWIyZTJiNTMzZWYwMTY4NTI4ZTJhNjdkMTAyNTYyYjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzMDM2MzEwMmEzNTNhOTE4NWVkMDFmNTdmMGUxM2U0ZWNmZjkwMTI2NDkzY2FkZTFjNzJiNzhkMjJkZDcyYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwMjdjYmQzYzU3MWI3NTY4NWU2N2JkMTgxNTc1MGU1Yzk3ZjI5ZjQ0ZGU5OWEzZTY4NTkwYWYyMjVlMGE2OGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4728363888f84a498203bcf8780a3b22",
+      "statement": "cdc-badge-os drives the panel through CalEPD's Gdey029T94 driver at 296x128 with a 10-bit 10 kHz LEDC frontlight whose level is persisted in the NVS namespace 'display'.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/EpaperDisplay.cpp#L1-L54",
+          "version": "repo-lines-v1:sha256:85d15091421780a867dd54b902a09b8bb45c1d1db05db9a7a87f02ae932ec2d6:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5ZjAxMTBmMGRiNTcxZTU2ODY1ZGI3NmI1NjBjNzc5ZGQ3NGIwYWYxY2RhMGQwNDUyYjcyZmMzOWY2MTllMGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4NDYzMGY4NTk4YzQ2ZGZiMTZiNTU2OTNlZGYzODI2MGJiYTdjZjZjMzJhNDBiODVjYmRjODcxNjI5Nzk2ODEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f1b9a865d8fd4675b50e2db31a6772e0",
+      "statement": "Asynchronous display flushes are handled by a render task that coalesces pending requests keeping the strongest refresh mode, while a panel mutex serialises SSD1680 transfers between the render task and synchronous flushes from the plugin tick task.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/EpaperDisplay.cpp#L385-L419",
+          "version": "repo-lines-v1:sha256:57ded04c549b28b38127ecf850a5788eea0f48b89bb4cdb3e95068895dbbb62a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE5ZTc2MzU1Y2YxMTk5NDgwYzNmOTk4MzZiMTQ4NmM4NDFkODkxZmFhZDkwNGM2MDhlMDkzMDIyZDM3NTdhZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgyYzAxOGU5YmFhMjA2YzAxNDdiYTJiNjliMjlhOTgxZTgxYTMwNjIwOTNkMDA0Mzc5Yjg1OTkyMGRhOGQyOWUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/EpaperDisplay.cpp#L64-L73",
+          "version": "repo-lines-v1:sha256:0e81778ec13cdf1658c7294030816d637b47011b579a41bd253c52d9de86085e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YzFjNzQ2OTA3N2EyODAwM2U5ZDE3MTliNjEyMDM3ZTZiNzZhOGNhNTYwMzY3NDJkN2M2YjlmOGNhOGUxOTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhYTQ0MjgyNTkyMThjZGMwMTIxNDViMzI1MjBhOWExZTgyY2IwOTAxMjhkZWFkMmU4MzU3MjliYWQ5MGVlZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjllZmQ4NTIwYmU3YWJkYzczYzlhZjFhOTdmYjRkNWFhYjY1YWE1MDRiODI5MTFlZjkxMTQ2NWYzODZiNDBlZTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_764e29eb1b61425db372346cfc114218",
+      "statement": "The OS escalates PARTIAL refreshes to FAST after 50 consecutive partials and FAST to FULL after 10 fasts; PARTIAL_LIGHT is never promoted and FAST does not reset the FULL counter.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L78-L101",
+          "version": "repo-lines-v1:sha256:562e9fb32406551e9dbe3a4a4b4db7d5d8cd3de46662a3604330d604e6c8ab76:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2N2EwMDViNDVlZTk0NGU5NDBjNWRkZGMxYWZlNTMxMWI4OGFkNGYzMzZjYzQzOTJkMzIyZTg4NDQ4NWJkN2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhNTY3MmQ3OGMxMGVjOGEwMmU4YWUxZjk4OGVkYjg1YTliZWRhOTgyNDE0YjFiOWQ0YzkyYTg2YTY3MThlYWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkyODAxYjJhYmE0MjgyNGVhNGUzZmYyMWQ3MTkzNThlYjY5MGE5YmU2NGZjODNjMDk3ODkxNDY2ZTBjYTJhYmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlYmY3M2JhZDZjNzY1ZGJiMzZkZjQ4ODMwMWNmNDc1YjY0ZmVmMjU0ZTIwM2MzY2U2ZDVhY2JjOWEyY2NhZWMifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/EpaperDisplay.cpp#L76-L120",
+          "version": "repo-lines-v1:sha256:ac45822b9b65db76cafb1fdb83066124bcddb19a553ec1be82c667a6ac611b18:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1M2ZiMGUwMGMzNjVkZDdiZDllYTA0ZjY1ZDc3MjlhNGE0YzZhOTk0NzU2MTczYWU0NTMxMTM4ZTM1OWRkNzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3YjA2MmIzN2JlOTU5OGJjM2I1MGRlNDMzODk1M2I1ODc0YWYzYjQwNmMwZGQ5MGI5MmY3MmNiZGFjOTY0NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhZGNhZDE3NTIzNzdkZDkwOTJjYTdlZDljMWE4YTUzYTFkMzllODg2OWQ5YWU0OWYyOTA2Y2NlMjI4ODJiZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwY2Y4M2E0OTFhMjRlMzU4YzMwNjM4ZWIwODE3NDg0ZGViNWJmYWUyZmVhNmYzNDhlN2EyZTFkN2ZiYjBjMDcifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0014-epaper-refresh-escalation.md",
+          "version": "repo-file-v1:sha256:994b049915cfa22cdabbe6bcec75d2ccb245f4c7808f3d4a0debc7d685b2a5af"
+        }
+      ]
+    },
+    {
+      "id": "claim_f82635817944474fa0681e245fedad0a",
+      "statement": "OS on-screen text is CP437 internally and must be drawn through render helpers because CalEPD's string print assumes UTF-8.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0010-cp437-display-pipeline.md",
+          "version": "repo-file-v1:sha256:0e1b1c7d753e77d442e57ee473ba0f5206ccff1f12cd3ff1894d2e5f88ea3168"
+        }
+      ]
+    },
+    {
+      "id": "claim_f4c32d259b45497a8bd74a85e7889bcf",
+      "statement": "Plugins with the display_lowlevel capability can draw directly and call host_display_flush with 0=FULL, 1=PARTIAL, 2=FAST (unknown values act as FULL), while backlight control is live, not persisted and not gated on display_lowlevel.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1659-L1710",
+          "version": "repo-lines-v1:sha256:cd383e08558b65607dba766ae2c894689cb234f6472ede77a6455ac7c58db6ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI2ZjlkNTBhZjQ0MGVkYjYxNTI1NGM0NDE1OGRlNTIxNTM5MmM3ZTk4OWFmOTRlZDMwNmU2ZjJkYWJmODM2YzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_13a92aa46bf64b3aa4cdde69868b5862",
+      "statement": "The plugin canvas exposes five fonts: a builtin 6x8 CP437 font and FreeMonoBold 9/12 pt (Latin-1) and 18/24 pt (ASCII only), with UTF-8 text input.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1234-L1252",
+          "version": "repo-lines-v1:sha256:76354a031b029627b4381885556f4aa736f1ec19d38c66a048677374a1d70f19:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlODliYmYwNmRkNDZkZjA0ZGU0N2U2NTViZGNmODg0MDMwNjA0NGE1YjViNjMwMTFlNWVhMTdmOThkOTQ0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNzhmN2RhZjYxNDEwOTlkZTA3MGIzZmM1MTI1OTk5NmFiY2JjZmM4NjBkOWQyZmQwNjU0YjM3MDgwNTNjODMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2OTViNzE5MTliMjBmODA5MGJmYjIxODIxOWFhMGY1NTFiNzlmMjZhY2EzYjE3YTM5NzVjYTY4ZTM4MTA0MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhNjJkMDJkZjc2MjliMzU3ZjBmMTIwNGZhZTYzMWJkNjNhMGFlY2Y5NzUxZGFlM2M0ZmVmOWM5NzkyYTJjMzcifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

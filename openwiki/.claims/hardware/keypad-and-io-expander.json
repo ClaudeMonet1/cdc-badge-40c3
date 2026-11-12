@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:91bc44b00ebd2e37be0862a8d923ab117c06f879a823b73947338a7f9a2620dd",
+  "claims": [
+    {
+      "id": "claim_686615831bcf4c03becdba179e853b07",
+      "statement": "The 12 keypad buttons are wired individually to a TCA9535 16-bit I2C expander with per-key RC hardware debounce (4.7 kOhm, 100 nF) that only debounces the release edge.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L153-L176",
+          "version": "repo-lines-v1:sha256:b610efb513337a1a69a7a5d317e2bebcfe455e554a0d3b4eb0f8626a771be371:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1N2Q0MzQ4ZTg2YWMyNDJlMmMwMDdmOTQwNjJiZmQ5Njc1MmY5ZDg4OWRhMzkzYzUzNzlkYjI0ZWEzMWZiNGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5YmYxMDA4Mjc4MDkxOWUwOGZkNjUwZjM5OTgyYzlhMmM4OGQ0MDI5OTQ1MzM3ZmIyNzg0ZGNlMjQzYTY2NWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIzMGE2OTAyY2QzMWM2YzU2N2ExZWYwMzZkZjZkMWE1ODE4MzM5MmM4NjI3OGMyOGYyOThiYzkzOTUzNTgzODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFiMTljZTViMWY1OWQ4YzJiZGRhZGJiMDk4Yjg1YWFlYWE3ZjIyZjdlZThmNTc3NzU5NjAxMzNkNTg1MGYwNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5ab975b55d484fe0ba4a9f8ee963f95a",
+      "statement": "The keypad expander sits at I2C address 0x20 on I2C bus 0 (GPIO17/18) with its active-low interrupt on GPIO1.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/pin_expander.cpp#L12-L33",
+          "version": "repo-lines-v1:sha256:04b2406584600d17e855430af3687e74be596aa8badbba843699bcec202d0639:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyZTdhYTNmYTc5MGI5ZGMxZThhYWJkNzhlZTUyOTE0MDgxNzU5YTk0NzZkOGE4NmZjNTNmZjgzZWUyN2RhOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFjNTc5NmNlMmZmOGRjYzZmMjQ3MzU0MzJkMTZlZGIzMjZmYjIzODNiYTRkZTQyZDkyODY0MGY2ZWM4NjYzY2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTMwMTM1ZjM0NGQ0ZDliODk1Yzc5OTlmZGQ0NzhlYmEzMDE0ZWFiYmMwODM2NjgwNWJlMWNmYzI1ZTY0MDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwMjIwNDczMWY3ZjcyYjNlZDQ2NTA3MDgxNjkxNmYzYThlZTEzYjk2OWRlOGRiYTc2OTMxOTk5ODRiNDRhYmUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/include/cdc_hal/hw_config.h#L10-L19",
+          "version": "repo-lines-v1:sha256:adc97e05653495a12ac0aaa6851db881a7d0e46a0233e330602a56d5e0707b27:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwNTQxYTA1ZTQ2NjE5N2YwODE2ODg0OTRjZTdjMWU0ZGE1ODM0OGIzZmQ2NDU4MzFmYmMzOTJkOTE1YWIwOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmNzlmMDY0MzMxYzgzYjJhZGQ1YWI4NjhjYzZlM2QxNTJmMzU2Y2ViNWMyZjExNzE3YTVlODNiYzI0NmNmOTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkM2E3ODExNTY3OTU2NTJlMThmYjI5NmM5ZGVjZDFkOGEzMTVjNzc0NmRmZDk2Y2QxZDg3ZGIxOGFlNDI3ZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2OGRkMGE4YmNkMzkxOWQ2YjAyMzg3NmVmNTU4MjgzYmRjZWFjNDA4ZTFjZWYzMDVmZGIwNDM1MmViODg2ZDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a59e6195cc314709b980b18e6ce35669",
+      "statement": "The vendor firmware uses the robtillaart TCA9535 class (derived from TCA9555) on I2C0_Bus, configures all 16 pins as inputs and decodes exact single-key active-low patterns on a falling-edge interrupt flag.",
+      "evidence": [
+        {
+          "resource": "repo://references/TCA9555/TCA9555.h#L111-L116",
+          "version": "repo-lines-v1:sha256:310509c944540a4585cc3fdb7616ca27b2a092eeb7a2fe760164bcbeeb637a20:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODA4YmMzMzE1MWMwOGEwYzkxOWEzYjFlYzRiNDE4ZWRlMGVmNTRlZmQ3ZTg4YTE2MmJjMGNlZGYxMzA4MDk3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyMzc4Yjg5ZDRlOWI2OTNmODQzNGMyZWY2MGVhMGYzODRiOWZjNDhjYTRlMmNkMTViYWViMDQzNWNjYzk4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjYyYjNmODc5MjA0ZmZhM2Y5NmU4MzFlN2M2ODA2ZTRmMmY0YzAyNzQ4YzFmN2U1ZDdiY2E1MTFlNGYxMTIwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzA0ODk0YzM1NTYzZjM1ODIwMjg1YzMwMDc4YWIzMDBmZTA2MzRiMGM5YThkNGRkOTkwYjRjYjAwYWIzOWZhMiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/pin_expander.cpp#L12-L92",
+          "version": "repo-lines-v1:sha256:724bc21d7ee50a0adede85e7825feadf8c75843686f8472d6e6c8f935c8437b4:eyJzZWxlY3RlZExpbmVDb3VudCI6ODEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyZTdhYTNmYTc5MGI5ZGMxZThhYWJkNzhlZTUyOTE0MDgxNzU5YTk0NzZkOGE4NmZjNTNmZjgzZWUyN2RhOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTMwMTM1ZjM0NGQ0ZDliODk1Yzc5OTlmZGQ0NzhlYmEzMDE0ZWFiYmMwODM2NjgwNWJlMWNmYzI1ZTY0MDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_79478bf892944b959f0b56b774d788e8",
+      "statement": "The vendor badge.h comments label GPIO17/18 as the charging-IC bus and GPIO47/48 as the expander bus, but the code attaches the expander to I2C0_Bus on GPIO17/18.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/badge.h#L13-L18",
+          "version": "repo-lines-v1:sha256:8bd8584d0bfa744256d8b16cee9bc983959ab1904686d46a64819fe6c28fbb83:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzIyZTE3YjczOGI1ZTFhODM1ZDEwZWJkZWE5MDFjYWUwNGU2N2UwZDQzYjIxMGJlNjA5NDRhM2VmODRjNjMwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk4YzJkYjM3ZmZiNmY1OThjOGRhYjcwZDAwY2Y0OWM0ODI3MzQ2NWQ3MmMwNjQyNmI3ZDVkM2NhMGU0YjI5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2UzYWEwNjJkZmEzNWEwMDgyNjM0ODY5MTM4MDU5ZjdiZjk3YTFhOWVlOWY1MmVjMzIxNjZlOTNkYzc1OWVhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGI4Y2QxZTE0MzMxNmVjYzQwZjYyOWI4YzgxNGI0YzYxMTExNzc5OTY0YTAwZmI0NWM4M2ExMDcwMTk4YjcwZSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/i2c_bus.cpp#L5-L16",
+          "version": "repo-lines-v1:sha256:8124b92e2343bf4869721c199efb54d1f2fe6a6b314b8fb2772705d0ec48bd30:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiZTBjMTRlZDQ0MDUyNzFlMWFjMmI2N2E1YmYyMzM1ZTE1N2E4ZTJjNzc2ZjVkNmM5ZjlmYTFkMmQ1NmJjYmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzY2M5OWMzNjQ1NTBlNTQyNjdkNjRiMjg3MzY5NWI0ZDEzNjk2NzcwODI3MGEzNGRlODZiZTExMGI4OWRkNjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJjZmY0MDBjYjU5MTZmOGM5YTIwNjE5NTUzOTY1ZjViMmUwYjQ5YzE5ODQ0NWY5MWU3MTAxNTcxNTU3YTAxYjUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/pin_expander.cpp#L12-L12",
+          "version": "repo-lines-v1:sha256:62e7aa3fa790b9dc1e8aabd78ee52914081759a9476d8a86fc53ff83ee27da8e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjJlN2FhM2ZhNzkwYjlkYzFlOGFhYmQ3OGVlNTI5MTQwODE3NTlhOTQ3NmQ4YTg2ZmM1M2ZmODNlZTI3ZGE4ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjJlN2FhM2ZhNzkwYjlkYzFlOGFhYmQ3OGVlNTI5MTQwODE3NTlhOTQ3NmQ4YTg2ZmM1M2ZmODNlZTI3ZGE4ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1MzAxMzVmMzQ0ZDRkOWI4OTVjNzk5OWZkZDQ3OGViYTMwMTRlYWJiYzA4MzY2ODA1YmUxY2ZjMjVlNjQwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzczYjMyYjcxOTUwYzZkOGViY2Q5MDlkNDdlZGEwYmQ2MTkwYzQwZGYyMDA0MWQxMzhmZWNlNzVjNjZkNzM4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_01b80899affe4edba4decccf8331b388",
+      "statement": "The OS keypad driver runs a dedicated FreeRTOS task woken by the GPIO1 negative-edge ISR with a 50 ms poll fallback, 10 ms settle, 16-entry key ring buffer, 800 ms default long-press and optional key repeat.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/TCA9535Keypad.cpp#L269-L298",
+          "version": "repo-lines-v1:sha256:eb9c062140e10780a20c908687e885c83adbd220d5e2b1a1618e20ba37878ea1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmNTA2NzRiY2ZlNzU4ZTc0Zjk3MTRiZjM5Yzc0NmYxZDc4N2RkYzI3Yjk3Y2Y1ZTQ2M2VhNmJlOTdhY2NmYzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhYTNjYjIzNmM2NGExMzc0Mjc3YTFhOGE2MDJiMTRmODAxYWQzYzUzYTQ0ZDYzMzYwN2FkZDAxODhhZTEwM2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMxYTZlMmFmNDY1OTE1NzcyYTAxNDIwMThhZWQxODc0MmNiMzhjNDFjOWUwNGM4NGRkYjNjZjFiZjFjOGQ3NzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5MmJlYWU3ZGE1NWVlOWY5OWNmNjM5ZWY1NzNkZjEwOTQ3MDBlODY3MzIwN2U0MmQwMDg5NzdkMzMyYzY1NmMifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/TCA9535Keypad.cpp#L33-L45",
+          "version": "repo-lines-v1:sha256:465a3e63b80a90eb6f694668d278e5c21cd7d51bb32cb2527d0770d7d17aa883:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzMTg1Y2U3ZDJhY2I3ZGRhMWZmYzcxMzE2YzUyMDFjMDVlZGZjNTU4MGYyNTIwMzU0OWMxZWIzM2U1YjU4OWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQyZWFkZTNjNTI5NjA4MmNmMjY5ZGZhY2M4ZTk2ZmFjMThlYzVkZjI4MTI5Y2EwMGZhOTU4MTA5MzQ2ZTBkNzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBjNGI5NTdhODNmNzMzMzAzMDBiNWE3MDM3NmRjNmM4M2Q4NDdjMTUyODlkNTNkYWQyOTRiNDE5MDE1N2MzYjUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/TCA9535Keypad.cpp#L440-L540",
+          "version": "repo-lines-v1:sha256:69ab98e1ea074dd7aabfbf0477f05443fb9b1fea62bf78bd5c608a426b11358f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlMTI2ZmIwODlkY2M4OGMzZTkwMzZjMTQ2Nzk1MjFmYzBhYmFjMGVkZWY4NjE2ODIzNmYxYTAxZDFhZjc3NmE3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzNzkyOWU5MWUwZjk5YzNlODI1ZGU2OWI0MzVmYjY0ODRkMWIwYTFkZjJmNDY1NjFhYmYxYTI5ZjA0MTg4Yjg4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI5ZmFlOWEwYmZlMmQzNTNhNjVlOGU1YjRhMWFmZmJkMjgxM2YzMzQzOGIzMzNjOTBkMDM1MGY1NTVjMjY5NjYyIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_89fbf9b1c155465682b069ded31afd0f",
+      "statement": "Holding N and Y together is a reserved panic chord recognised by the keypad driver that forces an instant lock, unloading plugins and returning to the lock screen.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/TCA9535Keypad.cpp#L473-L481",
+          "version": "repo-lines-v1:sha256:04a0db4db95d3cedb41fe929246dc8f5ce32f7df183caf73f1a1be70951d1724:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGFkMDc3YWY2ZDRlYzIyMjhjYzU1NDQ1MWE2NzQwYzMzMTYzYTExMDM1YzM5MTEyNWQ2ZDI3MTIwZTM0MTRhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTBhODI4MWYyYmU4MGIwYjRmNGQ0ODliNTJmYmQyNWYzYjI5MzA3MmU2YzBiZjU0MmYwNmEwNDcwOTNiZTJjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDFhZGE5NzU3OGE0YTg3YjY2OTUxODM1MzI5MTA3ZDhkM2VhNDE1ZDExZDkxNjRkMzZhZjE4NDJjMmViZGQ2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTEyZjBjMjhhZTZjMGFkZmI0Yjc5YWU1ZjkwZjY5YTg1N2FlMzVjYTI1YzhjNTFiNDM4MjEyNzNlNzY4ZGIwNiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/TCA9535Keypad.cpp#L70-L71",
+          "version": "repo-lines-v1:sha256:45630b6c5c2af6c2a5cea9901a92e30ad3f7459f9668d562e1d037c7641082c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Y4M2VmNzk2M2U2OTllNjdkNWFkYzA0ODRmYWViYmVkMDM4YjgzYWNjOTc3OWY2N2U1MDlhYmQwY2Q2ODNlYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhhMWQ4MTFmN2RkMDdiMzRkMTNhNjVhNDM1YTk2ZDA4OTk0M2M3MWE3MGUwYTRkMjkwYjJhOWFlMmE2ZjE5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTgzMDc4N2Y3ODZlMWJhOTI0ODVlZTZiZDA3M2U1ZWNlODY3NjViZjg2ZTdhYzc5NTk3OWNkZmIyMWFlNTVjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTM3YjAxZGZjOTFkMjM5OGU3OGYxNzhhYzc0OWFjZTU3MGZiMDFjOTM0M2UwZWJkYjBkNmVjYmU3MGViNjk5MiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/start/keypad-navigation.md#L61-L64",
+          "version": "repo-lines-v1:sha256:876c07192f0a82b7ae1f3e4b7bf62c08e6984b0c1ae9ef25f6bb8dc78b9405c7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI2NDAyZWQwNTQ2ZDVkYjI1MzJiYzBjYTFkN2RmNDU3YmEzOWIwNjNiM2QxNDQ1MGQxNjE3ZDJmNDQzMDRkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTVmMzI4NTIxZWY3MzhlZDkxMjhhZjU3ZGQ1NjNhZjllMTU0ZWU3YTNjN2NmOWU4ODhjNzA4YzFiY2UyZjdmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTlmOTE5NjgxOGE0MDg3NDIwMGE3NmI3ZDljNDVjOTNkNGUzZWUwMzBiZGE4MTg4YmYyZmQwZmRlNGQ2YzM0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTQ0ZTBmNThiNjYzZDQ2MWUzZDIzMjEzZWRlYzdmNGQ2OGMwOTI0MzljMDE5MWU5OTk5OTJiNWI2NDJjYTk2MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3e2350cecf2c4169ba708915037c11d0",
+      "statement": "Plugin keypad polling uses codes 0-9 with KEY_Y=10 and KEY_N=11, whereas key events deliver ASCII codes ('0'..'9', 'Y'=89, 'N'=78) in user_data.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1754-L1760",
+          "version": "repo-lines-v1:sha256:3bc79c5d04e5b6ca981847e8aa5f2792876b0a29a2fc12828e17c4759b4d30e1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhmOGI5MzMxYWZkNDc2Mjk4YTQzNzExYjY3MjY3NjZhZmYyZmFkNzQ1ZDU4MDNmODBlYTMxY2Q2MzJlMzE3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWU5ZjE1NjU2MTQwMmJiZDNhMzljZGQ4YjAwZjI1M2VlNTlmNWUzNWRmOGNkMzE0MzQyYWY3NWUyNmUzODA3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDBlZmQ4NzUyODAwMDNkZDBmM2M1ZDg4ZWRkMWVhZjVhMTFiMmEwMjdlYTkxZjNiYmJkZDAxNWJmZTNlYjNiOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWM2ZDFiN2YxNWIxMTZlZmVkY2VlMDRkMDE4YjY4ZTFhZGE3ZWVjNjJjMjk0YjcyNGE1MDZmMWRjMjIxYTQ1YSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1801-L1823",
+          "version": "repo-lines-v1:sha256:be5e38ef4c8c661bedb1ac543b78423cbf73619f91d1d698b344f7a906e045dd:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmY2VhNWUyNGY1OWE4NGUyZWNmMjExY2YxMzZiNGE1YTkyNjg3OGFhZDUzOTI5MzY4ODdjOTEyNDNiOWM2YzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE4MzdjMmQ0YzBjM2QxOGNhZWRkZmZkYmFkMzZmMjQ3Y2FiZWZjYjY5Mjg0YTU2M2U4NmU5MjNhM2QzMWJjYjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_518bf56346224d6699e15bc162eb8830",
+      "statement": "Plugin keypad polling only works while the calling plugin's view has input focus, preventing background plugins from observing lock-screen PIN entry.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_keypad.cpp#L17-L66",
+          "version": "repo-lines-v1:sha256:026f38c0e8b9e811f2a67a6fb8923d60239659bcad84cba5e83406197aaa1dad:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmMDRkOTljMGY1ZDM1MjFmNjdmN2M1ODdkMjBkZDM1OTJhNTAyNGI5MDM1MjllMWU0Njg4NDRmN2ZhZTgxMzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM0NTE2MmQ4YWQzMWM5NWZjMTQyOGQ1YThlNzc3MjhmMjkwNmNkY2RhNWY5ZjBiYzJiZDA2MTdhMTU0YmM4NzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3ODkwMDYxMWNmNjVjMGM2NGI3ZGJkOGY1YmExMTAyN2U3ZDBhZmM3YTg0YzZmMTQ2NmQzOGM2NDVjMzhhNmUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

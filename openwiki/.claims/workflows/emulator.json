@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:9bd5c742d827647856562f7f56cc1fd3ccc7c79a9999e85fb8430b5d98305698",
+  "claims": [
+    {
+      "id": "claim_b253dde726494aa199d832d348ce4595",
+      "statement": "The emulator re-hosts read-only cdc-badge-os sources (WAMR, WamrImports and host_api bodies, the drawing core and view stack) and replaces hardware at the HAL factory boundary with host backends plus ESP-IDF shims.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/CMakeLists.txt#L1-L30",
+          "version": "repo-lines-v1:sha256:e27706b8f98a9e66cdedaa39529f4e86d853254402e468becdb7210bab483f08:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmY2RjZGY5MWUwMzgyNzQ5OTc1ZTYyYmEzMDQwMWFkZGUxNDhiMGE4NjU3ZjQyMzM4ZjYzMjU1ZTk5ODNkYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBiYTIxMzMyMjJjOWVjYmFhOWExNGFhMzQyYmUzOTEzNWYzNmZjOTBjYmE4YzYyZWYxZmNmYjc4Y2FlNDgwYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2YmJjZDQ5N2I0OWM3YTI3YmNhOWMxYWJiZjUzYWJmMGYxOWU3ZDYxNzVhNzc5OWJmNjkzMWEwN2NhOTNmMTgifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0013-offdevice-emulator-rehosting.md",
+          "version": "repo-file-v1:sha256:53bb90a21ed73fb87757fe93f036c65ba1245613a47fe58d359f41fcc77bafe8"
+        }
+      ]
+    },
+    {
+      "id": "claim_3ca0320f538d4dc884dd90c5d64f2680",
+      "statement": "The emulator builds WAMR for x86_64 or aarch64 with the fast interpreter and AOT disabled.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/CMakeLists.txt#L120-L143",
+          "version": "repo-lines-v1:sha256:a942a43dba8b8091ffdb2f2e7cc33757ec535cb2f6004cdf03e6707dfd41b67d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiNzA0Y2VlZDk4YWViZGRiODIyOWYzMTNhN2E5OGI1YWUyOWNlMTExNzljZjgwMTM5ODE3NzZiNTI3MTNkOWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1MTgxOWQxODRlYWUzZjcwZTc3MDI2OTVkNjM0ZDI0YWFjZmZjZDUyNzk1Y2U5NWFjZWRjMTA1YTRkYmQwYWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0ZGRkMGQ0Y2I3MTM2NDkwN2JjZWI0ZTU5YWY3MTNiZTFlZDYxMmYwMGM3YzZhMzQ0NGU5MWY2ZGY1MmFjYmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjllM2Y4ZTZlZTQ4MDNmMTYzODU2NDNkMGJiYjg0MjU1MzRjZGI4NTZjZTY3YTQ5NjBiZjU0NTRmZDkwOGU5MjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a034f736e93b48edabfe8ef1583567ce",
+      "statement": "WamrImports64.cpp shadows the list and context-menu natives because the firmware wrappers read ui_item_t with host pointer size, which breaks on 64-bit hosts.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/src/WamrImports64.cpp#L1-L20",
+          "version": "repo-lines-v1:sha256:4d2acb18c714bc9461e0f92f2447da3d98bc75d6b17d50946f1eba636fda2b88:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxZWJjZGQzNWI1MmMxMTliN2QwOTMzODljZDdkMDY2ODE0OWJjMzVkZTM3NDBmNmRkOGJjMmE2YjQ3ODIyMjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc4MzZmZmZjZjNjOWI2NDU5YzFlZDAyY2FhMmU0ZjZjM2Y3OThkNTg1MTFkNWY0ZjljNGM4ZmQ0NmI4NWY2OTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_547d38c0998746ceb72ef5e0ec5c9b9e",
+      "statement": "In the emulator, drawing, host-API bodies, WAMR semantics, NVS/vFAT persistence, crypto and real network HTTP/sockets are real, while BLE, GPIO/PWM/ADC/I2C/SAO, pixel strip and USB CDC are stubs.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/README.md",
+          "version": "repo-file-v1:sha256:146045cd565ec75df84f81d3f991d94c1557a7aa1a25cbcab3e633ec31ae83cd"
+        }
+      ]
+    },
+    {
+      "id": "claim_f430e0bea5d54be9b11df0c543cdfaf2",
+      "statement": "The emulator's secure element is a software mock storing keys in plaintext files, TLS verification is disabled, and a se_safety test enforces that no irreversible operation exists.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/README.md",
+          "version": "repo-file-v1:sha256:146045cd565ec75df84f81d3f991d94c1557a7aa1a25cbcab3e633ec31ae83cd"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/tests/CMakeLists.txt#L13-L13",
+          "version": "repo-lines-v1:sha256:8e64df8bd1569393485741691dcc86741f141d3bfa7743822383e774a79fe88d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2NGRmOGJkMTU2OTM5MzQ4NTc0MTY5MWRjYzg2NzQxZjE0MWQzYmZhNzc0MzgyMjM4M2U3NzRhNzlmZTg4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2NGRmOGJkMTU2OTM5MzQ4NTc0MTY5MWRjYzg2NzQxZjE0MWQzYmZhNzc0MzgyMjM4M2U3NzRhNzlmZTg4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzlkYzBkMzVhYmNkOTFhYzk1NmIxNzU3OTY5ODUzMTY1NjRkMTZhMTZkNTA3MDJiYjY5NTE3OWNiODY2ZDZlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGFjYjk2OTdmZjA1NThlYzFkNWIyOWNlNmU3NWYwYjEwMTBiY2JhM2FhMmQwNGE5YmU1ZjgzZmY1MDJmZWVlYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5cd76cbcb6e146b9ada0374e6324719d",
+      "statement": "A single virtual clock drives timers, FreeRTOS ticks and 50 ms plugin ticks with a seeded RNG so scripted runs produce byte-identical frames used by snapshot tests.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/README.md",
+          "version": "repo-file-v1:sha256:146045cd565ec75df84f81d3f991d94c1557a7aa1a25cbcab3e633ec31ae83cd"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/tests/CMakeLists.txt#L28-L40",
+          "version": "repo-lines-v1:sha256:ba7fb1cb03404ff5be0cd5cab021863744c08367d7a7936543e8e8bce207ef86:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhOGFmNzAzYjcxMjhhNDU4MzNkODk1NDQ2NmIyYjFkMGQzNDdjMTUzYTMwYzBjYzcyMWM1YzlkYmVjYmMwY2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzYzRkNzJiOTMzMDA2MGU4MGYyOGNiYzk0NmUyZGI3MTY5YjJlZTViMzExY2NlZTdlYTUyMzdkYmZlMDg4ZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc1NzMzNDVmYjE5NDBlNzBlOGZlMzE5ZWQ0ZDE1NDZlNzgyNmRmMzE1MTQ4ZWVhZDhiNDAzZTYyMTZhZjU2ODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwZGU2NGM5MTljZTRjODEyOGE0YWIyYTdiYzcxYWM3MTNkMDAzOWIzNDM5MWY3ZjdjNjFjYmMyMjY0ZWMwNWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d7be7991268f4cad82de8c143c94637a",
+      "statement": "The emulator build requires the vendor/cdc-badge-os submodule with its WAMR submodule and fails with FATAL_ERROR otherwise; this submodule is empty in the vendored snapshot.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/CMakeLists.txt#L17-L26",
+          "version": "repo-lines-v1:sha256:d5d19a6f997130e607a016a48feb184912a50ad89380977dfaf4182cc70d4f4f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmNjk5ZDUxODM2MDQxODY0ZDg1NzFmNjZkYmFlN2Y4NDlmMjhlMjdhZDQ0M2RiNWVhMmIwNzdlMDYyNDRlNmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1ODBjNjIzMTY4ZWE2YzBhNzg5ZDNiZTAwMDg1MmE1NjlkZjUxOThlZWIzNjUwY2Y1YjJhNzVlODYzZjIxNzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjYzgxMjBjMGE3NDM4NmExZGIyMDE1NGNhNTUyMzYwYTE0ZTJiNjJkNWI0OTVlYWI4MWZhMGYxMjU5ZGVlMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhYjc2NjQ3MGY2ZDI0MDkzMzMzYmFkNGZiMmVlMjAxNTg1NzUyNzkwOTM4MzhmZjU4NzU3YTY3NGEwOWFiNWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b607f5205d04ea2a64e2823f69ed500",
+      "statement": "The emulator documentation describes a 225-symbol host API whereas the vendored OS snapshot registers more host functions, because the emulator builds against the development repo's older pinned OS.",
+      "evidence": [
+        {
+          "resource": "repo://references/SOURCES.md",
+          "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
+        },
+        {
+          "resource": "repo://references/cdc-badge-development/emulator/README.md",
+          "version": "repo-file-v1:sha256:146045cd565ec75df84f81d3f991d94c1557a7aa1a25cbcab3e633ec31ae83cd"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/WamrImports.cpp#L1281-L1300",
+          "version": "repo-lines-v1:sha256:27676f97ab638859425a0989b08a754bff4d141b81649097703a4217fa40170d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3MjhkMDk3YWRmMGM4MzM1ODA3ZDlmNGU2OWIwNDNjNTFjMzdjOGRkMzQ0YmQxNGQyZTg1ZjJmMGRkMTgyZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzNWE4YzI3NWUyY2YwMDJhOTA2NGI4ODgyY2RlNTMyODg0ZWRjZDhkZTRlNGU5MDZlZGM4M2Q5NzFiZjA1MDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5YzRiNjExMjBlMWQwNjlkMmFkMjk4ZDZhNTk3OTE1ZDMzYjg0ZDAzNjFlMjJmNWU0ZDU3MDk2YmNmMzExZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUxYzAxMWU3MGE5MzIzZTkzNDYxY2EzNGZmOTg3OWQwYzk3YTU0N2VlZjJiNzFhZDEzZTVjM2JkNzU3ODRhZDkifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

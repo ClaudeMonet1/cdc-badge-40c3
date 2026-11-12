@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8e7d595d7e8d2efee83e4d8b05fa6db659b2f26f623f383518df61a675d8f438",
+  "claims": [
+    {
+      "id": "claim_f9b5da8e7b6d49d1a6e988f0ae963208",
+      "statement": "The nametag firmware builds with PlatformIO Arduino for the stock esp32-s3-devkitc-1 board with USB CDC on boot and depends on libtropic-arduino, TCA9555, GxEPD2 and Adafruit GFX.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/platformio.ini",
+          "version": "repo-file-v1:sha256:4592dd24a29b5cd5affaad4ac728016010e4540228a58d54f3f515c2b7d3438a"
+        }
+      ]
+    },
+    {
+      "id": "claim_95386ebd25394e7e88675e4dce073128",
+      "statement": "The custom boards/cdc-badge-*.json files declaring 8 MB flash are not referenced by platformio.ini.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/boards/cdc-badge-usb.json",
+          "version": "repo-file-v1:sha256:b161d0b6f8901a6a4811e07a481046aa3070dec51acda62515dee762ddb5d556"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/platformio.ini",
+          "version": "repo-file-v1:sha256:4592dd24a29b5cd5affaad4ac728016010e4540228a58d54f3f515c2b7d3438a"
+        }
+      ]
+    },
+    {
+      "id": "claim_cf92278248fc4a8985992225d7a3f848",
+      "statement": "badge_init brings up serial, I2C, BQ25895 power management, SPI, the TCA9535 expander, settings, the display and finally TROPIC01, continuing on failures.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/badge.cpp#L6-L60",
+          "version": "repo-lines-v1:sha256:33ce9b2b57b0f3ec30d4b9bcb1c89bf0f97b804e7baefb6ceefae9f66d22bf64:eyJzZWxlY3RlZExpbmVDb3VudCI6NTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0ZTJlNTE5MzRjYWM5N2U1MDEyZDkwYmU4NmIzZTA2NmI5Mzk4NzgzNmZhZWFlZDljNjYwZmJmNTY0YTQzNTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1ZjI1YTliZTg1ZDlkYmU2ODIyZTA4ZDg2NmNlMjNlMjc2ZmU4YTk0YWE0NDVlZDEyYjVhMjA3MWIwZTZiMWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjMWNhMzZiYzlmOWQ0MGQwZTEwOWQyYzYwNmY3OWViYzJkMzk3NGEyZjkxNzk2YzkyYTExYWY1NzkzM2UzYTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_03cad7467be34ea090d421dd8b74b8ef",
+      "statement": "The nametag app pulses the frontlight continuously, adjusts brightness with keys 1 and 2 showing an on-screen overlay, and persists brightness to Preferences on every set call including each 15 ms pulse step.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/settings.cpp#L36-L40",
+          "version": "repo-lines-v1:sha256:d5ff584ebf9c0979f21b90ea588c861542b43f46e8d16b0c82301e14f1d96b5a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzI4ZTNlMzA2YjEwOWZlNWE5YWJhMTdiODFkOWJhNTIzMWM4ODY5OTExZmIyMzlhNjNmYjg4M2ZkMzU5ZTIwZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwYjM2YWE3NGE1OWJjZjRhODgxODU4MzdmNjU4YWZhZjM2NDZlZmYyYmIxNmMzOTI4ZDBlOTMzNWU5NDVkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWEwNTMzMTM3OGIwYjYzMGRlMmJkZjUxODgzOGQzODRjZTNlNDQxNjQxNDVhNGQ5ZjM2NzZhMzlhZWUwNjliYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/src/app.cpp#L23-L80",
+          "version": "repo-lines-v1:sha256:7a11719302f2e47a1048203b3d398ddbe7ad7eebc3fdd6df13eee51b0a1cc342:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwN2NmMjQzZjY0N2ZiMjk5MjQ0ZGFhZWE2N2Q4MmVjZjZjYmUwZGIyZDkyYTc4OWQ2NWI4ZjJkMjdmNWIxNjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjlkYmU1OTliNDAzYjBkOGU5NDY4ZTI4NDc5MmE2NWM0ZDU2M2JlMDdmMjUwMzkxOTVkZjE2ODIyYzYwMWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxODZkNDRkMTdkN2U5OTM2MThiNDA2YTZhOTc3NjhjNGI2NjA3MWExOWE3YmJkYzY4M2M4OGIwMzI2YWQ2ZWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3d07e1b831cc48c8a295fd2ee7c1e8d7",
+      "statement": "The nametag README's hardware table places the TCA9535 on I2C1 and its init sequence lists TROPIC01 before the display, contradicting the code.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/README.md",
+          "version": "repo-file-v1:sha256:6465ba4582aa158f84d25cfd3a1703ff44f9349cbcc6a253f0161abc5d44dd5e"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/badge.cpp#L50-L59",
+          "version": "repo-lines-v1:sha256:46cfb4b7ce9a63d1d768ca4070c53ec5065f6e68df92c99a09b4305e6c0b822a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MmUzZTk2ODE1NmU1Yzg4YjQwY2ViMGMyMmQ4NzM2YTk1NjkzNGI4ZWZkYzcyZmJmMTgyYTg0Zjg4NjM4YWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRmOGQ3MjU0Y2ZiMTQ2N2Y4ODUzNTJjY2U0YWYwNjI5ZTAwZWIwMjRkYWUxZmM1ZmQ0Y2U0OGNkZTgwYTEyOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4ODM2OWRkNmUzOTM4NmU5NjEzMmNmODZjYjQ4YjQ5NTY3NjIzOGViYzkxYmY1NDRjNGQ2ZjA5NTIyOTAwYTEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/pin_expander.cpp#L12-L12",
+          "version": "repo-lines-v1:sha256:62e7aa3fa790b9dc1e8aabd78ee52914081759a9476d8a86fc53ff83ee27da8e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjJlN2FhM2ZhNzkwYjlkYzFlOGFhYmQ3OGVlNTI5MTQwODE3NTlhOTQ3NmQ4YTg2ZmM1M2ZmODNlZTI3ZGE4ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjJlN2FhM2ZhNzkwYjlkYzFlOGFhYmQ3OGVlNTI5MTQwODE3NTlhOTQ3NmQ4YTg2ZmM1M2ZmODNlZTI3ZGE4ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1MzAxMzVmMzQ0ZDRkOWI4OTVjNzk5OWZkZDQ3OGViYTMwMTRlYWJiYzA4MzY2ODA1YmUxY2ZjMjVlNjQwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzczYjMyYjcxOTUwYzZkOGViY2Q5MDlkNDdlZGEwYmQ2MTkwYzQwZGYyMDA0MWQxMzhmZWNlNzVjNjZkNzM4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_021e184279c44da1a1f07487707fb233",
+      "statement": "The nametag test suites are Unity tests run on hardware covering serial, LED and e-paper light.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/test/test_connected/test_main.cpp",
+          "version": "repo-file-v1:sha256:6f152a2885e6c54372955f1950fd5af922498d94f34374a5ba2faa938c522774"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

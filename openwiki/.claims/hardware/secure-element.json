@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f7b17c99bd4b0d3980417738a17f9d5007cc771749e4b18e875682db6b1988e6",
+  "claims": [
+    {
+      "id": "claim_d60a5d863eab47e08fb891939d2f68f7",
+      "statement": "The TROPIC01 exposes 32 ECC key slots and 512 R-Memory slots, with slot 0 of each reserved and a guaranteed 444-byte (up to 475-byte) R-Memory slot size.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/tropic_slot_map.h#L15-L26",
+          "version": "repo-lines-v1:sha256:6da304f5c790b2896ff9a60debcd57b6b95fe3bef28907662cd3b713d86c08c6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiZDJiN2I1NDFlN2YzYmNmNTYyNzk5MmY1ZDY1MjY3MDg0YTQ3ZDBhYzM3ODRkMTY5MDY1MDQ0ZDFjYWM0YzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkYWM1OGI2OGZiMTU2NjlhNTc3NDY1YzcxYjg3ODkxNDA3ODkxNzY2YjVhYTNiN2NlZTM5YWQ5NWNkMjc4YTkifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/secure-element.md#L19-L60",
+          "version": "repo-lines-v1:sha256:607c23d1618cb01a123b585d5793795d9a0030cb0652f49ac472f7e958462887:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3ZDA0OTM3YjdhYjFiZjc3Y2E0ZTRjM2RkZGZhMjdmYjIwZTI0NjIyMTZjNThmOGIzN2U2ZWI4MTRhNTM2NmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllZjEyNzdkMWUwOTY0NjMwNDM3NTVhZDk3MDZjYTEyN2YwZTcyNTc0NDhmYzY4MmQyODRjZTEzZmFlYjdjOTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0ZTUwZWFmM2U1Nzc3OGJmZTI4Yjc2ZTAxYjBmZWJmNWI4ZjZlZGNmN2RlODIxYWM5ZDg5MTRhOTIzMGZjNzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3e6d2cd4c8e44dcfafcc349ace892f3c",
+      "statement": "The source slot map allocates GPG 1-3, CA 4, PIV 5-8, FIDO2 9-30 and a single plugin ECC slot 31, and R-Memory GPG 1-3, CA 4, PIV 5-8, FIDO2 9-30, 2FA 31-130, GPG RSA 131-136, password vault 137-500 and plugin pool 501-511.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/tropic_slot_map.h#L40-L98",
+          "version": "repo-lines-v1:sha256:76f5b768e839ae249101098e38a09233e66757079e632c65c314b228fc738a50:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzMDAxYjJlMWY0Nzg4Njg1ZWQ0NzAyZmUyMTY4YTk3ZTNlOTYyZTVjNDQwZTJiODA4Y2Y0NDVmNDU3ZjVlYmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg5ZmYzMjBiNDVjMGNiNzI5OGJlZDFkZWExNWMyYWU5YTM4Yjk3YzlkYWM4OWUyZDYxZjRjYTQ5Y2I1ODBlMmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc5MTc2ZGFiOWEwNDViNzVlNTU0ODJiNjJhZDE1OTJlODIyMjUwY2NjZTdmY2E0MmNiMGUwNzZhMmYyNjQ1MTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_51134fc4d9034efea0b92da9600ee7d9",
+      "statement": "The OS developer documentation's slot table still lists FIDO2 at 5-30 and omits the PIV module, which no longer matches tropic_slot_map.h.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/tropic_slot_map.h#L44-L50",
+          "version": "repo-lines-v1:sha256:d4fe97686693dd6ae139af82486e095b86e9bf5d53e5946f4a6d581496d8f09e:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA5ODRlMDMyYTA3ODk0NTg1ZTcyMGFlZjcwY2YwZjVhYzI0YTkwMDdiNWI5ZWQ1NWYxYWVjYzAxOTQzM2U5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzgyOGVkNDk3OTlmZWViYmFlZWI4NzA2N2E0ODcwNDUwNTY4NDVlMjVlZGJlY2E2MjQ1MzBmZjU3OTllMTdlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJlMGExMjdmZTU4ZGQzMjk5YTFkNDM0YzFmZTI3MzcwMDZkZWFhNzgwOTNjMDYwNmRlMTRmM2RmZmVkMTJiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDI3NjJmNTIyMzcwZDBlYTExYWFiZGYyOTIyODQ1NGEyNmY5MzAxZDgxMDQ1ODYzMWJkYTIwYjM3NDcxNTdjMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/secure-element.md#L61-L106",
+          "version": "repo-lines-v1:sha256:4195fccb3be5a7ffcff30a3d0caed68b009951e0cb2ea0938e5c33d463112bee:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlOTA5MDI4ZjE2YmRjNmU5ZWE5NjdkZDZhYmE3ZWVlZTkxMDg2NGI2MDRlOTY1NTZiY2IzYmRkMzBhZjljZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjMmI5N2FmZjMwOWY1ODcwODhjMmQ5MjBmNzUwNjJlODJjMGMyYzIyMmVmNzNiYjE4OWE1NzllYmQzMmYwYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1NzJhN2EzNDM0NmUwODI2ODk5ODljNzhkZDkxZDM1OTc4YjI1NDkwOGI0Y2ZlYzdmYWJmNWVkOWMzNDQzZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b40b2dd07dda4a1bb57b654ac8c4943b",
+      "statement": "ISecureElement ECDSA signing hashes the message internally with SHA-256, so callers must not pre-hash, and there is no private-key export operation.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/secure-element.md#L140-L159",
+          "version": "repo-lines-v1:sha256:5f37613f9ee488ab13324b870bd03611847dbb207bed099694410a934be7c64f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyNGY0YjZlYjdjOGRmZmQwOWZjYTk1ZTVkOGNlNzY5NjMyODQ4NGM0MjNkY2NmMTgxMGMwOGRlZTY3NDM5NzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiZDAxMjZlODg1MWQ0NWUzYWNiZTk5OGM4NzMyZjE4OTE0MTY3Yjk4ZTIyNDU0NTliZjZjYmQ3MTJmYmFiY2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1NTY1MmRkZGVhNTkwMDA1ZjczNTFjNmNhOGY3Y2U3ZjRhM2M5MWJjYWZhNzFmMjMzZjNiMmIzMmJjYmNkYzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c398cf0581d842cbaf18bc6d9fe9bfb4",
+      "statement": "The TROPIC01 pairing key is chosen at build time between the libtropic production key (default), the engineering-sample key or a git-ignored custom key.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/include/cdc_hal/pairing_key_config.h#L10-L50",
+          "version": "repo-lines-v1:sha256:5a3cf6c163486d23493c98c15b38bbd6fc350300fea63e3631377c350aaf1767:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNTliNGY4ODNhODIwYzNlMjE3NzE2MTEwOWYyY2NhOTcyOWIwOTcxYWM1ZDIzOGY5OWYxOGM5MDM3MDA3YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE0NjZhNDM4NjNhMDNkZDNiMmY3MWM2NGNhYmI0YTkxMmYxYjBiMmI0ODFmYTA3OTU5MjRiNTRiOTMxZWQ1NzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3NzgyODNmZjk5YzUxNTI1MTEzOWU0ZTA0ZWI5YzY4M2QzMGQ5NDk4Nzk4OGM4ODdmNjk0ODkzYWUyMDY0Y2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljYmUwY2I5MmY4MjcyM2Y1MTg2ZjcyZDY2M2RjY2FiYzQzNzM5NGJkZjY1ODJmYWMwMTBhMzlhODE4MTJjOTMifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/platformio.ini#L30-L37",
+          "version": "repo-lines-v1:sha256:3c10bfada8b775816dd69cdf5d88fea5686c98917f2d238da1b1eb9535bce02c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVlYmYwY2M5Yzg3YTg5YTQzOWJkM2ZhYjI5N2ZhNzY1NzFjZDFmY2Q4MDQ4MGM0YjY3OGFkODdjZjg5NTQ2MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM3YTEyMjQzMTAxMDE5NmYzMjJiYjY3ZGJiYjVhZTdmZDlhZTQ1ZGVlZWFmNGU0MTRmNmI2NTIyZjhhMzY5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2VmZDE4NWJjN2RmNDk5YzIxMjEyZDUzZmIxOWY3ZTZlZjM1MTRhN2YzMTUxNWI2NjZkNDM4ZTU4MDdmMDVkMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTExM2ZmNGU4YTBkYTQ1NmFmYTMwMTczYThkM2NkNDIwOWI3MDZmODUwNTY4MDA5ZTJiNjI0NDQzNmZkZDUxYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_334ef859ff4942aca776833e486a151b",
+      "statement": "The badge PIN doubles as the FIDO2 ClientPIN and is stored as LEFT(SHA-256(PIN),16), while OpenPGP PINs and the duress PIN use salted iterated S2K.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0004-two-kdf-pin-hashing.md",
+          "version": "repo-file-v1:sha256:2403301f346573452a522dd4fe2333c939bdbbb53d18ececbbb2259d7fc7e696"
+        }
+      ]
+    },
+    {
+      "id": "claim_e0285c54c06341308c889ab31fc5de44",
+      "statement": "The PIN record in R-Memory slot 0 is signed with the ECC slot 0 attestation key and any invalid or tampered record is silently reinitialised to defaults.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0011-attestation-signed-pin-record.md",
+          "version": "repo-file-v1:sha256:74ce2caa6ee72f2e3ab6bd0bc19f4189a29148b6d75f80880c4887f5f3500b81"
+        }
+      ]
+    },
+    {
+      "id": "claim_0f41399a446847e19206f9520d9126af",
+      "statement": "Badge PIN lockout is a self-recovering rate limit with a recovery window of 60 s x 2^(lockouts-1) capped near 17 hours, never a permanent lock.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/security/pin-lockout.md",
+          "version": "repo-file-v1:sha256:25f2b9b0eae9b8c9f61ba8061942f3855d302fe6b537acceee692f9ff29f0d27"
+        }
+      ]
+    },
+    {
+      "id": "claim_cdbc32eaf1c744519745a0ed123ace2e",
+      "statement": "The vendor nametag firmware only initialises the libtropic-arduino Tropic01 object on the shared SPI bus and starts a secure session with the production SH0 pairing key.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/tropic01.cpp",
+          "version": "repo-file-v1:sha256:545ae58ad48f06bdd05eeebe0f3b6f614fbb2d848704647404decb5c2520b774"
+        }
+      ]
+    },
+    {
+      "id": "claim_c66ddc94ca424674ab2282f90fe77798",
+      "statement": "libtropic-arduino exposes a non-copyable Tropic01 class with begin, secure session, ping, ECC generate/store/read/erase, ECDSA/EdDSA signing, R-Memory and MAC-and-destroy methods returning lt_ret_t, and requires SPI to be initialised beforehand.",
+      "evidence": [
+        {
+          "resource": "repo://references/libtropic-arduino/src/LibtropicArduino.h#L21-L265",
+          "version": "repo-lines-v1:sha256:683f81f9350083797095ad771bcec5c94f7f4d1b5197b07498072c48411bbba7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQ1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxMDEyNDFhNzQ4ZmQ4OTI3MmVlYjAwNGRkNzU4OGUxOGZhYThmZjI2YWFmZDk2YWRlMTE0NDg3MGZlZWM1NGE2IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJkNjYzNzIzNDQ0MDE2NzJjMDZjZjI4Nzk1ZTVmNmUyYTJkMzE5ODVmYWU3ZWJhMmQ5NzNhMzJlNWE0Y2ZlYTY5IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIwYWUyMjdmNjA0ZWE2ZWI0MzRhZjlmZmM4OWQ3NzQzOGRkMDhhY2UwYzA2NmVlZjUwZTg3ZmNkNjBlYTRjYmQxIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlZmEwZjc4MzJmNWY0MGNhZDc1MjU5OGI0ZTI1ZWJiYmYwYWRmNmEzMjUwNTczN2VkMmYyOTYxZGYyZDc5ZmNlIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_90af319b732c46d3851999e9df44510f",
+      "statement": "Plugins address ECC keys and R-Memory slots by names declared in the manifest; ECC names map to the plugin pool with the mapping persisted in NVS namespace plg_ecc_map, and R-Memory slots in 501-511 are shared by every plugin declaring the same name and survive uninstall while any installed plugin declares the name.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L241-L340",
+          "version": "repo-lines-v1:sha256:50dbc2ae06574ebcb37e97d08167f978032487bcca2e66618fa2ade477d30d56:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAwLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIyNmY5ZDUwYWY0NDBlZGI2MTUyNTRjNDQxNThkZTUyMTUzOTJjN2U5ODlhZjk0ZWQzMDZlNmYyZGFiZjgzNmM3IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIyZmUwODhjMzk5Mzk4NjIwN2VjNGMxMTk4MDI3YzZhNDcyY2IxYTAzMjBkNzk2NGQ1NzU5MWY1Y2IyZTAxODNhIn0"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_se.cpp#L24-L160",
+          "version": "repo-lines-v1:sha256:a7ef522678d6352d8d1217532c79abd2adc4caf53d49458dfd19280180a7bfa8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM3LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJjZjA0ZDk5YzBmNWQzNTIxZjY3ZjdjNTg3ZDIwZGQzNTkyYTUwMjRiOTAzNTI5ZTFlNDY4ODQ0ZjdmYWU4MTM1IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI4MzIzZmFjYTJmNmZlZmYxM2Y3MDAzZTg0YmE5MTc1ZDEwYTJkOGMxNTUyNzJhMWMyZWM4N2E3ZTgzYzAwY2ExIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0OGUxZTg2OTU4YjkwZGVkYjhkODEyNDRjNDMyZjA1M2M3Y2QyMGFjZmU0ZTYwZDlkNWY3NGU3NjIyYjJhY2Y4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJiMDExNTU3MzRmOTkyZmFjY2VjNmQ2YWMxMzk0M2RkZGMyZmFmODc2ZDE2M2E2NjZiYjIzMjIyMTQyYzNkM2FlIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_33e6822b21094c868d9419bf62aa7fcd",
+      "statement": "The plugin ABI curve constants are ECC_CURVE_P256=0 and ECC_CURVE_ED25519=1, the reverse of the OS-internal curve byte where Ed25519 is 0.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L252-L253",
+          "version": "repo-lines-v1:sha256:96daf6df5c39d13070db1e920a2c78355a9a9067938fc3f1df741c6e683019f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWE4ZGFhYWU0NzU0ZjFlOTJmYjEyZjlhZjBlMjJjMTYyNTNiOGE0YWM1OGQ1MDhhZmIxNzQwZmMwMThjMjlhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMThkMDc1NTY3MGE0Y2YzYTdhOTQ3NzAwOGQ4NGExNzVkOTM1MDNjOWZjZDkyNzAyYmFmZjExZTBlMmZiYzM1MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTgzN2MyZDRjMGMzZDE4Y2FlZGRmZmRiYWQzNmYyNDdjYWJlZmNiNjkyODRhNTYzZTg2ZTkyM2EzZDMxYmNiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTZkZjk4Njg1YWQ2NzIxZTAwMjU2OWI5MzdjYzM5MmNhNGFiNWE1MzFmN2IzNjUxZmE0NzkxODE4YWVmMjk5ZSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_se.cpp#L189-L191",
+          "version": "repo-lines-v1:sha256:19ab1dc18960dc03d68992a70becc20ecd069542e5a19eab763e8edc63e91c48:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE3MGRiYmE0ZjFjNTBlYmU1MjhlZjc5MDEwNjQzNjdhYmI5MDJlMDc2ZmMwYTJlOWRkY2QzNGFmMmVlMTQwYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTllNzYzNTVjZjExOTk0ODBjM2Y5OTgzNmIxNDg2Yzg0MWQ4OTFmYWFkOTA0YzYwOGUwOTMwMjJkMzc1N2FlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWUzNzVhM2NiM2EyY2JlMmY5ZGVkOWM4Mjk2YTZhYjY2ODQ4Y2M4MjZmZDcxZjkxOTI0NmFjYjE3ZTBiZDQ1NSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/secure-element.md#L107-L119",
+          "version": "repo-lines-v1:sha256:1012be9159d34bdd022423dfe2c0321b70cfed352b61d6157071e06316528075:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhYzFmOGI2NTY3Mjc1MTBjN2I0NmM4ODlhYzBiMDBmNzZiNzU2YmYxMTM2YWIxMGE1ZjljMTI3ZGUyNjExMzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhYTc1MjgzOTQ2MTA0ZTE1MzE4MzZlMmVhZGI4ZTM0MGRmYmY3ZWIwZWRiZGMzZGVmN2I2ZGNiMGViMjYxZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0OTkwNTA5OWEyZGViNjgwZDE2MzNjNTQ2NDRmNTQ5ZGFjYmIzZDgxYjRlYzc0YmZkZjIzODJhZWFiODczMjkifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

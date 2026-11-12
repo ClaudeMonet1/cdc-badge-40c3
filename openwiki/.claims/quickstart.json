@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:661b66fb18e427174a97e85912f1b8119099feffce4d0de1033d122acb608949",
+  "claims": [
+    {
+      "id": "claim_9c6d88691d1f450c88541aba19cd7827",
+      "statement": "badge-cdc aims to build a sandboxed WebAssembly application in Rust for the CDC Badge and currently contains only vendored reference material and the wiki.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:9de28fe21744c657b2337f9db371f0c968809cf67cd0e8d80340bec10d7042d5"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e66602dba294cf0b6faf21bf5614d6e",
+      "statement": "The repository's Nix dev shell supplies the Rust wasm32 toolchain, WASM tooling, flashing tools, emulator build dependencies and Node 22 for OpenWiki.",
+      "evidence": [
+        {
+          "resource": "repo://flake.nix",
+          "version": "repo-file-v1:sha256:0080b531668ade7ba12f72b06d236bf1cc0347a9dfbbf4c5e88f1a166de15600"
+        }
+      ]
+    },
+    {
+      "id": "claim_4ce1eef595e344f1a65d021ba1d10b97",
+      "statement": "Plugins must export plugin_required_api_major/minor, plugin_init, plugin_deinit, plugin_on_enter and plugin_on_exit.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/plugin_lifecycle.h",
+          "version": "repo-file-v1:sha256:4d039cd1461b238508290358b087a81c2ff304c121e51adbf43ea765f63b4f03"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a53693db0ad426892481da39cef5777",
+      "statement": "The OS documentation site is generated from cdc-badge-os/website and published at krim404.github.io/cdc-badge-os.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/README.md",
+          "version": "repo-file-v1:sha256:8b59fcb617cb0ded59479027df1929f9c56dead92c82a4e70521fa6ff46749c5"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

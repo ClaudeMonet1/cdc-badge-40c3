@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:10d0aedf24236611640dea092f2447b764196c310aeda10611906fd0bcb42a45",
+  "claims": [
+    {
+      "id": "claim_d46e1a1882914b0c8c12a53498df70d2",
+      "statement": "The ESP32-S3 was chosen over ESP32-C3/C6 for USB OTG support, onboard Wi-Fi/BLE, higher GPIO count and dual-core performance.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L3-L13",
+          "version": "repo-lines-v1:sha256:8cc2c167f3b49984d0ba29785fbd4cba15867419333f80df871ee616830ebd60:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyNjUzNTJlZTgxZDQzOTEzNDlhNTgyNGQ3ODNmYjQ5YjgxNjdiNTZjZmYwZWI0MTQ1ZDY3MjNhN2NhYzYyN2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkZTI1MWYwZDdhMjUxNmIyYTU1MDc4Yzc3Mzk1MGNiYWY5ODk0MjEzYmEzYzg0M2I2OGRiMDVlZjNkMmQzMWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmOTJiNDgzZmM1ZjYzMWYzMmRhMjIwNjljOWE5NGE0NmM1MTFjNzlhOTFhZWJjYzkxY2U3NTI0MmM0N2ViYTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJhMDdmNThmMTljM2QzZjEwOWUzMGMzODk3MzhmMTM1MTM2NGNiNzM0MTYxODEyYzhkZDE0MjMzOWI3NzFkMjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8072a23645f64343b9ff227dfab33512",
+      "statement": "Some ESP32-S3-WROOM-1 module pins are reserved for the Octal SPI PSRAM and unavailable for other uses.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/cdc-badge/cdc-badge.kicad_sch#L10126-L10135",
+          "version": "repo-lines-v1:sha256:630f88dd56e209f615779735ee65576767f3ebe5e56e952f3873f2a59169f4ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzMzQ3MmM2ZTFjODU5NDg4NDg3ZTBlMDE5NzZmMjhjODIxYTNjODEyMTM3OThhNjRmZTVmZWY1OGNmMmU2ZGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZmI1ZWZiMjg3NzU3MWU3YzNkZTFhZmUzZTZjYjkxYmUwZGQ5YTdkYjMyNmE1YjBjNDg4OTFmODUyNDZmMmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjExZjE0NjgyNDNlNmVkM2FkZGE4Mjc3ZDU1NTQ1M2ZjNTIwM2ZlMzQwMWE0NTRiYjU3Yzg3NzY0YjYzMDQ0OGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4Y2JlYTBjMzQ3YWMwMTBkMThiOThlZTgzYzJkZTA5OWQxYmNmYTMzZTc1ZjMwMWQ3Mjg4NzdjNmRiZmZlZWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_da6518876c2e40618ba78feb4398bc13",
+      "statement": "cdc-badge-os builds for 16 MB flash with PSRAM enabled, whereas the vendor nametag board definition declares 8 MB flash.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/boards/cdc-badge-usb.json#L43-L43",
+          "version": "repo-lines-v1:sha256:db470f6e905961f20915127ab12d9f034093743e603a241bcad4fc5075083867:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI0NzBmNmU5MDU5NjFmMjA5MTUxMjdhYjEyZDlmMDM0MDkzNzQzZTYwM2EyNDFiY2FkNGZjNTA3NTA4Mzg2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI0NzBmNmU5MDU5NjFmMjA5MTUxMjdhYjEyZDlmMDM0MDkzNzQzZTYwM2EyNDFiY2FkNGZjNTA3NTA4Mzg2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODIyZGI4MmFjMTBiNjViMWRhNWIxOGJmNGFkYjJlNWFkMWJhMDczMWRmMWI2ZDQ0MDBiZjM3NmJkM2VmYjU3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA3YjMzYzM0ZmUyYjE3M2IwMGE1OGNiMTVhZDc3YjYxY2M0Y2Y2NTM5YzhjMDliMTI3ODEzNzM2YjE2YWE2YSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/platformio.ini#L13-L14",
+          "version": "repo-lines-v1:sha256:ebf1924302b56b7af81a7253008101a0732a4d1ace278d1aea59b13327734e7c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGE3MjY1MjAwMmI3NjRiNzU3MTQwYzM5MzU5N2FhMWY1NmIxMDczMDI3MjBiYTJlZTljYWQ1Mzk5NDE1OWQwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFiYmY2YTkwNTBmOWMzNWQ0YTU2OWFhOTFkNmI0YzFiYjlmY2I0NTViZmM0MmZkZDY1M2NjNzJmZWFjMTQwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGM3YzQ5MmE3MTdkYTkwMjdjZWE3MjYwNzg3NjY5MmU3NTZkMmFkMTkyNGQzNmM3ZDdjODAxOWI3ZGQzYzQ5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTVhNzczMGNiMzhhNzdjMjAwZjUwYmMxZDA0ZjhkYTU4NGJlMjk4ODUxMDZmOTgzZDMyNzE0YmVmOWFmNGY5YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1fd27b78ff7e4f5ab642214943b2a35c",
+      "statement": "The badge exposes three expansion ports: a Raspberry Pi 40-pin header, an SAO port and a Grove-compatible connector with selectable 3.3 V or 5 V supply.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/README.md#L63-L70",
+          "version": "repo-lines-v1:sha256:b7d587491050da9a213efa479cddb7186b5114fb62c06f5ae1e540a4e6ca041e:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDc0NjU1ZmU5ZmI3YmZlYWRlNTM5OTI1MmMxNmRkMjFjMDhiNjk3YTk1YWQ1YTg5M2I5OWI3NmQ0YTg2MzFjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzk1NzE1OTAwNjkyNmMwZmZmNTczMWRlODIzYjk5NDQxYjhkNzUwNWI5ZjJhY2MzOGYzZjk3MzFiOGQzZWNmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTk4NjFiZGFiMDYzMmVmOGViOWU0NTZjNmY3N2RiMGQ2ZGE0MGM0MjJhYjhmMTdmZWQ1N2QwMzEzMTg4NzQwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjJlZjQwYmIyNmExOTJjMzQ3M2YwZTRkYzI3YjU2OGQzY2I2NTI2OTAzMTVkZGExZDc2YjQ1OGEyY2VkZWRlNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_23886e0e70194eceba1856aaf288c4c1",
+      "statement": "Two slide switches can route Raspberry Pi header pins 24 and 26 to the chip selects of the e-paper display and TROPIC01, with display DC/RST/BUSY on pins 29/31/36 and the TROPIC01 interrupt on pin 37, allowing an external MCU to use both devices.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/README.md#L77-L86",
+          "version": "repo-lines-v1:sha256:40e4d2855236f1e8c354d1f5af33913aa05b1cf56288832f68406f3a8bc1b3f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjZTE2MGExNGJjZGNmMjE1OWRkOWU1ZmYyNmE2NmQ2NWNmZjNlMzc5ZjUyZWZjNjRiZWU4YjM4ZGY3NjFmOTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjN2U1N2M4M2NkNDI2YWYzOTg3MzJkYjQyYzE1Nzk4MzRjOGY3ZDhkM2RhOTM3ODRkYTg1ODNiZDk5ZmM3ODciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk1ZDViN2E3OWQzZWYyNDU3YmU5OWI5ZTY0MTRlNjY0ZjVlYTdmMTFmY2FhYjQ5NjkyMTAyOGQ4MDZlYWEwM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM4M2Y1MmU0NWNhMzNhNjZmYzgzOWRmNzllODE0ZjBhNDVlZWY2MzFkOTY2NmQwNTczNWU5ZmRiYjI3OTU4ZTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_13b206051a83469bb5f0308fb5580f88",
+      "statement": "The PW ON / RESET button is wired to the BQ25895: a 2 s press leaves shipping mode and a 12 s press on battery forces a full power reset.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/README.md#L93-L99",
+          "version": "repo-lines-v1:sha256:7c9b73b8f314749fdca886d0b633d80626d0f1f5ffaf75039b3c2a5587c5024c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGUxNGYyZGJlOWViYmE3MDdhYWY2MGY0NzgyMDgyZThiYTlmOWVlN2YzYmMwZmFkZGEyYzFiMjhjNjcxYjA2NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmMyOTEzZjJiZTE5NmMzZmU5OGM2ZTBkZjMzYjZjOTA0YTIxYzQxNTJhMWIxNTY4ZWUxOTQxZGI4NWNkY2E4YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWE1MjdhZjVjMDM4YjNmNDE2YjA2NjNiZTJlZmM0OTg4MzdmZTg3YTI2ODQ1MjUwNzJmMThkNjBkZjM2NWE3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmMyNjc0NWI1ZGZjY2I5ZWZhNjZhY2RlY2RkNjY3ZDlmZTJiZWY3Mjg0MGZmMDc4NDFiMTllMzE2MjNlZjUzZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c0a40003ddd4c3ea1e78f73951b872d",
+      "statement": "The 3.3 V bus supplies all badge components with a 2 A maximum, the 5 V bus 2.5 A, and the TROPIC01's 945 µA sleep current dominates standby consumption.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/README.md#L101-L118",
+          "version": "repo-lines-v1:sha256:cfaeeeb64447f46a69898322efb6c0ac2efc1e0bb58bd51340fcd990a54129d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4MDIwNWZhOWU2NjI3MzBjMzk0NGRjMDQ3NmY5NWIyZjY1Y2FkZTJiODc0NGUyYmU5ZTdiMjZkMWI0YjQ3ZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiNDM0N2ZkNWY4OTdkNzA2NzJkNTU5MTYyMmU2ZmYyMzk4MzM1NTIwYmY1OGUyNGE0NzNjMTIxYWI3MmM2NjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlODczYzBiMjcxZDAzZmFjNTQ0YjU1ODEyMWMwMzIyY2FmY2M4ODljOGE4NjY5YWMzZGQzZTJkZTU2NmY3OTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmMTI5N2JkODJiODE2NDEyN2YwZmFlYWYzMDY0MjA3MjkyNDE0N2Y3NTMxYTMwOWY5ZmNjZTg1Nzc5Mzk5ZWIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L134-L145",
+          "version": "repo-lines-v1:sha256:93074343d7b115a27af155c29f42d4dcee21e0fba6db9b99e5a75283747cfe26:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyYWQ4YTUwYWQ3MTJiNmFiY2MwM2RkZDk1MjliODZkZjBiMzE5YzBmYWE5ODFlMDcxMDk5OGE4MmVkOWI1ZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNjM3ZTc0MzlkZmZkNDI0ZTZkNDk3NjY4MDdiMTYwMjA2MDNkYTk5YWZlZmRkYTRiZGNkYjExMGJmYTY5MzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdmN2E1MDBlMDhhMDVjYTAxMTFlMDJhMDA4NDUyOTk0MzE5ODVhZDA5YTg1OTRiYmMxNmU5MzA4ZjY5NGZlMTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkYjRhODhiZDA4MjYwYmE5OTVhNjg2NDZlMTg5MmQ5MGFiMjhjYTY1NTFjMDE5NWM5NmY2NDZhZGE0ZGJiYjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5c6207f88ea64387b0e6c5e0be0eaa5e",
+      "statement": "USB host/OTG mode is unsupported because fixed 5.1 kΩ CC pull-downs make the badge always appear as a USB device.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L273-L289",
+          "version": "repo-lines-v1:sha256:f693c61dde4453fe9075a7cb8ec5fbdd0d336b36119f6426c2aa55b24796fbdd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjNmJlNmU2ZThhNjNmMWExYTEwMjk1YzU5ZTQ0MjdiYzQyNGEzMjUxMGIxYTMwNGYxZTNhMmM5Njc1MmRlNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MTY1YmI5YWU2N2MxZjBlNWQ3NDg4MGY4ZmU5ZWNkN2RkMTIxMGM4ZTBhOGY3M2Q4MjIwYzNmNGRkNzZlMjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwYzViNzQ2MzQ4YmM5MmE2ZTJkMDQ4NDNhNmZmNjQxNjc3ZDk1MDMwNDZiYmMzNWQ1MDE1ZDZiMDMyMThmM2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ad66970604df465db91167a7a9061b0a",
+      "statement": "The frontlight is driven by ESP32 LED PWM through an Si1308EDL MOSFET with a current-limiting resistor capping it at 3.0 V.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L248-L271",
+          "version": "repo-lines-v1:sha256:6e49b94cae4b3457e29d4abf5264dbd08321ee960e972ff1c9ed7a40ebcc1e3b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhMmUyZWI2N2JlZTc3YjgxYjhkMTk5YmNlOTNkMjIwZmZlNzE5YWUzMDdlMWUxYzAzYWVlY2RkOTQ0ZWJhNWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiZmJmNGYzMTFkZTQ3MzBiZjI4NjQ4MDE0OWM5ZTk3OTJkMTYwMTdlYjVlYmI2ODMyMjU4ZTc3NTJkZGJkYjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmMDZkMmUzMTZlNGQ0YmViM2Y5YTVmZTBhMDlhMGIyZWY3YWU1Y2RkNGJlYjkzOWUzOTc1MWVmMTI1YjRjNTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxZmY1NjcwZWE3MmUxMjc2YmVlOTZiZTM5NTc2NTdkMWNjMjdiZGEzNjFhMWVmNTVlYjNkNzZiNGYyYzlhOGMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ebeb2c4474a74d96b7c7e2662a84c36f",
+      "statement": "Hardware revisions v0.1 (test run), v1.0 and v1.1 (mass production) differ in buttons, silkscreen and mechanical placement, not in the firmware-facing interface.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/CHANGELOG.md",
+          "version": "repo-file-v1:sha256:58d569ac8c52d32600fe80eb3de117df33aaeb1932996322a1cb6231edd4d0a8"
+        }
+      ]
+    },
+    {
+      "id": "claim_8f0294b2ec684ed1a98068bfbb65786d",
+      "statement": "The badge can be flashed over native USB or over UART on Raspberry Pi header pins 8 and 10, and a first USB flash may need the flash+reset button sequence.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/README.md#L45-L52",
+          "version": "repo-lines-v1:sha256:6b8e2f416b89004d94ea4bfce297704f6f798c4378b3651b35c9d43374a23e71:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDM2MjVkM2RhYWUzZGM0ZWI0MjU5NDhiMzY3OWZhMGI0Yzk5YjJhMjkwOTBmMDRiM2RlMzhkOTIwNDQzN2E5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE2MTUwNjRiZWY5NGZkNjUxNWFlMTg3ZDIzY2QxZTUwY2M1ODI0ZjdhMTJiYjJhNGY3NWU0ZGFlZDljN2ZjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODNmMTcwYmQ3NGYzMzNhMzU5ZDZkODVjMDJiYzBhMWZmNGU1NjQ0Y2ZhYjFjZmRlMmUwMjYyMGViZTMzMDk1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGY2NjdkM2Q0ZmVlN2I5ODhkOTk4YTcyNWQ2NDRmOTFjMjhiNTE5MzNiMWIwNDU1ZjFhZjljZjgwMjIxMGFkNSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

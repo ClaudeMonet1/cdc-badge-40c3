@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f8a70761cc1e5a056ee5404b6d0561d786317d6a435d28d0ddad5566ac31ee18",
+  "claims": [
+    {
+      "id": "claim_8dc3682d64ef45efb544907ff9629ed6",
+      "statement": "A plugin must export plugin_required_api_major/minor, plugin_init, plugin_deinit, plugin_on_enter and plugin_on_exit, and may export plugin_on_action, plugin_on_button, plugin_on_event, plugin_on_tick, plugin_on_cmd and plugin_on_prerequisite_failed.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/sdk/plugin_lifecycle.h",
+          "version": "repo-file-v1:sha256:4d039cd1461b238508290358b087a81c2ff304c121e51adbf43ea765f63b4f03"
+        }
+      ]
+    },
+    {
+      "id": "claim_022dbfa8073a4c01af7f9f53b6422fb9",
+      "statement": "The plugin lifecycle runs load, init, prerequisites, on_enter, running, on_exit, release of prerequisites in reverse order, deinit and unload, with prerequisite failures handled by abort, warn or callback.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/plugin_lifecycle.md",
+          "version": "repo-file-v1:sha256:691ed64e5e56f61b1ecf7031dc5ec1d01aa04d9dff704de8a95e9ec9b3eb7108"
+        }
+      ]
+    },
+    {
+      "id": "claim_2ca996e61fb74174a1e6fb62450649f0",
+      "statement": "Since host API 0.8 the background and autoload capabilities are only permissions; a plugin must call set_resident(true) to stay loaded after leaving or after autoload init.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/capabilities.md",
+          "version": "repo-file-v1:sha256:e793299a13d9f5aa37a224c677f5bc29ac5009d719873f74ed0817b10620d855"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/plugin_lifecycle.md",
+          "version": "repo-file-v1:sha256:691ed64e5e56f61b1ecf7031dc5ec1d01aa04d9dff704de8a95e9ec9b3eb7108"
+        }
+      ]
+    },
+    {
+      "id": "claim_837ea255336d468eb67d865ce599441e",
+      "statement": "PluginManager runs a plg_tick FreeRTOS task with a 12 KiB stack at priority 5 that ticks the foreground and background plugins every 50 ms.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L52-L54",
+          "version": "repo-lines-v1:sha256:2e6b8060714d99fc0638b12a68882916028399a7ada6b4bdc1ad9f7c52c04730:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZmMmFjMWJjNzFkMmQ0ZjNiMzJmNzQwMTY2YzgyYWE2MzFiMjY4NGM2MmU4ZjEwYmNiZDU0N2I2MTI5OWQ3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjk0MjI3YTg3NWVhYTlhYzJmZTQ0MDE0YTY3Y2I3NDU0NWNlNjg4ZmI3ZmE4ODE0NjIzNmNiM2ViMzhkYjBmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGIyZTM0YjQ0NmY4NDljZTAzNjc0YWFhMTdhMzM2YTI2NjVmNDJjYmI0ZGE3YmQwMTViNGFmMDk3MGNmYmFmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzc4ZGI1NzRlMTU2MDI5YmZhNjdjZmYyMWUxZjcyZTY3MDhlNDVhYmZjMzZmODg5MTk2YTdiN2MzMWNjM2ZlOCJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L960-L995",
+          "version": "repo-lines-v1:sha256:57b3627a46c603b39c36d904da26dad295fc403cc02cc5c5a9c0c70399123843:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjZDgyZjRlYTQ2YjA1MDAyYTEzMDVkN2NlYzRjODZkZmIzOTM3MjczMDVjOWZmZDIzNzM3Yjk0ZmJjMGM4MzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxMjhlYjc5NDQzYzA5MTE0NjFkOWY3N2VhODIxMzUwZDIxZTk2MzIwYjc0ZmM4OWMxMGExMDM1MGQxNGEzMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0YmZlZGE1NDg4MzYzYzdkNTdiOWI4NDM5MTdjZWU3NTUyMGRjZGQ5N2RiM2ZkOTFkNjU5YjQyYzE5NjY0NTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ba6f46f057fc409e932a2c0ba328ed75",
+      "statement": "Plugin event subscriptions share a 16-entry table, are delivered as plugin_on_action(action_id, event_type, value), and key events reach only a plugin whose view has input focus.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_event.cpp#L46-L130",
+          "version": "repo-lines-v1:sha256:368b49c89c62dc9228cf24360c74896cfaaec031ddc7d335ff54f2c8392265cf:eyJzZWxlY3RlZExpbmVDb3VudCI6ODUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3ZjUzYjRlYzA5MTdhYWNiNmU4NWEwNmRmNzJiZTlkYzQwZTVhMTI1NjMxYTc2YjI5MGI0YzE0ZmU3NzhkNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkZGUyZmJjNTA4MjI4ZjY4ZGMwYTU1NDFlZjVhNjJlMzc0Y2M5MmExZWIyNzM5NDU4Njg3NjljODYyYmFiNDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_75224b7ca02643f9bf222715b62e21d2",
+      "statement": "When a plugin export traps, the manager logs the trap and force-unloads that plugin without running plugin_deinit, popping its views if it was in the foreground.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L463-L488",
+          "version": "repo-lines-v1:sha256:08aa04db169f6d5b926193242559932d81a4bc7a47959a6116753dc2b4a798f6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5ZTc3ZDNmZjM4MmJmYjNjYWQwYmRkODEwNTNiM2MxMGVlMWY0ODhlMDY1YmFlZjk0ZWI1NWZjZDQ3Mzg5ZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwM2EyMDk4NTE4OWRkOTc5Yjk3MDMwNjQ3ZmM4MTlkMjhmNzczNDVlMjE3ZGE1YjkxYWRkYTU2N2IzOGIyMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwNjEyNGNlZDcxZThiOGEyYTNhMTJlZjRiMDg1MTIyNDUzZjhiNDc4YjJiNDA5MWJiOTk0ZDYzZjhkYzhmZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_418da79a4284475ebf20e3bbe7863f36",
+      "statement": "Plugin calls are serialised by a recursive call mutex in PluginManager.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L121-L122",
+          "version": "repo-lines-v1:sha256:db898deeb92cfdfdcb557592be73970ecad35d2a7ff557d1865d66dd927c06b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzM0MTczOTlhNWY2MDM4NDY4MDIxOGM2ODdhMzRjMWM1NDRkZGYzMWJjNjdmOWYyOGQ1ODY5M2I5MWZhZjY4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODEzZWY2NTViZmQxNGVhMzM3NzQ2Zjk4NTQ3OTUyNzVjMWVhMWYzNTcwYmZhY2RhZWI1Zjc5YTU1ZjY0NzJiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2NkOWM1NGY1MWM4YWM4YTk2YzVlNjM0ZDcyNzE2Y2I0NTU1MWIzMDU2MTBkODRjODg3NjYzZjhjZjNjNjVkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTM0MzEzZDZjZTFkNzhmYWY4NjM1YjYzODFhYjljOTIyNWU4NzViZTZjYjI1MmEzZTk3NzNlMDhmYjVkOTdiNSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L940-L947",
+          "version": "repo-lines-v1:sha256:48ecad3170cbba691ac170218337f67907e53b9f2927a0969262a8d85616261b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc0ZGNhNWY1ZTdiN2QxNzdhZmVkMWIzMWNhY2ZjZGU2ODE2YzgwOWNhYjRjMzE5MzM3ODg3ZGMyYWJlN2Y1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmI1ZTZmZTVkYjE5MDFlMjZlNDc1NWYxNjNhZjg2MDYwMDE5N2ZmMzAzM2FlNmRiZjFkZjljM2EyYmQ2MWUwNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_32637b910e484a3ba5920169221e024d",
+      "statement": "The canvas view routes unconsumed keys to a key action with the ASCII key code and widget interactions to a widget action with CHANGED, COMMITTED or CANCELLED subtypes, and requires a commit to refresh the display.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1180-L1205",
+          "version": "repo-lines-v1:sha256:3ce93a5b62e53900e6a0b945a183d3c8c35d11479fee922856464a037e62f11f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYzYzNGRlMDFmNWQ4Yjk4YTY3NjQ1MmNlODM5OWRjMjhhOGUwZjNkNTY2MDI3NjNkNWNiYjRlYjIyODAzMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjExNGQ0NzAxNjg2YzNkZmIyMWM1NmNjZjU2ZTM0NjFkMTFmYWRhYmI4YjI0MWFjY2E3Y2Y1ZWQ1ODJlYzNmNDkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b518939d0a1a45aba9f6a6ada4d7682e",
+      "statement": "A plugin may register one lock-screen quick action and raise a single persistent Y/N lock-screen alert whose answer is routed back even to a background plugin.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L2704-L2743",
+          "version": "repo-lines-v1:sha256:920a9dd5fd0453f211a8decb8d11db30ed414f9d41a1cd17605215cdcdbd81a4:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlNWRmMDQ1ZmNhOTg5NmE4YTA3M2YxNjU3MTYzYzk5YTJlZTc1MGQ3ZjkzYmM1MzE0OTQwYTEwMzc1ODI0YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMzdhNDM3ZTg5MjY2YmNiZDRiYzAwYjk4YWViNWJkYzhhMDg3MzEyYjhjY2Q4MzE5NmY1NGEyYjE4YjM3YjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_358d79bd13244ae6925ad52fdfc20069",
+      "statement": "The OS ViewStack supports an exclusive lock under which push, pop, replace and modal calls from non-owners are rejected.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/ui-framework.md#L83-L91",
+          "version": "repo-lines-v1:sha256:0b1b3d71a6dbe046166e3c6ebde97fa3a4e3ec76d6801923be8ed38fe2796659:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTZhZTJhZjdkNjcwM2E3MjQyNDYwMzkyM2E0MThmNTFhZGM0ZjcyYjMxNGM0ZDRkMzJkMDVlZjVmMmVmMzVkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjk5ZGFiOTc4MTExMTU1MjU0YTcxM2YxY2ZjNWI1OGI5MjkyMDlmMDdmMjY2OTY3ZTQ3ODUyZDAxMWU0OGJmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDA1NWUzZDVlMGFjNGJkYzEyZTUwNzFkYmU1ZTE1NTc0MjliY2Y2ODYwMzA2OGQ0MDliY2U5NzUxYzViNTIyMCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

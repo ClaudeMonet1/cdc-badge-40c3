@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:69779e854a3e6b5d825e97a021ec429d4d692a40660333614e586176ce8dbd96",
+  "claims": [
+    {
+      "id": "claim_4ee712001725496788431e1e796d2baf",
+      "statement": "cdc-badge-os assigns I2C0 to GPIO17/18 (charger 0x6A and expander 0x20), I2C1 to GPIO47/48 for expansion, shared SPI to GPIO12/11/13, e-paper CS/DC/RST/BUSY to GPIO41/45/46/42, TROPIC01 CS to GPIO10, SAO GPIOs to 15/16 and Grove to GPIO2/3.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/include/cdc_hal/hw_config.h#L8-L53",
+          "version": "repo-lines-v1:sha256:e3911dec6224ea4d68e2abe9853a2288e7d2d2492b583d6785dca94db312b44a:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNGM0OTNmY2Y4NDNiNzM0ZWI1ZDgxNTI0NDExMWE3NmNjMDc4MjI1MTEwNGY5MGVjMTc3N2NiN2RiOTRhY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzYmEwMWE0NDJmNTBlYWRlM2YzNDRiZDExZDU5Mjc4ZmEwODQ4NTQ0ZTcwYTNlMTE5MTA3Zjk3Zjg3MDMzZTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA4YjQxNTBiY2I5YTg4MzVjNmZkN2IyZTMwNmM5ZTdlMTJhOTNlOGMyMjBlNDg3ODc3ZTAyZGEyOWE5OTY4MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5da16a20d77e4531969fcde7f19ad2a2",
+      "statement": "The vendor nametag firmware uses the same GPIO numbers as cdc-badge-os for I2C, SPI, e-paper, TROPIC01 chip select and charger pins.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-nametag/lib/cdc-badge/badge.h#L13-L45",
+          "version": "repo-lines-v1:sha256:4f1e78177496f7f49c8214dcefc9130d66e3666ffded0ca62fc515c6fc36d489:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyMmUxN2I3MzhiNWUxYTgzNWQxMGViZGVhOTAxY2FlMDRlNjdlMGQ0M2IyMTBiZTYwOTQ0YTNlZjg0YzYzMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhOWIyYTRmM2E5N2Q3NzFjNjIwOGNlMjRlMWRjOTc1NTZlNDQyOTc4MmI3N2EyMjc5M2JlYmYxMTkxYzM0ZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlM2FhMDYyZGZhMzVhMDA4MjYzNDg2OTEzODA1OWY3YmY5N2ExYTllZTlmNTJlYzMyMTY2ZTkzZGM3NTllYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxOGZlMzU1NGYwM2RlODc4NmQ5ZmQ2OTEyYWRiZTVmYjAzNmJlNjE4OGU5NzRmMDdjZmMwZWI3MWU1MDJmM2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9d9cd42a4d014f039719a30286d6387e",
+      "statement": "In the schematic the ESP32 nets match the firmware pin maps, GPIO35-37 are unconnected (PSRAM), GPIO38 carries TR01_IRQ, GPIO4-7 carry RPi PCM signals and GPIO9/14 carry header SPI CE0/CE1.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/cdc-badge/cdc-badge.kicad_sch",
+          "version": "repo-file-v1:sha256:95053e180d7267f6711bbbe39427c96af3d52bc160e231858506138c7c40fcbe"
+        }
+      ]
+    },
+    {
+      "id": "claim_908ff447d29b41b0896b52d7eff99947",
+      "statement": "Plugins may only use GPIO 2, 3, 4-7, 9, 14, 15, 16, 38, 40, 43 and 44; all on-board peripheral, USB, charger, SPI, I2C and PSRAM pins are blocked by a single policy shared by manifest validation and the GPIO serial shell.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/PluginGpioPolicy.h",
+          "version": "repo-file-v1:sha256:7db2fb2348280dda1583a2032bce42a273cae9851313eb41f97ec22a6c12664a"
+        }
+      ]
+    },
+    {
+      "id": "claim_8efd0d58368b44a1aa23b3174066699e",
+      "statement": "Plugin I2C access is restricted to the expansion bus 1 and requires the manifest i2c_bus capability; bus 0 with the charger and keypad expander is never exposed.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_gpio.cpp#L104-L118",
+          "version": "repo-lines-v1:sha256:b824531ea6d6e86fd6653c832531c0464cdcc140b96b1246ab326af976565047:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjM2QzN2Q0NDQ0N2FiYzc1YjIyMDA3ZWJhNTAzZTJmNmNkMWJlMDNmY2EyZDI3MjBlODA0NDViNjNkMDYwYWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiZjMzMTc2YjgxODgwMzUyYWYwYTEwNzI4MGI2NTBmZWMwYjNjYWUwYTE0ZmE4MDYwNDU3YTY3YjY1Yjg3NGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjllMzc1YTNjYjNhMmNiZTJmOWRlZDljODI5NmE2YWI2Njg0OGNjODI2ZmQ3MWY5MTkyNDZhY2IxN2UwYmQ0NTUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_gpio.cpp#L319-L346",
+          "version": "repo-lines-v1:sha256:047c3610eb0ca8afb0a59ca4d00735b8ce11d73fc48b9f49f549fbf657a44219:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxNDAxZGNhOWQ1ODc3NjQ1NDY0ZTU5NGJjOTAyMmE4YjMxYmNlYWI2ZTlkYjYzZmU2Nzc4NmZiN2QyMzAwOTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0N2RhM2ZkYmI0YmEyNzI5NGIyOTUxNDcyNjIzZmUyZDZlMDU3OGMyMDgxOWIxMmUwYzFmYmM5NzRhZGQxN2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjMTFiMWE4MWI1NTBmODJkNDdjMzY3NmIwMDdjMjNmZDA4OWM5OTlhZjAxNGNiMTQxMmJlZWU5NmM3ZDc0ODQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljODA5ZDNiNjEyNGY4NmM3MjE2YjhkMmUyMzM5OTY3ZjE5YjViMTI1YTJkNzNlZDdhMzZiNzgzZmM1ZmY0NTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc45a70b6eb64ed9aabbe290f4c08e41",
+      "statement": "Plugin GPIO, PWM and ADC pins must be declared in the manifest and conflicting claims fail with HOST_ERR_BUSY.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L2586-L2592",
+          "version": "repo-lines-v1:sha256:da01eccfa62c26c1c1acc2ff062d5f3e7fb83ff5773cb063d51dfe12fc3ed309:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDk1NDA3MDk2MjQ3ZjliZjM5YWU5NWYzZGQyNTZmYTdhMTliZDNlYWNkZDUzODgxMDZlMDFhZjE5ODlkNDgxOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTcyYTQyOTM4MmIyZTE0NzE4ZTBlMzdiMDU3MGE4YTE3MDI5OTFmY2Q4NDk4Y2Q4NDA2MGE4YmY0ZjA1MDE3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmZlMDg4YzM5OTM5ODYyMDdlYzRjMTE5ODAyN2M2YTQ3MmNiMWEwMzIwZDc5NjRkNTc1OTFmNWNiMmUwMTgzYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTNhZWQ4NTA4MDQ4ZDRmODBmNjllMzE5ZDliMmU1YjVkNmIwMmM1NjFmY2YwZjdiYjY5MmYwY2UxZmE5YjZkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_91d8c4d372a548b1a8aff934ea785c63",
+      "statement": "The OS runs both I2C buses at 100 kHz although the hardware design prepares bus 1 for 400 kHz fast mode.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L178-L183",
+          "version": "repo-lines-v1:sha256:1774f555d0d6b369610f727c0fbe6295f739b95f2c6ed026bac04a03c3dfca38:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlYzU2YmYwOWY0MWE4MGZlNzgxOGI4OGQwYzA2N2NiMGQ0NDc5OTE1YzVlNTZmNGNjZDY1NWExNGE4MmNiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNjMmJkNzViYzhhNzcwYmMxYzU4NGY0M2FjNzI0MmRjNzE0YWM2NjZlMTY4Yzg4NGVkOWZmMTk3OWE1ZjJiZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWI3NjdlYWYxMTZhNzI4ZjU1OWY3OThiNTk2MTgwMDVkMDkyYjM3ZTZmOGFmY2Y2YTdhZjY5MGVkOGRmMzQ2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTEwNDA2OTcxYmU2OGUyMzNjOGEzYjEzMDhiZDJiY2MyMWMyMDVhMTI4ZTI4MTI0NDJlOTRmNzlmZDI1NGEwYyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/I2cBus.cpp#L18-L18",
+          "version": "repo-lines-v1:sha256:6e0d0fc71111df16b46ecbd2548314b3e5d675b9857e5227fc6ec500f221669d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmUwZDBmYzcxMTExZGYxNmI0NmVjYmQyNTQ4MzE0YjNlNWQ2NzViOTg1N2U1MjI3ZmM2ZWM1MDBmMjIxNjY5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmUwZDBmYzcxMTExZGYxNmI0NmVjYmQyNTQ4MzE0YjNlNWQ2NzViOTg1N2U1MjI3ZmM2ZWM1MDBmMjIxNjY5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2FmOGRhYjMxNGJjMjkzZGYxMTY5ZDliODhjYTFlZTg4NGRhNDgyNDFkMjE5MGM2ZjliMGU1ZWFkNzMwNjQ4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTQ3MDY5NDczNjQxYjI0OTgwZjMzYmRhZTQ2YzVhMjAxMTI1ZDExNjFmYzRkMzQ3NWQ1OWNkY2RiYTk2ZGNhZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0c950420f0404c89a611b89e00e39abe",
+      "statement": "The display and TROPIC01 share SPI2_HOST with DMA and manual chip-select control in the OS.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/SpiBus.cpp#L1-L50",
+          "version": "repo-lines-v1:sha256:5c102833e39d27b878a3639f9fe2b35a7073e7a65cdd4dbc011983b719131d20:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmY2FjNmM4Nzk4ZWJjMzIwMTk0NjU0ZDk3ZjQwNDk4ODc0YTk2OGJkYzU5MGFiYjE2NjQzZmM1OTI4NzUzOGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJlMjk0NTgzYjYxY2E0YTA2YzgwYjg3M2FjMjc0MjlhMTlmNTAxOWRjNGE4ODg2ZTgwMTA2OWUxNDE1MmNkNTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a1ad40342eec4557af4c44171120da57",
+      "statement": "The hardware design document states the Grove pins go to ESP32 IO1/IO2, but the schematic and OS map Grove to GPIO2/GPIO3 while GPIO1 is the expander interrupt.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/docs/design-choices.md#L214-L217",
+          "version": "repo-lines-v1:sha256:ebba1a350477a407a5f393dff4b52810d8b7f5a472470926b2a8bfdc0d97e17d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzM3NTMwYjA3OTc4NzJmZWFjNGY0ZDE1ZDA3NzE2NmViOWI0Yzg1ZjdmYWYxYjk1MTJjNjMyN2JhNGZkNDdiNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE2ZGJmNmI5OTJkZjA4ZjQzYjI3Y2ViMTI5NmRjMDdjNjIyNzk5ZjUwYWEzZGIwMWE3NTAyZWM5MDFiYmZjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzQ5MzhiN2Q5ZmRlNTlhNDcxZjA0NjRkMWMxY2Y0OWIwYjI1N2M1NjU1OGMyYTQ5ZjcwMDk0ZTk3YjEyNmQ1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI1YzQ4MWRkNzExZTQ1YzlmNzFiODdhNmQ3MGNhNTZlNzI1Mjg4ZWJmYzg5OWY1ZThjOWI5ZmNkMzdjODEwNSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/include/cdc_hal/hw_config.h#L17-L19",
+          "version": "repo-lines-v1:sha256:2769aea72de0a93a3f236dd691497c5421eabfc763cce4392e614538b59413cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzkxODFiOWJjOGEyNzU4OWZkZTNkMjhmMGQyNzFkZDUwYmFiODU0ZGIxMTBlOTljNGE2NTRkZDI0ZTQyZmQ2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmY3OWYwNjQzMzFjODNiMmFkZDVhYjg2OGNjNmUzZDE1MmYzNTZjZWI1YzJmMTE3MTdhNWU4M2JjMjQ2Y2Y5MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDg4ZWY3OWJhYzBlYjMxYzFhNGYzYTZkNWRkNzY5ZmRkY2IzZDE4YTA2Nzk2ZmMxYzFmMjVmN2FhYmQ2N2VkZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODY4ZGQwYThiY2QzOTE5ZDZiMDIzODc2ZWY1NTgyODNiZGNlYWM0MDhlMWNlZjMwNWZkYjA0MzUyZWI4ODZkNiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/include/cdc_hal/hw_config.h#L51-L53",
+          "version": "repo-lines-v1:sha256:2b48b534c7e7e4eaae52f4dfdc5d059af1e99bd3a90535dd40f8d788c0807109:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZlNWEyYTc3NWI3NmZhOGE0M2I0MGI2YjEyOWJiNzhhODkzNWMyODkxMzc0OTRlODA4OTVmOTM3MjkzYzYxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNiYTAxYTQ0MmY1MGVhZGUzZjM0NGJkMTFkNTkyNzhmYTA4NDg1NDRlNzBhM2UxMTkxMDdmOTdmODcwMzNlOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmY0NWRjODA1YWI5YzY3MTAwMGI2MzVmOWY2YmQ0MjU0NTI4NTEwMDgwNjhmODhmNTJmNDYwNWZiYmY5YmZkNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0597829c7f054a0e81ea4e6b44914554",
+      "statement": "The four spare TCA9535 pins P1.4-P1.7 are routed to Raspberry Pi header pins 11, 13, 15 and 16, and slide switches SW15/SW16 route header pins 26/24 either to ESP32 GPIO14/9 or to the TROPIC01/e-paper chip selects.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/cdc-badge/cdc-badge.kicad_sch",
+          "version": "repo-file-v1:sha256:95053e180d7267f6711bbbe39427c96af3d52bc160e231858506138c7c40fcbe"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

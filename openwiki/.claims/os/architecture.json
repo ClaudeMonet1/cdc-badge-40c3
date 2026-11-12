@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6a1a40f8142fab754ab7ebeeee5c00ed98861a28f944f796b7995a671e536091",
+  "claims": [
+    {
+      "id": "claim_768a85c6d3f6434ebf0af3bef30477c8",
+      "statement": "cdc-badge-os is layered as cdc_hal pure-virtual hardware interfaces extending IService, cdc_core shared services, the cdc_ui/cdc_views/cdc_os_ui UI stack, self-contained mod_* feature modules and a plugin_manager on top of wamr_runtime.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/architecture.md",
+          "version": "repo-file-v1:sha256:f28fb923779b4954fe54c14e7eedf9644046a031d4bc220a3be2683691c01378"
+        }
+      ]
+    },
+    {
+      "id": "claim_2a6bbd4a75d5467eaadd732dcf2c2c21",
+      "statement": "Feature modules are registered only through the MODULES list in main/CMakeLists.txt, from which CMake generates a header of module registration calls, and cdc_core never references any module.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/CMakeLists.txt#L8-L50",
+          "version": "repo-lines-v1:sha256:3bc132df952071baaa35715569fa02818dbea2400d18db3302536d73ee7236ed:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MWQyMDM3ZDQ3ZGQwOWU1ODEwMThkYTQ0ZTdkY2I4NWZkYzY1OTVlNDc3OTk4M2NiMDRjMmU3MDgzMzI5NzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmNWYzMTU5MzMzNWUyYmFiOGNlMzQ5OWNmYzM5ZGNlMDZhMmI2Y2E5M2Y5MjI4MDExYWFkY2Q3MDI4NzNiYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmZmEzZDE2OTI0YmRmYjI2ZDc5Y2U5MDBmNTdiNGVkMWQ0ODVkNWI4YmM4NzE0YWJhZjdjYzBmMGYwODY2ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjMjVmNDc4YzNiYmExY2I1ZWZhMDk4MjI5ZGUzNjQyY2UyNWUyOGM5OGFiYzY5MjA4NjcyZmIyMmJiMTRmNzgifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0002-module-isolation-registration.md",
+          "version": "repo-file-v1:sha256:9a41f73b99c9c42e01a917301622d1f9b3e6ec58f66eee505b5445dadea7cbb7"
+        }
+      ]
+    },
+    {
+      "id": "claim_75b4cbfa82114737a655d1265821907e",
+      "statement": "Module factory defaults enable 2FA, FIDO2, password, GPG, PIV, SAO, vCard, BLE serial, NVS editor, BLE HID and VFAT, and disable USB HID, OTP HID and MSC; mod_browser is built but absent from the defaults map.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/CMakeLists.txt#L8-L24",
+          "version": "repo-lines-v1:sha256:55f6cf34f483b8f4c4e36495054fddff2bf1a59533221ee4914b983c212d3672:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MWQyMDM3ZDQ3ZGQwOWU1ODEwMThkYTQ0ZTdkY2I4NWZkYzY1OTVlNDc3OTk4M2NiMDRjMmU3MDgzMzI5NzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmZmEzZDE2OTI0YmRmYjI2ZDc5Y2U5MDBmNTdiNGVkMWQ0ODVkNWI4YmM4NzE0YWJhZjdjYzBmMGYwODY2ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBlNTJlNjAyYTk5M2U1YjA3ZGFjZTFkYTQzYTJkNzMxODFhMTVlNGMyMTVhZDY4YTdmNTVhNGYwOTNlNjIyYzgifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/main/module_defaults.h",
+          "version": "repo-file-v1:sha256:5deab856aa282cabab2f513e28a566e2184a145282bb919571c185d7a1adf03d"
+        }
+      ]
+    },
+    {
+      "id": "claim_82cc0f45faf949b185e3ad151a021801",
+      "statement": "app_main boots in stages: NVS and build-profile check, core services, RTC, hardware peripherals (with a TROPIC01 factory wipe on profile change), system services, display and UI, modules, the plugin system, BLE barrier release, then the main loop.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/main.cpp#L656-L711",
+          "version": "repo-lines-v1:sha256:19914b7b357e0ede8fe1d0bcd95cbf5730263886c26a9cb9f355b09b97e4749a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyODRlMmYzZTcxYmE5NDMxZjM1NTcxMzQ5MjYwYjBiYjE0ODk1OWI5ZmQ4NzJiYjI4NWEwYzRkMjkzNDg4YzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzZjk0NzUxMGQ3ZDlhODBjMWMzM2MyNTI3N2I3Y2E3NTc4YjQzOTBjYjQxMTdhMmY3NjFkZjQ3YmRjNTdiNmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb3995a5a71f4bdebfc4d8a13a5438ce",
+      "statement": "The main task runs a cooperative 10 ms loop that enforces system lockdown, drains the EventBus, services the serial console and power manager, runs the UI, ticks attestation and message transfer, and dispatches a tick to all modules.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/main.cpp#L615-L651",
+          "version": "repo-lines-v1:sha256:b219fcbed0b1cc77cb113fefd5d1145b52ee63d8c0969e1151af5764febba9b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2MjQ1NmNjMmYyMTViNzIzY2IzYjVlNjYzYjBlNjYwY2M5NDBhODNiZDdiOTQ2N2RmYzEyY2JkZWQ0YTIwZDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2OTU2Y2U4MzU4ZmFiYjY2ODVlZmE2MjhlMzdiZmM4ODU1NWY1YzY5MDJjZjFiM2NhYWViODE2MGJlNTQ4MTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b3d986c7570e493cbbd335c976304c8c",
+      "statement": "The EventBus is a heap-free FreeRTOS-queue publish/subscribe bus with 16 handlers and a default queue depth of 32, and plugin EVENT_* bits are statically asserted to match the core EventType masks.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/EventBus.h#L85-L105",
+          "version": "repo-lines-v1:sha256:9f6475eff66e481824dd7d473ea643272e284b0c5c9ac2f1e9dddc65dc58efae:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MDMzMjNjMjkxZmQ5MmI4ODZjNDM1NGIzMmViMjIzYjkxYWE2YWI0NjZkZTIxZTNlYTliNWRjZWM1ZWZmMDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhOGIzMzBiNWY3NWY3NTk2ODgxODBjYzg1NmI4NjE1OTBkOTQyMzRmN2M0OWYxMzg2MGUwZTc0OGUwNWU4OGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI3YWNmYzBlMjRlZWZmMjg2YjFiYTcxOWUzOGFmMGY2ZWIwMjlmZjFiZGI5YmM3ZjZhMDlkYTc2NGEzNjY2OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMTNkZmM2ZDkwN2E3MTRiYTYyZTZhZDQ4ZTJjZmYyMDFhMDY0YmE0NGQ2NDU0OGM2M2YwZGZjNmYwZmFhMzAifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_event.cpp#L29-L31",
+          "version": "repo-lines-v1:sha256:924a83135fd4cfcaf3cfe1dde495544ee401b0ef4e94a6f438f57a7a33a3bc77:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDYxZmQxYjcwZDM4MWYxZmFkNmU4ZDYwMmFmODM0YzM3ZTgyZmYyMjBhYzNkMjhkNjEwODU1ZTUwMGExMDJmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU5NWIyMDk4N2I0OGQ5YzRmYTFhMWE0M2NiZGExY2Q5NTYyNDkwYzJiZGQ1ZTI4MjU1MmUwODljMmVkODZmNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmFjZTk4MjQ0NmQxYjJkMDg0YWMxNzIwNTFiMzdmMjZkNjNmZWIzMjJkZTg2MmE5NWEzZGJjOThiMzEzMWIzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzk2ZmQ4MTAwYmVjMzg5ZWU2M2Q2MTg2YjYxZjU5MGI4ODdkMGMyNDdlY2YyMDUyMGNmYzIzNzc4ZTYzMmU5YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fc0b31cb3e644319b336dd651c51f8fa",
+      "statement": "Plugins are driven by a dedicated plg_tick FreeRTOS task spawned by PluginManager rather than by the main loop.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L985-L991",
+          "version": "repo-lines-v1:sha256:e9e07536d5d332b6db446be21a98827bad9d209acd63a5794aafd16630d3ad81:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzZhMmJkZDIwYzJkOGUwODZlY2Q1OWJhMzFlNzcwNmQxMTg4Y2QxOTJhN2ZkYjkwMjRkMTMxZDA2N2FjZTE1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDJiNDA1YmExYTRkZDIyY2JkNzc5MGMwNzM3MmU0MjdhOGEzOTQ5MmJmZTc0MjIwZDgxYWJhMjE5ZDcxNmY0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjU0ODg0NjY4MjY3MTAxZDMxMjM2M2VlMWRlMGQ3N2U3YzNmMmUxYjNjMTM4ODBiZGRhYTJlNWMwNmU3YzVmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQxM2YyNThkNjkxM2JhNmQ1Y2M0ZjAzMzVhY2Y3YzM1MDkwZWExNjQyZTQ2MzJkZWY4ZTJhMTU4NmM2YzgwZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4226c792d04c463e8311f616e806c109",
+      "statement": "ADR-0001 makes PSRAM (8 MB Octal at 80 MHz) the default allocation pool and reserves internal SRAM for task stacks, ISR data, radio buffers and small statics.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0001-psram-first-memory.md",
+          "version": "repo-file-v1:sha256:4ea468f2f14a4a7eded895d68a284c2154eac4c48552450c648ae68b7a80baf3"
+        }
+      ]
+    },
+    {
+      "id": "claim_4065c7c2c0384db6abd7746cf3a4d56d",
+      "statement": "The OS has no data migration: a changed BUILD_PROFILE_BYTE triggers a full factory wipe and on-device formats are replaced rather than migrated.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/main.cpp#L656-L680",
+          "version": "repo-lines-v1:sha256:d1347b150c4dd48449af75678e7c55388cf0c56f71d48e6aa8203c2d2aa6c0d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyODRlMmYzZTcxYmE5NDMxZjM1NTcxMzQ5MjYwYjBiYjE0ODk1OWI5ZmQ4NzJiYjI4NWEwYzRkMjkzNDg4YzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzZjk0NzUxMGQ3ZDlhODBjMWMzM2MyNTI3N2I3Y2E3NTc4YjQzOTBjYjQxMTdhMmY3NjFkZjQ3YmRjNTdiNmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkzMmU0NTlkZWEzYWJhMTE1MWU2MzgxZWViNzI2ZGIzZTk3MGY0MWQ1MDA3ZmJlNzBhYTdlY2M3MDZhNzg1YWQifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0005-no-migration-build-profile-wipe.md",
+          "version": "repo-file-v1:sha256:3b5440db68b835a33029d3ed00af523d61956a81d07f4e0d31063d85da73cd14"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}

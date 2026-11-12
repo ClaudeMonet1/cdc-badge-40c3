@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:91bbf0920b2940652e6bec62e3a9286731d738becdc3b405cd7a230976408299",
+  "claims": [
+    {
+      "id": "claim_eaf8705a2ff046dc9f0967211bf55595",
+      "statement": "cdc-badge-os builds with PlatformIO espressif32 6.12.0 and ESP-IDF 5.5 in the default env cdc_badge_usb for 16 MB flash with PSRAM and partitions.csv, at firmware version 0.8.2.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/platformio.ini#L4-L24",
+          "version": "repo-lines-v1:sha256:fc26c3fc46521d05948f6a113ebb025843d84fc053b0776d0d3e18c8cabd9f8e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZTE5ZDlhMTMxOTRmZDQ3YzA4NTkzYzVkMWM4ZWMxYTJiYzhhNTA1MjNlMTA4ZDhkNTg3ODFlMWI1MWIxYmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYjYzNTU3NzllZWNmMjFiMTZlYTZhNzk0NDE0NTI1MWYwZTRkM2EyYzJiN2RkOWIwMGNhZDFiZWM0NDUwNDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgzNzYzZmU2MjkwNzlmNzFlOGY3MzFiOTA5MTg0NmVhNWQ4YWNkZmM2MGVkNzhlNTZlNGExMWNiODZiMjVmZDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzOWY3NTY5MzRlMjgyMTBiYzAwZTU2M2Y2MDVlOGY1MGUzMGI5ZWVmYjg0OTZmMmQ3OTFmMTUxMTkyN2MyZTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c8d97092e1f45d69e5b649923b23e46",
+      "statement": "The release environment cdc_badge_release uses an encrypted nvs_keys partition table, sets DEBUG_MODE=0 and is guarded so it cannot be uploaded directly because its bootloader burns eFuses; flashing goes through provision.py.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/partitions.release.csv",
+          "version": "repo-file-v1:sha256:d37438246d5d55bf52666ba6511fbf7b47a3c16167ea9dde98b325ef35f88f36"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/platformio.ini#L54-L74",
+          "version": "repo-lines-v1:sha256:dd4b2ba5af2546af4377c4487fabed6b9fa836545ba9e00b58e5d4cd447a982a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2ZGZmM2QyYzFiODBlMzZlYWJkNDhjYjQwMDAwMjk5ZjExZDY2NDUyNjEwODgwZTEyMDU0NTYyMWJmYWJhMDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjMzZhNWFkNzJmYjQ5MGJjOTQ0MWMzZTNkYTY1ODM0YTFhMGRmZmIwZTY3Y2VjOGM2NzU1NjNkZGMzMzI2ZDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcwMTgxYmY0NjZlNTAzOGY2ZTE5YmUxZWY5MjE4NzI4NjllMDhhZmRhODAzNmI3MGYwZThkYzdmNDBlMzcxZWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZjYzI3MDA0ZjdkZDZjNDZkODZlOGI0N2VhNTA1NGYxM2MxZjVjOTQ3ODAwNTEwMDBhMTVmNWNkMmJlZGJkNmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dc1d7a7b8a004bccbd7a4b6d704c18cd",
+      "statement": "The dev partition table has no OTA: nvs at 0x9000, a 13.6 MB factory app at 0x50000, a 2 MB FAT partition named vfat at 0xDF0000 and a coredump partition at 0xFF0000.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/partitions.csv",
+          "version": "repo-file-v1:sha256:77d80e618350491279f8904fec08f6d6cdf19f244901d1003b638ffb2e99689b"
+        }
+      ]
+    },
+    {
+      "id": "claim_a0708e1e0ff44166920808c21c50a18e",
+      "statement": "The OS build documentation names the FAT partition 'plugins' and describes plugins at /vfat/system/<id>.wasm, whereas partitions.csv names the partition 'vfat'.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/partitions.csv",
+          "version": "repo-file-v1:sha256:77d80e618350491279f8904fec08f6d6cdf19f244901d1003b638ffb2e99689b"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/build-system.md",
+          "version": "repo-file-v1:sha256:7fee337dbdf49af4198af654524a4884692bda82903f3ef2c0adfbbd1f7fc4fa"
+        }
+      ]
+    },
+    {
+      "id": "claim_da09bf8de2e74224b95f25acf7126ff0",
+      "statement": "FEATURE_SECURE_SERIAL defaults to 0 and DEBUG_MODE to 1, and BUILD_PROFILE_BYTE combines them so a change between flashes triggers a factory wipe.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L15-L116",
+          "version": "repo-lines-v1:sha256:4bb1440c3602705bdaf6f2da2d598929c98490bec3dd44f1637838d7c97d0145:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJjNTYyNWRlZWM1Yjc2ZTYzOGNlNDdlNzRkNDY5NDViYzhmYzZlNjM3Y2Q3YWZiMDk5NzBhMTlkMjA0YzA2MGM3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJkNDRkZGUyYmQxMTliYjkzYzg2ZWMzMDg2NTM1ZjYyNWI1OTk5YmJjZTlhOWJjNmM5ZTM3YjAyODBkYjI3MzFiIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0012-build-profiles-and-defaults.md",
+          "version": "repo-file-v1:sha256:52dd931f90485ea942000eb4adc16ad989ca75262ce5b9ef6ce05145be06f29f"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea324d13a9d1478986348e14025cd00e",
+      "statement": "The web flasher uses esp-web-tools with two manifests: Firmware Update writes bootloader, partitions and firmware at 0x0/0x8000/0x50000, while Factory Setup additionally writes plugins_initial.bin to the FAT partition at 0xDF0000, wiping installed plugins.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/.github/workflows/deploy-pages.yml#L110-L153",
+          "version": "repo-lines-v1:sha256:e48f43be8298199c05b019a254ebf657d80da6d162148ecc3b5ec16aab1acd7f:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmZDhjZTZlNDc3ZmE4ZjVlMzM2OTcyMmQ2NDJjNDI1MWJmZWM4NWJiYzA2OWUyODUxZTliZjZiNzg5MWQ5NjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3ZDVmMjkzMjU3NTM1OWM1ODMzNjFhYjc0NjBlN2Y2MWNmYzM3YWM3NDViYjNiYTkwZTg3MjE1YTBkNmFiN2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRjMTgzZTZiMjFhM2JkYzc0NjRiZTc0NDUxNmJjODRmMzBhZTY0ZTUwOWNkZjdiYmNkZWU1OGE2NDRiZDIzY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5YzBmMzllMzE1MmZkNjIwMmM2ZmYzN2Y1ZDhkMDVlMGM1YWUzZjdhYjljNGMyMmEyODA4ZWE1NjVjYzNhYWEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/web-flasher/index.html#L300-L395",
+          "version": "repo-lines-v1:sha256:31303d55e2fb22e9c02f84393b7da06366c33ca7f1799869e96130de2aceb359:eyJzZWxlY3RlZExpbmVDb3VudCI6OTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlmZWVlYzBkMTIwMzIzMGIyOWExNWEzNGEwNGY1NjIwZWEzMWE1Y2I1NmJkOGYxNWU2MmViZGM3MzU3ZTdlNGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzYjI2NTVhZDM1NzYzNDg5MTc2OWU4ZDZmNThhN2VlMTI3MmQ4YjQwNzNkMmFhZTZjNzIzZmIzZjcwZTBlZDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0ZmZiNTViZWVhMDFkYzYzMzdlNjIxMjRmMjJiZWNkYWI2YThkZGQ3YjhkYzNmZjk5ZTA3NTgyMjY5MGFhOTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiY2QyYTQ4Mzg2MjVhN2NiNDQ3ODZiMmRiMmUxYTA5YjBlOWFhOTUxZDY1Yzk5YzcxOGE3YjBjZmU2NGQ5ZWYifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/web-flasher/index.html#L9-L9",
+          "version": "repo-lines-v1:sha256:e3900aee3324c44bf5be662934d74f8676320091e04de30ddaafd28259e3ff7c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM5MDBhZWUzMzI0YzQ0YmY1YmU2NjI5MzRkNzRmODY3NjMyMDA5MWUwNGRlMzBkZGFhZmQyODI1OWUzZmY3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM5MDBhZWUzMzI0YzQ0YmY1YmU2NjI5MzRkNzRmODY3NjMyMDA5MWUwNGRlMzBkZGFhZmQyODI1OWUzZmY3YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Y5NDU4YWNiOTVkYzUyYzk4NTY1NzUwODk3ZDA4MzgyYmI5YjI5YTExMzQzNjYzMGU2YjU2ZDQ5YWI1YTFlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmI0NGE5MzA3M2Q0MTY3YWQ1ZDcwNmYyZGEwNmJkOGQwMzI1OWJhNTBmOWI0YzEwYjNlNGJiOTZhYTQ2OWFhNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_77562aea484046ee892cd0286ab19f72",
+      "statement": "tools/flash_firmware.py flashes prebuilt or released binaries with esptool to 0x0, 0x8000 and 0x50000 at 460800 baud.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/tools/flash_firmware.py#L1-L40",
+          "version": "repo-lines-v1:sha256:8e78b6f94a15e9eac2b6f988d36e5988a3c7ad916648a1c0c6b12860a56d48e0:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2ODJjYmRiNGM4YjA3NTE4YmY0ODZjNTg5OTBmYzM5MTc4M2FhMjBhOTE2YmZiMjdhZDIxMWViMWQ1YzM2NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlMmMzYWZhYjBkMGU2ZjJkOWM3MTIxYmQwNGYyZjA0YzZlNmI4YTUxZWQyYjExZmQ5M2I3MTkxMjYzZGVhMzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4fea9e3e38af443b95039e0d8693ab6b",
+      "statement": "Download mode can be entered with BOOT+RESET or by sending AUTH <pin> then BOOTLOADER over the CDC serial port, after which the chip reboots automatically after flashing.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/build-system.md",
+          "version": "repo-file-v1:sha256:7fee337dbdf49af4198af654524a4884692bda82903f3ef2c0adfbbd1f7fc4fa"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T17:37:01.155Z"
+  }
+}
