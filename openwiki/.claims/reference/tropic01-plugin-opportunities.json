@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6dc687d4cb8b3e9fdee11e55f00eb55ef1bc4f384c65fdb81e98d845586ef4d2",
+  "claims": [
+    {
+      "id": "claim_b951207ad8844c548bbdd11778e2521f",
+      "statement": "Plugins get exactly one TROPIC01 ECC key slot (slot 31) badge-wide, addressed by a manifest-declared name, supporting Ed25519 and P-256 generation or import, signing and public-key export but no private-key export.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L296-L333",
+          "version": "repo-lines-v1:sha256:91b17e5e18632a8f4f0cbb5fbefb7070996ddcbaeb7c36ddce0eeb4288f9663b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0YzZkZWYyNmFjM2U0NjQ0MDJhYjA0ZjYzNzE0YjAwNTQyMzkxMDNmZWViODEyNTA3MjhjZGI1MDEzZDgyOGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyMTY2NjhhY2ZmN2ViODYxZTg4NjFmZmFmYzc1MzFiN2Y4ZWYwOGYwZDRkNzNkNTg3MGU2MzU5YWQxN2YxY2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwMDMzYTk5Mzc1ZWQxOTgxN2IyMDQwMTAzNGFlMDZkZWY5MTM0YTdiNDI1NWYyMmYxN2JhM2U5OWM5NGI4ZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOGM1ZDgzMWYxYmEyMDNiZTRiMTBhZDJlNmM5OTcwN2M3ZTY0YzBkNzI3MTdmY2Y0MDA5NzI5OTg0Y2UxYzcifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/main/tropic_slot_map.h#L50-L52",
+          "version": "repo-lines-v1:sha256:a9841df77a9aabd69b448a666b658eb521762af9777e0b6cf2bb914417179e85:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzgyOGVkNDk3OTlmZWViYmFlZWI4NzA2N2E0ODcwNDUwNTY4NDVlMjVlZGJlY2E2MjQ1MzBmZjU3OTllMTdlMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTBmMDExNTM4ZjEzMzM5MTAwYTI1MjA3YmYwZmQzZGY2NzRiOTgwYmVlMWIwMWU4ZjllZjdkOTc3ZmE1Y2U1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2FhZTVlMDM4OTRmMDM3NjBlMDQ1MDc3NWVjNWE2NTJiYzAzMzBiZGNlMjU4MTIzMWM2MzUwNDlhNDQwM2Y3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBkNTI1OGIyNmUzYzM1ZjQ1MWNlNmU1N2IzMTEzZjVkMTE4NDNkYjQxZDE4MmU1ZGFhMmVhZTM4YmVhZmQyMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cd97fcdbe7b54387a94fb585ae6439db",
+      "statement": "TROPIC01 P-256 ECDSA signing hashes the message with SHA-256 internally and returns raw 64-byte r||s, so callers pass the message, not a digest.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/secure-element.md#L153-L159",
+          "version": "repo-lines-v1:sha256:adbc3765158e7a5c00d82b9bf9751f7be97d276e8b60c3345f0ff6e03938f7e3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTc3NmJkZjE4NGFjOGQwODcyYjI0YjIwYTY2MjY1YTk5YTlkNWMyYTc5N2I1ZjM5NjM4ZmJjZTJmYjllYTViMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWJmNWUxY2IwZmRjZGMyZGYxNDFmMjUzYzM3NmNhMGVkMmJjZTc1ZjkxMGY2YjBiNzM0OTZlNDE1ODM5ZWVmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjU1NjUyZGRkZWE1OTAwMDVmNzM1MWM2Y2E4ZjdjZTdmNGEzYzkxYmNhZmE3MWYyMzNmM2IyYjMyYmNiY2RjOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_82a47a9870ee490aa367b5b3273f157c",
+      "statement": "The plugin host API offers hardware random numbers, SHA-256, HMAC-SHA256 and AES-GCM but no HMAC-SHA512, monotonic counter or MAC-and-Destroy functions.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L172-L240",
+          "version": "repo-lines-v1:sha256:04de98180343bdb0af3d04c3144ab60844c1f9d62eb10e21ea37682f433b8301:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1MTlkYmQxZDU4MGQxZjU2MmQwZmUzZDUzOGNjYWQ0NjkxYzc2NjUxYmIxYjBlMzIzMDhjOWYyN2ZiYTUyNDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVjYzJjYTIwN2JkZTAxNDBhMmY0NTM3NmVkNGFkMWZkZDA2YjI4NjU3ZWI0MDFiNzY1ZThlMmJhYzRmOTU2NjEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L241-L343",
+          "version": "repo-lines-v1:sha256:4efe4e7aa3d8d26d504b8518897dc76b051bfc6ff519bcaffe9e1241a54f90da:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIyNmY5ZDUwYWY0NDBlZGI2MTUyNTRjNDQxNThkZTUyMTUzOTJjN2U5ODlhZjk0ZWQzMDZlNmYyZGFiZjgzNmM3IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzNDdhNDc3Njk0MWNjZDViMzUwNmNmMmEyNjMyMWYyMTQ3OTU1Nzg5NjFlYTk1ZTg1NTZjMmEzZDRjMWM0NTFkIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_40a925b3480148449ff2244e7a515c44",
+      "statement": "The TROPIC01 itself offers a MAC-and-Destroy primitive, exposed by libtropic-arduino but not to plugins.",
+      "evidence": [
+        {
+          "resource": "repo://references/libtropic-arduino/src/LibtropicArduino.h#L248-L263",
+          "version": "repo-lines-v1:sha256:413758aabc04d87ecec808f6ae9c6f9c12b35ac693305ea33b7e8b34082ea54c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRkNWIxOGMwNmQ5NWM5MDQ3NTI0OGIzZjQzY2JmZWU4OWFiOGFiNTVhYjAzOTM3ZmFjNjc5MjAzZTkzYzE5YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5NTZmNzdmNjBlOWJmYzdmYjc0ZDk3MmMwZmRhNjRlNmYxMzQ1MzE4OGNjNzZmZWExNDU1MTBlYjdjNzk3NzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5MjVjMWY1OTNmZDM3YWYwNTMzZDAyMGE2MDBlY2U5Nzc3MjUyOGVmMDQ2MDM0MjM1ZDFkODdhYThkNDFkMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmMmIxMTQ3MDdiMjc5YTgzMzk0OTZmY2QzMmQ5Mzk0YzlmNTFlMGFlODNiYWNjNzQyOTg3N2JkNmU2ZTJmNWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_80831335fd8442f8a1f38d5ef8b7c63c",
+      "statement": "The TROPIC01 runs separate RISC-V and SPECT firmware whose versions the OS can read.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/secure-element.md#L181-L190",
+          "version": "repo-lines-v1:sha256:e8e7932da109ac1c47c6c4a77ef57797441834c1988ce84d2000807eb10c7a89:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNWI5ZThmN2QzZTVlYzg5OWUwYjI2MjZmNmI0OWJiYWVmMTZhMGUxNjc2MzY2OTYwMTk2NmVjMjZhMzhiYmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3ODk3MzdkYjk3YTU2OWE0Yjg4ZDg2NjVmZWM2MWNjNDJlZjJkYmVlNTc5YjVkN2JlMzBiYmEyNDk0OWQxYmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM4M2IxMzBiMjViYWVjNDQ2NjI3ZGNmZjNjNDE1ZDFjZjExYzk0NzhjMzA5NDU2MjkxOGQ1MzYyZjRkNTFmZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwY2NmMzk0NGMzMGI4ZjExZjA3YWZmZWQ3OGFmMDVlMGVmZWI2ZjU1M2U2NTcwNzc1NzQ0MWRmZTI2NTgxNjUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b8374d11b0e8469085b8a582ed5809cc",
+      "statement": "A Monero hardware wallet firmware (xmr-cdc-badge) exists for the CDC Badge.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-hardware/README.md#L22-L35",
+          "version": "repo-lines-v1:sha256:c3bde6fdadbfa3b41f8ad74f747e5c7e1e998797344d5f1660b7ecaa231b728d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNjlkM2NkMzYzZjc0NWY5NTUzZjJlYjA5MTE2YmNkMjZhOTA0MGZiOTU1MDNjZjg4OGJmMzUxMjA4ZWMzOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1YjgzNDI4YzEyMTg5MDliYzkzZWFmYzFhODM3ZjgxYzFmNDM4ZTI4OWZjN2I3OTYwMmFhYTFiZDk2MzliNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkNzg5ZDc2NjUyYmM3MGFiZDhkMWNlMGE0MmU5ODc1NDA1Yzg2MzdiMzQyMWM5MDdiMWIyM2IwOTk4Y2M2NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcwYmNjMzU1NmYyZTJiNDRhMmQwYjA1MzUxY2M3ZTg5MmIyOGY3NThmYjhlMTdmZTY0Nzg0YTcwN2FmYjg1ZDQifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:38:30.389Z"
+  }
+}

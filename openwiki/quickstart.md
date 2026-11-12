@@ -5,7 +5,7 @@ description: Entry point to the badge-cdc wiki — what this project is (a sandb
 tags: [quickstart, index, routing, overview]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T21:07:57.649Z
+    at: 2026-11-12T21:38:30.389Z
 sources:
   - id: openwiki-source-3eda5d2b85501c78fc0ba02d
     resource: repo://flake.nix
@@ -19,7 +19,7 @@ sources:
     resource: repo://references/cdc-badge-os/README.md
   - id: openwiki-source-50f6becdca203e7d479d053a
     resource: repo://references/cdc-badge-plugins/sdk/plugin_lifecycle.h
-generated: { by: "claude-code", at: "2026-11-12T21:07:57.649Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:38:30.389Z" }
 ---
 
 # Quickstart
@@ -95,6 +95,7 @@ material (`references/`, see `references/SOURCES.md`) and this wiki.
 | Run OS tests or use the Python companion tools | [OS testing and host tools](workflows/os-testing-and-host-tools.md) |
 | Decide whether to write a native module instead of a plugin | [Writing an OS module](os/module-development.md) |
 | Read the upstream agent skill's pitfalls and codebook | [Upstream plugin-dev skill](reference/upstream-plugin-dev-skill.md) |
+| See what can be built on the TROPIC01 (ideas, BIP85, Ed25519 signing, Alephium) | [What a plugin can build on the TROPIC01](reference/tropic01-plugin-opportunities.md) |
 | Know memory, stack and instruction limits | [WAMR runtime](plugin-runtime/wamr-runtime.md) |
 | Write `meta.json` and choose capabilities; understand the threat model | [Manifest and capabilities](plugin-runtime/manifest-and-capabilities.md) |
 | Look up a host function, error code or calling convention | [Host API reference](plugin-runtime/host-api-reference.md) |

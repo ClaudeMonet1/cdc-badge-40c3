@@ -5,7 +5,7 @@ description: How the CDC Badge uses the TROPIC01 secure element — SPI and libt
 tags: [tropic01, secure-element, libtropic, pin, attestation, slots, rmem, ecc, security]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T21:38:30.389Z
 sources:
   - id: openwiki-source-5e9bedad6c60b4dcd8d76a5a
     resource: repo://references/cdc-badge-nametag/lib/cdc-badge/tropic01.cpp
@@ -29,7 +29,7 @@ sources:
     resource: repo://references/cdc-badge-os/website/src/content/docs/security/pin-lockout.md
   - id: openwiki-source-7750baf6065749c0d8f8fb55
     resource: repo://references/libtropic-arduino/src/LibtropicArduino.h
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:38:30.389Z" }
 ---
 
 # TROPIC01 secure element, PIN and attestation
@@ -178,6 +178,11 @@ host API (`host_api.h`, implemented in
 
 There is no plugin path to reserved slots, the attestation key, FIDO2/GPG keys,
 or raw SPI.
+
+What these primitives make possible: deterministic-signature key derivation,
+Ed25519 signing devices, Alephium addresses, and limits such as no secp256k1,
+HMAC-SHA512 or ECDH. See
+[What a plugin can build on the TROPIC01](../reference/tropic01-plugin-opportunities.md).
 
 ### Pitfalls for a Rust plugin
 
