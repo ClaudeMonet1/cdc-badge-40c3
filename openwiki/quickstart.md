@@ -5,7 +5,7 @@ description: Entry point to the badge-cdc wiki — what this project is (a sandb
 tags: [quickstart, index, routing, overview]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T20:57:16.971Z
+    at: 2026-11-12T21:07:57.649Z
 sources:
   - id: openwiki-source-3eda5d2b85501c78fc0ba02d
     resource: repo://flake.nix
@@ -19,7 +19,7 @@ sources:
     resource: repo://references/cdc-badge-os/README.md
   - id: openwiki-source-50f6becdca203e7d479d053a
     resource: repo://references/cdc-badge-plugins/sdk/plugin_lifecycle.h
-generated: { by: "claude-code", at: "2026-11-12T20:57:16.971Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:07:57.649Z" }
 ---
 
 # Quickstart
@@ -78,6 +78,23 @@ material (`references/`, see `references/SOURCES.md`) and this wiki.
 | Know what the OS's GPG / OpenPGP card and cross-signing really check | [GPG module review](os/security/gpg-openpgp-module.md) |
 | Know what badge-to-badge Bluetooth transfer guarantees, and why plugin receive is broken | [BLE message transfer review](os/security/ble-message-transfer.md) |
 | Check FIDO2 / CTAP2 support and its bugs | [FIDO2 / CTAP2 review](os/security/fido2-ctap2.md) |
+| Use Wi-Fi, HTTP(S), sockets or a listener; deal with time sync | [Networking](plugin-runtime/networking-wifi-http-sockets.md) |
+| Draw custom screens, animate, use sprites and surfaces | [Canvas, surfaces and animation](plugin-runtime/canvas-surfaces-and-animation.md) |
+| Use raw BLE GATT (server or central) | [BLE GATT for plugins](plugin-runtime/ble-gatt-for-plugins.md) |
+| Drive GPIO, PWM, ADC, I²C, SAO or an LED strip | [Hardware I/O for plugins](plugin-runtime/hardware-io-for-plugins.md) |
+| Hand a job to another plugin ("Open with") | [Inter-plugin features](plugin-runtime/inter-plugin-features.md) |
+| Figure out why a plugin doesn't load, traps or misbehaves | [Debugging and troubleshooting](workflows/debugging-and-troubleshooting.md) |
+| Use the serial console, AUTH and the command catalogue | [Serial console and authentication](os/serial-console-and-auth.md) |
+| Understand the USB composite device and CCID smartcard | [USB stack and smartcard](os/usb-stack-and-smartcard.md) |
+| Know what TOTP, the vault, PIV and auto-type do, and how they store secrets | [Credential modules](os/modules/credential-modules.md) |
+| Use the browser, vCards or SAO add-ons | [Browser, vCard and SAO](os/modules/browser-vcard-sao.md) |
+| Know what the encrypted backup does and doesn't cover | [Backup and restore](os/backup-and-restore.md) |
+| Understand USB mass storage, the file explorer and the NVS browser | [Storage tools](os/storage-tools.md) |
+| Harden a badge (pairing key rotation, secure boot, flash encryption) | [Production hardening](os/production-hardening.md) |
+| Localise a plugin | [I18n and language overlays](os/i18n-and-language-overlays.md) |
+| Run OS tests or use the Python companion tools | [OS testing and host tools](workflows/os-testing-and-host-tools.md) |
+| Decide whether to write a native module instead of a plugin | [Writing an OS module](os/module-development.md) |
+| Read the upstream agent skill's pitfalls and codebook | [Upstream plugin-dev skill](reference/upstream-plugin-dev-skill.md) |
 | Know memory, stack and instruction limits | [WAMR runtime](plugin-runtime/wamr-runtime.md) |
 | Write `meta.json` and choose capabilities; understand the threat model | [Manifest and capabilities](plugin-runtime/manifest-and-capabilities.md) |
 | Look up a host function, error code or calling convention | [Host API reference](plugin-runtime/host-api-reference.md) |

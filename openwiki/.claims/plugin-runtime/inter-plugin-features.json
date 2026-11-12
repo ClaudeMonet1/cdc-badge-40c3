@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:41a34458b417efd330fa8976f73a35c7d4c375269dbb7401d42104333fa6e80e",
+  "claims": [
+    {
+      "id": "claim_214391c975da4921b487a613717d0e12",
+      "statement": "host_ext_feature_use only stashes the job inside the caller's frame, and a pump on the plugin tick task switches the provider to the foreground and fires its handler, with the payload consumable only during that dispatch.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ext_feature.cpp#L1-L17",
+          "version": "repo-lines-v1:sha256:13386e39ba735128f6bac0b11f4242f9172dfb6b34342c97dd8b15819441e811:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBkOTAzZjE1NTFhODQzN2E4NTNlODg4OTQzMzdiZDRlYjMyYWJlY2MxODAzNzAwYWQ4ZDkzZDc4NmNlMWVmOGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3f24aad78a9442d480cf79b70c6c0bb6",
+      "statement": "There is a single external-feature job slot, so a second use while a job is pending returns HOST_ERR_BUSY, and a plugin cannot invoke its own feature.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ext_feature.cpp#L145-L170",
+          "version": "repo-lines-v1:sha256:286812a3b3a07b25ecf5bbdc8d15d1876bcf1d787e002f672a2dbaa8af037ac4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiZDFmYjNiNzQ5ZWQ0ODQ2YTliYmExODJlOGRkN2I4ODAwNGIzZTNkNjAxZjdhYTljZWRjZDYwYWI3Zjg1MzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc0N2UwODNhZGM3NjM1NzcyNDcyZWVmMjZhMjhjZTY5YWFlOTNmZjg1ZTRjNTc5YTcyN2M0MTUyYWNlMGQ2NGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY4N2IxOTljZDZmOTI3NDM4MGY3OThmOWMxMzRkNDk3OGY4ZmQ1Mjg3MmRhNGMxMjI4OGI1NTE0ZGNjMDZiZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRlNWQ4MTdiYjRkYWViMzA1ZjJiNmYxZWJmOWFlMjlhZTRkMzZhZTI3ODUwYjYxN2I2OGY3OTVhMzE2ZDBlZTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1b10cfe52a4646abb3fdf76c49b4bf70",
+      "statement": "At most four external-feature handlers can be registered badge-wide, and payloads are limited to 32 KiB.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1987-L2030",
+          "version": "repo-lines-v1:sha256:89d20f9422de3fe4e8d067812dc14984dc0b16be29f6c16d49069ac2bd036f46:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwMWExZjgwMGMxNTBiZDQ5MWFjMjFmNjZmOWFhOTVhMzJhZjQwODExMzk0MzNkMDI5ODY3ZmNhNDQ5NzEyYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyM2NiNGMxM2Q2Nzc1OWQ1NGY3NjcxZDQ0MDM0OTcyZDA5MDNhMzlkMDhhZmFlNzNiYjk4MWViOWFiMGRjZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyOGRkMWFkMWI2ZTUxODlkZjBlMjliNzgyNTkwMDM5ZDY4OTcxYjY1ZTcwY2ZiZjc4MTNlY2U0NjJmNDRkODEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ext_feature.cpp#L41-L41",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODk3YTMzN2U2YTQxNzhlNDIxZDg4ODY4N2NmYzJjNWQwOWNjMGRmYzA2ZTA1YjI1ZWUwOWE3MjczNGQyNDdjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzY1ZDIxMmQ2NjhlNWEzNjkxYzlkMzcyNmUxMmYzNTdjZmJkMDg2ODNkODQzYWQ2NDI2ZjFkMDRmNDY0NjhiNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d2860bdfb1714139a4735e15a3133738",
+      "statement": "Providers must register their handlers in plugin_init and report a result exactly once, and callers without background residency lose their status action when the provider takes the foreground.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/docs/capabilities.md",
+          "version": "repo-file-v1:sha256:e793299a13d9f5aa37a224c677f5bc29ac5009d719873f74ed0817b10620d855"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

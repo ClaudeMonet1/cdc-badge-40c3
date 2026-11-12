@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:91bbf0920b2940652e6bec62e3a9286731d738becdc3b405cd7a230976408299",
+  "pageVersion": "sha256:e7ebf25a0039ef8a19ff94579ce551a8dbfdeabac03af640aab40b69131ad5c9",
   "claims": [
     {
       "id": "claim_eaf8705a2ff046dc9f0967211bf55595",
@@ -52,15 +52,15 @@
     },
     {
       "id": "claim_da09bf8de2e74224b95f25acf7126ff0",
-      "statement": "FEATURE_SECURE_SERIAL defaults to 0 and DEBUG_MODE to 1, and BUILD_PROFILE_BYTE combines them so a change between flashes triggers a factory wipe.",
+      "statement": "DEBUG_MODE defaults to 1, FEATURE_SECURE_SERIAL is enabled in shipped builds via CONFIG_SECURE_SERIAL in sdkconfig despite a header fallback of 0, and BUILD_PROFILE_BYTE combines both so a change between flashes triggers a factory wipe.",
       "evidence": [
         {
           "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L15-L116",
           "version": "repo-lines-v1:sha256:4bb1440c3602705bdaf6f2da2d598929c98490bec3dd44f1637838d7c97d0145:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJjNTYyNWRlZWM1Yjc2ZTYzOGNlNDdlNzRkNDY5NDViYzhmYzZlNjM3Y2Q3YWZiMDk5NzBhMTlkMjA0YzA2MGM3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJkNDRkZGUyYmQxMTliYjkzYzg2ZWMzMDg2NTM1ZjYyNWI1OTk5YmJjZTlhOWJjNmM5ZTM3YjAyODBkYjI3MzFiIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         },
         {
-          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0012-build-profiles-and-defaults.md",
-          "version": "repo-file-v1:sha256:52dd931f90485ea942000eb4adc16ad989ca75262ce5b9ef6ce05145be06f29f"
+          "resource": "repo://references/cdc-badge-os/sdkconfig.defaults#L94-L94",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTA1MTU0MjcyYjE3NTcxNjkyMDQyMTU4ZmI2MWI4NWJhYWJiMWRlMDRjMGE0YmEwMjMxMjUzYjFlYTI4YWNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA2ODM0MGI0NGM4OTQyYjhhZmQ1YWIzYTRhZGRlMjUxZTIzZTJjMWIxYjYzNDA4NWFkMDdmYWE4YzYzZGNkYyJ9"
         }
       ]
     },
@@ -105,6 +105,6 @@
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "at": "2026-11-12T21:23:11.133Z"
   }
 }

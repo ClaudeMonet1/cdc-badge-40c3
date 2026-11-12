@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:d3ba04fae8ca8e77f88adf3af12029063732c36fe460b78130a435ded4da79d1",
+  "pageVersion": "sha256:a4b5be8def2d3f24dcd393e7438c9b1626d7de9b11b334bd9aab0237d9e7610c",
   "claims": [
     {
       "id": "claim_9a319d54677a4e8aa748b4f9c6241eb4",
@@ -143,10 +143,58 @@
           "version": "repo-file-v1:sha256:e793299a13d9f5aa37a224c677f5bc29ac5009d719873f74ed0817b10620d855"
         }
       ]
+    },
+    {
+      "id": "claim_8a7c77d6ff83474b9519bc89df8cfe52",
+      "statement": "host_browser_open requires the http capability even though the other UI view calls need no capability.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ui.cpp#L89-L97",
+          "version": "repo-lines-v1:sha256:86ddc955fc4d1fd942fe30691ac27061bb35827dbf51199d75fa8bb740877896:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTRiODllY2I4ZTg3NTM0OTJlMDc3OGFkYjBlMzIxOTUzYWNhM2M2NTc0Mjc4ZmEzM2E0YmY4YTlmMTgzZDM2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZiMzI3NjU5ZWQzZTMwODIzMWJjYTUyODcwZDY5N2VmYjA3OGYzYjY5ZjQwNTY5NWVmNjFkNmE0Njg4ZDcxNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_012fc2847cd646d6b9a0a823a80133f8",
+      "statement": "Socket read, write and close are also allowed for plugins with the net_listen capability so they can serve accepted connections.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_socket.cpp#L54-L61",
+          "version": "repo-lines-v1:sha256:cc5dcafd9f55b54cd4d0d2c694fe15d21450aa43caaf25348a068afbb40b30bc:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjVlNGJmOGEwZDUwN2U2ODg2ZDA1ODliOGVjMTUyNTgwMjVhOGYzMjcwYzM1ODc5ZDZiNjY3OWMzNTIwOTI3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWYyYTZhNWNlZTQzZTdjMDJhYmUzNzJlNjUzNGRkODliMGM4Y2Y1MDg2MzhiYTUwYzdkNjU1ZmUyMzFlZWUxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWVhOTIwNDQ3ODM0MmY5NmEzNjAxNjMyYTcyOTAwYzU2NjBlZDFmMGM2MTVkNzZlNzE3MDc3NzllYTVmOTAxMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_33656dd9950a4ee4ad09222dde655ab1",
+      "statement": "The host allows 4 concurrent HTTP requests with up to 1 MiB buffered body and a 5 s default timeout, and 8 socket slots with a 5 s default timeout.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_http.cpp#L71-L73",
+          "version": "repo-lines-v1:sha256:150dd9ccf73701a1e33f176d3bcca87bf3f45dd209d12ca1262fb4250ebca0d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDgzMjUxMzhkZGVjMDE0NmQ5ZTNjYzBlZGUxNzZjODE5OGZiMjA3MGQ0ZGFhMmMwNzU1ZGVkOThjYjEzOGVhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU4MDMwYjliMWI1YTA0YTA0NDQzMWU4MDNkOTJjZGE3NmEzZWEzMmMzNTIwMjdlZDI1YTQyM2QwMDRjN2U4MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjAwZjdiZGViYjk3YWUwNDM3YzA3NWEwOThjNDc2Mjg0Y2RjMDM4MmQyZTQwY2IzMTY2ODFmZDhiZjllNmY5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjEyYzZjMWM2YzZjZWQ0ZjBjY2JhNjc0YWZjOTUwODE2OWRmZmVhNDM0ZTY4MmUxYTBmYzJjN2EwYjcxMWJiYSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_socket.cpp#L36-L37",
+          "version": "repo-lines-v1:sha256:90a879c57c0baf0bcfa2879e1f073be73ecd85e82043bbb876f626ba8e26eefb:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmMxY2NmNTlhMTAzZDgzMzg5OThjNDUzYTcyODJlNThhZjZmNTJmZWY1YTA4YzczYjRhMWMwN2U0MmMzYzNmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzZjNjExMDgwNDcwNmQzZTg5ZTA4NjVmNjhhNThkNDJjMjU4N2M1Y2ZlNzNkM2ViZjdlMTZiZGEwN2Q2M2ExYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODFlYzAwZTFjZDg1YjBkNzZhMzIwMjhjM2QxNGRjOTM0NDllMmJiMmViYTY1MGRjMmQwZmEyNjRhMWVlOWVmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmEyMTZjMTFlMGY0ODZiNGI1YTNiZGRkNTVkNGY1ZTVmNTMzZmVkZGZkMGM5M2UyYTQ1NTBhMGNhMzQxNDFiYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a1d37374ba441f8a15eae619323c863",
+      "statement": "At most 8 lockscreen registrations and 4 external-feature provider handlers exist badge-wide.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ext_feature.cpp#L41-L41",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODk3YTMzN2U2YTQxNzhlNDIxZDg4ODY4N2NmYzJjNWQwOWNjMGRmYzA2ZTA1YjI1ZWUwOWE3MjczNGQyNDdjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzY1ZDIxMmQ2NjhlNWEzNjkxYzlkMzcyNmUxMmYzNTdjZmJkMDg2ODNkODQzYWQ2NDI2ZjFkMDRmNDY0NjhiNyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_lockscreen.cpp#L29-L30",
+          "version": "repo-lines-v1:sha256:89870884ae83fde286092a1fadc6bd0eccca4c5084bb415be311c04f8a4a6737:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQ1NDRhM2NmMjNlZTA2OWUyMzdmNzQyNTNkNWEzMDllYzdkZDZhZmRhM2QwODVkMjQ1MmIwYjE0ZWE1ZDYxYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2RlZGJkN2ZmNGEzYzJmYmVhYjYzYWU2N2E1NDZiOGMyODM3ZmYwMDg1Mzk3M2JjYjA5MWE2NGVmMDAxN2EyOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGIyZTM0YjQ0NmY4NDljZTAzNjc0YWFhMTdhMzM2YTI2NjVmNDJjYmI0ZGE3YmQwMTViNGFmMDk3MGNmYmFmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODQzMjBmM2M3ZmEwMDA5ZjNkOWMyNDE2ZGNiZTk5ZWY2ZjY2Njg1MTNkYzJiZmJhMjM3Y2RmZjAwNmM1NDYxNSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "at": "2026-11-12T21:07:57.649Z"
   }
 }

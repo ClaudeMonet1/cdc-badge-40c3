@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:371732040e895439d0f844bd4e8ad402fcb8f52a9eff18ab9be471feb9f62741",
+  "claims": [
+    {
+      "id": "claim_7563127ac78a457d99be4f25a361ce68",
+      "statement": "host_log maps plugin log levels 0-4 onto the firmware cdc_log macros using the plugin-supplied tag.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L74-L78",
+          "version": "repo-lines-v1:sha256:945c10447e0506bdcd78a2fc0a10cb122d572eec9b2f06f86559eacfaddf1777:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjcxOGRjMWVlNzBjMTlkMjg1YTQwYjg3ZDYxYWMwYmEzZDViZjE3ZDhlNjE5YTA5ZmM4NWZkNzU0MzdkMTZhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGFjNmY1ZWJiYzMyYTA1YzMzNmIyYzFhYTM5NzQ4ZTM3ODJiZWNlMzlhZDc0MmYyOWY3YWJlN2IzYWIyYmY1MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTgzN2MyZDRjMGMzZDE4Y2FlZGRmZmRiYWQzNmYyNDdjYWJlZmNiNjkyODRhNTYzZTg2ZTkyM2EzZDMxYmNiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjFhM2E1MDEzM2I4Y2EyOWVjYzUxNTQ1Yzg1ZDdiZmI4NTFiOWU5MzYzODZjODQ2Y2EyYjYyOTQ1NTg2MzAwMSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_log.cpp#L17-L27",
+          "version": "repo-lines-v1:sha256:a877bc13a89ecc1a7d704ac3dbb38f9807ba4d337246c4cf14577767b6230c5b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2N2UxMmYyMWRjMGJlNWQ5MjZkNTgwMWVhYmQ4NjY0Mzg5Yzk1YzU0MWE0YzY5MTU3YTNiMGUyYWNjM2I5ZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3NmZkZDY2MmI2OTgzY2ZiNTk5ZDEyNmM4MjlmYTI2ZDM1ZWY0Mjk3NjI3OWQ5YmU0MTUxZDczYjU2NThiNDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE0NGJjNjBjNzM2Mzk3MTNlYTA1ODYzODliODJkNWYzYzYzMDM1MzI1Njg3MzU3ZjJlMjNlZTAyNTViMzhjYzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2bc67c1ce27947ab960ec81c86a705fa",
+      "statement": "The firmware error log is a PSRAM-backed buffer of 50 WARN/ERROR entries of 100 characters.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_log/include/cdc_log.h",
+          "version": "repo-file-v1:sha256:4b78a77c93917309ccabb3e1fec8259cdf6a98ccbe1c5c0b635616d63e6c9dcf"
+        }
+      ]
+    },
+    {
+      "id": "claim_63914a56e93041749f8c613bad781481",
+      "statement": "Plugin start failures are logged for disabled plugins, invalid manifests, capability check failures, load failures, plugin_init errors and aborting prerequisites.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L205-L300",
+          "version": "repo-lines-v1:sha256:caf1615961e381da91314c100227ea0c7271428a5ce9e6b55e0274404e88bb57:eyJzZWxlY3RlZExpbmVDb3VudCI6OTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2MmI0N2ZmOWYwOTA4MTBmMDQxODIxMTQ5YWRlM2M0YWEzMmI4N2MzNTRlZjNjYjFhNjA5OWFjNTI3OThkNmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3ZjkyY2M2MTkxMzcxNGYwODA5YTIzNmNmNThhM2UwMDRlNmZkZDA5Y2E1OGQ5MjYxODVkOGZlNmI3MGYxMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdmZTM2ZGRiNWRjZDc3MTc3OWNkZjgzOWFmOWJlYWFhNjk4MmQxZjg5ZjRkMjcyNWVlMDA2ODJjYTkzMzMyYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE0Zjg4YzY5YzBhZjdmYTIxYWZhODMyY2RjNzFjNGFhNWQ4NWY3ZjFkNjU2NzkwYmM4ODM5YjE5NDhiYmMyYTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_64c70921b600457ba56e7b148275c15d",
+      "statement": "Firmware core dumps are written to flash in ELF format with CRC32 checksums and are retrieved with tools/coredump.py.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.defaults#L88-L91",
+          "version": "repo-lines-v1:sha256:5625a13cdab194748ab568e852423be47d5d0aa67899b1479b034ca009dfa8fa:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTBjMGZhMTllZDZiNzNlZGMxMjM2YzliYWQ4ODE5YjNkZGNlYTk0YTZiYzA5NTNmNWZjMDQxNmY3YzExNTg3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM0ZmY2ZDJhMTA3M2JlYjRhODcxYTBkNGM3ODBjOGU3NjYwOTc0ZDE1YjQzZmY2OWY2ZWI3ZmU0ZjBhYjIzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWFiOWRkYTBhNDAxMzU2YWY3MDkwYTA2MWI1OWZiMThiOGRlYjZmNzg3ZDgxZjk0MjdkNWFiNDZmNmEyNGRlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2RlNTZkNjc0N2U1MGYxNjgyNjY2ZmMzM2VhNDhlOWZlMWM3OTk1ZDVlY2FhM2Y4ODhmZDIwOWFkNTlhNmMzMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/tools/coredump.py",
+          "version": "repo-file-v1:sha256:1fb61abbcfd8f99d57d14333472b688d4ea1c781b44604293e57c890ab8ca757"
+        }
+      ]
+    },
+    {
+      "id": "claim_2ab39550d1664efcaa84d6fa4766566a",
+      "statement": "The PLUGIN serial command group includes LIST, INFO and DEBUG, the latter toggling verbose plugin and host_* logging.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginSerialCommands.cpp#L589-L605",
+          "version": "repo-lines-v1:sha256:3828d60e17f5cd7dc1dd2d04c55201bea18ccc83b97469135c7ec225ec9a440c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OTZmZmNmYmFjNWJiODk3ZjlkZjIxNjcyOWI2Yzk3OWRjOWE0NmZlNGMyZTQ5NGVjMTg3NTZlMmQ5MmM4YjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzOWE5ZTg4ODgxZGE2MjM5MGQwZTRkYTFhYjc5ZWVmMjhhMzMxMWNiZGQyZWZhNTdkYmYyNzNkZGE2MmFkMGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI0OTM0NGI4MDY0ZDRiYjU4NTI4YTdiYjg2NDJhOWY1NmNlODllODg4NDZkMWM4Mzc4ZDkwMDVlYTJmZTMwYzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlMWJlNjhiMzFkYmMwZjc0NDNmYTRhNTc0MTE0NDM2YjFmYmM1MGU5OGUyY2Q0MjE2OWQ1MGZiYTZiMWE5OTEifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

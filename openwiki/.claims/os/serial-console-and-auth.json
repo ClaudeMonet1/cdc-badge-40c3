@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:49f80d0d23ff6370e3af7db6737f503b757852e31aab5e2460b1dcf01418a0f7",
+  "claims": [
+    {
+      "id": "claim_8fa937560402404bbe8ea8947562571d",
+      "statement": "FEATURE_SECURE_SERIAL falls back to 0 in feature_flags.h but the shipped sdkconfig files set CONFIG_SECURE_SERIAL=y, so standard builds require serial authentication.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L16-L23",
+          "version": "repo-lines-v1:sha256:739ac864a6d87d9408f6f876a4d0a46fd15ba1a8a562f9b4f0478880943ed99c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQyYzE0NGJkNDYwYWQ0ZjYyYjZkNWM5MTZmZWE4MGFlNDI4M2JkZDY0NWI0NmFmYjBiMGVkODIwOWVmYmE1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEzNDliYmQxYTIxMTA0ZjA1MWUzNGIyYzhhOWU3MGNjN2ZiYjUwYmMxOWE2Nzc4MWYyYTE0MGMzODZkOTQzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzUxZTAyZTk2NjJhZWNkNzYzYzBiMzdlMjY0MzIzNTBlNDg1NGQyODNmYmJmNTZhM2ZmMDcxYTM5OWMyYjI1OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWY3M2Q5Y2RjNjUxYTlmZDE0NmFkOTczYmJjODQ1MDIwYzA5M2VjYTBkZGZiN2ExMjgwZDFhNjExYmEyYzYzYSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.cdc_badge_usb#L654-L654",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzU5OTQwNTcxMzQxMDk2MmM2NzdjNmQ2YjM4ODRmODIxYTBmZjgxNzQ4OTVmMzIyNmIzNWRhNzA3YjBiOTBkYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWVkMWFjZDIxNjkzMDQwM2E3MWU1NDBiYzMwYmJiZWZlODgzYjVjZmQyNmM1OTQ5OTk1ZjIyOTY1ZTg0MDg5ZSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.defaults#L94-L94",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTA1MTU0MjcyYjE3NTcxNjkyMDQyMTU4ZmI2MWI4NWJhYWJiMWRlMDRjMGE0YmEwMjMxMjUzYjFlYTI4YWNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA2ODM0MGI0NGM4OTQyYjhhZmQ1YWIzYTRhZGRlMjUxZTIzZTJjMWIxYjYzNDA4NWFkMDdmYWE4YzYzZGNkYyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.release#L35-L35",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjI1NTBiYTg2ZjQ4YjQ0ZGVmZWI1ZDVjODA2ZjlhYjIwYTA2OGJmOWY1ODNiOTA5YjEzZmNhNjY3ODBlZTRlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c41a46e8100e4d19912a63328367f402",
+      "statement": "ADR-0012 states that FEATURE_SECURE_SERIAL defaults to off, which does not match the shipped sdkconfig defaults.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.defaults#L94-L94",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTA1MTU0MjcyYjE3NTcxNjkyMDQyMTU4ZmI2MWI4NWJhYWJiMWRlMDRjMGE0YmEwMjMxMjUzYjFlYTI4YWNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA2ODM0MGI0NGM4OTQyYjhhZmQ1YWIzYTRhZGRlMjUxZTIzZTJjMWIxYjYzNDA4NWFkMDdmYWE4YzYzZGNkYyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0012-build-profiles-and-defaults.md",
+          "version": "repo-file-v1:sha256:52dd931f90485ea942000eb4adc16ad989ca75262ce5b9ef6ce05145be06f29f"
+        }
+      ]
+    },
+    {
+      "id": "claim_539f2d58386644b49285b748f7a92eb7",
+      "statement": "Serial authentication is tracked per transport so a session on USB/UART never authorises commands from the BLE console, and sessions expire after five minutes.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/serial_cmd/include/serial_cmd/SerialCmd.h#L24-L26",
+          "version": "repo-lines-v1:sha256:d52c9706890f54a9427e5eb57b76c1115754d6522149d76b9966486db14d3c52:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM4Y2UxN2UxN2M2ZjQyNWExOWY2OTA1MDhmNzRiMmJlY2QwZGVmNzJhMTdmY2MzNDJhYjcxNTMxNTQ4OWIzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjlkN2U3OWI2NGIyN2UwMTM4ZmI5YzNjOTUwOWVmNjYyNTFlNmY5OGQwZTIxM2I4NWRmY2YxYmI1NDU4ZTgwZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDcwYWI5Y2NlNGE0Zjg4ZmIyZDAyNjgyYWU0MjEwYmJkODVjMjRjNjQ0N2Y1MmNlZjI0ZDc5MDUwZTc0MzIwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGU3OTFkOTcxZDRjMTcwZjZjMTI4NTQzYjhiNmQwMmFlMjQwZmVkYTFjODdkNzMyYmU1MzFhNDY5NGQ0MzYwMiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/serial_cmd/src/SerialCmd.cpp#L88-L102",
+          "version": "repo-lines-v1:sha256:e18a7041873ed25a6b011472714113df383802b2caa926ae4541dcd9608025ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4Nzc0OTE4ZDA2NjkwYzNmYjc2MTk1ZjA5NWE5OGY4ZDFhNzkwZDNhZTkwODI3MzM0MDBjNTdjMDlhMzY3OGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2Mjc5YmExNWI2NWQ5MDIwNmZiNWM2YTljZTBiMDZlMDA0NGI4NGVhNWI0YmIyNTk5MDY3NGM0NGQzNTgxNjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBkODhjNWI1MzYzZjcxNGE0ZGJjNDczMzI1MTJmMDcwMTZmYTIxZDM0YTJkZDIyOGZlYTIzYTJiNTg4ZWMwYmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_75f6abe0f221406cb1b660e22bbedd7c",
+      "statement": "With secure serial enabled every command except PING and AUTH requires authentication, while SET_TIME and SET_DATE are registered without the requiresAuth flag.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/serial-commands.md",
+          "version": "repo-file-v1:sha256:1ff1f58488b6bd9ec4826718c0ba960cb75bd8057279b6c782b75ca3a1c2deb0"
+        }
+      ]
+    },
+    {
+      "id": "claim_f15b8d7b735748be94400ae98431342f",
+      "statement": "The TR01 command group can hex-dump R-Memory slots after authentication.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/serial-commands.md",
+          "version": "repo-file-v1:sha256:1ff1f58488b6bd9ec4826718c0ba960cb75bd8057279b6c782b75ca3a1c2deb0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

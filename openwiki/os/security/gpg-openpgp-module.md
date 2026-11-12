@@ -5,7 +5,7 @@ description: Code-level review of cdc-badge-os's mod_gpg — which keys live in 
 tags: [gpg, openpgp, security-review, web-of-trust, cross-signing, tropic01, smartcard]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T20:57:16.971Z
+    at: 2026-11-12T21:23:11.133Z
 sources:
   - id: openwiki-source-c6b3825f0fb7ee76be0310f3
     resource: repo://references/cdc-badge-os/components/cdc_core/src/KeyFingerprint.cpp
@@ -27,7 +27,7 @@ sources:
     resource: repo://references/cdc-badge-os/components/mod_gpg/src/openpgp/xsig.cpp
   - id: openwiki-source-d9cf7e4d356f8ac737de3624
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/proto/gpg-cross-signing.md
-generated: { by: "claude-code", at: "2026-11-12T20:57:16.971Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:23:11.133Z" }
 ---
 
 # GPG / OpenPGP module review
@@ -92,8 +92,9 @@ claims were re-read in source. Items marked *(inference)* need a device test.
 3. **Sign.** "Cross-Sign" is a single yes/no confirm (`GpgModule.cpp:1092-1096`).
    - No PIN is asked.
    - The serial command `GPG RECV_CROSS_SIGN` signs with **no on-device
-     confirmation**; it needs only serial AUTH (which is off by default in beta
-     builds).
+     confirmation**. It needs only serial `AUTH <pin>`, which is on in shipped
+     builds (see [serial console](../serial-console-and-auth.md)), after which
+     signing needs no confirmation on the badge.
 4. **What gets signed:**
    - certification type **0x10** only, SHA-256;
    - hashed subpackets: creation time only;

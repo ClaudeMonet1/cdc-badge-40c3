@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:bcc5faf6afd1d49b3f17f1fad4076d012b11447d63a30482860d481629bfcb57",
+  "claims": [
+    {
+      "id": "claim_f76813658ec2400498b8eb2bbb43140f",
+      "statement": "At boot the module registry runs every module initializer, logs an error for registered modules missing from module_defaults.h, loads the persisted disabled list, stops disabled modules that self-started and starts exactly the enabled set.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/src/ModuleRegistry.cpp#L80-L112",
+          "version": "repo-lines-v1:sha256:016a8d7d2247941d82176a3ee581aaaf939322ae064c927920befdfa21c2ec94:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiYzMxNDczMWE3Y2RmNzBiYjU0NzM3MzZjYTNmMjVmNjEzM2NiZDRlMDlkZTUwNTBhZmQwZDU2N2YyZjg0NmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjN2ExMzRjYjA0ZDM4NDUyYjA4Njk3NDE0ZDE2YTQwM2FmMTY0NDRkMmRlZTU1YzcxYTA4MDM3Yjg0NWI5YTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFhMTUxNTk1ZGE3ZmJkNTdiMTI5ZjYyZDU2Njg0MjVjMWE2OTYwODIzMzFiM2E1ZDQxOTc2MTFiMjhjNTNmZWIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/module-development.md#L130-L145",
+          "version": "repo-lines-v1:sha256:95bf8dc206f65fde67c64799c10908a13e5e5be438fb487a0653133b513bfb75:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3ZjY3NjAxYjk5YTkxYjMwOWUyZWM2MTQxYmY2ODIwMDYzZWRlYWYwMTFjZjIxNjQxYzI3M2MzMDZmNzc1YTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3MzBmZGJlMjMzNTE3NjM0Y2Y1NTFmM2Y0ZjU3MjY5NTE1NzNhODQ0Y2I0NGNhMGM0OTlmZDAwNGRiZGU2ZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2ZjVmN2YwMDg4OTI4NTM0MDE4MDgxM2U1YWMwYjE4ZDA0NTQxODg4M2I4YTliYjYwODk2NDI2OGM0ZTM0ZDkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dbd1f9502a3d404f86e1f44222263ecc",
+      "statement": "mod_browser is listed in the MODULES build list but has no entry in MODULE_DEFAULT_MAP.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/CMakeLists.txt#L8-L24",
+          "version": "repo-lines-v1:sha256:55f6cf34f483b8f4c4e36495054fddff2bf1a59533221ee4914b983c212d3672:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MWQyMDM3ZDQ3ZGQwOWU1ODEwMThkYTQ0ZTdkY2I4NWZkYzY1OTVlNDc3OTk4M2NiMDRjMmU3MDgzMzI5NzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmZmEzZDE2OTI0YmRmYjI2ZDc5Y2U5MDBmNTdiNGVkMWQ0ODVkNWI4YmM4NzE0YWJhZjdjYzBmMGYwODY2ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBlNTJlNjAyYTk5M2U1YjA3ZGFjZTFkYTQzYTJkNzMxODFhMTVlNGMyMTVhZDY4YTdmNTVhNGYwOTNlNjIyYzgifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/main/module_defaults.h",
+          "version": "repo-file-v1:sha256:5deab856aa282cabab2f513e28a566e2184a145282bb919571c185d7a1adf03d"
+        }
+      ]
+    },
+    {
+      "id": "claim_28c5f00492e64796bd439beea5c1acf7",
+      "statement": "Adding a module requires creating its component, exporting a mod_<name>_register function, adding it to MODULES and adding a default entry to MODULE_DEFAULT_MAP.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/module-development.md",
+          "version": "repo-file-v1:sha256:b4ab3f1b93613c9dffb5a06d1f2341db3b8d0ff8afd450cab2a0507152c89289"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

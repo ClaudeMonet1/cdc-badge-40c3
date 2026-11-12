@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:fc682c1e688eff53b3e563ae9b7257f46838f80d849cf0d3d4d85df4f902d46f",
+  "claims": [
+    {
+      "id": "claim_8ce90294233948baaabb7c4fc858a1db",
+      "statement": "Host unit tests under test/host run with the PlatformIO native environment without hardware and are run in CI with pio test -e native.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/.github/workflows/build.yml#L30-L36",
+          "version": "repo-lines-v1:sha256:6c0c605ef908bfd50c147581192af87c2b03fc664ee4a29d18d2dd570b395cc9:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWNlOGI4MmUzODA1YTNhMTgwMDNmMmZlNDVkNGY1ZGJiNDdhZmRlOGMyZGRmNTU5Y2VkMmI0ZmRjNGY0MDYzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjg3ODE5NzU2ZjQzNTJjODQxMmU5ODJmOGE5MTMzM2E3ODI3ODlkMDJjZmM2MjY0ZWI2OGNiM2JiYTRhMjhkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE0MGM1OGI2N2I5ZTFkYzM0MzdlM2IwNTUyYjhkNDhiMWRmMTdjMDA1NDY4ODYyNTlkNzNmZjMxYWIzNDcxOSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/test/host/README.md",
+          "version": "repo-file-v1:sha256:486df12b39fc1303d4d0d65ef81b03f8025c11f46e2b1cc13ac2b31001c6fd6b"
+        }
+      ]
+    },
+    {
+      "id": "claim_25cbcb4446c04b53b6b6b19b094208dd",
+      "statement": "Hardware behaviour is covered by HIL plans under specs/001-current-system-spec/hil, which are not present in the vendored release snapshot.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/test/host/README.md",
+          "version": "repo-file-v1:sha256:486df12b39fc1303d4d0d65ef81b03f8025c11f46e2b1cc13ac2b31001c6fd6b"
+        }
+      ]
+    },
+    {
+      "id": "claim_93a085bb3e5745a88d06f2153b712d7e",
+      "statement": "The on-device runner executes an automatic serial-only catalog and optionally a semi-automatic operator-assisted catalog, never flashes test firmware, and takes the PIN from --pin, BADGE_PIN or 123456.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/tools/ondevice/run.py#L1-L20",
+          "version": "repo-lines-v1:sha256:dead3c983cdc5f3c860333094b21db295fe29d141ebd1dfe4c12e0d528ce21ff:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2ODJjYmRiNGM4YjA3NTE4YmY0ODZjNTg5OTBmYzM5MTc4M2FhMjBhOTE2YmZiMjdhZDIxMWViMWQ1YzM2NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzNjk1ZTAyOWIyY2RiZjQ4OWZiNWFlOGU5MDQ0MWFiNDcwOTM4ZTk0Mzk1MjA0YTkyYTIyNzc0YjU4M2Q3MzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1fcd6fa05df84f178569d9643a2049fc",
+      "statement": "The OS ships Python companion tools for flashing, uploading, BLE serial, backup, coredump analysis, language images, 2FA provisioning and a local web flasher.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/power/companion-tools.md",
+          "version": "repo-file-v1:sha256:ec874ce29326f44b56d9ec7191fdd0a1747aadca0e7cd2ee3efe1f67d4af3234"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

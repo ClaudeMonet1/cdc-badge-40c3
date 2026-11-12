@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:839d993680b52bf807c95189c9a96d019e9070b9b718ca4a8b306254ad1c611b",
+  "claims": [
+    {
+      "id": "claim_2c778f60164a45debda04eee9e8d15f4",
+      "statement": "provision.py ships disarmed and requires setting ARMED = True plus CDC_PROVISION_EXPERIMENTAL=1, an irreversibility flag and typed confirmation phrases, and it has not been validated on real hardware.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L37-L58",
+          "version": "repo-lines-v1:sha256:20885c9d825ed38806f6b88fd54a46501624f3f8638c1458d9dbb679bf0151bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiZjQ0MzE5NDgwZTE3MjY1ZGFjZjJmYTkzMzY5OTE3YjQzOGMxYjc3NTYwNzYyZjIyODJhOWRlZDkwZTJkMTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5NGI1ODc0MTMwNTE1ZWNiYmRiY2VmNzFmZjdiNmQyZWNiMTdhYTE5MzMwYWQ5NTg1MDdkNGMxODlkYmI5NjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE3ZDA4MzFiZmFiYjczOWEwZGExMTIzMmNjMmRiNmI5OGU4NTlmZDQ1ZTczODAyMjFkMDgxMzNjN2M5ZDc4OTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg4ZmNhZjIwODE4NTg0YzYwNTE2YWI2YmI3MDU1ZDBmZmY4Y2ZhYzgwMjQ1MTE3ZjRhZTczYjc2MWVjMzM2MzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b758ed139a79478b954fa561650ca3f1",
+      "statement": "Hardening must run rotate-key (soft), verify and invalidate before lock-esp, because the custom pairing key is readable in a plaintext flash dump until flash encryption is enabled.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L74-L88",
+          "version": "repo-lines-v1:sha256:53ee4afc2c4a0e449fcd29a3566b1e0967852e197a6a84039520d4df99128e80:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhODRiMmE0Zjg2YzUxZDgzYmE2ODEyY2QzZWUwYTM0NDY1YzI2ZjJjZWYxYzNkN2YxMjJiOWQ1ZjIzYTFhMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiODAzNTJkNTRmYTk4NmVhOGY3OThmZDNlNWY0Y2JjYjkyODc4Y2I0NjA1ZDFlNTM1Y2VhNTFkNzA3YzY3MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAwMzJhNjY0ZGNmYmI4Y2I1MGY4YWZkNjFkN2VkMzI4YzQ5NGUxM2YwOWIxZmJhYTEwOGM3MzFjMTgyMDVhMTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e20f2a48b25431eb629e8ff4fd706e0",
+      "statement": "TROPIC01 pairing-key write and invalidate commands exist only in firmware built with FEATURE_PROVISIONING=1.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L89-L110",
+          "version": "repo-lines-v1:sha256:18f1fd13cc1755c83bca4a1c5ac6a3547f319ec2aa99e9cc3f22884b7429074a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3MjlhZjEwNTc4ZDk1N2U0Yzc5NDViMTI0ZGFkODRlNDA0ODczYzg4NTE1Njk0NzJkMTM0YTcyOGI0NDc4N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmNDYzMDNhMWMxZGIwZDNiYWI4YjJlY2ZiODE0OWFhYzEyMzNiZmZkNDdmN2I0ZWEwZDNhOWI1MDgyNmQ1NWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRiNWQ3MjUwYjNlZTZmMzZhODNkZjBhYzQ2YWIyZDQ5MDA0YzRmN2IzNGJiY2MxMjExMWEwNzg1Y2EwYjQxYjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0fa9a82f967c4f80a4e48e572a71a692",
+      "statement": "The release environment adds secure boot v2, release-mode flash encryption, secure serial, DEBUG_MODE=0 and NVS encryption via an encrypted nvs_keys partition, and its upload target is always refused.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/partitions.release.csv",
+          "version": "repo-file-v1:sha256:d37438246d5d55bf52666ba6511fbf7b47a3c16167ea9dde98b325ef35f88f36"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L151-L186",
+          "version": "repo-lines-v1:sha256:24ae5b056e9555eabf5404be0c73b8602ae673185a4409bf8965fb2a4a9b98d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxOTY5NjdjNDEyZDhmOWZlY2E5OGY4NGQ1ZmNlMDg4ZTliOGJmNmZhZDkzNmU5NDBiNzBjYTBmZmQ0MDgwNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE3ODZlM2EzNmUzZTE1OWI1NjEyOThlNjMyMTQ3ZWRjZGQyN2RmMjVlYjU3ODQxMzUwZjdlNzQ0ZGJiZGY1MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYzNjAwYjhjNGYwMTc3N2JjMzRmNTcwNTQ1YjE2YmIyMWY5YjAzNzY0NTFiNDAzNDFmNGQ2MzlmNGJjZjA3MzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_814ca20ac68a4d56aed10a408845d900",
+      "statement": "lock-esp is a strict seven-step state machine that generates and burns flash-encryption and secure-boot keys, flashes the signed encrypted release, enables lockdown with a serial verification and then hardens JTAG and download modes.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md#L187-L235",
+          "version": "repo-lines-v1:sha256:9bf24665353d574041a1d8817fb22610183b4b63c185e3944f7af1e98ec112b4:eyJzZWxlY3RlZExpbmVDb3VudCI6NDksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJlOGM3MjI0YjE4NzYzNTFhZjBkOGI1NTk2MjE1YWU0YjZlODU3ZTUxZTc0MmFhMWQzMTExMjlkMGI2YWJkN2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWFjYzdmOGYxZDhiZmIzNTEzN2EwYTQzYWMxNDQxZDIwZjBkNWM4N2NmMWFiOTExYTJhNzVlMzIwOGY2MmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxZDk1OTk4NDgyNDhiNGIwNjkyMzcyZDVkMDAxOWYzMThlMDE3ZDVmOTg2MzQ0MWM5ZDY4OTlkNzJjNDkxYzAifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

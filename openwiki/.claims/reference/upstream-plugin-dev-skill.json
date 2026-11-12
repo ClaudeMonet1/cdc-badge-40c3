@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8d2bc2d5770ff791150620f6ada2377b6bfe86fe520a549b2073f867b2ea3c95",
+  "claims": [
+    {
+      "id": "claim_5576418f14a84d57a5780d670cf28f77",
+      "statement": "The cdc-badge-plugin-dev skill instructs agents to use the real tooling and verify every fact against vendored sources, and treats firmware and SDK under vendor/ as read-only.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/.claude/skills/cdc-badge-plugin-dev/SKILL.md#L1-L12",
+          "version": "repo-lines-v1:sha256:64eb95c8ce3766bf7598b98bfee32544d6fe6151d2656667b8dfa8c44c62def9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1MmQ3MTExMDNkNTBhNDM3ODMwYzZmYmNkMDRmYjRiYWI0OWEwZjgyZjZkMjZkMWM3OTFjNmU4NDg4ZGQwOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkNjM0ODRmNjNiMjc3MjIwODc2NzdhNGU3ZmE3NGFjMTY2NTlhYmFlZDdkYmY5MTI4NmY4YzI3MWMyODc0NGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8964f386b8574c17a048b1854acd3322",
+      "statement": "The skill's pitfalls include not unwrapping host calls, pick_font_that_fits checking only width, canvas key callbacks consuming all keys, and never pushing a view per animation frame.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/.claude/skills/cdc-badge-plugin-dev/reference/pitfalls.md",
+          "version": "repo-file-v1:sha256:354e33121ab0f83471baf82e478d1022109a038c8bb2fe0027fc97d638037712"
+        }
+      ]
+    },
+    {
+      "id": "claim_47e527a553a6454093ce1ac29fb4b5c4",
+      "statement": "The skill lists APIs never exported to plugins: lock-screen/PIN, BLE bond management, charger control, deep sleep and direct HID reports.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/.claude/skills/cdc-badge-plugin-dev/reference/host-api-map.md",
+          "version": "repo-file-v1:sha256:997d859d273205e33b3eb07466cce1d1b7b039e9d81335f9c848677fce27a618"
+        }
+      ]
+    },
+    {
+      "id": "claim_04415991d6ec4a669c3e14004fad4411",
+      "statement": "The skill's canvas reference states a 96-command display list while CanvasView defines 128.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/.claude/skills/cdc-badge-plugin-dev/reference/canvas.md#L72-L118",
+          "version": "repo-lines-v1:sha256:fdfc7b6e74a993e7c735ef31cfa105d1776c077c9b12a408cfae5703ff44cafb:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjOThiNWM3YmJkOWZlM2M1ZWQwMDU1NDM4OTVhYWFmZTlmMWUxNDZmNGY5ZmM1MGZiMGQ5MDVlYzRlNzFkNWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyZGMwNWMxOTU3MTg4MDgwNWY1ZTFjZDZhMTVhOTA2YzUwNzM0MDNhZWMzYTg3MGQyOWNjZDIyZDBmZGMyODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhNWJmYzA1YTIzMmZiNzBlMDI3ZjUwNzU1MDExMDk2OWMwMzRlNzU3MzA4YjljZjQ3MDcxMjEzYmFlNDI2MDAifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_views/include/cdc_views/CanvasView.h#L47-L52",
+          "version": "repo-lines-v1:sha256:ab0445bb58e27d07754080856359f6ad5b244517038c550ea065e0b7e80851cb:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ3MDlmMmY5MTk0OGZiNzRmODBhMzVmYzcxZmUwMTE2NjVkNjEwNmRmYWE1YWNkYTJiM2I2Nzk5OWQ2Nzk3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhODRjNTI4NjQyMThiNDVhMWI1YjFlYzI3MjI1Y2I2M2VkN2Q2Yzg4YjE0MjNjY2MwOGEzNGE3Y2I3NDQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGIxYzc4ZTcwOTU1YzJlOTYzMzQ1MzI3YTEwOTY0ZTI2MDU2N2JlZGExYzJiYWNlOTk4YjMzYWFmMDlhYjkwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjUyZjJhNWQ2NWZlMjY1M2ExOThlMTNhNWMzOTJjNWY4NWVlOWUyOWY4ZTRlNzZjNTdlM2Y1NGNmNzE0MDA3NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

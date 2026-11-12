@@ -1,0 +1,4 @@
+# Files
+
+- [Browser, vCard and SAO modules](browser-vcard-sao.md) - Three cdc-badge-os feature modules a plugin can lean on — mod_browser (readable-text web browser reachable via host_browser_open, which needs the http capability), mod_vcard (vCard 4.0 store and badge-to-badge exchange as text/vcard, reachable via host_vcard_*), and mod_sao (SAO add-on detection via an "SAO1" EEPROM descriptor at I2C1 0x50).
+- [Credential modules: TOTP, password vault, PIV, HID auto-type](credential-modules.md) - The cdc-badge-os credential modules — mod_2fa (OATH TOTP/HOTP/challenge-response over screen, CCID, BLE and OTP HID), mod_password (364-entry vault in TROPIC01 R-Memory), mod_piv (P-256 PIV card), and the keyboard transports mod_blehid, mod_usbhid and mod_otphid — with capacities, transports and the at-rest protection model (secrets stored unencrypted in R-Memory, reachable with the pairing key).

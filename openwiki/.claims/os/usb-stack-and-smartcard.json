@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:372b905e108c49583e7629c97b7ccda0c4e3bc07418d29b4cd10390bb0284b9a",
+  "claims": [
+    {
+      "id": "claim_b033a8bd47f147608e5197d1a9913e1e",
+      "statement": "The ESP32-S3 USB endpoint budget for non-control endpoints is 4 IN and 6 OUT, and CDC-ACM always consumes 2 IN.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/usb_badge/include/usb_badge/usb_endpoint_budget.h#L10-L20",
+          "version": "repo-lines-v1:sha256:5d4d314d2492af5125b5fe6282db3c4947d4cfc2c7b3b1f4481ed6eacf0fec65:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3MmMyNDE2NjNmYmNmMDcwOWViZWQzNDA2MDQ5NTFkMmQ2NDdkOWJkN2UxZDE1OTFlNjRmNmRhZDQyZTRmMGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3ODVlNzEyMTM3MWJlNzFjYzUwMzAzNjU2OTJkM2Y0YTA4MGNkNGRlZDAzOGI3MTM0MjcyN2M0ZDEzOGJmMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIyYTU0YWNhNGY4NmUwMjFmZDVmMDU1MjZhZDY5Y2Q2YjE2YWRhNmJlNGVmMDFkYWUxNzQ3ZWQ3N2JmN2VjNTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a59db4cbfdf4d2faef9418d0b4276c1",
+      "statement": "Starting a USB service that does not fit the remaining endpoint budget returns BudgetFull.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/src/UsbServiceManager.cpp#L145-L166",
+          "version": "repo-lines-v1:sha256:cfd0b3809e7157a2a80a0519c1a10dc7305ddd716548904d7917abbffc54fad0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4OTIwMjYxZjZjNzJjMjY5OTI2MGVhODAwYTdkZDkxNzA0OTI2YjA5NjdiNzE5N2I4MDMzNzkxZmRlYWU2NGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhZjZlMmI0NzI3MjY5ZGVlMDAwYWRhNGRmYzkzYTYwNzkxMTBkZDVhMDIxNmUwODQwMmEzODg1OTMzNzk4OGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0M2Q3MGQyYjkzNjJhN2VjNTI5ZTY4OTJlMTQ5N2I0ZjZlYjI4OGVhMDQ2NWI3Y2ViNTgxOGZkMjU4ODEzMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlNDY4MzdmNTBkMWJhMThiNjgyN2EyYjc2MjM1ZjgxZmQzZTY1ZTY5ZDAxODVkMmZlM2NlYTdlY2NhNzQ0MGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b480c7a348f440f9b15e86154e7e2ec0",
+      "statement": "With CCID enabled the badge uses the libccid-whitelisted Gemalto VID/PID 08E6:4433, otherwise Espressif 303A:BADE, and the OTP HID mode presents OnlyKey 1D50:60FC.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/usb_badge/usb_descriptors.h#L9-L20",
+          "version": "repo-lines-v1:sha256:b67da2f13c7b44513c580106e507eaeb6cec86c6af92de129378f3710b9dfa41:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZjMwMTlhYWM3M2NmZDI0YzUyMzM2YmQyOTQ4ZmNmZWQ5NzkzODU4YTM0ZTU3ZjFhOGU3MTI3MjlmZTVkOWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRmZGU2OTZlMDQ3Y2M2NWZlMTA5Mzg2NDhmYTAxYTYyYmM2MWUxNmNhZGQ4NDZlMTA2ODE0ZDVjNDZjNzNhM2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkzMDFjODFmNWI0NDFkZWIyM2ZmNjZkYzFjNGI3MzVkZGQ1Njc2YzkwNjU5MTAwYTJiZWZhYTlkY2I4M2M1ZjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0b2e57e4e4254f01a755eaa8a9de4754",
+      "statement": "The CCID router supports up to four applets, each registering an AID prefix, an APDU handler and a deselect hook.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_scard/include/cdc_scard/applet.h#L18-L30",
+          "version": "repo-lines-v1:sha256:6da588e5150cd2452206babd7cf46f102e5a99231be866b67d98e93b76e634e0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMzQ5YmJkMWEyMTEwNGYwNTFlMzRiMmM4YTllNzBjYzdmYmI1MGJjMTlhNjc3ODFmMmExNDBjMzg2ZDk0MzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmMDVmNmY2YTI4OGQ5MTE5MjRmZTkxZjdlYWRhMWIxOWYzMmNhZjgzYjJkMmJlMjA2MWI3ZDhmYmNmMmM1OTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlZmM5MGM3OGVlODM4ZmJiMGE3MWI5NGM5YTEzN2EwNjlmMzUyYjllMDI5NzdiNWRhYjIxOGEwMTBlODgxNzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0NTMxYzBjMTc4MGU5ZWY3M2NlN2UzZGRiYmM2N2JjNjYzOTg3N2RmMmZmZGU1NmMyZmQ4ZjI3Nzg2OGEzOGIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

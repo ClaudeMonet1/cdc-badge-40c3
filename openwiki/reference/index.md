@@ -1,3 +1,4 @@
 # Files
 
 - [Open questions, discrepancies and constraints](open-questions-and-discrepancies.md) - Cross-cutting checklist for building our sandboxed Rust WASM application on the CDC Badge — hard constraints (memory, stack, instruction budget, storage, refresh, power), every disagreement found between the vendored sources with the resolution we adopted, missing or non-vendored upstream material, and open design decisions.
+- [Upstream plugin-dev skill reference](upstream-plugin-dev-skill.md) - Map of the cdc-badge-plugin-dev agent skill shipped in krim404/cdc-badge-development (SKILL.md plus 12 reference docs, about 2000 lines) — what each document covers, its most valuable pitfalls, where it disagrees with the vendored OS snapshot, and how to use it as upstream reference material rather than instructions.

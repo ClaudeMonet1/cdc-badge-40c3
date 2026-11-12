@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:139a7eaac5b8d213596bede8e0d8fd937552206468dcd1c0dedd3bb2ff86004b",
+  "claims": [
+    {
+      "id": "claim_fc7cba2df5674226805d8004b9778fde",
+      "statement": "NimBLE callbacks for plugins only copy payloads into mutex-protected rings, and a pump on the plugin tick task fires the plugin action that then pulls the data with host_ble_consume_* calls.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ble.cpp#L1-L15",
+          "version": "repo-lines-v1:sha256:390339c8908e4c803d856bbd210aa4b153351a1377f9e39912f056b2f4c2fe99:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllMWM3N2UyMDhmZWFlMjY2ZjlmODEzZGMyZTUzNjMwOWFiZDczNjcxMjE2OWVlOTk4Y2UxODYzYTViMzE0MzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4NGFhNWNiZmViYTA0NjIxMDAxMzFmZmI1ODE4YTNmNjk3ZmZiNWNmZTBiMTc4NTg0MmZlMzJiNGVlZDM0OWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_56259dab2c0f48e8a514d4a84c03d6b7",
+      "statement": "Plugins share a single reserved GATT service slot and a single BLE connection.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ble.cpp#L13-L15",
+          "version": "repo-lines-v1:sha256:7b602b05ba070d5e10f7061a454e216f59b035d5190092e7c76ad16c3ac583d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM5MWNjNDVkNWZkOGM2NWJlYmE2ZTRlZWM3NmNmZDY0ZGFjZGQ4Mzk4MzNmZmM1Mjg3ZjRhM2Q2ZDYyZmRkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWUxYzc3ZTIwOGZlYWUyNjZmOWY4MTNkYzJlNTM2MzA5YWJkNzM2NzEyMTY5ZWU5OThjZTE4NjNhNWIzMTQzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGVlMDZiOWNiMTAwNjFjZWUxYjhhNWI1ZjNmNDg2YjZmMWI3YzI5NzAyOWU1YzE5MGI0NjcxZTY4ODIzMGM4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjg0YWE1Y2JmZWJhMDQ2MjEwMDEzMWZmYjU4MThhM2Y2OTdmZmI1Y2ZlMGIxNzg1ODQyZmUzMmI0ZWVkMzQ5YiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ble.cpp#L35-L40",
+          "version": "repo-lines-v1:sha256:a3c982d0cffce6d9fa766ebdd9ec10dbd48846dbc9fd16f23dd25a5b6a9e370b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzY3NjI2MWQzOWIxZjFhMTVkY2RmN2I0ZmM5Yzg1NDhmNDQzODA5N2UyODVjOWE5YTAyOTk5ZWMzYWJhODc2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjU1ZmI0NzNmZTc0MzYxOTNkNDI5OTM2NWJjZTI5ODM0NDlmNTFmYzA0YWNkYTNlYWY5YWJhOWEwYjRmNDBiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTQ5YzkxNDNjZmZhOWUwZjU2MGQ2NGYxOWEzY2YwYTJhOGMxNjczODZlMGE5NGFlOGI2ZDM2NTQxNmQyYWJiMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5386ee8e221745db84956ed9e475c131",
+      "statement": "Plugin BLE payloads are limited to 244 bytes with four-entry write and notify rings and at most eight discovered characteristics.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ble.cpp#L35-L40",
+          "version": "repo-lines-v1:sha256:a3c982d0cffce6d9fa766ebdd9ec10dbd48846dbc9fd16f23dd25a5b6a9e370b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzY3NjI2MWQzOWIxZjFhMTVkY2RmN2I0ZmM5Yzg1NDhmNDQzODA5N2UyODVjOWE5YTAyOTk5ZWMzYWJhODc2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjU1ZmI0NzNmZTc0MzYxOTNkNDI5OTM2NWJjZTI5ODM0NDlmNTFmYzA0YWNkYTNlYWY5YWJhOWEwYjRmNDBiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTQ5YzkxNDNjZmZhOWUwZjU2MGQ2NGYxOWEzY2YwYTJhOGMxNjczODZlMGE5NGFlOGI2ZDM2NTQxNmQyYWJiMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fe01a74646fe4d79bf74afeaf6613f74",
+      "statement": "Registering a plugin GATT service checks the ble capability and characteristic count, refuses reserved UUIDs and returns BUSY if another plugin holds the slot.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ble.cpp#L258-L272",
+          "version": "repo-lines-v1:sha256:e4d8ed6792656108a193c965ba947d1057615db0b02b4c86d78d8daf9c8cbfd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmOTEzOTI4ZGE5ZWE4N2NhNmQ4NzA5ZTcwNTlmMWNmMmU1NTg1NWZlNjdhNTJlYWI0MGQwODQ1NTM1NjBmNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2NTVkNWE2MzY0M2VkNmFkMmMxZGQzYjA2MzQzOGNlODUyZmMwNmU0ZjdmMTljMDdkOWJjOGVjMDY2NGVhYzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkZGFhNGU5ZGI5YjA1NGU5ODNkNzM5MDk0NjhmNzk3ZjAyZjM5YzUyZjZiYTI5NWFiYzIxZGM4OWNkMDQ0OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAyYTk4ZmM3Mjk2NDNmYjZkYzBhN2MzMDhjOWMzMmU5MmIxZDYyYjg2MWU3ODI0MGMwMjQ2Mjg1MTk3NTEwYmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c33f82cf0a9a4d8fb5fe7d1a6c6a9630",
+      "statement": "BluetoothController is the single GAP handler, the GATT registry is limited to 7 services of 6 characteristics, and registering a service while the stack runs forces a NimBLE restart.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0008-single-ble-controller.md",
+          "version": "repo-file-v1:sha256:75777ad12797c0c480befc62b71c9941d69115e5b8d43c2f00e00233d98a0a7e"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

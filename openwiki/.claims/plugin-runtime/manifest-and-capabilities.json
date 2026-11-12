@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:78e69535a5883b51c0fc8d88f20da4f6f6a472ac23e0c094aac93bca7be98226",
+  "pageVersion": "sha256:9286bcc5278ee669d465d447c440ac1827dfc230dda977cb0a1b88fe839045c6",
   "claims": [
     {
       "id": "claim_6672a06aaa5246e8b4e8669e67097755",
@@ -107,10 +107,48 @@
           "version": "repo-file-v1:sha256:e793299a13d9f5aa37a224c677f5bc29ac5009d719873f74ed0817b10620d855"
         }
       ]
+    },
+    {
+      "id": "claim_14d43d18d5544483bbc45ce232384ce0",
+      "statement": "Shipped sdkconfig files enable CONFIG_SECURE_SERIAL, so serial plugin upload requires authenticating with the badge PIN.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L16-L23",
+          "version": "repo-lines-v1:sha256:739ac864a6d87d9408f6f876a4d0a46fd15ba1a8a562f9b4f0478880943ed99c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQyYzE0NGJkNDYwYWQ0ZjYyYjZkNWM5MTZmZWE4MGFlNDI4M2JkZDY0NWI0NmFmYjBiMGVkODIwOWVmYmE1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEzNDliYmQxYTIxMTA0ZjA1MWUzNGIyYzhhOWU3MGNjN2ZiYjUwYmMxOWE2Nzc4MWYyYTE0MGMzODZkOTQzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzUxZTAyZTk2NjJhZWNkNzYzYzBiMzdlMjY0MzIzNTBlNDg1NGQyODNmYmJmNTZhM2ZmMDcxYTM5OWMyYjI1OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWY3M2Q5Y2RjNjUxYTlmZDE0NmFkOTczYmJjODQ1MDIwYzA5M2VjYTBkZGZiN2ExMjgwZDFhNjExYmEyYzYzYSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.defaults#L94-L94",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTA1MTU0MjcyYjE3NTcxNjkyMDQyMTU4ZmI2MWI4NWJhYWJiMWRlMDRjMGE0YmEwMjMxMjUzYjFlYTI4YWNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA2ODM0MGI0NGM4OTQyYjhhZmQ1YWIzYTRhZGRlMjUxZTIzZTJjMWIxYjYzNDA4NWFkMDdmYWE4YzYzZGNkYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_505e9ec19c0847b1a3dbadc939d9df1e",
+      "statement": "With USB mass storage enabled and the badge unlocked, the host sees the system folder holding installed plugins because FEATURE_PLUGIN_SYSTEM_LOCK defaults to off.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L48-L54",
+          "version": "repo-lines-v1:sha256:e5b3e83d4aa4709a43d9fd644fe7b7a5b05ba4bbe7ffa60c823905b6b2146b20:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQwY2Q0MWI3OWYzMGRkYzk2OGY2NWJlZmJkNzcxYTEyOGY1MDU5NDAyYTMxZTlhM2QzMDdlY2YyNzY4NTVlZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEzNDliYmQxYTIxMTA0ZjA1MWUzNGIyYzhhOWU3MGNjN2ZiYjUwYmMxOWE2Nzc4MWYyYTE0MGMzODZkOTQzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTdkNWIwZmVjMmFlNGVjYjYyMGM0MThlOTRhNDcyYzY1NjhmMTc2OWY2MDE5YzQxZWFiMGI4ZWYzNjkwODYyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDYyZTQ2MGU1ODcwYTBmZDFhZDEwNGU0ODIyODA5OWIxMTRjNjdhNTMyNDYzMjcxZjY0MDBhNTA2MjUzYzkyMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/power/storage-tools.md",
+          "version": "repo-file-v1:sha256:ac6635282f750cb10484653fdd6d99ce4d66fd6303bf4de404a5ecf1749c07f3"
+        }
+      ]
+    },
+    {
+      "id": "claim_926ae8b0383046fbb64d40429df9eb29",
+      "statement": "The encrypted backup only contains sections from mod_2fa, mod_password, mod_vcard and system settings, so plugin data is not backed up.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/backup-format.md",
+          "version": "repo-file-v1:sha256:9d6afd39bf769a885bf0ff011d735eae0b5b89e8da5757cc626ba22f07226812"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "at": "2026-11-12T21:07:57.649Z"
   }
 }

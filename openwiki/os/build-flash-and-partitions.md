@@ -5,7 +5,7 @@ description: How cdc-badge-os is built with PlatformIO/ESP-IDF, its build enviro
 tags: [build, platformio, esp-idf, partitions, flashing, web-flasher, esptool, build-profile]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T21:23:11.133Z
 sources:
   - id: openwiki-source-90130bdbc6cccafd51d570a5
     resource: repo://references/cdc-badge-os/.github/workflows/deploy-pages.yml
@@ -17,15 +17,15 @@ sources:
     resource: repo://references/cdc-badge-os/partitions.release.csv
   - id: openwiki-source-cc422b0007a641930b4dfa5a
     resource: repo://references/cdc-badge-os/platformio.ini
+  - id: openwiki-source-ebcbc9781ed420f4f17c97e4
+    resource: repo://references/cdc-badge-os/sdkconfig.defaults
   - id: openwiki-source-d731567fb19f6498d74fe6d0
     resource: repo://references/cdc-badge-os/tools/flash_firmware.py
   - id: openwiki-source-37d0e1055dc8aed9deddacc2
     resource: repo://references/cdc-badge-os/web-flasher/index.html
-  - id: openwiki-source-9f006ce9ef5060664aff953e
-    resource: repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0012-build-profiles-and-defaults.md
   - id: openwiki-source-3a6c5840cc6f224243bab769
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/build-system.md
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:23:11.133Z" }
 ---
 
 # OS build, partitions and flashing
@@ -70,7 +70,7 @@ switches that can be overridden with `-D`:
 | Flag | Default | Effect |
 |---|---|---|
 | `DEBUG_MODE` | 1 | Verbose logs, development lockouts off (the PIN rate limit stays on) |
-| `FEATURE_SECURE_SERIAL` | 0 | Serial `AUTH <pin>` gate. **Off by default** in beta builds. |
+| `FEATURE_SECURE_SERIAL` | 1 in shipped builds | Serial `AUTH <pin>` gate. The header falls back to 0 and ADR-0012 says "off", but `sdkconfig.defaults` sets `CONFIG_SECURE_SERIAL=y`, so it is **on** ([serial console](serial-console-and-auth.md)). |
 | `FEATURE_PLUGIN_AOT` | 0 | Interpreted WASM only; AOT native code disabled |
 | `FEATURE_NVS_EDIT` | 0 | Destructive NVS-editor actions |
 | `FEATURE_EPD_*` | 50 / 10 / 1 / 1 | E-paper refresh escalation (see [display](../hardware/display-and-graphics.md)) |
@@ -83,7 +83,8 @@ code (ADR-0005). The release gate for builds ≥ 1.0 requires `DEBUG_MODE=0`,
 
 The `cdc_badge_release` environment layers `sdkconfig.release` on top (secure
 boot, flash encryption, NVS encryption). Its bootloader **burns eFuses** on first
-boot, so it can only be flashed through `tools/provision.py`.
+boot, so it can only be flashed through `tools/provision.py`. The full lockdown
+flow is described in [production hardening](production-hardening.md).
 
 ## Partition table
 
@@ -148,7 +149,9 @@ plugin and GPIO commands registered by `plugin_manager`
 (`PluginSerialCommands.cpp`, `GpioSerialCommands.cpp`). The plugin upload path
 used by the `badge` CLI and the browser plugin installer runs over this console.
 See [plugin build and install](../workflows/plugin-build-and-install.md) and
-`website/src/content/docs/dev/proto/serial-commands.md`.
+`website/src/content/docs/dev/proto/serial-commands.md`. The command catalogue,
+per-transport authentication and timeouts are in
+[serial console and authentication](serial-console-and-auth.md).
 
 ## Pre-1.0 warning
 

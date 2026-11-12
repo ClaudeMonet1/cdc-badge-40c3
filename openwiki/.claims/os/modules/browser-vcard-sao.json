@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:9c8af075e73bec6d2e19adf99a1f963f5998dd5ce631379765b59190505e2730",
+  "claims": [
+    {
+      "id": "claim_59f4743bb4314b82a9b09a97f5ce8563",
+      "statement": "host_browser_open requires the http capability and returns HOST_ERR_NOT_SUPPORTED when no browser module provides a URL opener.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ui.cpp#L89-L97",
+          "version": "repo-lines-v1:sha256:86ddc955fc4d1fd942fe30691ac27061bb35827dbf51199d75fa8bb740877896:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTRiODllY2I4ZTg3NTM0OTJlMDc3OGFkYjBlMzIxOTUzYWNhM2M2NTc0Mjc4ZmEzM2E0YmY4YTlmMTgzZDM2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZiMzI3NjU5ZWQzZTMwODIzMWJjYTUyODcwZDY5N2VmYjA3OGYzYjY5ZjQwNTY5NWVmNjFkNmE0Njg4ZDcxNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_41f5fabd7b7e445a84b47212ca6d7cee",
+      "statement": "mod_vcard registers itself as the message-transfer handler for text/vcard.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_vcard/src/VcardModule.cpp#L740-L742",
+          "version": "repo-lines-v1:sha256:d7b0f3553c212b766b614f7fd306b9ad4291d6dc21574343a306a29ec120db94:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEwMTBiZmI1YTU1NzE2ZWJiZjI1NjllYmExZDNjNDA4MTZkNDMxMDM0MjYzM2Y4NmUxZDUzMWZlODEyMTk5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdjN2E0NDFiNTg1MmUzNTE3ZjdlMGQ3NjJjOTNhNTA2ZDE2ZjY4YjhlYTc5N2QyN2ZhNzRiNmE3YTVlOWQ0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdjNTZhMThlMjc2Njg1NjUxNzg2OTJlOWQyNDBkNDcxYWY3N2M1ZjM2YjA2ZTE4NGYxNjk3NzNlMzBjMGY3YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmQ1ZTA3MWUyYzg4ZWI0MGZjY2M5NzBlM2I3OWNlYjVjMWQ4ZTNhMWYyY2U5ZjIzOTVjYWRmYWZmY2UwOTU4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b2d93c8b7384b91b6b2b7535d024bc3",
+      "statement": "The own vCard is a vCard 4.0 edited field by field and limited to 768 bytes.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/guide/vcard.md",
+          "version": "repo-file-v1:sha256:0f81909cd87f0639fc8fb637c6ff2618b1fa7d60f8c4566de8dacd325be57bd4"
+        }
+      ]
+    },
+    {
+      "id": "claim_e18f4eea342e40b7a8993fe533ebb066",
+      "statement": "SAO add-on detection requires the EEPROM descriptor to start with the magic bytes SAO1.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_sao/src/sao.cpp#L39-L49",
+          "version": "repo-lines-v1:sha256:b9bc9a39eb0e2798bcdcaf28aa4d9c92332e3aeff570d360ddfc85fb7acfcb4a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhY2E4MzAyNGY2YTg1NGQ4M2JkM2JiZWRlMmQyYTFhMWJhODU0NGRlZTlkOTRlZTQ1M2NkZjk0Y2FhMmZkZTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwMmEzNTA1ZjE3MDMzZWNjN2M4MTc2M2QxZmNmYTI1N2JmMDhiYzY5NzlmODJkNWM2M2NhNWFkOWUxOGY2Y2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI5ZTFlMDUzMTlkMmQ3NDRjNTQyYmNkZjE3MmM3Y2NlMGNiN2IxM2VlMDM3ZGY2NzE3ODYwODA1NzA4ZGRmOGIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

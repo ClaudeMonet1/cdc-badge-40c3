@@ -5,28 +5,40 @@ description: Cross-cutting checklist for building our sandboxed Rust WASM applic
 tags: [constraints, discrepancies, open-questions, risks, planning]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T20:57:16.971Z
+    at: 2026-11-12T21:07:57.649Z
 sources:
   - id: openwiki-source-782754752a7fccf1126740d6
     resource: repo://references/cdc-badge-development/.gitmodules
+  - id: openwiki-source-ad303c1143b6b7d7da0f6593
+    resource: repo://references/cdc-badge-os/components/cdc_hal/src/Rtc.cpp
   - id: openwiki-source-dc6ca5600c665b4510239dec
     resource: repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp
+  - id: openwiki-source-38930eac3f0070e9c61b34aa
+    resource: repo://references/cdc-badge-os/components/mod_2fa/src/OathStore.cpp
   - id: openwiki-source-ea1f45c2ab6ed4cd0d8a0cf1
     resource: repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp
   - id: openwiki-source-e32260f9e28a7fecafaadae0
     resource: repo://references/cdc-badge-os/components/mod_fido2/src/fido2_storage.cpp
   - id: openwiki-source-fd3fffd2204a12cca83d152c
     resource: repo://references/cdc-badge-os/components/mod_gpg/src/GpgRecvStore.cpp
+  - id: openwiki-source-954633afdf8b8c3c5ad910f7
+    resource: repo://references/cdc-badge-os/components/mod_password/src/PasswordStore.cpp
   - id: openwiki-source-4c23ee90f461b46c725d4482
     resource: repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h
   - id: openwiki-source-5b74450674d6cc34f06768f8
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp
+  - id: openwiki-source-1cf8e76e4af214efa7b3bd8f
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_wifi.cpp
   - id: openwiki-source-b1d4e37214aad4d22b28c154
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp
   - id: openwiki-source-bd7bb9940ccb3a24ccdc6345
     resource: repo://references/cdc-badge-os/partitions.csv
   - id: openwiki-source-a9baa65a2e0f48fed1b02f5d
     resource: repo://references/cdc-badge-os/sdkconfig.cdc_badge_usb
+  - id: openwiki-source-ebcbc9781ed420f4f17c97e4
+    resource: repo://references/cdc-badge-os/sdkconfig.defaults
+  - id: openwiki-source-9f006ce9ef5060664aff953e
+    resource: repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0012-build-profiles-and-defaults.md
   - id: openwiki-source-b1ff795d15ce0723bf319255
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md
   - id: openwiki-source-6eef1d3f209c09f14ca3056f
@@ -35,7 +47,7 @@ sources:
     resource: repo://references/cdc-badge-plugins/sdk/host_api.h
   - id: openwiki-source-edf57d425cf4973bb79fe308
     resource: repo://references/SOURCES.md
-generated: { by: "claude-code", at: "2026-11-12T20:57:16.971Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:07:57.649Z" }
 ---
 
 # Open questions, discrepancies and constraints
@@ -63,6 +75,9 @@ the page with the evidence. Update it whenever references are refreshed
 | Power | Light sleep only from the lock screen; background work needs `set_sleep_inhibit` / `prevent_sleep` | [power](../hardware/power-and-charging.md) |
 | Data durability | Pre-1.0: any firmware flash (or build-profile change) may wipe NVS, files and the TROPIC01 | [OS architecture](../os/architecture.md) |
 | Badge-to-badge receive | A plugin can't register a handler for its own declared MIME type: `HOST_ERR_BUSY`, so payloads are dropped while the sender sees "Done". Sending works. 4 KB per message, 1:1 only, no authenticated sender identity. | [BLE review](../os/security/ble-message-transfer.md) |
+| Clock | RTC lost on deep sleep and power-off; resynced only via Wi-Fi SNTP or the unauthenticated serial `SET_TIME`. Check `host_is_time_set()` before TLS or time-based logic. | [Networking](../plugin-runtime/networking-wifi-http-sockets.md) |
+| Plugin data backup | None. The OS backup covers only 2FA, vault, vCards and settings, so plugins must provide their own export. | [Backup](../os/backup-and-restore.md) |
+| HTTP | 4 requests, ≤ 1 MiB buffered body, no response Content-Type; raw sockets have no TLS | [Networking](../plugin-runtime/networking-wifi-http-sockets.md) |
 
 ## Discrepancies between sources
 
@@ -84,6 +99,11 @@ the page with the evidence. Update it whenever references are refreshed
 | D14 | Vendor charger setup | Firmware checklist requires charge current and SYS_MIN on every boot; the vendor nametag firmware sets neither | The OS does it; don't copy the vendor's charger setup |
 | D15 | `host_api.h` copies | OS and SDK copies are byte-identical in our snapshot (no drift) | Watch `sync-host-api.yml` upstream |
 | D16 | Dev repo pins | `cdc-badge-development/.gitmodules` pins older OS/plugins commits than our vendored snapshots | Use our snapshots; the starter's SDK path must be redirected — [example plugins](../plugin-sdk/example-plugins.md) |
+| D17 | Secure serial default | ADR-0012 and `feature_flags.h` fallback say `FEATURE_SECURE_SERIAL` defaults to 0; `sdkconfig.defaults` sets `CONFIG_SECURE_SERIAL=y` | **On** in real builds — [serial console](../os/serial-console-and-auth.md). Our earlier pages said "off"; corrected where updated. |
+| D18 | Wi-Fi request timeout | `host_api.h` documents a `timeout_ms` for `host_wifi_request` | The argument is ignored, and the global Wi-Fi timeout applies |
+| D19 | Canvas command capacity | Upstream skill doc says 96 commands | `CanvasView.h` says 128 |
+| D20 | Plugin language API | OS overlays support any language | `host_i18n_current_language` distinguishes only EN/DE — [i18n](../os/i18n-and-language-overlays.md) |
+| D21 | PIV documentation | `mod_piv` is built and enabled by default | No user guide page exists on the website |
 
 ## Missing or partial material
 
@@ -98,9 +118,18 @@ the page with the evidence. Update it whenever references are refreshed
 
 ## Security observations
 
-- **No plugin signing.** Serial upload is CRC-checked only, and the beta profile
-  ships with `FEATURE_SECURE_SERIAL=0` (console open without PIN) —
-  [manifest](../plugin-runtime/manifest-and-capabilities.md).
+- **No plugin signing.** Serial upload is CRC-checked only. It does need
+  `AUTH <pin>`, because the shipped sdkconfig enables `CONFIG_SECURE_SERIAL`
+  (factory PIN `123456`). With `mod_msc` enabled, an unlocked badge also accepts
+  plugins copied over USB mass storage, with no AUTH at all —
+  [manifest](../plugin-runtime/manifest-and-capabilities.md),
+  [storage tools](../os/storage-tools.md).
+- **Credential secrets aren't encrypted at the application layer.** Vault
+  entries and 2FA secrets sit in R-Memory, readable by anyone with the pairing
+  key, which is public on stock badges —
+  [credential modules](../os/modules/credential-modules.md).
+- **Unauthenticated serial commands:** `SET_TIME` / `SET_DATE`, `ERROR_LOG`
+  and `MEMINFO` need no PIN — [serial console](../os/serial-console-and-auth.md).
 - **Storage isolation is by declared name.** Any plugin can declare another
   plugin's `nvs_namespace`, `rmem` or `ecc` names and access them.
 - **Default TROPIC01 pairing key is public** (libtropic prod0). The OS

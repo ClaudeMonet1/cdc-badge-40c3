@@ -5,7 +5,7 @@ description: Layered structure of the cdc-badge-os reference firmware (ESP-IDF o
 tags: [os, architecture, esp-idf, boot, modules, eventbus, psram, adr]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T21:07:57.649Z
 sources:
   - id: openwiki-source-1d60007d1922bf727b062030
     resource: repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/EventBus.h
@@ -27,7 +27,7 @@ sources:
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0005-no-migration-build-profile-wipe.md
   - id: openwiki-source-57c6933d6876e2553ddd88dc
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/architecture.md
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:07:57.649Z" }
 ---
 
 # cdc-badge-os architecture
@@ -103,6 +103,19 @@ persist in NVS.
 
 `mod_browser` is built (it appears in `MODULES`) but has no entry in the defaults
 map.
+
+Where each module is described:
+
+| Modules | Page |
+|---|---|
+| `mod_gpg` | [GPG / OpenPGP review](security/gpg-openpgp-module.md) |
+| `mod_fido2` | [FIDO2 / CTAP2 review](security/fido2-ctap2.md) |
+| `mod_2fa`, `mod_password`, `mod_piv`, `mod_usbhid`, `mod_blehid`, `mod_otphid` | [Credential modules](modules/credential-modules.md) |
+| `mod_browser`, `mod_vcard`, `mod_sao` | [Browser, vCard and SAO](modules/browser-vcard-sao.md) |
+| `mod_msc`, `mod_vfat`, `mod_nvsedit` | [Storage tools](storage-tools.md) |
+| `mod_ble_serial` | [Serial console and authentication](serial-console-and-auth.md) |
+| USB composite device and CCID | [USB stack and smartcard](usb-stack-and-smartcard.md) |
+| Writing a new module | [Writing an OS module](module-development.md) |
 
 A module implements `IModule` (usually via `ModuleBase`):
 

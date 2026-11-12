@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:a9181ad8b8aa6ffb10c599bb252c37c642d3bee550c679891415a0f33a9f8367",
+  "claims": [
+    {
+      "id": "claim_3d1acb03da8a439fb14650a4e1f6fc93",
+      "statement": "Plugin Wi-Fi access is hold-counted and shared with the wifi_connected prerequisite, and host_wifi_request ignores its timeout argument.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_wifi.cpp#L1-L14",
+          "version": "repo-lines-v1:sha256:5acfe73a16fd6092e260afd5b4fd53751d472f7a1174cc509e0a5326f4858392:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU2Y2RiMWY0M2IxYzRkZmMzMWQyMzZiZWY5YTE1NGZmYzFmY2JkYjkzZmViMzFmMWQyOGRmN2E1YjFmMTkxNjkifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_wifi.cpp#L38-L44",
+          "version": "repo-lines-v1:sha256:b2c3c61c381a3777adb5635302824015f11a2c6355b40a645e8e88d3c7c77f77:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA4MWI2M2YwNGJlYjU2MTkwZDk1ZGY2NGY3YmE2YmZjOTkzZGU5YjQwMzMxZDBmZTlhN2Y4YTNjZGQ5MzMzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODczOTE0YTZlMzI5MDAyNmFhYmJlOThhZDEzMTM3MzNiMDY4YmE0YTA3YTU3MDIxNzI2YTY2OWIzOWM2NzczOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc5NWVkODI2ZTVlYTU1ZDMzNDU5Mzg3OWY2OTU4NzA5OGJmYzZmOWRlN2I2YTVmZmZhNzc4MGIzNTg1YjE4MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1c178a322e8b4324adfcd77e9e94d214",
+      "statement": "The plugin HTTP client buffers the whole response body in PSRAM up to 1 MiB and silently truncates beyond it, reads are one-way, Content-Type is not exposed, and connections are reused from a per-origin keep-alive pool.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_http.cpp#L1-L17",
+          "version": "repo-lines-v1:sha256:327cb92c6c28447dd25fa29ee2108f462bcf93e942ea1374c833f2481bdbc26b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRhZTY0NjhmYzMwODU0ZWQ2NDczNjMzYWUyZGE2N2E4YTAzZDVkMDU4N2RkYjBiOGQzMzdkOTdkNTliNTg2YjEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_http.cpp#L71-L73",
+          "version": "repo-lines-v1:sha256:150dd9ccf73701a1e33f176d3bcca87bf3f45dd209d12ca1262fb4250ebca0d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDgzMjUxMzhkZGVjMDE0NmQ5ZTNjYzBlZGUxNzZjODE5OGZiMjA3MGQ0ZGFhMmMwNzU1ZGVkOThjYjEzOGVhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU4MDMwYjliMWI1YTA0YTA0NDQzMWU4MDNkOTJjZGE3NmEzZWEzMmMzNTIwMjdlZDI1YTQyM2QwMDRjN2U4MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjAwZjdiZGViYjk3YWUwNDM3YzA3NWEwOThjNDc2Mjg0Y2RjMDM4MmQyZTQwY2IzMTY2ODFmZDhiZjllNmY5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjEyYzZjMWM2YzZjZWQ0ZjBjY2JhNjc0YWZjOTUwODE2OWRmZmVhNDM0ZTY4MmUxYTBmYzJjN2EwYjcxMWJiYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ac73da4fdd945df90672fa9c7c81b0b",
+      "statement": "HTTPS server certificates are verified against the ESP-IDF certificate bundle.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_http.cpp#L195-L195",
+          "version": "repo-lines-v1:sha256:3dc85ba043598c3cdcf3db1ed8586a9a6e878e7b05640f643638be8058309eb1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2RjODViYTA0MzU5OGMzY2RjZjNkYjFlZDg1ODZhOWE2ZTg3OGU3YjA1NjQwZjY0MzYzOGJlODA1ODMwOWViMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2RjODViYTA0MzU5OGMzY2RjZjNkYjFlZDg1ODZhOWE2ZTg3OGU3YjA1NjQwZjY0MzYzOGJlODA1ODMwOWViMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjQzNjE3YmVlNzJmYzc4MGY3YmM4NTMzNWU3ODA5NWEyNDRlOGQ0NDk4ZGMwODRkNWUwYjFiNjBjYjdmODU1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTlmM2E2ODQ2NjIxZDYxZjU4NzU5ODhiNzQyZjVhM2VjMjZkMDA2Y2I1NDE4MGJkY2U0MjkzZGFlZGE0NDE0MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d82610096d3a461e94e6c753dd8cf9a5",
+      "statement": "Plugin sockets support TCP and UDP with 8 slots and a 5 s default timeout, and the inbound listener uses a backlog of 4.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L415-L426",
+          "version": "repo-lines-v1:sha256:6f14df1d57474ae4b46f16df91631d72f8a90d8ba1a38646fcef0eb954b4ec05:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFjYjM1MzQ2NDU0YzJmOTExYjI0MmViODFhYmI0NzMwOTMyZTFhZjA4NmU2OGZlN2U1MjgyN2RiODlmOGYxMTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkYWI1NjM1OTUwNzk5OGNlMzgzNGMzM2M5NDk2NjU4NjU0YjEyODdkNDk3NGNjM2RiNzQyZWViOTIyYjVkMDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1YjU3NGRlODgwZjMwMTBjYTNjNDllZTdjYzgwOTMwZDkzNDRlY2JiZTFjNjljMjFiOWI5MmNhYzJjZjk3MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUxNzg0OTA0M2VlMDA3NjU3NDRiN2NkMTI1NGIzMzVlN2IzMGNlMzE4M2NmZjhjZGIzOGQxZDhmNWU3ZDY3NGIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_net.cpp#L66-L69",
+          "version": "repo-lines-v1:sha256:8fd72c6db5a17601c412d30c892da499baf6beb262ba16766deebeead68ab527:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGUwYzkxNWM4NWFjYTczNGFkOWEzOTA4OTA3ODQyMTc3MTA4ZDhjMGFkYTllZWYzNzI0OGQyNGVmODE1ZDcxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMThmMmE5Y2U0NzU3N2FhZDA5MWI0M2JhYTgyNzQxYzIzZDAxODMxZmRjYjdmZDc0MDY1NzI2NWEyNzA0OGI1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGIzMTg3OGM2ODgzNmI0ZjUyMzljMjAxOWYzYjBkZTMzNzNjZjhiMWMxZDliOGY1ODdkNjRjYzEyM2E4ZjQ1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2E2ZWZmOGM5ZmU1NmIxMDI4OTIyODVhZGI5OTg1NjM0M2YzZjkwMTJhNjhiZTQ0ODA1NjU5NzJiNjBhZWNhYSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_socket.cpp#L36-L37",
+          "version": "repo-lines-v1:sha256:90a879c57c0baf0bcfa2879e1f073be73ecd85e82043bbb876f626ba8e26eefb:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmMxY2NmNTlhMTAzZDgzMzg5OThjNDUzYTcyODJlNThhZjZmNTJmZWY1YTA4YzczYjRhMWMwN2U0MmMzYzNmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzZjNjExMDgwNDcwNmQzZTg5ZTA4NjVmNjhhNThkNDJjMjU4N2M1Y2ZlNzNkM2ViZjdlMTZiZGEwN2Q2M2ExYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODFlYzAwZTFjZDg1YjBkNzZhMzIwMjhjM2QxNGRjOTM0NDllMmJiMmViYTY1MGRjMmQwZmEyNjRhMWVlOWVmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmEyMTZjMTFlMGY0ODZiNGI1YTNiZGRkNTVkNGY1ZTVmNTMzZmVkZGZkMGM5M2UyYTQ1NTBhMGNhMzQxNDFiYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8fe84e7f154e433e9a38d812c3e1ec3e",
+      "statement": "SNTP uses time.krim.dev, pool.ntp.org and time.google.com and only syncs when the RTC is unset, while the RTC does not survive deep sleep or power cycles.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/Rtc.cpp#L1-L8",
+          "version": "repo-lines-v1:sha256:8e76ee1212bf1982dd5a076a84ec0b20375614f59eabc5ce66f67bf38740483c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmMjJjZjA3MzI1OTJjMjQ3MTQxY2JlNjFlZmExMTAxMjYxMmY1YTMxMjJiOWFmOWJiYWY1MmY1NzI0ZDE5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWFkZDU1NWQ4YjRjMDQ1MGNkODE0MWZjOGQzZTIyNTFlNTdlZmQ1ZTMyMTk0NjU0YjE0ZDk2YTM3Mzg2YTBlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTI3MTA2NzZlMDE4YWUwMDAxMDY0NDUwN2UwYjUzZDQ3MTE1MjFlMzNiZGRlZjBmNDA5YjJhNDA0YThhMWZmYSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_os_ui/src/WifiHandlers.cpp#L318-L330",
+          "version": "repo-lines-v1:sha256:1b391feb94b77be1100c7f57d56ffedb0364f1eaa48f11f9a16588538ccfbc39:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5MzRmNTlmNzAyYmQwZmI5MTgzMWVkZWZhM2NiMmU0MWFkM2Q2YzgyNWZjYmRjMjg3NTVhNDk1OTg2YzAyNDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2YjQwOWMxYTE2YWY3ZDU0NWQzMzdmYzJkMmQ3ZmFmZThlZWY0MWIzMzIwNWVlNTVkOGVlODY5NGI4ZjY5ODUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5MjQ0NjZlYzQ1NzQ1MTQzMmU0MmE2YjAwMjcwMWE3NmY3ZTFjNTQ4NWY5N2IwNTc2ZjU1MmRlMzIyNWNmNmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2OTllM2FlOWUxYmNjMzUzZTQ0OGJiMTRhYzNiNjJmZjU0ZDUzMTRkY2ExYzc4N2QxOTg2MTM1Yjc1OWVjYmMifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_os_ui/src/WifiHandlers.cpp#L380-L387",
+          "version": "repo-lines-v1:sha256:255114cb09f99ea8de1a46adc683a159e7f8bccd4dc2a71a40ed56b8bfabc5ee:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY4OWIxYWQyMTEzNTczNGM3MjA0YWJhNTBhZGExODhmZmYxYTFlZGU4YzA0OTkyZjRjY2Q1ZWM5NzliYjUzMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2U2MzlmNWIwOTIxNGExNWExNzI0OGZhYmIzN2Q5ZGFlNmNhOGNiOTE3ZDJmOWJkMWY5YmRjMDQ4N2JiNzdhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjk3MzA3NDI0ZDUyMDk5ZWViNDQwMzc3ZDA4NTBmMDE4NTUzMTE5Y2VjMzNiMWMzZTVhYzJhNmExMWNjMTBlNiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

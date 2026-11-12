@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ffa8698c50dfb30d660a6c254436dd79a483df635ab650d3cab6cc58a75e894b",
+  "claims": [
+    {
+      "id": "claim_adce5a219fcb4075a8e3ecdbd54c39ab",
+      "statement": "Each plugin GPIO call must pass the manifest pin allowance, a pin lock shared with the native GPIO serial shell, and the hard-coded firmware block list.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_gpio.cpp#L1-L12",
+          "version": "repo-lines-v1:sha256:b987033bf7c24cc73eabdfef03f77944772bfed1298c2c45c1058f3fcb472f48:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxMTdmOTY1MmViZjNmYTI2N2Y3MTk3NTdlY2FlOTE1NWQ4NTZlYjU0MjMwYmRkMzYzMzUzZmVkOWY3N2M1Y2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwMzBiMzM3MWFhYTgxMGUxMzIyOTlhMjViZDI0MzdjZmFmMGYyNDYwNWQ1MjZiYzI0Y2RhZjQzNzM3MTE2MzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6dcc44fb5c574aef9b7913342b61c641",
+      "statement": "Each PWM pin gets its own LEDC low-speed channel but all channels share LEDC_TIMER_0 and therefore one frequency.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_gpio.cpp#L77-L90",
+          "version": "repo-lines-v1:sha256:18792a98d860ca1bc6b011d4130478c93a181161bf74a04874fd71847e565bf9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ2MzJhNjRkZWY0ZjE2NzQ5MWExYmNiNjJmMzZlNWZlMjZkYjBkYTg4YTMzNDUxMmY3ZGUwOGM1MzlkY2M3MTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5OTA0NmMxYmM0MDE0MDg4MjZkNTk1M2Y5MDk0MTU3NjIyY2QzNWE1ZGIyZGM1NDVmZWI5Y2Y1ZDIwMDZmNTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRmMWE4MTYxY2Y3OTBiY2IyNjM5MmQ3Yzc3ZTI2Y2NmOTMyZjU5YzlmMThkOWYxYWU3N2M1NGVlMTJmZGE1NDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjMzMTc2YjgxODgwMzUyYWYwYTEwNzI4MGI2NTBmZWMwYjNjYWUwYTE0ZmE4MDYwNDU3YTY3YjY1Yjg3NGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_71e9d4d448034835960bddb066ea19d9",
+      "statement": "host_adc_read performs one-shot reads on ADC unit 1.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_gpio.cpp#L271-L300",
+          "version": "repo-lines-v1:sha256:7ce893aea153b179c7b1fb46267400f68cbf350d0df9792d278c70332040e67d:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxMjkzOGYxOTlkMDFhYzY0YTk4ODg4YmI3YzMwYjI2MDg2YjVhZTE3YTA2NmVmYjZkYWU4YzVmMDZkMWU2YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlYzUxYTY4MjM4NmUxODJiYmM4OGQ0MTViNTQ1NjgyNWYxMzY0ODViMDA5ZmE1NWU4YWVjM2VkMDVhNTEwMWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkNWEzNzkzYTAzNjQ0OTkwNzJmOGUzMWU0MWE2ZGFhMjllMWVmNmJkZjgwMzVlMmVmNzdlMzJhZTA5YWY3YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI3NTc4NjA4NDI3OGIwODZlY2Y2Mjk0MjRhZDMwMGEyYmYyMmUxMjYxZDM1YmQ1MjI2ZDIyYTRjYmRmNjQzODMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eba6d7825a7f440880cc768eec7b7749",
+      "statement": "The pixel strip API wraps ESP-IDF led_strip for WS2811/WS2812/WS2813/SK6812, uses one global strip handle shared by plugins and supports up to 1024 pixels.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_pixel_strip.cpp#L1-L30",
+          "version": "repo-lines-v1:sha256:cd2daed2e0bf1f64791647327d9bb5f1ecfe141fa063802a4cb4da8b66605a8c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhMWJhNjE3ZjRlMjcxYTI5MGI4ODFiYmFiZDJhOWEzZTM2OTM1MDIwZDU1ZTIwYmM3ODEzMGIyZmJmNmUyODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwNDM3ZmI5OTQ4MzIyN2E5M2U3NjVmMmQxNjdhYzY4ZDhhOGYwOGEyNDZlY2JkNDM5YmUzZDA5NDMxYjI1YjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_221edb6ec368426e9612835ccf2f6894",
+      "statement": "Plugin teardown releases GPIO, BLE, message, external-feature, surface, network, HTTP and socket resources and prerequisites.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L448-L460",
+          "version": "repo-lines-v1:sha256:e43f6f559cac576c9685b25233d30dbee0e162ab5ab6ef889e5455ef8d1b676f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5OGU2NDJkYmE3MDI3MmZiNjk2Zjk4ODk2Y2RhOTUxYzFjNDEwNzY0NzFhMzMyYWIwYTJkZDc2ZmFmYmU1ODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwZDRhYmIxMTZlYTViNGI4NTJhM2Y3OGY2ZjMzNmM0MWNiNjU4NzA3MTgxODI1OWEzM2Y2ZDU2NjkxZTZmMjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxNjE5ZDY1ZTMxOTA5NGIxN2ExN2Y0OTE2MzE5ZGMxMmU3ZmMyNmZjZmFmMzNhMDQ1OWNiM2I0OThjOWNlOTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYxNGY3Nzg3OWZhZWM0NGU3MDEyMGZhOWQ2NGJjMDE2OTY2ZTMzNjU3MTU2MjY4ZjBkYmYwMmY1NjhmN2JmMDcifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

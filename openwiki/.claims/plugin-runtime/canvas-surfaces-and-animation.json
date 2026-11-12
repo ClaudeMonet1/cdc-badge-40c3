@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3d1956254d06d9ffda8fe5089dd88eef00e080d8c7a1129a686e9e12aa684c11",
+  "claims": [
+    {
+      "id": "claim_ad5ea9c1d1b0440faa9999e42a3c03e5",
+      "statement": "CanvasView limits are 8 widgets, 16 elements, 128 recorded draw commands, a 2 KiB text arena, an 8 KiB bitmap arena and a 64 KiB sprite arena, with animation at 4 fps by default and 5 fps maximum.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_views/include/cdc_views/CanvasView.h#L41-L63",
+          "version": "repo-lines-v1:sha256:af07876767b4b5da5146ae71b0088f6dcba909d5bbde0c484ce057f0746ced56:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5YjgyOGQwYmMyYTgyMDgxZmM5MGM3YTYzMWJhZWYwY2JiMjgxODcwMWEzZTUxYmNhNjlmNDNiZDk2YTdmZDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllOTBmYzRlYmViYWQxZmU4MmNjZjNkOWQ1YTE0NDQ4NjYxYjA4ODAyNWRhMDBhOWNlZWYzN2I1MzdhNzAyZTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5YjliNmIwOGE5NjRjYTUxZjFhNDRkZjgwNjMxN2E2NThjOWIyZDUzZTU5NDAzNDQ1MGI0OWFlMTU3ZWE2NjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4NjQ5YzkxMTBkMGZkZmYxOGNiZGE2MjdjYmNkNGMzZGJmYTljNDA3YzNjZWFlMmQ4MDk1MjU4MmFjMWEzYzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_272d5642e4bc4c59a6a6dfb2a4f97384",
+      "statement": "The upstream plugin-dev skill canvas reference states a 96-command display list, which is lower than the 128 commands in CanvasView.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-development/.claude/skills/cdc-badge-plugin-dev/reference/canvas.md#L72-L118",
+          "version": "repo-lines-v1:sha256:fdfc7b6e74a993e7c735ef31cfa105d1776c077c9b12a408cfae5703ff44cafb:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjOThiNWM3YmJkOWZlM2M1ZWQwMDU1NDM4OTVhYWFmZTlmMWUxNDZmNGY5ZmM1MGZiMGQ5MDVlYzRlNzFkNWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyZGMwNWMxOTU3MTg4MDgwNWY1ZTFjZDZhMTVhOTA2YzUwNzM0MDNhZWMzYTg3MGQyOWNjZDIyZDBmZGMyODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhNWJmYzA1YTIzMmZiNzBlMDI3ZjUwNzU1MDExMDk2OWMwMzRlNzU3MzA4YjljZjQ3MDcxMjEzYmFlNDI2MDAifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_views/include/cdc_views/CanvasView.h#L47-L52",
+          "version": "repo-lines-v1:sha256:ab0445bb58e27d07754080856359f6ad5b244517038c550ea065e0b7e80851cb:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ3MDlmMmY5MTk0OGZiNzRmODBhMzVmYzcxZmUwMTE2NjVkNjEwNmRmYWE1YWNkYTJiM2I2Nzk5OWQ2Nzk3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhODRjNTI4NjQyMThiNDVhMWI1YjFlYzI3MjI1Y2I2M2VkN2Q2Yzg4YjE0MjNjY2MwOGEzNGE3Y2I3NDQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGIxYzc4ZTcwOTU1YzJlOTYzMzQ1MzI3YTEwOTY0ZTI2MDU2N2JlZGExYzJiYWNlOTk4YjMzYWFmMDlhYjkwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjUyZjJhNWQ2NWZlMjY1M2ExOThlMTNhNWMzOTJjNWY4NWVlOWUyOWY4ZTRlNzZjNTdlM2Y1NGNmNzE0MDA3NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b85adb78f8a6446c8b09c02debac1635",
+      "statement": "Surfaces are limited to 1024x2048 pixels, two per plugin and eight slots badge-wide.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L2274-L2274",
+          "version": "repo-lines-v1:sha256:bd94771e551cc8f16e47b79e340e1b5f7cd641a67d618d1bf3bbf9a5a362f966:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ5NDc3MWU1NTFjYzhmMTZlNDdiNzllMzQwZTFiNWY3Y2Q2NDFhNjdkNjE4ZDFiZjNiYmY5YTVhMzYyZjk2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ5NDc3MWU1NTFjYzhmMTZlNDdiNzllMzQwZTFiNWY3Y2Q2NDFhNjdkNjE4ZDFiZjNiYmY5YTVhMzYyZjk2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDBmOTJmZDVlOGRlMDlhZjVjYjQ3NmMzMDcyMzJmZGIxNWY0YzJhNjc2YzBiOTg5NzMxNWFlMjM3ZDk4MWEyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTBkZTBkMWQ1YWIzNDUxZjQ3MGQ4OTUxYjFjMTExMWEwODU3ZDJhZDFjOThhMjllNmI4OTMxMDVhYmIzNzg2MSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_surface.cpp#L28-L50",
+          "version": "repo-lines-v1:sha256:c46cbc05cbcade8bca37021efc60ee11354dce2af9c5a59338ca063a26f87b90:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkNDVlODAzZDE5ZjIwZmY1MjVlNTI3MzYzMzIxZTk0Y2M4NzE5OTE4ZmE0NTJiNGY3MzY2M2RkMjAxNjlhYzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1Mzc5N2E0MzFhYWIxZGFkY2NiYmUzMTljODRkMjcxNzVjMWM0MjE3YjczNjRlMGViYjUxODNhM2ZmYjViYWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzMGI1ZGFiODk5ZTc3ZGYwMDVmZjQ3MzA4YjMyNWFmMTViYWRiYzk2OTgzODc3MDIxNzc0ZjE1NzU5YjI0YTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhZmZhNWMwZTQ4YjExN2FjMDVkMWM0NzQwMWFkMzQ3MDBjNWMwNzhkZGJhYjBjOWRlZjQzNzFiNGM4Y2I1MTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b354385edfe04c30a17238392f8562d6",
+      "statement": "A canvas allows at most 8 sprites with up to 32 frames each and 16 concurrent tweens.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1567-L1567",
+          "version": "repo-lines-v1:sha256:646ef871c1a70bdc0700a3685c6d44eae2bd5d5c763eb754b980a7e1d462f133:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjQ2ZWY4NzFjMWE3MGJkYzA3MDBhMzY4NWM2ZDQ0ZWFlMmJkNWQ1Yzc2M2ViNzU0Yjk4MGE3ZTFkNDYyZjEzMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjQ2ZWY4NzFjMWE3MGJkYzA3MDBhMzY4NWM2ZDQ0ZWFlMmJkNWQ1Yzc2M2ViNzU0Yjk4MGE3ZTFkNDYyZjEzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmNkYTQzZTAxZDk3ZDJhYjkwNTk4MWY0NWE5OWJkNzc0NmE2Mjk3NTIyYWFhNzk1YTlmMTIxYjU0MTQ5NDYyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODZhMzdjYTIwMGNkNGUyZTJjMTllOGI1YmE1NzYzMTY2NjA0OGZjZWMyMzM5ZmU0N2Y5MWNiZTg3N2ExNzhjNSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L2417-L2419",
+          "version": "repo-lines-v1:sha256:d2dfdd12c14d0e0775ef07b965bdec459fd14ef12510a11b0aab33e2a292dbaf:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzcxYzAxZWU1NmZjMDQyNWM3MWVmM2Y1OWUzNjJhYzFjYzI4NDBiOTVmZTc4YjZlZTI4N2M0YzM5YzA2NGNjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzM0MmM1ZTM1ODA0NDBlMGJlNDI2YmQyZTA3OGU4ZTEwNDI5YzI5ZjMyYWNkODYxY2U5OGVkMjlhN2U3NjhjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDdjZWY3YTQ5YTgxY2Q3M2Q0NGQ1MzAzYWM5Yzk1ZTcxYTQ3NzUzYzIyNGI0N2ZjNGQ1NWM1NDcxZTg0NmMxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGFjZmI2NjI0NzVlZTk2NGRkNmI5ZTUwMjc0N2JlOGExZGM3OWU2NjdjNjYxMmZjMjliM2VkYmM1MTJlN2Q2NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0c73bf81a12d4aeb943ebc18c6ffb6f4",
+      "statement": "The modal stack holds at most four modals and drops the oldest when full.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/ui-framework.md#L92-L100",
+          "version": "repo-lines-v1:sha256:49c4aee714d41bc619d6dbe52ca8e449e824ee159890842f2e5d599baf1d0052:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2YxM2I5YmYyNGEwMGYxNTA4Y2MzNGNmOGIzYzc2YzU3ZTU0NzY3NTJiNjAzYTE5ZTAzYTJmYThmMTBmOThhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjI5M2IxZDFiNWYxMzk2NmQxYjQxYWUxNzU3NDQ0ZDlhZTllNzA2YTQ4M2M4YmNjNTk3MTk5ZDFlYzk3MjE3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWMxODM2NmFlZWRmZjVmZmU5MzBlOGFjYTg3NTY3N2ZjOWY4OGEzYzVmYzVmMDE3ZTUzM2I3ZjZhZGE3ZjU5ZCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

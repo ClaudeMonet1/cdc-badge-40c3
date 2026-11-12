@@ -5,8 +5,10 @@ description: The meta.json manifest of a cdc-badge-os plugin (fields, i18n, capa
 tags: [manifest, capabilities, sandbox, security, nvs, vfat, gpio, prerequisites, threat-model]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T21:07:57.649Z
 sources:
+  - id: openwiki-source-9b1eaa02194157f882b92ba1
+    resource: repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h
   - id: openwiki-source-d036dc40c58b866b2d776e86
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/CapabilityChecker.cpp
   - id: openwiki-source-9143e6a77f299e9c60b3dcdc
@@ -19,15 +21,21 @@ sources:
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/PluginStorage.cpp
   - id: openwiki-source-609ee9ef8b3651ae376f6509
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/Prerequisites.cpp
+  - id: openwiki-source-ebcbc9781ed420f4f17c97e4
+    resource: repo://references/cdc-badge-os/sdkconfig.defaults
   - id: openwiki-source-c801cf7787387736434f7d04
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0006-plugin-sandbox-capability-model.md
+  - id: openwiki-source-1a6e1eda5e08d8ed9bd88a40
+    resource: repo://references/cdc-badge-os/website/src/content/docs/dev/proto/backup-format.md
+  - id: openwiki-source-39324d20498b9e1debc3800f
+    resource: repo://references/cdc-badge-os/website/src/content/docs/power/storage-tools.md
   - id: openwiki-source-bdc5587210a2ab529b3a8f33
     resource: repo://references/cdc-badge-plugins/docs/capabilities.md
   - id: openwiki-source-66c082681bd6e4e191f60ce2
     resource: repo://references/cdc-badge-plugins/docs/manifest_schema.md
   - id: openwiki-source-a9c75f12bd348edf3929a098
     resource: repo://references/cdc-badge-plugins/tools/validate_manifest.py
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:07:57.649Z" }
 ---
 
 # Plugin manifest, capabilities and sandbox security
@@ -118,12 +126,28 @@ author or signing key, so a malicious plugin can declare another plugin's
 namespace or slot names and read its data. Treat on-device plugin storage as
 shared with every other installed plugin.
 
+**Visible and not backed up.**
+
+- On an unlocked badge, plugin NVS is browsable in the on-device NVS browser and
+  through serial `NVS READ`, and plugin files are exposed over USB mass storage
+  and `VFAT GET` (see [storage tools](../os/storage-tools.md)).
+- NVS is plaintext unless the badge is [hardened](../os/production-hardening.md).
+- **No plugin data** (NVS, files, R-Memory, ECC) is included in the OS's encrypted
+  backup (see [backup](../os/backup-and-restore.md)). Plugins must provide their
+  own export.
+
 ## Trust and distribution
 
 - **No plugin signing.** Serial upload verifies only a CRC32 of the transferred
   bytes (`PluginSerialCommands.cpp`), and the manifest has no signature field.
-  Anyone who can talk to the serial console can install code. With the default
-  beta profile, `FEATURE_SECURE_SERIAL=0`, so no PIN is needed for the console.
+  Anyone who can authenticate to the serial console can install code. Shipped
+  builds set `CONFIG_SECURE_SERIAL=y`, so `PLUGIN UPLOAD` needs `AUTH <pin>`
+  (factory PIN `123456`). The header fallback of `0` that ADR-0012 describes
+  isn't what the sdkconfig produces (see [serial console](../os/serial-console-and-auth.md)).
+- **USB mass storage is a second install path.** With `mod_msc` enabled and the
+  badge unlocked, a host can write `/vfat/system/<id>.wasm` directly: no serial
+  AUTH and no signature, because `FEATURE_PLUGIN_SYSTEM_LOCK` defaults to 0 (see
+  [storage tools](../os/storage-tools.md)).
 - **No install-time consent screen** is described in the OS user docs. The
   capability list can be inspected with the serial `PLUGIN INFO <id>` command
   and in the plugin info view.

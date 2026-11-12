@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3029b8adc35910619db23630a4bc8920c58d1c42e23fda05f00a24f15d3969e2",
+  "claims": [
+    {
+      "id": "claim_e6010eaf03034f0db88f5652692f10f1",
+      "statement": "USB mass storage presents no medium while the badge is locked and blocks badge-side VFAT writes and plugin uploads while a host has the drive mounted.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/power/storage-tools.md",
+          "version": "repo-file-v1:sha256:ac6635282f750cb10484653fdd6d99ce4d66fd6303bf4de404a5ecf1749c07f3"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a3163f8e1dc43ffb5b0727bcc9092a6",
+      "statement": "FEATURE_PLUGIN_SYSTEM_LOCK, which would make the system folder read-only and hidden to a USB mass-storage host, defaults to off.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L48-L54",
+          "version": "repo-lines-v1:sha256:e5b3e83d4aa4709a43d9fd644fe7b7a5b05ba4bbe7ffa60c823905b6b2146b20:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQwY2Q0MWI3OWYzMGRkYzk2OGY2NWJlZmJkNzcxYTEyOGY1MDU5NDAyYTMxZTlhM2QzMDdlY2YyNzY4NTVlZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEzNDliYmQxYTIxMTA0ZjA1MWUzNGIyYzhhOWU3MGNjN2ZiYjUwYmMxOWE2Nzc4MWYyYTE0MGMzODZkOTQzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTdkNWIwZmVjMmFlNGVjYjYyMGM0MThlOTRhNDcyYzY1NjhmMTc2OWY2MDE5YzQxZWFiMGI4ZWYzNjkwODYyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDYyZTQ2MGU1ODcwYTBmZDFhZDEwNGU0ODIyODA5OWIxMTRjNjdhNTMyNDYzMjcxZjY0MDBhNTA2MjUzYzkyMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fc570d251bec404098cccaf2d3bdee7f",
+      "statement": "The NVS module is a read-only browser unless the firmware is built with FEATURE_NVS_EDIT=1, which defaults to 0.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/include/cdc_core/feature_flags.h#L27-L28",
+          "version": "repo-lines-v1:sha256:5d1cbc2b8c970c15b5615d61f4ff869689ff6206226caa24dc28c7e3a5e18acb:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQwZjY2YmJiYjllMzAzNDk4NjU3YjkxNGViMWY5ODI3ODQ4ZDc2MWY1OTU1OWFlMDYwN2IyMTdhYTlkODVkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjc1OTAxYWY0YWUwNzZiZTg5ODljYjdkYTRmMDY1NDQ3M2NmYzE0OWUzOTU1ZTVjNjE0Y2E5OTA1ODBiYmU4NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWY3M2Q5Y2RjNjUxYTlmZDE0NmFkOTczYmJjODQ1MDIwYzA5M2VjYTBkZGZiN2ExMjgwZDFhNjExYmEyYzYzYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGExNWEwYjM3NTExMzNlNGVmZjY3Y2MzMDcwZWNmMTZiMmE4NjE1YWY0ZDRmYzViMWIwYzU5NWVjNzljZTA5YyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/power/storage-tools.md",
+          "version": "repo-file-v1:sha256:ac6635282f750cb10484653fdd6d99ce4d66fd6303bf4de404a5ecf1749c07f3"
+        }
+      ]
+    },
+    {
+      "id": "claim_aa43cd5e2815407ebd144af47d82ce07",
+      "statement": "The vFAT serial shell is AUTH-gated and its RECEIVE subcommand streams binary files verified by size and CRC32.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/power/storage-tools.md",
+          "version": "repo-file-v1:sha256:ac6635282f750cb10484653fdd6d99ce4d66fd6303bf4de404a5ecf1749c07f3"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e48ad852ac647cab0b659965ce5070b",
+      "statement": "mod_vfat and mod_nvsedit are enabled by default and mod_msc is disabled by default.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/module_defaults.h",
+          "version": "repo-file-v1:sha256:5deab856aa282cabab2f513e28a566e2184a145282bb919571c185d7a1adf03d"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

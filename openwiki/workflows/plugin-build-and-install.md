@@ -5,7 +5,7 @@ description: End-to-end path from Rust source to a running plugin on the CDC Bad
 tags: [workflow, build, cargo, wasm-opt, upload, serial, badge-cli, installer, ci]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T21:23:11.133Z
 sources:
   - id: openwiki-source-a46cc211e85b62a0281932e0
     resource: repo://references/cdc-badge-development/Dockerfile
@@ -25,7 +25,7 @@ sources:
     resource: repo://references/cdc-badge-plugins/tools/generate_catalog.py
   - id: openwiki-source-237bcaf85135d1787411513f
     resource: repo://references/cdc-badge-plugins/webflasher/js/chunk-protocol.js
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:23:11.133Z" }
 ---
 
 # Building, packaging and installing a plugin
@@ -122,7 +122,7 @@ pin policy.
 ### Upload protocol (current, per the command table and the JS installer)
 
 ```
-> AUTH <pin>                                   only when FEATURE_SECURE_SERIAL=1
+> AUTH <pin>                                   required in shipped builds (CONFIG_SECURE_SERIAL=y)
 < OK: Authenticated
 > PLUGIN UPLOAD <id> <size> <crc32_hex>\n      (or UPLOAD_META / UPLOAD_LANG)
 < READY

@@ -5,12 +5,20 @@ description: The C ABI that cdc-badge-os exposes to WASM plugins — 307 host_* 
 tags: [host-api, abi, wasm, imports, capabilities, wamr, sdk]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T21:07:57.649Z
 sources:
   - id: openwiki-source-4c23ee90f461b46c725d4482
     resource: repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h
+  - id: openwiki-source-e0b6e038938510b69ae91175
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ext_feature.cpp
   - id: openwiki-source-3f00bf683fd77308725c121c
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_http.cpp
+  - id: openwiki-source-c6041bea013892df118a9e6d
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_lockscreen.cpp
+  - id: openwiki-source-ffa8dfffbccd5442af1f9e0e
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_socket.cpp
+  - id: openwiki-source-6619762b6b23e314f0b6c118
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_ui.cpp
   - id: openwiki-source-1cf8e76e4af214efa7b3bd8f
     resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_wifi.cpp
   - id: openwiki-source-102679e338db93cd4c4318e1
@@ -29,7 +37,7 @@ sources:
     resource: repo://references/cdc-badge-plugins/sdk/cdc-badge-plugin/src/ffi.rs
   - id: openwiki-source-73407625626e00182b5056c6
     resource: repo://references/cdc-badge-plugins/sdk/host_api.h
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T21:07:57.649Z" }
 ---
 
 # Host API (ABI) reference
@@ -124,14 +132,14 @@ and the capability checked at call time. Capabilities are explained in
 | Crypto | — | `random`, `random_strict`, `sha256`, `hmac_sha256`, `aes_gcm_encrypt/decrypt`, `base32_*`, `base64_*`, `hex_*` |
 | Secure element | name in `rmem` / `ecc` | `rmem_read_named`, `rmem_write_named`, `rmem_erase_named`, `rmem_name_used`, `rmem_slot_size`, `ecc_generate/import/pubkey/delete/exists`, `ecdsa_sign`, `eddsa_sign`, `se_chip_id`, `se_fw_version`. See [secure element](../hardware/secure-element.md). |
 | HTTP (streamed) | `http` | `http_open`, `http_set_header`, `http_set_body`, `http_perform`, `http_status`, `http_read_chunk`, `http_content_length`, `http_close` |
-| Socket (TCP/UDP client) | `socket` | `socket_open`, `socket_write`, `socket_read`, `socket_close` |
+| Socket (TCP/UDP client) | `socket` (read/write/close also allowed with `net_listen`, for accepted connections) | `socket_open`, `socket_write`, `socket_read`, `socket_close` |
 | Net listener | `net_listen` | `net_listen`, `net_accept`, `net_close` (accepted connections use the socket calls) |
 | Lifecycle | `background`/`autoload` permission | `set_resident` |
 | Wi-Fi | `wifi` | `wifi_request`, `wifi_release`, `wifi_is_connected`, `wifi_ssid`, `wifi_ip`, `wifi_rssi`, `wifi_mac`, `wifi_start_scan`, `wifi_scan_done`, `wifi_scan_results` |
 | BLE | `ble` (+ `ble_service_uuids` for a GATT server) | Server: `ble_register_service`, `ble_unregister_service`, `ble_send_notification`, `ble_send_indication`, `ble_consume_write`. Central: `ble_scan_start/done/results`, `ble_connect`, `ble_disconnect`, `ble_conn_handle`, `ble_conn_peer`, `ble_discover`, `ble_consume_discovery`, `ble_read_char`, `ble_consume_read`, `ble_write_char`, `ble_on_write_complete`, `ble_subscribe`, `ble_subscribe_char`, `ble_consume_notification`, `ble_get_mtu`. Info: `ble_is_enabled`, `ble_mac`, `ble_device_name`, `ble_rssi` |
 | NVS | — (confined to the declared `nvs_namespace`) | `nvs_get/set_blob`, `nvs_get/set_u32`, `nvs_get/set_str`, `nvs_erase`, `nvs_erase_all`, `nvs_list_keys` |
 | vFAT files | `vfat` | `fs_write`, `fs_read`, `fs_remove`, `fs_size`, `fs_list`, `fs_view`, `fs_view_image`, `fs_view_markdown` |
-| UI views | — | `ui_push_toast/message/info/confirm`, `ui_push_list`, `ui_replace_list`, `ui_update/insert/remove_list_item`, `ui_push_context_menu`, `ui_push_t9_input`, `ui_push_password`, `ui_push_pin_entry`, `ui_push_slider`, `ui_push_color_picker`, `ui_push_date`, `ui_push_time`, `ui_consume_input_int/text`, `ui_set_view_footer/empty/lifecycle`, `ui_pop`, `ui_pop_to_plugin`, `ui_repaint`, `ui_acquire/release_exclusive`, `ui_set_inactivity`, `ui_wink`, `ui_view_image`, `ui_view_markdown`, `browser_open` |
+| UI views | — (except `browser_open`, which needs `http`) | `ui_push_toast/message/info/confirm`, `ui_push_list`, `ui_replace_list`, `ui_update/insert/remove_list_item`, `ui_push_context_menu`, `ui_push_t9_input`, `ui_push_password`, `ui_push_pin_entry`, `ui_push_slider`, `ui_push_color_picker`, `ui_push_date`, `ui_push_time`, `ui_consume_input_int/text`, `ui_set_view_footer/empty/lifecycle`, `ui_pop`, `ui_pop_to_plugin`, `ui_repaint`, `ui_acquire/release_exclusive`, `ui_set_inactivity`, `ui_wink`, `ui_view_image`, `ui_view_markdown`, `browser_open` |
 | Canvas view | — | `view_canvas_push`, `view_canvas_commit`, `view_canvas_clear(_ex)`, `view_canvas_get_body_size`, `view_canvas_set_footer/font/text_size/text_color/shade/ink`, `text_pick_font_that_fits`, `view_canvas_draw_text(_aligned)/rect/pixel/line/circle/triangle/round_rect/bitmap/sprite`, `view_canvas_hline/vline`, `view_canvas_marquee`, elements (`view_canvas_elem_begin/end/set_offset/move/show/remove/clear/set_z/get_offset/get_bounds`), widgets (`view_canvas_add_slider/text/button`, `remove_widget`, `set/get_value`, `set/get_text`, `set/get_focus`), `view_canvas_set_key_repeat`, `view_canvas_set_long_press_action`, `view_canvas_set_anim_policy` |
 | Canvas animation | — | `anim_start`, `anim_cancel`, `anim_pause`, `anim_state`, `anim_active_count`, `anim_blink` (eased tweens on canvas elements) |
 | Low-level GFX | `display_lowlevel` (except the backlight calls) | `display_width/height`, `display_clear`, `display_draw_pixel/line/rect/text`, `display_fill_rect`, `display_flush(mode)`, `display_is_busy`, `display_set/get_backlight` |
@@ -157,6 +165,24 @@ Capability enforcement lives in the `host_api_*.cpp` files. For example,
 `host_api_wifi.cpp` and `host_api_http.cpp` return `HOST_ERR_NO_CAPABILITY` when
 the manifest lacks `wifi` or `http`. The OS doc's "manifest only" note for those
 two families doesn't match the code.
+
+
+### Per-family limits and deep dives
+
+| Family | Limits worth designing around | Details |
+|---|---|---|
+| HTTP | 4 concurrent requests; body buffered in PSRAM up to 1 MiB (then truncated); 5 s default timeout (`host_api_http.cpp:71-73`) | [Networking](networking-wifi-http-sockets.md) |
+| Socket / listener | 8 socket slots, 5 s default timeout; listener backlog 4 | [Networking](networking-wifi-http-sockets.md) |
+| BLE | 1 plugin GATT service, 1 connection, 244 B payloads, 4-deep rings | [BLE GATT](ble-gatt-for-plugins.md) |
+| Message transfer | 4 KB payloads, 1:1 only; plugin receive currently broken | [BLE review](../os/security/ble-message-transfer.md) |
+| Canvas | 128 draw commands, 16 elements, 8 widgets, 8 sprites, 16 tweens, ≤ 5 fps | [Canvas](canvas-surfaces-and-animation.md) |
+| Surfaces | 2 per plugin, 8 badge-wide, ≤ 1024×2048 px | [Canvas](canvas-surfaces-and-animation.md) |
+| External features | 4 provider registrations badge-wide, 1 job slot, 32 KiB payload | [Inter-plugin features](inter-plugin-features.md) |
+| Lockscreen | 1 quick action per plugin, 8 badge-wide (`host_api_lockscreen.cpp:29`); 1 pending alert | [Lifecycle and UI](lifecycle-events-and-ui.md) |
+| EventBus | 16 subscriptions shared by all plugins | [Lifecycle and UI](lifecycle-events-and-ui.md) |
+| GPIO / PWM / ADC / I²C / pixels | Pin locks; one shared PWM frequency; ADC1 only; I²C bus 1 only; one 1024-pixel strip | [Hardware I/O](hardware-io-for-plugins.md) |
+| Secure element | 1 ECC slot, 11 R-Memory slots badge-wide | [Secure element](../hardware/secure-element.md) |
+| i18n | Language call distinguishes only EN/DE | [I18n](../os/i18n-and-language-overlays.md) |
 
 ### Deliberately absent
 

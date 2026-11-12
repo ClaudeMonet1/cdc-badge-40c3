@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3bc11ed0e0614c9dfff422b4fd24de5f04cdc0b86316428c51a3c177b9ea39ed",
+  "claims": [
+    {
+      "id": "claim_716e63fa9a1340e0b90127ea4f59aa82",
+      "statement": "The .cdcbak container is CDCBAK magic, version 1, a PBKDF2 iteration count, 16-byte salt and 12-byte nonce, followed by AES-256-GCM ciphertext and tag, with the 39-byte header authenticated as AAD and 200000 PBKDF2-HMAC-SHA256 iterations.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_os_ui/src/BackupManager.cpp#L44-L49",
+          "version": "repo-lines-v1:sha256:1b699006d3a373fea028d4a66b10732b9c00e1947e2d4e061e53630d33b1a9cb:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGE3OWExYzA5MTU2YmI1ZmNhYmU1NDA4ODgyYjIyZTcyMTIzNWI3NjFjYmIwZjYwYWJhZTMxMTAzYzc3ZGFiYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcxZTdmZDAxNmUwNWNhZWM1NGY0Y2M3Y2YzZWU3YjE3ZWNhZmI4YzQ3ZTAyY2NhNmQxZTI4ZmZmMmZiMjRhYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDM4NmRlMWFlODYxMmQ2YTFkOTcxNjA3NzI1YjVjNjI4MzRlMmY3YmUxMDBiN2I3ZTM4OWMwZTdiMjM0OWY4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTJlMzU5MzM0OWE1M2JiODYxNGMxMjdjNzgzODUzNjgxYWVjNDEzZTdhZTUwZDUxZjNhOTZmMTcxNzk5MzI3NCJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/backup-format.md",
+          "version": "repo-file-v1:sha256:9d6afd39bf769a885bf0ff011d735eae0b5b89e8da5757cc626ba22f07226812"
+        }
+      ]
+    },
+    {
+      "id": "claim_2f5d3a99e2784ef3ac8fa31a0f004cc5",
+      "statement": "Restore rejects backups whose host_api_level is newer than the firmware's.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_os_ui/src/BackupManager.cpp#L378-L386",
+          "version": "repo-lines-v1:sha256:72152177bc512bba49a2179485a49a2f6157791dde04446b780deafe49a3dbee:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzgzN2U2YmZkNDBjMWI1NDVhNjIxNWNlYTc0OTFhNGZlZjhhM2M4N2MwZjA2ZjU4ZGMzYjI4ZWMxZmEzMjE5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEyYjIwOTIwYjgwMDkzM2I4OGE5NDBiNDY2NDY0NDkxMjlkMDljYTBmMGVmNTNjODE0MjNjOThhOTk1MjA1OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmNlMzhkMjkxNDc4OGY4ZTQ5MWM5NjRiOTZiNjRmMDEyYWJiYmVhMDg5MWQyYjI0ODY3OThmOWRiYTM5YWJhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2I3NzliMTQxZDFlNjViZmExNGM5MmI1ODhlZTVhMDkxZjIyODE0NjNjOWNiMzY1Yjg1NzZmNTVmZTI2MjBiZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_55dd95dbd1d54c2a911528232703cabf",
+      "statement": "Only mod_2fa, mod_password and mod_vcard contribute module sections, plus a system section that includes Wi-Fi credentials.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/backup-format.md",
+          "version": "repo-file-v1:sha256:9d6afd39bf769a885bf0ff011d735eae0b5b89e8da5757cc626ba22f07226812"
+        }
+      ]
+    },
+    {
+      "id": "claim_7985b644bf9c4001b39e9ccfdaade7a3",
+      "statement": "FIDO2 and GPG/SSH private keys are not included in backups.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/guide/backup-restore.md#L19-L32",
+          "version": "repo-lines-v1:sha256:498760c548f79385a9add1354ff373bed219b5baee02c0862e51e6717749f47e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1OGFkNzRjZDI3MWNhMmYyNmZkMTRiMWE1NTY4M2M2NWY0YzhmNjdkZGZjNmFmMjM0OTc2YWQzYTk2NzI1YWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkYmMxYjMyZjc4ZWI2MDg4Yzc3OGVhMDM2OWM3NjFhNWM4NjYyMmM0MDQzNTc2OWIzOWY2YzhlZTcxMDkyZjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI3YzUxNTgwNDRkNjhhMjkzOGU5YTg0ZjQ2NGE1NDc1YjhlMDBjMGNmZTNmZWVmY2EzZDUxMzczM2EzNTQ2ZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiZTNmMjE5OTNmNzg1N2ExY2Y2ZTlmMmVkNmYzMTQ5MThhYWExMzQ3YWQyNzg0ZWM5MTMzYmZmNjk4NWQ4M2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8e45a8a42d764fcbb11deb8a19552cc4",
+      "statement": "A section whose schema_ver does not match the importing build is skipped without migration.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/backup-format.md#L192-L195",
+          "version": "repo-lines-v1:sha256:99f2acc2a7c767f9f9915fabc60d9c926f69e0bc70b389d621ab2d3652535805:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWViMDIwMjllYzQxNjY2YjZjNmMyNzRiZDQwNzc4NjljYzljNjVhMWM5ZmRlMjg1OWI5ODljMjAwNTVkYzMyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGNkODZkYjZjMmVhOTEyZTZiOWFlMWJjZWJhYmQxYWVhNDI5MTY4YzZkNTNlZmVlM2QxNDI2MDJkODY1OWZmMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGViYzFiNzkzZmNlNTMzYWRhMDg4MDhlYWZiMTkwYTRlYTVkZDUxOTRmYjZjMjczMjcyMzgzYTI5NDcwMjYwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzgyMWVhMmFkZmQ3ZjMxYzg0NmVmZTdmZDIyNWVlODcxYzNhZWE2Zjg0MzkwZDY0YjAzNjUzYzUxYzFlZmJhMiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

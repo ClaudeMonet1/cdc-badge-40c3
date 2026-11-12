@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ca01613360148a2b818ee5760e7ec9f0dfa9c38ed19dfbd0e926a25c31b5c133",
+  "claims": [
+    {
+      "id": "claim_be306c68cf9f4737855ae85f262a1a5a",
+      "statement": "English UI strings are compiled into the firmware and other languages are flat lang_<code>.json overlays in /vfat/system/i18n converted from UTF-8 to CP437 at load, with missing keys falling back to English.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/power/languages.md",
+          "version": "repo-file-v1:sha256:d3354676dff9fe3830482a70f5454f7dac60060dd385ee7ef2fdc5421265f227"
+        }
+      ]
+    },
+    {
+      "id": "claim_8826266eeafe480b81783f0b4f448fb2",
+      "statement": "Plugin language overlay files carry a translations object keyed by language code, and the plugin loads the object for the active language.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/Plugin.cpp#L204-L260",
+          "version": "repo-lines-v1:sha256:6a3f30b661e02d80b78e8fae19078f232dbf629615e1d4b94340251536d2ebef:eyJzZWxlY3RlZExpbmVDb3VudCI6NTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MTc2MmRmYzIwYzE4OWNjMmVlZjg3ZWVkM2IxYjkzMjE0NmI2NTM5ZTI3ODVlNjgzYjhjY2JjNDZmMTgyMWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmYTViNTNhOTVhZTRjZGUxZTU3M2Q0YWEzOWZlMjBlYzI1OWE5Y2U4NmExMjQ4MWNkMThkMzJjM2E0N2NiM2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlOWEwYTczMTMwOWE1N2VhOTE2NTI2ZmVkODY4MmU3NDEyZjU2YWZhZjUyMDg2YmUwNzZlNDA0NDIzZmRhZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkZDUwZTE5NWI5MjMxMTUzODc1MmMxZjAxOTY1ZWI1ODVmMWFiOTA0MWEyMjJhMTNiZjdiNDAwMDY1OWJmOWEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-plugins/examples/hello_world/hello_world.lang.json",
+          "version": "repo-file-v1:sha256:183ff31e3f4414d9531e1a29bc1b176fe39a35e7b1655bb044848fab88f147ef"
+        }
+      ]
+    },
+    {
+      "id": "claim_7989d4a3e6084dc993839158dd453a60",
+      "statement": "host_i18n_current_language only distinguishes German from English, mapping every non-de language to HOST_LANG_EN.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h#L1714-L1740",
+          "version": "repo-lines-v1:sha256:d40f277f92163b96c56a785b4b7daa088fd6d84ae8c9ca165bf83d79d246bc2a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3YWIwNGEzMzI3Yjc1NzFlNGVmNmFmMjg0NDc3ZDE3ZjI5YjM2NWQ1Y2FjZTZmOTZkOGU5MTZlYzg3OTgwZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmZTA4OGMzOTkzOTg2MjA3ZWM0YzExOTgwMjdjNmE0NzJjYjFhMDMyMGQ3OTY0ZDU3NTkxZjVjYjJlMDE4M2EifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_i18n.cpp#L28-L46",
+          "version": "repo-lines-v1:sha256:62afa97df7f96f48b281714ff802d1e21c8155a0542ff92f094cd5d676bd2119:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5MjYyNWM4ZDdiZGQzMGUxZmFmZGU3NTdiM2RjZGE5N2JlMGE1OWM2MmMxODM4MTkzODc3ZGM1YmE4N2I0NTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdiZjgxNzBiYjk2OTJhNjY4YjEzOGRiODk0ZTE5YWQ4MGZjYWFhOTQyNWNmNDg0NDFhYmZmNzU0ZmQ3YjczNzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4NmIyYjc1NTI1NzdlODdhMmU4OTdmMGVhNGQ2YTc3OTVkYWYzZWQwMDYxMzAzMDE1OGVhYjg3OWI0NjMwYmQifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T21:07:57.649Z"
+  }
+}

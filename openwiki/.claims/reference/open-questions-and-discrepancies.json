@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:294465b198d76c0636c804b6ef5836e7191be3dec69b7e440e5928710f7319c8",
+  "pageVersion": "sha256:3a6b30abaed3a7782a45770a51dc753d0f3225ec46b2e5629e9e9cfae8a5c73e",
   "claims": [
     {
       "id": "claim_92a3884b0a06407e88c592a2e8af39dc",
@@ -129,10 +129,58 @@
           "version": "repo-lines-v1:sha256:6aee6496f7aac817b2dad59521efe78e41b3d07be1d8234721ab6c11570e76b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWI2MmJlOWM2NWJiNzI5Njk1MWQ2YWI1OGM5MGJkZWU0ZmE3NmZkNDc5Mzk3MGFmZjIyZjBkMzYwZTAwNDQwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcwZWZjMDNhMmZhMWI1ZTU5Nzk0YjUyZWU1MjQ5Y2ViOWRhMzAxZDU5OWMyYzE3ZDhmMzIyZGE3MjA4MzAzMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc0YTQ4ZDM2YThkNzkwMjdjZjllMmRkZTYyZWRlOTk5MjgyNGNkMzFmYjQ2ODJkNDMwY2E5OGNkZTFiYTI4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTYyZTNiMzQzNjU4OTAyZGRiNmU4ZmM1YzBmMTI0ODgzY2U4NjFlOGI2OWEzMGJkY2M3MzNiMjgxMDdiMjQ4NiJ9"
         }
       ]
+    },
+    {
+      "id": "claim_5670dd195f724553851d7d6a1d23f562",
+      "statement": "Shipped builds enable secure serial through sdkconfig even though ADR-0012 describes the feature flag as defaulting to off.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.defaults#L94-L94",
+          "version": "repo-lines-v1:sha256:0e4073b3a85004dcc4d8a3b53901eca9b882ed030ea794df82ac023a08ce49c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0MDczYjNhODUwMDRkY2M0ZDhhM2I1MzkwMWVjYTliODgyZWQwMzBlYTc5NGRmODJhYzAyM2EwOGNlNDljMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTA1MTU0MjcyYjE3NTcxNjkyMDQyMTU4ZmI2MWI4NWJhYWJiMWRlMDRjMGE0YmEwMjMxMjUzYjFlYTI4YWNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA2ODM0MGI0NGM4OTQyYjhhZmQ1YWIzYTRhZGRlMjUxZTIzZTJjMWIxYjYzNDA4NWFkMDdmYWE4YzYzZGNkYyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/adr/0012-build-profiles-and-defaults.md",
+          "version": "repo-file-v1:sha256:52dd931f90485ea942000eb4adc16ad989ca75262ce5b9ef6ce05145be06f29f"
+        }
+      ]
+    },
+    {
+      "id": "claim_ffb20f22896f41c58886ac85b97c15ed",
+      "statement": "host_wifi_request ignores its timeout argument.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_wifi.cpp#L38-L44",
+          "version": "repo-lines-v1:sha256:b2c3c61c381a3777adb5635302824015f11a2c6355b40a645e8e88d3c7c77f77:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA4MWI2M2YwNGJlYjU2MTkwZDk1ZGY2NGY3YmE2YmZjOTkzZGU5YjQwMzMxZDBmZTlhN2Y4YTNjZGQ5MzMzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODczOTE0YTZlMzI5MDAyNmFhYmJlOThhZDEzMTM3MzNiMDY4YmE0YTA3YTU3MDIxNzI2YTY2OWIzOWM2NzczOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc5NWVkODI2ZTVlYTU1ZDMzNDU5Mzg3OWY2OTU4NzA5OGJmYzZmOWRlN2I2YTVmZmZhNzc4MGIzNTg1YjE4MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_48492845c33b4a7e802a6d702d799684",
+      "statement": "The RTC loses time across deep sleep and power cycles and is not persisted.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/Rtc.cpp#L1-L8",
+          "version": "repo-lines-v1:sha256:8e76ee1212bf1982dd5a076a84ec0b20375614f59eabc5ce66f67bf38740483c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmMjJjZjA3MzI1OTJjMjQ3MTQxY2JlNjFlZmExMTAxMjYxMmY1YTMxMjJiOWFmOWJiYWY1MmY1NzI0ZDE5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWFkZDU1NWQ4YjRjMDQ1MGNkODE0MWZjOGQzZTIyNTFlNTdlZmQ1ZTMyMTk0NjU0YjE0ZDk2YTM3Mzg2YTBlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTI3MTA2NzZlMDE4YWUwMDAxMDY0NDUwN2UwYjUzZDQ3MTE1MjFlMzNiZGRlZjBmNDA5YjJhNDA0YThhMWZmYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_655b1c44eb434f7fad4b7d8302881f83",
+      "statement": "Password vault and OATH records are written to R-Memory without application-level encryption.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_2fa/src/OathStore.cpp#L250-L262",
+          "version": "repo-lines-v1:sha256:6fff58aa31a66c57d728accacaae330cbfbe2aa5f43a6bd77447dd60231b7fef:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3ZTQyODdiODEzNjQzNzBmZmYwZGZhMGJhNGVmOTM4MGM5N2M3YjI0YjhiNzU1Y2Y0NzU2OTIzZmRkYjUwMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MjRjOWE1Y2U4ZDM3MGIwNTdjZjgyOWVlZjczMGY2MmM4Yzc5NDA1OTBhMzg1Mzg1ZDg0M2NiZjk4MTE4MDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhZGM4NGRhM2NhOTMyOGQyNzQ4OTU1NDk2MjJhNjlhOWQwMTk3M2Q0ZGIzYjgzNWM4ZGZhNjBiMjFiODkxMmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFkNDczMTI1OTFlNDZiODEzODBmMTM0ODE0NDdiZjk1NGVkMDE2OTczMmZhZWNmMDBmMjM4N2NhNDYwZmNiZjEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_password/src/PasswordStore.cpp#L130-L190",
+          "version": "repo-lines-v1:sha256:4e18b0e9ec844ab964f1d124b21528544d41477a6291056d3f9d71b4f8a7c123:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4OWI5OWNiZGU4ZmJiMzA2ZDAzM2NlYmRiNWRjZWU3OTgyYWRjNDU2ZjUyYjVhM2FkY2E5YWVkNDVmZGM5MTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxYTJiNDg4NDVkMzliNDM5ZDMyNjZlMWIwOWZiZWE2N2ZlYWFhMTVmNGNhYmUwNjY0ZjJjMzdjNzNhZTRjM2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5MDY0Y2NiYzYxYzM0M2Q2Zjg0Y2U0YjY5ODM1MDFjMGM0YTM0NzllMGE4MjY4YjNmNDExNzQxZTFkNjg0ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFkNDczMTI1OTFlNDZiODEzODBmMTM0ODE0NDdiZjk1NGVkMDE2OTczMmZhZWNmMDBmMjM4N2NhNDYwZmNiZjEifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-12T20:57:16.971Z"
+    "at": "2026-11-12T21:07:57.649Z"
   }
 }
