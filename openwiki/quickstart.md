@@ -5,17 +5,21 @@ description: Entry point to the badge-cdc wiki — what this project is (a sandb
 tags: [quickstart, index, routing, overview]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T20:57:16.971Z
 sources:
   - id: openwiki-source-3eda5d2b85501c78fc0ba02d
     resource: repo://flake.nix
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
+  - id: openwiki-source-dc6ca5600c665b4510239dec
+    resource: repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp
+  - id: openwiki-source-91a63a3beacec1226cac4b20
+    resource: repo://references/cdc-badge-os/main/CMakeLists.txt
   - id: openwiki-source-85b872e7a3df64ece24c87d8
     resource: repo://references/cdc-badge-os/README.md
   - id: openwiki-source-50f6becdca203e7d479d053a
     resource: repo://references/cdc-badge-plugins/sdk/plugin_lifecycle.h
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T20:57:16.971Z" }
 ---
 
 # Quickstart
@@ -71,6 +75,9 @@ material (`references/`, see `references/SOURCES.md`) and this wiki.
 | Store secrets or sign with the TROPIC01 | [Secure element](hardware/secure-element.md) |
 | Understand how the OS is put together | [OS architecture](os/architecture.md) |
 | Build or flash the OS, or understand partitions | [OS build, partitions and flashing](os/build-flash-and-partitions.md) |
+| Know what the OS's GPG / OpenPGP card and cross-signing really check | [GPG module review](os/security/gpg-openpgp-module.md) |
+| Know what badge-to-badge Bluetooth transfer guarantees, and why plugin receive is broken | [BLE message transfer review](os/security/ble-message-transfer.md) |
+| Check FIDO2 / CTAP2 support and its bugs | [FIDO2 / CTAP2 review](os/security/fido2-ctap2.md) |
 | Know memory, stack and instruction limits | [WAMR runtime](plugin-runtime/wamr-runtime.md) |
 | Write `meta.json` and choose capabilities; understand the threat model | [Manifest and capabilities](plugin-runtime/manifest-and-capabilities.md) |
 | Look up a host function, error code or calling convention | [Host API reference](plugin-runtime/host-api-reference.md) |

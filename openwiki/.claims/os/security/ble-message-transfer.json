@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ace9d1070db4832d3b5414b2eaeaafb4fd4f0c8a4dcc019b0e5ffb594b946e7e",
+  "claims": [
+    {
+      "id": "claim_278036a8ff3b419e83bf3570bdbfc80f",
+      "statement": "The badge's BLE beacon name defaults to a custom msg name, then the badge display name, then 'Badge'.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/BeaconManager.cpp#L52-L58",
+          "version": "repo-lines-v1:sha256:47482b6c8a1554451ff671211a74a89dbe9b27afab6c9ffe8867caacd55a6627:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmVmZjhmOWYwOTFhMDkzMWViOWJhNjY3Mjk0YmUzZjg5ZDdjZWU0Mzg3NTVhODI5NTEzNDdjMjY0YWQ3YTlmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGYzMmI0NDFiNWU5ZDU3MmE3ZjJhZTk5OTEwMWVlZDU3M2ZjYTQwMWY2Y2JjNWYxM2U3NDFiYjA5OThmZjFhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTcxYmE0OTk0ODI0NWJmYjcwNGIwMGQyYTYwNDNiM2JhNTBhNjYzMTZhYWI3OTQ2NjczYjMyMmIzZTMzY2M5MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ccc1203ac5fb4e3a883992311b574f34",
+      "statement": "The BLE stack infers its own address with privacy disabled, giving a public or static address.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BluetoothController.cpp#L1083-L1087",
+          "version": "repo-lines-v1:sha256:33ec6d71d6315b63bdd4601508322ba101fea8c0c8a0c1548a163bd2645779d0:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ3ODQzYTkyMWRiODcxNTQzYzFhNzFlOTQ3Y2U2YjUzNTJiOWFhY2NmYzU1NWU1MDI4MTY3M2FmMjg0NjMyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTQ3MzVmMWY2NGVjMTllYzMzZmYyNWVlM2JkMjc0YjEzMzQyNzQxNjE1YmM4NTNiY2IyZjhlNTkyZDhjYTA5YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGIxZTFhMDM3OTljYzEzM2E3YjM5NDQwMmUzYzNjOTE5NmI4NzBiODMyNjc5OThkZjIwY2U0NDI1ZTUyZWE0NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_38b1711e32d74315a9a9e58e852a2946",
+      "statement": "NimBLE is configured for DisplayYesNo numeric comparison with bonding, MITM and Secure Connections flags, but the build keeps SM level 0, allows legacy pairing and does not require SC-only.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_hal/src/BluetoothController.cpp#L733-L739",
+          "version": "repo-lines-v1:sha256:04aa031a5b6777927223fa6b15b1c56acf0e43bdae4233345748a1adc8dbbbdf:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjRjYzA0MDgyMDdlMjQzNDI4YTBkMjliMTc2MzExMDE3NDQ2ZGU2ZjFmYTEzZWY3N2UzNzgzMTJkZTFiOTEzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEzZDExNmY3YjY2MDhiMWVhMTk1YzEwZmJjMGE1Y2Y1NjAwNDVmNTNkYzNjMDZiYzBkM2RjNTUxZWQyMmMzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZiY2JhMTQxMzU1YzRhMmU1ZGY5YmY5YTJjNDgxZWZhYTNjZGYwNTQ0NTJlNzVmYzU5M2JmMzE0ZWIzYTY5MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDgxMThlNzdlNjhmY2IxM2FiNjhjMTZkZDlhNzU0ZGQ1MzU2ZjRhYzAxYjJiMDk1MmI0OGI2MGMxNGQ3NjAwMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.cdc_badge_usb#L754-L759",
+          "version": "repo-lines-v1:sha256:6aee6496f7aac817b2dad59521efe78e41b3d07be1d8234721ab6c11570e76b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWI2MmJlOWM2NWJiNzI5Njk1MWQ2YWI1OGM5MGJkZWU0ZmE3NmZkNDc5Mzk3MGFmZjIyZjBkMzYwZTAwNDQwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcwZWZjMDNhMmZhMWI1ZTU5Nzk0YjUyZWU1MjQ5Y2ViOWRhMzAxZDU5OWMyYzE3ZDhmMzIyZGE3MjA4MzAzMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc0YTQ4ZDM2YThkNzkwMjdjZjllMmRkZTYyZWRlOTk5MjgyNGNkMzFmYjQ2ODJkNDMwY2E5OGNkZTFiYTI4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTYyZTNiMzQzNjU4OTAyZGRiNmU4ZmM1YzBmMTI0ODgzY2U4NjFlOGI2OWEzMGJkY2M3MzNiMjgxMDdiMjQ4NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bb6ba53cbbf64344b37fe220f978ca75",
+      "statement": "The message-transfer Data characteristic only requires an encrypted write permission, not an authenticated link.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp#L165-L168",
+          "version": "repo-lines-v1:sha256:af3b73d5fccbebd105c2fbcac012d53db6a27b7dd5bd4db7a9337dbfcbb50322:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNWMyMGRiNWI4ZjhkYjMxYTRiNmQzNWMxNjZmNmZmZTlhOTE4MTExMzM2MDUyYjc0NjA2YmIxYWQ2MjFmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTViNDFhNjNkN2E4ZDhlYjBlMTQzNzc3ZTBjNWE1NmExMmNiNWVjM2JiZjI3ODYxM2NlNjkxN2EzMmM4MThhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQwNDlmN2RkYmYyMjQyY2MxZTA0N2I0NjI5ZjI0ZWMyNmZjOTgxNmE4N2NhMjQ2OTcxOTdiYWIwNTE3MDQ4ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d1c8301aa08c456ea1ec72e0a51b0d75",
+      "statement": "A persistent offer from a peer already trusted in the session is auto-accepted without a consent prompt or prompt budget, based on the peer's identity address, regardless of MIME type.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp#L932-L946",
+          "version": "repo-lines-v1:sha256:9176460f3528e6e906a2ad6065ebfea65e4e705c8f523b9642938daed46ca064:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExMDAwYWY3M2JjOWI2ZDFhOTU4N2E1NTM3NDk4NjJlZmJhOTc4ZjJlNzQ0YjZjNDhlZWY2Mzk3MGFjOGJjYWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0NzM1ZjFmNjRlYzE5ZWMzM2ZmMjVlZTNiZDI3NGIxMzM0Mjc0MTYxNWJjODUzYmNiMmY4ZTU5MmQ4Y2EwOWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA3NDMxNTliNmUzOGI1MTcwYmJlMGY2MTUzMGJhMTE4YjI1MmZjMThkY2RhMmQzYmNkNWJjYTUzZWE3MTZmMzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5d4f547e25894f9586f518a939386666",
+      "statement": "Completed transfers go to a live registry handler or else to the deferred plugin path, and Done is reported to the sender as soon as that hand-off succeeds.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp#L1005-L1020",
+          "version": "repo-lines-v1:sha256:795516847d963d3803634294dee2f8c17d3dfcf1e25657c53b5569c5ce59622d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlNjhmZjAwZjc2Zjg0ZWNmZmY1Yjk0MTNjMmQxNzU2NDY1OTU4ZDViY2FhM2Y1N2UzZTZiOGExYmEwNzc3Y2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlZjRhOTlmNzg3MDFjNmMwOGU0YTBjYjExNjliNWNiMDQyYmE3Y2Q0MDJjYzhkMDhmN2IzMTU3MDJhNGI1MzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQwMDBjNzA4NmY0OGExMDc0NmI5N2Q5NGQ0MGRiYWJjM2YxYzExNTQ1MzQzYzc0OWQ5MTIyZTc0MGVkMTQxNGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxZGNhZmFkNDJmZTU5YzQwMDcwZjIwZDExNjEwODY1ZGYwMDVkY2IyZjQ4MTE3OTZhNTFjMGEyMDZkM2M3ZjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9c0ed0d34324bed83c5bfbb0fd1df70",
+      "statement": "Registering a MIME handler replaces any existing entry for the same type.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageHandlerRegistry.cpp#L35-L55",
+          "version": "repo-lines-v1:sha256:e72e3b3ae552be276a81a9abfd6dd4c36ea35b03f9dc32ff8d4b130ab32cbefd:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRlMTk1NGE5OTI3MDI2NjNhMDVmOGM3OGI5YzA0ZmJiYTA3M2QzM2NlMGU5MDFkZjY1YjM4OTdmOWFmYzIxMzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiZjMzMTc2YjgxODgwMzUyYWYwYTEwNzI4MGI2NTBmZWMwYjNjYWUwYTE0ZmE4MDYwNDU3YTY3YjY1Yjg3NGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1NTc4N2ExZThiMTliNzI2NTAyZmFmOGU3NjE2NWRkZTg0MTRkMjc4NjI5NmViNDc3NDFjNjBhMWZkYTlkMzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df470b85b6d84b0a8ff3f7ad48960035",
+      "statement": "A plugin's handler registration returns HOST_ERR_BUSY when MessageTransfer::hasHandler is true, and hasHandler also consults the deferred resolver that reports any installed plugin declaring the type, including the calling plugin, so a plugin cannot normally register its own declared MIME type.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp#L240-L252",
+          "version": "repo-lines-v1:sha256:f28c8d3189f3bf863034eac7344d58e996613be8fed6054a2c2c3fdc35fc8e6c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNkN2UyNmIzZjIzZmJjY2U3OTkxZGQwZmNlYTJiMDg5ZGJhYWVlYmEwMzhlZmM3ODI2YTA3ZmIyNDgzMGFhYzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2NmU5YzY0NjBmZTVhODI0OWRlNmRkNjc3Njc2YjYzZDRjYmQ0YjYxZDlhOWU1Y2EyYjBjNjc3YWQwMGQ2ODIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L585-L647",
+          "version": "repo-lines-v1:sha256:31e368786ae2ff9454f2bd7cae3e4e97980ede29eb913095e168f01572c41aa3:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFkNTU5N2ViMGQyODE1ZjBhNjY1ZGEwOGE3OWUyODJmMzRmMGZlNDJjMGE2YTZjMWIxZmE2N2MyNTVjZWExN2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3Y2VlN2ZhOGE4Y2IzNjA3MWVkMDY2MzZkNGFiOTBkMmM1ZGQxMmQyZTU2ZDRjMDUwMTRjZTZjNzA0ODA0MzQifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp#L188-L201",
+          "version": "repo-lines-v1:sha256:402a734d19371270021aa363663d4263bdcd1721ca4a1cd234152fbec6c36fe6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjN2U4M2E0YTVlMjI0NjI1MWEyODhkMjE4ZGIzZDI3M2Y2ZWZjNWNmOTUyYTM3NjYxMmNjZDcwMDg3NWQwYjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5OWJkZWZlZWFjYTYzNDBlMDI5MGRjODZlODg5Yzg5ZDVlMTg5YWE1YmE0NGI1ODViM2I3MDczNGY0YTYyZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUxYWM1NmVhYjUxZWE4YzE1NDQzYjNmNTA3MWMwZGNmN2EwZGVhMWEzNTU1MzA3MDczYjMwZTBkYjIzOTdmZDcifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp#L274-L280",
+          "version": "repo-lines-v1:sha256:494292378eceb2f2ed82b1d11d9a91c1ce002d5c6401303438f929e4933c2ab0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDczNjMyZDI0OGYyNzFmY2U0ZjM0MGU2NTMyNWE4MzQ1YWM1YmQ2MzI5NDdiMzZjZDZjNTM4NTE1YTM4OTgzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmFhY2I1NDBjOTQ0YmZjZDg4ODE3YjZlNjQ1OGRhNzY0OTVjNTI3YjgzN2M3NTgzMjc0OGE1YzU3YjQzMjVhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDdhODg3YWU1MmQxOTJhYzc2MTI0YjIyNzBkNWRjNzlhNWM2YTQ3ZjhiN2IzZjk5YzBkM2YzMmVhMDMwMjNkNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3becce47e3e34460af54d7780318ff91",
+      "statement": "The deferred delivery path loads the handler plugin and dispatches only if a registered handler for the MIME type is found afterwards.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp#L138-L162",
+          "version": "repo-lines-v1:sha256:5976b4146df1a6148bcbf4ea2a73c2b5ed15b444d9d72cdebd93cdc1defd28cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0Zjk0ZDNjMDQ2YWRhNmZjNzBjYjcxMjQ2OTBkMTgxNGU0ZjZiMDJiMmQwODU5ZDQ5MmJkYTM2NmU5M2QxZDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwYmRjN2NlMDRkNjI3OWVkYTE1MmRkZjI1ZDM5MDYyZWIwZmQ0OWNlNmE4MGViNzhhNmVlODQ0MjE4Mjc3Y2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjExYmQwODA0NDhlMzU4NGE5ODM2OWQ2YzE5M2JlYjUxM2VkNThkMWM4MTZkYmE4OWNkZmViMmQ5NmFjYmRmYzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3MzkxNGE2ZTMyOTAwMjZhYWJiZTk4YWQxMzEzNzMzYjA2OGJhNGEwN2E1NzAyMTcyNmE2NjliMzljNjc3MzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_11c02b8199014b4395dcd6d86789e993",
+      "statement": "The mini_messenger example ignores the return value of msg::register_handler.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-plugins/examples/mini_messenger/src/lib.rs#L60-L60",
+          "version": "repo-lines-v1:sha256:5bd41afa8dc8a9bd2185fedcec3602de2c6afd693ef104356f42409081b90500:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJkNDFhZmE4ZGM4YTliZDIxODVmZWRjZWMzNjAyZGUyYzZhZmQ2OTNlZjEwNDM1NmY0MjQwOTA4MWI5MDUwMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJkNDFhZmE4ZGM4YTliZDIxODVmZWRjZWMzNjAyZGUyYzZhZmQ2OTNlZjEwNDM1NmY0MjQwOTA4MWI5MDUwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWFlOTlmZGFiNTU1MTg0ZWM1ODhmNTNlYzRjZGY5ODM2Yjk3NDBiMDIxZTU2YWZmNTdkN2FiMDYwZTQ5OTRiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzc0YjNkN2IxNWM1ZDJjMjRhZTM4MTc3Yzg2NDA5YzUxZGYyNDQwMTIxMzk3YmQwM2M0OGI0Yjg1NDNhMjUzZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8dbeb5b179884eb880d8b873f31f267e",
+      "statement": "Message payloads are limited to 4096 bytes and MIME strings to 63 characters.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/include/cdc_msg/MessageTypes.h#L72-L79",
+          "version": "repo-lines-v1:sha256:f11e31c4b71dc19dc492eefce5339dfa065cda1d2c78e1997a6cad48551f7469:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGEwMTg2NDFlMTE2MTM3ODZjZGRkMzgxMjRhZDMxNGUwMTc1ZDNlNTY5MWM5N2M2YzkzNmY3YjVlOTM1ZTc4ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTBkMTY5OGVlNTJmYWJjZTYxNDEwOTZlZTBiMGI5YjUxY2IzYTM5N2M2OWFkMjNhYmFlZDVlNzM1OTJiM2RiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Q2OGY3NWMyODhmOTI2NzQwNzMxM2JhZGM4NDQ5Mzg1YTAwMTIwNTdhZjVjMzdjN2M0YmNlNDE0MWE3Y2FhMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIwYTBhMTViYTIwNjczNGFjY2FiYmI4MzNmNTkyOWZhM2UyNGYyZTI2MjJlNjNkY2I2NWZjOGJlNTczODFjZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e38c2a2c63741398b173fa187fb4906",
+      "statement": "Inbound offers queue behind one active session with depth 4, consent prompts are globally limited to 5 per 30 s with a 20 s quiet period after a decline, and offers are limited to 3 per 10 s per connection.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/include/cdc_msg/MessageTypes.h#L106-L126",
+          "version": "repo-lines-v1:sha256:bb5d8127f63bfc85544fd64674ef6ba6bfb1819391690e2d7c26431747935aef:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4M2E2NzVhMGEwZjUyZDY5Y2RjOWY0ODhmNjBhNmNlM2IwMDgzNmZiN2NjMjdiOWMyOTY4NjRiOTdhZDdjNzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI1YmE0ZjhiNmJlOWRhOGE5OWY1NzM1YzIyM2UwOWFmMmRiMWRlMzg4MDM4ZmQ2YTdkNDliMmEwMmMyZDkxZjIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T20:57:16.971Z"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:661b66fb18e427174a97e85912f1b8119099feffce4d0de1033d122acb608949",
+  "pageVersion": "sha256:dd088970b91390719ca3cf17829ec38f716f61ff98f829c99343186515499481",
   "claims": [
     {
       "id": "claim_9c6d88691d1f450c88541aba19cd7827",
@@ -41,10 +41,24 @@
           "version": "repo-file-v1:sha256:8b59fcb617cb0ded59479027df1929f9c56dead92c82a4e70521fa6ff46749c5"
         }
       ]
+    },
+    {
+      "id": "claim_dbb1194a4ed642f0bb097386e04aab36",
+      "statement": "The badge OS ships GPG/OpenPGP cross-signing, a badge-to-badge Bluetooth message transfer framework and a FIDO2 module as built-in components.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp#L1-L20",
+          "version": "repo-lines-v1:sha256:11efd5c8c13646846f4773107d33deac88a1fc756ee881192afe51b9d2ae8cca:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ0MjM0MjVlZDM4OTQ3M2Q4NmIyOWU3N2IzZGVmNWZlNzliNGU5N2FiYTgzNjhjYjBlZGEwN2M2MTQwNTliZTUifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/main/CMakeLists.txt#L8-L24",
+          "version": "repo-lines-v1:sha256:55f6cf34f483b8f4c4e36495054fddff2bf1a59533221ee4914b983c212d3672:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MWQyMDM3ZDQ3ZGQwOWU1ODEwMThkYTQ0ZTdkY2I4NWZkYzY1OTVlNDc3OTk4M2NiMDRjMmU3MDgzMzI5NzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmZmEzZDE2OTI0YmRmYjI2ZDc5Y2U5MDBmNTdiNGVkMWQ0ODVkNWI4YmM4NzE0YWJhZjdjYzBmMGYwODY2ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBlNTJlNjAyYTk5M2U1YjA3ZGFjZTFkYTQzYTJkNzMxODFhMTVlNGMyMTVhZDY4YTdmNTVhNGYwOTNlNjIyYzgifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "at": "2026-11-12T20:57:16.971Z"
   }
 }

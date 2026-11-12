@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:1fafc375abde0a73e2f45a8e90338594b378d0fd10d911c1f83de99e68a26b4e",
+  "claims": [
+    {
+      "id": "claim_e56f8a0af5cc4d0f93245a6a2ce17c68",
+      "statement": "The FIDO2 authenticator advertises only the USB transport and the AAGUID CDCBAD6E-39C3-0001-BAD6-E00100000001.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L46-L58",
+          "version": "repo-lines-v1:sha256:ca2870105be404efb5a14933a841466e89e9a9e2d5430ab51f6e31ec33230477:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFjNDIzZmNjZjgzM2I1YzY5NzBjNjA1NTJlNzAxNDZkN2M2YzI1YjM3OGU2NzhhOGU0ODVmMDVjZmY5OTVmMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMxYzUzNzg5MTU5NTRkNWEzNDA1NDJhMzNhMWQ5NjNmMWM4NTU4ZWNlZTBhYjNmM2JkN2E0OTFlYTc3MDI5MmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkYWEwOGE4OWE3N2FkZjM4MWNiMmQ3MzdlMzRmNGI4ZTQ0ZDk1OTYzYWVlYjRmM2QyMDc2YzdkOWMyZjg0MTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5c88fc171955497aba7318225a05e8b9",
+      "statement": "authenticatorGetInfo advertises versions FIDO_2_0, FIDO_2_1 and U2F_V2 and the extensions appid, credProtect and appidExclude.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L560-L575",
+          "version": "repo-lines-v1:sha256:50b8eda5f8144574284e459538b7b37a69d11e74a69970c69191c83c45b1ae22:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NTBlMjVkMTBiMGU0MmRhMzU2YjM5MDQ1ODFjYWM4N2U3MzRkMzgzOGJlOWNiNDdlYzZjZmU1ZjhhOGZkZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkODVlZGFiYzM1NTI1NGI1YmU0OTlhZmIxNDRjYzk2MTAxMmNlZjE4YWM0OWJhMTBjZjcyZTk4NGQ3Yjg4M2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzOTI5OWZlZWRmM2M5ZDBlNzczNGRjZmU2MjVkOWZjOWY4YjJiMDEyNWNhYjFiMjdmZjRmOTQwOTk0YjcyOGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6f528dc7d6c14688827fafb723c2a4a7",
+      "statement": "clientPIN setPIN and changePIN return UNSUPPORTED_OPTION because the PIN is the badge PIN set on the device.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L2993-L3000",
+          "version": "repo-lines-v1:sha256:31722b84412ca520bfc6fae4234caf26099c22bb85537fb4ed5e2979a7671bd8:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Y0MTMyZmM0NWNhZjRhYzE2OGNlODAwZTBiMjQ1NDBjNGMwODUzZjI5NWIxYzUzMzNjNzVjYzAzOTk5MDkwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTBlNzhhMmQ4MWJhMGJjZGZiYTEwZTZiMTczNTBkM2E5YTY4MTZhZGUzY2U3NWM5YmY2MjU0NDUyZDY1Nzc0YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ec802296f604633aa690ff81f3cf781",
+      "statement": "Credential IDs are a slot byte, a 16-byte random nonce and zero padding without a MAC binding.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/fido2_storage.cpp#L944-L955",
+          "version": "repo-lines-v1:sha256:1f2e6ce49951d75873b6f9e625dd9ccb6f0acea17b4509d8c48f35df6add3d96:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRjZGVjZWI2MTUyMjMyZmVmZTZjY2FlNWZjY2QzMzAxNjE1ZTIzNjI2ZmRhMzUxNTc3MzU5NTQ2NjA2YWMzMTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4MzZmMjUwMDM2YmI4MDgwODBhMTI4ODM1ODQ0NGU4OGU2NGExMGQ4NDA5YjFiZjNiZmFlZDc1MDVlYTViOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwMDk1YmU3Mzg5Mjg2MDdlZWI3MTAwZWM0MTkwODhkZjFkNzc4Y2ZiYThlNDIxYTQyYTljNTgzMGFiNDViMjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmMDk3ZDZjZGU1ZWRhZWZiZWIwMWJkNjYxZDhhNWYwNTFiZjNjMjgwN2IwNWIxMDZjMzQyNGI0ZDczN2QwOGMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1b7614eb4613470e8c9d39d0db85a7a6",
+      "statement": "getAssertion only requests user presence when the up option is true, so up=false assertions are signed without a prompt.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L1955-L1966",
+          "version": "repo-lines-v1:sha256:a6bd921db34b2bcbbf1e1556855c759a65a8f7843b31115bcd1ede87bb374ad5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2YjMyYjlkOGRkOTU0MzhkMGY1NDZlNzIxZTY5YmUyN2I2OTIzNTZhNzliM2MxZDBmMmVhMWVjZTI3ZjhkOGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmODYzMTYzNmI4Y2Y2NjA1Y2FhMWUyNzE1YWUxZjVlNzcyZmZmMGUxNTkyMzBmM2RkNzQwZDYyNTcyZDA0ZDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjViNGMxNmQ1ZGNjOTA5NzNlOWIxZWFlNjE3OTNmNjNiZjA0MTU5MzJiZjA1YThiMjM4YmI2YmZkNThlZDc5M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU1NzYyMGRjNzlhYjdkNGQ5ODZhNmQ4NzcyZmM3NGY4ZDZkOWMzZjAwN2RjNmViZTU2ZjYyODYxOTNmZjQyMjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_14467586c7424e26bdfa03c5221a4b3b",
+      "statement": "getAssertion, getNextAssertion and U2F authenticate sign with fido2_storage_sign_raw, which returns raw 64-byte R||S for P-256, while the DER-producing fido2_storage_sign_der has no caller.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L1819-L1819",
+          "version": "repo-lines-v1:sha256:0e00e648deca5b0f167d49c72c490a1d4dcb27b3c199d4b8b977054b055443e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUwMGU2NDhkZWNhNWIwZjE2N2Q0OWM3MmM0OTBhMWQ0ZGNiMjdiM2MxOTlkNGI4Yjk3NzA1NGIwNTU0NDNlNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUwMGU2NDhkZWNhNWIwZjE2N2Q0OWM3MmM0OTBhMWQ0ZGNiMjdiM2MxOTlkNGI4Yjk3NzA1NGIwNTU0NDNlNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjcwMzBkZDE2ZTQ1NGVmMzJjODkzNmI4MTViOTYyZDQ0M2U2M2FhZjMyMjUwZDllMGFjNmUyMTExYzY4OGRhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzhmMzBlNmU1MmE3OGY0YjVmODczYWVjYmNhZGZiYTdhYzE0NDE4Njg2OTNlZTQyZTdhMmRhMmI2MTk2NmEyYiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L2114-L2114",
+          "version": "repo-lines-v1:sha256:79e59963319502295cf6f84f25c87e293c963586ee225b933b6dd496f5ec9901:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzllNTk5NjMzMTk1MDIyOTVjZjZmODRmMjVjODdlMjkzYzk2MzU4NmVlMjI1YjkzM2I2ZGQ0OTZmNWVjOTkwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzllNTk5NjMzMTk1MDIyOTVjZjZmODRmMjVjODdlMjkzYzk2MzU4NmVlMjI1YjkzM2I2ZGQ0OTZmNWVjOTkwMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTFhZWI0Y2IwM2VmY2ZkZDBkYmUxNWIzNGMxMTY0N2M3ZTU0NDA1ZmU2YjU2YmIwNGU3YzUzMGJiYWFiMzQ4NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmZiNjhlYWMxNzQ1YmJkZDVkMzkwNjA5MTVhYTkzMDdhYjFlMDNhN2JlNTMxNWQxOGFiM2E1YzkzZTMzNmQxMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/fido2_storage.cpp#L1089-L1137",
+          "version": "repo-lines-v1:sha256:7e177204fbe83b55aaf1dbd34c26581eb0cec3092844cb5f3b84468c19ab8324:eyJzZWxlY3RlZExpbmVDb3VudCI6NDksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiYjI3OWYyOThlNmE2NjAwMDk2YzAzZjc3MGUxNzM2MTJjODQyZjg4YjQ4Mjg4ZDhmZmZjMDVhMzg4OTMyOTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlNjQ0ZTY0ZmVjNTM3OTMyZTRiY2UxMjQ2MmM4MDlmNzExMjMwOTM3MjU2ZWU2ZDQ3NGM0NGZjMWE5YTgzZWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg1YzQ0NGVkYjI2YmYyZmU4MDMyZWFhNmM2MWE3OTk5MDNkZjJkNjUzY2VjNTBlOWEzNWQ5YjljZDcwOWE0MzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFmYmJkY2EzZGJhYTU4ZGZjMDgyNjdkZTdiZTg0OTRmNDNiNGIwNDZmMDE3N2VkZDUwOWVjNTJmZGE2OWJiMGIifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/u2f.cpp#L821-L821",
+          "version": "repo-lines-v1:sha256:79e59963319502295cf6f84f25c87e293c963586ee225b933b6dd496f5ec9901:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzllNTk5NjMzMTk1MDIyOTVjZjZmODRmMjVjODdlMjkzYzk2MzU4NmVlMjI1YjkzM2I2ZGQ0OTZmNWVjOTkwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzllNTk5NjMzMTk1MDIyOTVjZjZmODRmMjVjODdlMjkzYzk2MzU4NmVlMjI1YjkzM2I2ZGQ0OTZmNWVjOTkwMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQ3ZjZmYzg5NTQxMjg3ZmNkNGNlYjk5ZGRhMTdjZDcyZjhhMTc2OWIzODI2ZDdjZmFkN2U3ZWIwN2M2Y2Y0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzgxMTg4OTc2NzRmNmIyMWU3Y2I4MWE2ZWZiZTlhNGFkNjc3MTE1ZDcyYWUyZjE3YTM5MWZlMGNlNDU2YzNlMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_090de27cd4884457b06437609ec10cb0",
+      "statement": "FIDO2 credentials use TROPIC01 ECC and R-Memory slots 9-30, giving 22 credentials.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/main/tropic_slot_map.h#L50-L51",
+          "version": "repo-lines-v1:sha256:164eeeb5eedd104c07e7ca190b6bdf1a047da7a5f7f028bc3e230b6cdd8463ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzgyOGVkNDk3OTlmZWViYmFlZWI4NzA2N2E0ODcwNDUwNTY4NDVlMjVlZGJlY2E2MjQ1MzBmZjU3OTllMTdlMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYwMTNhMzExM2Y5NTc3NDlhMTJkNmE0OTdjYzE5NzlmMzk5NGU0YzU1YzAzZjE3M2Y1ZGRjMTQ3OTM2NGZmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2FhZTVlMDM4OTRmMDM3NjBlMDQ1MDc3NWVjNWE2NTJiYzAzMzBiZGNlMjU4MTIzMWM2MzUwNDlhNDQwM2Y3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzI0MjgzZjRkZmRlZTlhODRiNTRlYWZlMTUwZmQ4NjlhZjA1NTAwMGY5NGFiNWFiZjliYTRhZDQ5ZWUxMmUxMyJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/main/tropic_slot_map.h#L68-L69",
+          "version": "repo-lines-v1:sha256:88fca33876cfcf11af9df4e5c953d0f2773edb23e839c6e253125097da53b90b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjc0NTdlOWJlY2RmZDA5N2NmZjk4YjA4YzZhNGM5NWQyMDM0ZDM0MTA4YjhmNjQwODQ2MjNlYjAzN2FlMjc4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ2N2MxMTYzNWYzMjI1NTYzM2QwNjAxNTc3NTFjOGZkY2EzYmRiNmVjZDVhMzBmNGRlMDFmNWQ4MDBkYzQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTNiZWQ1MjRjYjY1NjgyYzliMGJhNGVlNDk0ZjkwOTk2MzMzOGMxMTYyY2I0Y2FlMmExYmZjZWJmYzZkZjBiZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2UwMzYwY2M4ZDEzY2JjZjNkOWQwOGJjODdhMjE5ZjgxN2VhMzYzZTNlYjFkNGIyYzU5MjcxNzhjZjg0MzViMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7bc0efbebf68479c9ea41a4b47b7ffaa",
+      "statement": "The FIDO2 module implements no hmac-secret extension.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L568-L575",
+          "version": "repo-lines-v1:sha256:a547488a7d504c315a6ef85ade04ec5b4afb9195904308a034b9f746f2821162:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTE4MzYxNzhlNGQwMWE3ZjEyZmNhNDhjOTFhNmZkYWI1ZDQ3YjZkYTY3MGM5ZjBhZTAwZWZiOWJjM2UzZjRmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGZlYWRkYzJlZWM3ZGJjNWRkNzRmZjM2ZDQyOThkMWMzN2Q4Y2E2Zjc4ZWNkNmIwNzcyYjM5ZTlmMmI4MzE0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTM5Mjk5ZmVlZGYzYzlkMGU3NzM0ZGNmZTYyNWQ5ZmM5ZjhiMmIwMTI1Y2FiMWIyN2ZmNGY5NDA5OTRiNzI4YiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T20:57:16.971Z"
+  }
+}

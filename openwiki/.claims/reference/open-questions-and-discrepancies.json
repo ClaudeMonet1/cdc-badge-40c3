@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:efebbbe8b1e03022bfd7e0f581480ad28de3cf0183ad69f006955161b443d7f7",
+  "pageVersion": "sha256:294465b198d76c0636c804b6ef5836e7191be3dec69b7e440e5928710f7319c8",
   "claims": [
     {
       "id": "claim_92a3884b0a06407e88c592a2e8af39dc",
@@ -73,10 +73,66 @@
           "version": "repo-file-v1:sha256:fc7dc24d0f23849d9e3ae02a3da816bc986dcfd5baaf1ff243a25fc2bbdbdc9d"
         }
       ]
+    },
+    {
+      "id": "claim_482e94a039d24b7d9949877fb5f13fb9",
+      "statement": "A plugin registering a receive handler for its own declared MIME type gets HOST_ERR_BUSY because the busy check consults the installed-plugin message index, which includes the caller.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp#L630-L647",
+          "version": "repo-lines-v1:sha256:b95e2deba8904fd5f6f5c679b4de38a0e06b0c203996538185976e29935e7e9b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1ODI5MmI5NjhjYzM4MzNlYmFjN2M0YTg3NmQwN2ExMGM4ODlmM2E2MTY2NGIzMjc2M2NiOGNhMGRhNzMzM2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjViZTg2ODY3MzI2MjljYzhlMjE1MjY2MGJkMThmZDM0ZjhmMzEzNzMyZjA5NWE5NTE5MmIzZjE4ODkxMzZiMmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3Y2VlN2ZhOGE4Y2IzNjA3MWVkMDY2MzZkNGFiOTBkMmM1ZGQxMmQyZTU2ZDRjMDUwMTRjZTZjNzA0ODA0MzQifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp#L188-L201",
+          "version": "repo-lines-v1:sha256:402a734d19371270021aa363663d4263bdcd1721ca4a1cd234152fbec6c36fe6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjN2U4M2E0YTVlMjI0NjI1MWEyODhkMjE4ZGIzZDI3M2Y2ZWZjNWNmOTUyYTM3NjYxMmNjZDcwMDg3NWQwYjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5OWJkZWZlZWFjYTYzNDBlMDI5MGRjODZlODg5Yzg5ZDVlMTg5YWE1YmE0NGI1ODViM2I3MDczNGY0YTYyZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUxYWM1NmVhYjUxZWE4YzE1NDQzYjNmNTA3MWMwZGNmN2EwZGVhMWEzNTU1MzA3MDczYjMwZTBkYjIzOTdmZDcifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp#L274-L280",
+          "version": "repo-lines-v1:sha256:494292378eceb2f2ed82b1d11d9a91c1ce002d5c6401303438f929e4933c2ab0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDczNjMyZDI0OGYyNzFmY2U0ZjM0MGU2NTMyNWE4MzQ1YWM1YmQ2MzI5NDdiMzZjZDZjNTM4NTE1YTM4OTgzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmFhY2I1NDBjOTQ0YmZjZDg4ODE3YjZlNjQ1OGRhNzY0OTVjNTI3YjgzN2M3NTgzMjc0OGE1YzU3YjQzMjVhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDdhODg3YWU1MmQxOTJhYzc2MTI0YjIyNzBkNWRjNzlhNWM2YTQ3ZjhiN2IzZjk5YzBkM2YzMmVhMDMwMjNkNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_aa5ea1df4ff04c539b9cb72df16c3678",
+      "statement": "FIDO2 ES256 assertions are produced by a raw-signature function instead of the existing DER encoder.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp#L1819-L1819",
+          "version": "repo-lines-v1:sha256:0e00e648deca5b0f167d49c72c490a1d4dcb27b3c199d4b8b977054b055443e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUwMGU2NDhkZWNhNWIwZjE2N2Q0OWM3MmM0OTBhMWQ0ZGNiMjdiM2MxOTlkNGI4Yjk3NzA1NGIwNTU0NDNlNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUwMGU2NDhkZWNhNWIwZjE2N2Q0OWM3MmM0OTBhMWQ0ZGNiMjdiM2MxOTlkNGI4Yjk3NzA1NGIwNTU0NDNlNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjcwMzBkZDE2ZTQ1NGVmMzJjODkzNmI4MTViOTYyZDQ0M2U2M2FhZjMyMjUwZDllMGFjNmUyMTExYzY4OGRhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzhmMzBlNmU1MmE3OGY0YjVmODczYWVjYmNhZGZiYTdhYzE0NDE4Njg2OTNlZTQyZTdhMmRhMmI2MTk2NmEyYiJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_fido2/src/fido2_storage.cpp#L1089-L1137",
+          "version": "repo-lines-v1:sha256:7e177204fbe83b55aaf1dbd34c26581eb0cec3092844cb5f3b84468c19ab8324:eyJzZWxlY3RlZExpbmVDb3VudCI6NDksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiYjI3OWYyOThlNmE2NjAwMDk2YzAzZjc3MGUxNzM2MTJjODQyZjg4YjQ4Mjg4ZDhmZmZjMDVhMzg4OTMyOTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlNjQ0ZTY0ZmVjNTM3OTMyZTRiY2UxMjQ2MmM4MDlmNzExMjMwOTM3MjU2ZWU2ZDQ3NGM0NGZjMWE5YTgzZWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg1YzQ0NGVkYjI2YmYyZmU4MDMyZWFhNmM2MWE3OTk5MDNkZjJkNjUzY2VjNTBlOWEzNWQ5YjljZDcwOWE0MzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFmYmJkY2EzZGJhYTU4ZGZjMDgyNjdkZTdiZTg0OTRmNDNiNGIwNDZmMDE3N2VkZDUwOWVjNTJmZGE2OWJiMGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a1e0bd5c379540d394f577c79a60bb5a",
+      "statement": "The GPG received-key store is keyed on the first 4 bytes of the peer fingerprint.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/GpgRecvStore.cpp#L29-L32",
+          "version": "repo-lines-v1:sha256:9ead48c410ae51c7dbe0c2814ca7473967295b4f103c9a45cf78d927ba72acea:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ1ZTFhZGQyZmYxYTE0NDE1NzZhYjMwYWNhMTljZjI0NmJmYmE0MzMwYWJlZDcxNjczZjQ4NTJhOGQ5YzliYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjgyNDg0MzY5ZWQ4YjBiZTM2NDM4YzMwMzg3ZTlmMTdiOTgyYTkyMTg1ODZmMTJlMDVmNWNlMjMzM2RmYTA2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQ3NTFjYzM0ZDU2ZGJhMGViYWUzZGJlYTNlOWYyNDkyYjFjNGI1YzAzMjRjMzZjNGZjNDNkNzdiODI2MTEzZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc1478e072f340a697aa8340bdedfffc",
+      "statement": "The message-transfer data characteristic requires only encryption and the NimBLE build keeps SM level 0 with legacy pairing allowed.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp#L165-L168",
+          "version": "repo-lines-v1:sha256:af3b73d5fccbebd105c2fbcac012d53db6a27b7dd5bd4db7a9337dbfcbb50322:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNWMyMGRiNWI4ZjhkYjMxYTRiNmQzNWMxNjZmNmZmZTlhOTE4MTExMzM2MDUyYjc0NjA2YmIxYWQ2MjFmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTViNDFhNjNkN2E4ZDhlYjBlMTQzNzc3ZTBjNWE1NmExMmNiNWVjM2JiZjI3ODYxM2NlNjkxN2EzMmM4MThhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQwNDlmN2RkYmYyMjQyY2MxZTA0N2I0NjI5ZjI0ZWMyNmZjOTgxNmE4N2NhMjQ2OTcxOTdiYWIwNTE3MDQ4ZSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/sdkconfig.cdc_badge_usb#L754-L759",
+          "version": "repo-lines-v1:sha256:6aee6496f7aac817b2dad59521efe78e41b3d07be1d8234721ab6c11570e76b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWI2MmJlOWM2NWJiNzI5Njk1MWQ2YWI1OGM5MGJkZWU0ZmE3NmZkNDc5Mzk3MGFmZjIyZjBkMzYwZTAwNDQwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcwZWZjMDNhMmZhMWI1ZTU5Nzk0YjUyZWU1MjQ5Y2ViOWRhMzAxZDU5OWMyYzE3ZDhmMzIyZGE3MjA4MzAzMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc0YTQ4ZDM2YThkNzkwMjdjZjllMmRkZTYyZWRlOTk5MjgyNGNkMzFmYjQ2ODJkNDMwY2E5OGNkZTFiYTI4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTYyZTNiMzQzNjU4OTAyZGRiNmU4ZmM1YzBmMTI0ODgzY2U4NjFlOGI2OWEzMGJkY2M3MzNiMjgxMDdiMjQ4NiJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "at": "2026-11-12T20:57:16.971Z"
   }
 }

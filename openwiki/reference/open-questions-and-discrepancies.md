@@ -5,14 +5,28 @@ description: Cross-cutting checklist for building our sandboxed Rust WASM applic
 tags: [constraints, discrepancies, open-questions, risks, planning]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+    at: 2026-11-12T20:57:16.971Z
 sources:
   - id: openwiki-source-782754752a7fccf1126740d6
     resource: repo://references/cdc-badge-development/.gitmodules
+  - id: openwiki-source-dc6ca5600c665b4510239dec
+    resource: repo://references/cdc-badge-os/components/cdc_msg/src/MessageTransfer.cpp
+  - id: openwiki-source-ea1f45c2ab6ed4cd0d8a0cf1
+    resource: repo://references/cdc-badge-os/components/mod_fido2/src/ctap2.cpp
+  - id: openwiki-source-e32260f9e28a7fecafaadae0
+    resource: repo://references/cdc-badge-os/components/mod_fido2/src/fido2_storage.cpp
+  - id: openwiki-source-fd3fffd2204a12cca83d152c
+    resource: repo://references/cdc-badge-os/components/mod_gpg/src/GpgRecvStore.cpp
   - id: openwiki-source-4c23ee90f461b46c725d4482
     resource: repo://references/cdc-badge-os/components/plugin_manager/include/plugin_manager/host_api.h
+  - id: openwiki-source-5b74450674d6cc34f06768f8
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/host_api_msg.cpp
+  - id: openwiki-source-b1d4e37214aad4d22b28c154
+    resource: repo://references/cdc-badge-os/components/plugin_manager/src/PluginManager.cpp
   - id: openwiki-source-bd7bb9940ccb3a24ccdc6345
     resource: repo://references/cdc-badge-os/partitions.csv
+  - id: openwiki-source-a9baa65a2e0f48fed1b02f5d
+    resource: repo://references/cdc-badge-os/sdkconfig.cdc_badge_usb
   - id: openwiki-source-b1ff795d15ce0723bf319255
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/production-hardening.md
   - id: openwiki-source-6eef1d3f209c09f14ca3056f
@@ -21,7 +35,7 @@ sources:
     resource: repo://references/cdc-badge-plugins/sdk/host_api.h
   - id: openwiki-source-edf57d425cf4973bb79fe308
     resource: repo://references/SOURCES.md
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "claude-code", at: "2026-11-12T20:57:16.971Z" }
 ---
 
 # Open questions, discrepancies and constraints
@@ -48,6 +62,7 @@ the page with the evidence. Update it whenever references are refreshed
 | Input | 12 keys. Polling and key events need input focus. N+Y is reserved. | [keypad](../hardware/keypad-and-io-expander.md) |
 | Power | Light sleep only from the lock screen; background work needs `set_sleep_inhibit` / `prevent_sleep` | [power](../hardware/power-and-charging.md) |
 | Data durability | Pre-1.0: any firmware flash (or build-profile change) may wipe NVS, files and the TROPIC01 | [OS architecture](../os/architecture.md) |
+| Badge-to-badge receive | A plugin can't register a handler for its own declared MIME type: `HOST_ERR_BUSY`, so payloads are dropped while the sender sees "Done". Sending works. 4 KB per message, 1:1 only, no authenticated sender identity. | [BLE review](../os/security/ble-message-transfer.md) |
 
 ## Discrepancies between sources
 
@@ -96,6 +111,21 @@ the page with the evidence. Update it whenever references are refreshed
   drive the display and TROPIC01 directly, bypassing the OS and the sandbox
   — [pin map](../hardware/pin-map-and-buses.md).
 - **No OTA:** a single factory app partition means updates are serial-only.
+
+### OS security review findings (2026-11-12, static code reading)
+
+Full detail, with file and line evidence, is in the three review pages. Nothing
+below has been tested on a device yet.
+
+| Area | Most important findings | Page |
+|---|---|---|
+| GPG / OpenPGP | Cross-sign is a single yes/no, with no fingerprint comparison and no PIN. Peer self-signatures and incoming certifications are never verified. Received-key and self-cert stores are keyed on 32-bit fingerprint prefixes, so entries can be overwritten. The DEC/RSA software keys are wrapped without the PIN. There is no touch-to-sign. The word fingerprint is only 25 bits. | [GPG review](../os/security/gpg-openpgp-module.md) |
+| BLE message transfer | Authenticated (numeric-comparison) pairing is requested but not enforced: data needs only an encrypted link, SM level 0, legacy allowed. Offers are plaintext. The address is static and the owner's name is broadcast. `PERSIST` auto-accepts later offers of any type. Plugin receive appears broken (see constraints above). | [BLE review](../os/security/ble-message-transfer.md) |
+| FIDO2 / CTAP2 | Implements CTAP2 (2.1) over USB plus U2F. **ES256 assertions are raw r‖s, not DER**, so P-256 logins likely fail at standard sites. `up=false` signs silently even when locked. No `hmac-secret`. 22 credentials, one TROPIC01 slot each. Credential IDs aren't MAC'd. The attestation key is unique per device. | [FIDO2 review](../os/security/fido2-ctap2.md) |
+
+Candidates to report upstream: the FIDO2 DER encoding, the plugin message
+registration bug, enforcing authenticated BLE pairing, keying the GPG stores on
+full fingerprints, and verifying signatures on receipt.
 
 ## Open design questions for badge-cdc
 

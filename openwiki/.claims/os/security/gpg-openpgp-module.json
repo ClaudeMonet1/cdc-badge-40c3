@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6ba98d7d6876d2e3e5351901b1b3e1b40812429fc0c873d5c45452ee70ff506a",
+  "claims": [
+    {
+      "id": "claim_954d74c299c94ad4b435d5a130a11d8f",
+      "statement": "The OpenPGP applet advertises OpenPGP card version 3.4 in its AID.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/openpgp/openpgp.cpp#L150-L160",
+          "version": "repo-lines-v1:sha256:0536bea364443ef9a3bf5ae33cbb7b35f5d723e42bc315345de7e2e05f07f004:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiYzk2NjIzYTZmYTFiYTJmNzYxMDVlMTFlMWM2NzFhOTJkMDFkZjA0ZTMwY2ExMTc4ZWQ3NGIzOGM3YTJjZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxMjU0MjEwYTAyMjhkMmI0NzZhMTM1ZDFkOGJjYWNiMDJjYjEyY2RmNzIwNGRkYjQ4ZDA5MDg5MzVlYjVkYzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjZDljNWExMDI1YzVlZjBlMWM1NTQ2MGY3ZjEwMWRhNDg5NDQ1MDg0ZGZmYzM4YjRmNTZmMTgzZmFhMGUxYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjllYjFlMjgxYzM3NDExYWVhYTkyOTFkYTBjMGVjYTM5YmNiY2VhNDZjOTUwOTU2OWQ0ZjIzNWRkNmViZWNiZjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f5a78403eb6047ef910b5b294be0484b",
+      "statement": "The software DEC private key is saved and loaded with a null PIN, so its wrapping key derives from the chip identity only.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/GpgStorage.cpp#L130-L165",
+          "version": "repo-lines-v1:sha256:81b1e8c77469e2771129d1fa72f236c3c508e8e98672d0b8e3edd670216e6a78:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5NzNmZWVkMDVlYWEwZTMwODUwYzJkNDhmZDc2ZDI3MmM2ZmYzY2UwYjZmNWE0OGI1YjhkMGEwZGYwMDE0YTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0MzAwOTZhOTFmOTRhMjNlZmMzMDlkZDEzOGUxYTQ3ZTM1YzE4N2NjYzQ2ODk5NjFmOWMxZDQ1MjMzOTFlMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM5ZmUxM2M4NzM1ZjM3NjViNzlkYzJhZTc0NzljNjY5NGY5ZmUwYTUyZGEzYzNmYzk1NWNjMWRiZDM3OWM2NmEifQ"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/gpg.cpp#L175-L175",
+          "version": "repo-lines-v1:sha256:00ba8a95faa6e3525c23380b30ffb9b0d407d06b8f864c124ab2c4282ef582d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDBiYThhOTVmYWE2ZTM1MjVjMjMzODBiMzBmZmI5YjBkNDA3ZDA2YjhmODY0YzEyNGFiMmM0MjgyZWY1ODJkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDBiYThhOTVmYWE2ZTM1MjVjMjMzODBiMzBmZmI5YjBkNDA3ZDA2YjhmODY0YzEyNGFiMmM0MjgyZWY1ODJkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTI4NmE5YjdkMTMzM2ZmOGVlZmJhMTU2ODBmN2UzZTYzNGNjODVmZjY4OTZlOTk4YzI3NWRkMzVjMGJjYzBmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDk0YTkzMjUxODE1MmMzOGM5MmRiOTgxNjhmZDY4NjM4NmNjMjhlMjZlNjAwZjE1MjUwMmQwM2NlOTkyYmVhNSJ9"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/gpg.cpp#L328-L328",
+          "version": "repo-lines-v1:sha256:f24a5163f19405868cbddb59418b8808be05ba0c2348b94a3ed3e39136d9859f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI0YTUxNjNmMTk0MDU4NjhjYmRkYjU5NDE4Yjg4MDhiZTA1YmEwYzIzNDhiOTRhM2VkM2UzOTEzNmQ5ODU5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI0YTUxNjNmMTk0MDU4NjhjYmRkYjU5NDE4Yjg4MDhiZTA1YmEwYzIzNDhiOTRhM2VkM2UzOTEzNmQ5ODU5ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2FiYjExODU4YjFjYWI5NDhjMDAxMzdiMjVlNGYwMDI3ZmE5YWU2OTY1MjZmZGQ4NzlhYzA3M2FmNzQxY2ZkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGY4M2I5MjE0MDdhMTFmY2UxNGZmOWQ1YzBkNWY3ZmY5YTY5MjZkN2MyOWIzN2M3ZDJmZWQ1NWM5YTM5YjljNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_db07b47dd5a34678a141fe251d9a23f2",
+      "statement": "On receipt of a peer key, the only cryptographic check is that the transmitted v4 fingerprint recomputes from the transmitted public key and creation time; the peer's self-signatures are not verified.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/GpgKeyPayload.cpp#L150-L173",
+          "version": "repo-lines-v1:sha256:c62117ead36e2de2564e2ea2c75c24666e89c45b51153a02b9ab06253494600b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3MTMwMDhhZjlmYTZlMDZkZTYzYWFiNDRiZTYzNWUyMGI3ODFmYjUyZTBkYjkzOWM5MzRlMGI5YWVmYzVmZDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVjZmQ0Yzg5ZTg3ZDI5MGM5ZGNlN2I2YTI5MTg3NTk5ZjI5NDU3ODBmZDMwNmI3MTMzNzY1ODAzNTkxZjYxMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjMDBlMzQ1ZjU5MzUwODFhMzkzZDhiMDI5YWU2YWJhZjJiODQ4NWMyMzRkMTc2NTc5Y2U3ZmI3YmViZTk1OTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_61ec37ca1c294e8aaef34e5f1de5d1ae",
+      "statement": "Cross-signing a received key from the menu is a single confirmation dialog.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/GpgModule.cpp#L1092-L1096",
+          "version": "repo-lines-v1:sha256:a82b851fd98eacdf552d2cbf5d2f826e8b9df7079e85dc89a56de50f83d65f70:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRmOGVmNzMxNWI1ZTE0YmE3ODMxNGM3NWRlMDUwNTZjNDg5NDU4ZjZlZDY4NzUzMGM5NzNiNmViYzJkNjE0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWIzNGE5NTI3MTljZTQ3ZDY4MTNiN2VkNzdlYzEyNWNkMGE5MTJhYzE3YTdiNGE3MmIwMDAzZTM1NzNlYWU0ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDY0ZGIzZWNmYjUyMTU3MDMxMmE0ZjkyZWE1ZmRlMDFiNGE4ZTE2OWM5MjQxZjZiM2EzNDMzNzY4ODA1MzQwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGUwY2E1MWVhY2M2NDA4MGYwYjdmZDBiMGU0ZjY3NDNkYTU3NWUwZWIwNzZhOWZiM2U3OWY4MjdkNTcwNzhmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8e004c0538034f2fb1c5a0b496df7d2a",
+      "statement": "Received keys are stored under an NVS name derived from only the first 4 bytes of the v4 fingerprint.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/GpgRecvStore.cpp#L29-L32",
+          "version": "repo-lines-v1:sha256:9ead48c410ae51c7dbe0c2814ca7473967295b4f103c9a45cf78d927ba72acea:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ1ZTFhZGQyZmYxYTE0NDE1NzZhYjMwYWNhMTljZjI0NmJmYmE0MzMwYWJlZDcxNjczZjQ4NTJhOGQ5YzliYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjgyNDg0MzY5ZWQ4YjBiZTM2NDM4YzMwMzg3ZTlmMTdiOTgyYTkyMTg1ODZmMTJlMDVmNWNlMjMzM2RmYTA2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQ3NTFjYzM0ZDU2ZGJhMGViYWUzZGJlYTNlOWYyNDkyYjFjNGI1YzAzMjRjMzZjNGZjNDNkNzdiODI2MTEzZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7542096c1497402d834a14b55bd9b508",
+      "statement": "Third-party certifications on the own key are stored under a name derived from the first 4 bytes of the self-asserted issuer fingerprint.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/GpgSelfCertStore.cpp#L29-L33",
+          "version": "repo-lines-v1:sha256:5fac230fcf6317943cc4b6594acbdf91808faf3e8d14d985cc243a39ef9fea2b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWVlMDE2YzUxNDBlMDgzNGU4MmI4MTQwNDFhMWVhYTVmYTc0OWU2MmFmOTc5ZmIwYWVhZmJmNmZhNDk0NmE0MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDhmZDZjNDFiZTY0NzFlYjkwOWVlOTc2NWFhNGMyMzQzOTlkMTgwZWMzOWM5N2VlNGVjNGQ4NDFmM2MyMWE5MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDRjMWYwMzc3Mjc0NjdmNDkwMTViMzMyNGY1NDA4ODJiNTg5MmM0MTUxZmFjMDUyNjZkNGZmYjYyZDg1NWQ3OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e02e61841ba14d6cbab1d573cd07411f",
+      "statement": "The alchemical word fingerprint is SHA-256 of the raw public key reduced to 25 bits mapped onto five words from a 32-word list.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/cdc_core/src/KeyFingerprint.cpp#L49-L71",
+          "version": "repo-lines-v1:sha256:206d7bdd3a456311292539d85e9b64781e2636e5223632db84e3b3f9cc5ece8e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1OWY0MzU0NTYzYWQ3MTdlN2U0NWM1NGNmODI0MzVjNDc0ZGNiZjQwMmNiNTcyMDJhMjRmYmU2MGEyZTY5Y2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmMmRkNDQyNGQ1MmMwM2Q5OGNlMTI4MzcwMmRlN2FmY2E1NDRjZjYwNjBkNjM2ZjQyMTdkYjUyZTI1NGRkODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1N2JkZTFiYzE1YzUzMjg5NDUzZWQ2ODMzZmZkMjdlYjFjYzNmNzk2YWYyMTMyYzcyMzBjYWU5Y2U0YTcyZjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb5739ea5e3d46039ba354e2c9b164c3",
+      "statement": "Certifications produced by cross-signing are type 0x10 over SHA-256 with only a creation-time hashed subpacket.",
+      "evidence": [
+        {
+          "resource": "repo://references/cdc-badge-os/components/mod_gpg/src/openpgp/xsig.cpp",
+          "version": "repo-file-v1:sha256:67998b36c7408b4213e38087dcf87bfbe00735d7d9fa65bf21f1e93bd3218cd3"
+        },
+        {
+          "resource": "repo://references/cdc-badge-os/website/src/content/docs/dev/proto/gpg-cross-signing.md",
+          "version": "repo-file-v1:sha256:f4a73ff85ccf2998e14d6fbb48d290943c502fec5ecf4142e9eda82f4b17c7ed"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-11-12T20:57:16.971Z"
+  }
+}
