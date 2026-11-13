@@ -7,6 +7,12 @@ result-*
 target/
 *.wasm.tmp
 
+# OS source clone + hermetic PlatformIO state (see scripts/os-build.sh)
+build/
+
+# Plugin build output (see scripts/plugin-build.sh)
+dist/
+
 # JS
 node_modules/
 
