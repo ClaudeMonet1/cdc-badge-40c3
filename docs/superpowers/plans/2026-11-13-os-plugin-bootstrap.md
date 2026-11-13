@@ -14,7 +14,7 @@
 
 - All tooling is deterministic and provided by `flake.nix`. No Docker.
 - OS source pinned to commit `181a24d94353e0318835a7b0801f2ce8d4937fb4` (upstream `krim404/cdc-badge-os`, `release` branch).
-- PlatformIO Core 6.2.0, PyPI wheel sha256 `c3de675539f90cbd51466dd326f2fb64c7b83a54c7229b6c30c55865a85eddc2`, built against `pkgs.python313`.
+- PlatformIO Core 6.2.0, PyPI **sdist** SRI hash `sha256-iA6gZzSQiz1sCpZZjKe+VywrZ1VYV4SqY6IBu9+4xZ0=` (`fetchPypi` downloads the sdist, not the wheel), built against `pkgs.python313`.
 - Rust toolchain pinned to exactly `1.100.0` in both `flake.nix` and `rust-toolchain.toml`.
 - ESP-IDF platform pins: `espressif32@6.12.0`, `framework-espidf @ 3.50500.0` (exact, via local patch), `toolchain-xtensa-esp32s3 @ 12.2.0+20230208` (already exact upstream).
 - `PLATFORMIO_CORE_DIR` = `<repo>/build/.platformio`, exported by the flake shellHook and by every script.
@@ -83,23 +83,26 @@ In the `let` block of `flake.nix`, after the `python = ...` line, add:
 
 ```nix
         py313 = pkgs.python313Packages;
-        platformio = py313.callPackage pkgs.python313.pkgs.buildPythonPackage {
+        platformio = pkgs.python313.pkgs.buildPythonPackage {
           pname = "platformio";
           version = "6.2.0";
-          src = pkgs.fetchPyPi {
+          pyproject = true;
+          build-system = [ py313.setuptools ];
+          src = pkgs.fetchPypi {
             pname = "platformio";
             version = "6.2.0";
-            hash = "sha256-c3de675539f90cbd51466dd326f2fb64c7b83a54c7229b6c30c55865a85eddc2";
+            hash = "sha256-iA6gZzSQiz1sCpZZjKe+VywrZ1VYV4SqY6IBu9+4xZ0=";
           };
           dependencies = [
             py313.bottle
             py313.click
             py313.colorama
             py313.marshmallow
+            py313.pip
             py313.pyelftools
             py313.pyserial
             py313.requests
-            py313.semantic_version
+            py313."semantic-version"
             py313.tabulate
             py313.ajsonrpc
             py313.starlette
@@ -108,6 +111,12 @@ In the `let` block of `flake.nix`, after the `python = ...` line, add:
           ];
         };
 ```
+
+Notes from Task 1 execution (2026-11-13, keep if re-running):
+- Call `buildPythonPackage` directly — `py313.callPackage …` crashes in this nixpkgs (a `disabled` function leaks into the scope).
+- `fetchPypi` is the nixpkgs attribute name (not `fetchPyPi`); the hash above is the verified **sdist** SRI.
+- `py313.pip` is required by nixpkgs' runtime-deps check (PlatformIO's `Requires-Dist` includes pip).
+- If the locked `rust-overlay` predates Rust 1.100.0, run `nix flake update rust-overlay` (single-node lock change) and commit `flake.lock` with this task.
 
 - [ ] **Step 4: Add platformio to the dev shell and export PIO state dir**
 
@@ -126,7 +135,8 @@ In `shellHook`, add one line before the existing `echo`:
 
 - [ ] **Step 5: Verify the shell**
 
-Run: `nix develop -c 'rustc --version && cargo --version && wasm-opt --version && pio --version'`
+Run: `nix develop -c bash -c 'rustc --version && cargo --version && wasm-opt --version && pio --version'`
+(on nix 2.35, `-c` execs its single argument verbatim — the `bash -c` wrapper is needed for compound commands)
 Expected: `rustc 1.100.0`, cargo matching, a `wasm-opt` version line, `PlatformIO Core, version 6.2.0`.
 (First run builds the platformio package; ~1–2 min.)
 
@@ -139,6 +149,7 @@ Contingencies (only if the expected output is not produced):
 
 ```bash
 git add flake.nix .gitignore
+git add flake.lock   # only if Step 3's note triggered `nix flake update rust-overlay`
 git commit -m "build: pin Rust 1.100.0 and add PlatformIO 6.2.0 to the dev shell"
 ```
 
@@ -212,12 +223,12 @@ components = ["rustfmt", "clippy"]
 
 - [ ] **Step 5: Verify the toolchain resolves to Nix**
 
-Run: `nix develop -c 'which cargo && rustc --version'`
+Run: `nix develop -c bash -c 'which cargo && rustc --version'`
 Expected: `cargo` path inside the nix store, `rustc 1.100.0`.
 
 - [ ] **Step 6: Run the host unit tests**
 
-Run: `nix develop -c 'cargo test -p snake'`
+Run: `nix develop -c bash -c 'cargo test -p snake'`
 Expected: `test result: ok. 18 passed; 0 failed` (from `src/game.rs`).
 
 - [ ] **Step 7: Commit**
@@ -292,7 +303,7 @@ Expected: no output (success).
 
 - [ ] **Step 3: Build snake and pass all checks**
 
-Run: `nix develop -c 'bash scripts/plugin-build.sh snake'`
+Run: `nix develop -c bash -c 'bash scripts/plugin-build.sh snake'`
 Expected: final line `OK: dist/snake.wasm (<N> bytes) + dist/snake.meta.json` with N ≤ 786432. Note the size for the session report.
 (First run compiles the release wasm; ~1–3 min.)
 
@@ -533,15 +544,15 @@ git commit -m "build: OS flash script and on-device runbook"
 
 - [ ] **Step 1: Re-run the plugin host tests**
 
-Run: `nix develop -c 'cargo test -p snake'`
+Run: `nix develop -c bash -c 'cargo test -p snake'`
 Expected: `18 passed; 0 failed`.
 
 - [ ] **Step 2: Plugin determinism (rebuild from clean)**
 
 ```bash
-nix develop -c 'bash scripts/plugin-build.sh snake && sha256sum dist/snake.wasm'
+nix develop -c bash -c 'bash scripts/plugin-build.sh snake && sha256sum dist/snake.wasm'
 rm -rf target dist
-nix develop -c 'bash scripts/plugin-build.sh snake && sha256sum dist/snake.wasm'
+nix develop -c bash -c 'bash scripts/plugin-build.sh snake && sha256sum dist/snake.wasm'
 ```
 
 Expected: both sha256 values identical. If they differ, stop and investigate (the usual suspect is an unpinned dependency in `Cargo.lock` — ensure `Cargo.lock` is committed; see Step 5).
