@@ -65,12 +65,19 @@ plugins/snake/                copied from references/cdc-badge-plugins/plugins/s
                               dep path changed to
                               ../../references/cdc-badge-plugins/sdk/cdc-badge-plugin;
                               meta.json unchanged (id "snake", nvs plg_snake)
-patches/os-framework-pin.patch  pins framework-espidf to exactly 3.50500.0 in the clone
-scripts/os-build.sh           clone-if-missing → checkout pinned commit →
-                              git submodule update --init --recursive → apply patches/
-                              → pio run -e cdc_badge_usb
-scripts/os-flash.sh           pio run -t upload (+ documented download-mode and
-                              factory-wipe warnings)
+patches/os-platformio.patch   pins framework-espidf to exactly 3.50500.0 in the clone,
+                               deletes the BUILD_TIME/BUILD_DATE timestamp macros, and
+                               removes the hardcoded macOS monitor_port
+scripts/os-build.sh           clone-if-missing → checkout pinned commit → pinned-commit
+                               guard → git submodule update --init --recursive → apply
+                               patches/ → source os-pio-env.sh → pio run -e cdc_badge_usb
+scripts/os-pio-env.sh         shared PlatformIO bootstrap (sourced by os-build.sh and
+                               os-flash.sh): penv venv + runtime-derived nix site dirs →
+                               PYTHONPATH for SCons + PYTHONEXEPATH wrapper for esptool
+                               children (PIO 6.2.0 runs the build in a bare-interpreter
+                               subprocess that lacks the nix store site dirs)
+scripts/os-flash.sh           source os-pio-env.sh → pio run -t upload (+ documented
+                               download-mode and factory-wipe warnings)
 scripts/plugin-build.sh <id>  cargo build --release --target wasm32-unknown-unknown
                               → wasm-opt -Oz --enable-bulk-memory
                                 --enable-nontrapping-float-to-int → dist/<id>.wasm

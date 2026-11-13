@@ -268,13 +268,16 @@ DIST="dist"
 WASM_SRC="target/wasm32-unknown-unknown/release/${PLUGIN}.wasm"
 
 cargo build --release --target wasm32-unknown-unknown -p "${PLUGIN}"
-mkdir -p "${DIST}"   # wasm-opt cannot create parent dirs; dist/ is gitignored
+mkdir -p "${DIST}"
 wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int \
   "${WASM_SRC}" -o "${DIST}/${PLUGIN}.wasm"
 cp "plugins/${PLUGIN}/meta.json" "${DIST}/${PLUGIN}.meta.json"
 
-# Check 1: only "cdc" module imports are allowed.
-IMPORTS="$(wasm-tools print "${DIST}/${PLUGIN}.wasm" | grep -E '^\s*\(import' || true)"
+# Check 1: only "cdc" module imports are allowed. The print runs as a
+# standalone statement so set -e aborts loudly on a wasm-tools failure
+# (corrupt wasm, missing tool) instead of passing vacuously.
+WAT="$(wasm-tools print "${DIST}/${PLUGIN}.wasm")"
+IMPORTS="$(printf '%s\n' "${WAT}" | grep -E '^\s*\(import' || true)"
 if [ -n "${IMPORTS}" ]; then
   BAD="$(printf '%s\n' "${IMPORTS}" | grep -vE 'import "cdc"' || true)"
   if [ -n "${BAD}" ]; then
@@ -320,6 +323,7 @@ git commit -m "feat: plugin build script with import, size and manifest checks"
 ### Task 4: OS source build (clone, local patch, os-build.sh)
 
 **Files:**
+- Create: `scripts/os-pio-env.sh` (shared PlatformIO bootstrap, sourced by os-build.sh + os-flash.sh)
 - Create: `scripts/os-build.sh`
 - Create: `patches/os-platformio.patch` (generated in Step 4)
 
@@ -329,34 +333,13 @@ git commit -m "feat: plugin build script with import, size and manifest checks"
 
 - [ ] **Step 1: Write the build script**
 
-Create `scripts/os-build.sh`:
+Create `scripts/os-pio-env.sh` (shared PlatformIO build-environment bootstrap; sourced by both os-build.sh and os-flash.sh after they cd to the repo root):
 
 ```bash
-#!/usr/bin/env bash
-# Build cdc-badge-os from the pinned commit.
-# Hermetic: PlatformIO state lives in build/.platformio (PLATFORMIO_CORE_DIR).
-# Run from the nix dev shell (nix develop): needs git and pio.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-
-OS_DIR="build/cdc-badge-os"
-OS_COMMIT="181a24d94353e0318835a7b0801f2ce8d4937fb4"
-PATCH="$(pwd)/patches/os-platformio.patch"
-export PLATFORMIO_CORE_DIR="$(pwd)/build/.platformio"
-
-if [ ! -d "${OS_DIR}/.git" ]; then
-  mkdir -p build
-  git clone https://github.com/krim404/cdc-badge-os.git "${OS_DIR}"
-  git -C "${OS_DIR}" checkout "${OS_COMMIT}"
-fi
-git -C "${OS_DIR}" submodule update --init --recursive
-
-# Local build patches (idempotent): exact framework pin, reproducible build
-# flags, Linux monitor port. See patches/os-platformio.patch.
-if ! git -C "${OS_DIR}" apply --check --reverse "${PATCH}"; then
-  git -C "${OS_DIR}" apply "${PATCH}"
-fi
-
+# Shared PlatformIO build-environment bootstrap. Sourced by
+# scripts/os-build.sh and scripts/os-flash.sh after they cd to the repo root.
+# Idempotent: safe to run repeatedly.
+#
 # Build environment bootstrap (idempotent). PlatformIO 6.2.0 runs the build in
 # a subprocess of the bare interpreter, whose sys.path lacks the nix store
 # site dirs (they are added only by the pio entry-point wrapper), so
@@ -372,9 +355,11 @@ fi
 #  - point PYTHONEXEPATH at a wrapper that re-adds those dirs for every child
 #    python it launches (PIO honors PYTHONEXEPATH for $PYTHONEXE).
 # The store site dirs come from the nix pio wrapper's site.addsitedir list.
+export PLATFORMIO_CORE_DIR="$(pwd)/build/.platformio"
+
 PIO_WRAPPED="$(dirname "$(command -v pio)")/.pio-wrapped"
 if [ ! -f "${PIO_WRAPPED}" ]; then
-  echo "os-build.sh: nix pio wrapper not found at ${PIO_WRAPPED} (run inside 'nix develop')" >&2
+  echo "os-pio-env.sh: nix pio wrapper not found at ${PIO_WRAPPED} (run inside 'nix develop')" >&2
   exit 1
 fi
 REAL_PY="$(head -n1 "${PIO_WRAPPED}" | sed 's/^#!//')"
@@ -384,7 +369,7 @@ import ast, re, sys
 src = open(sys.argv[1], encoding="utf-8").read()
 m = re.search(r"addsitedir\(p, k\), \[(.*?)\]", src, re.S)
 if not m:
-    sys.exit("os-build.sh: site dir list not found in %s" % sys.argv[1])
+    sys.exit("os-pio-env.sh: site dir list not found in %s" % sys.argv[1])
 print(":".join(ast.literal_eval("[" + m.group(1) + "]")))
 PYEOF
 )"
@@ -406,6 +391,48 @@ EOF
 chmod +x "${PYBOOT}/pio-python"
 export PYTHONPATH="${SITE_DIRS}:${PENV_SITE}${PYTHONPATH:+:${PYTHONPATH}}"
 export PYTHONEXEPATH="${PYBOOT}/pio-python"
+```
+
+Create `scripts/os-build.sh`:
+
+```bash
+#!/usr/bin/env bash
+# Build cdc-badge-os from the pinned commit.
+# Hermetic: PlatformIO state lives in build/.platformio (PLATFORMIO_CORE_DIR).
+# Run from the nix dev shell (nix develop): needs git and pio.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+OS_DIR="build/cdc-badge-os"
+OS_COMMIT="181a24d94353e0318835a7b0801f2ce8d4937fb4"
+PATCH="$(pwd)/patches/os-platformio.patch"
+
+if [ ! -d "${OS_DIR}/.git" ]; then
+  mkdir -p build
+  git clone https://github.com/krim404/cdc-badge-os.git "${OS_DIR}"
+  git -C "${OS_DIR}" checkout "${OS_COMMIT}"
+fi
+
+# Pinned-commit guard: an existing clone may sit at a different commit (e.g.
+# after a local checkout), and building it would silently break the
+# pinned-commit contract. Do not auto-checkout: deliberate local edits must
+# not be clobbered — rebuild from the pinned commit instead.
+HEAD_COMMIT="$(git -C "${OS_DIR}" rev-parse HEAD)"
+if [ "${HEAD_COMMIT}" != "${OS_COMMIT}" ]; then
+  echo "os-build.sh: ${OS_DIR} is at commit ${HEAD_COMMIT}, not pinned commit ${OS_COMMIT}" >&2
+  echo "os-build.sh: remove it to rebuild from the pinned commit: rm -rf ${OS_DIR}" >&2
+  exit 1
+fi
+
+git -C "${OS_DIR}" submodule update --init --recursive
+
+# Local build patches (idempotent): exact framework pin, reproducible build
+# flags, Linux monitor port. See patches/os-platformio.patch.
+if ! git -C "${OS_DIR}" apply --check --reverse "${PATCH}"; then
+  git -C "${OS_DIR}" apply "${PATCH}"
+fi
+
+source "$(dirname "$0")/os-pio-env.sh"
 
 pio run -e cdc_badge_usb --project-dir "${OS_DIR}"
 echo "Build OK: ${OS_DIR}/.pio/build/cdc_badge_usb/firmware.bin"
@@ -492,7 +519,10 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 OS_DIR="build/cdc-badge-os"
-export PLATFORMIO_CORE_DIR="$(pwd)/build/.platformio"
+
+# Same subprocess-python bootstrap as os-build.sh: `pio run -t upload` still
+# invokes the SCons build engine, which needs the nix store site dirs.
+source "$(dirname "$0")/os-pio-env.sh"
 
 if [ -n "${1:-}" ]; then
   pio run -e cdc_badge_usb --project-dir "${OS_DIR}" -t upload --upload-port "$1"
@@ -508,8 +538,8 @@ Create `docs/runbooks/badge-device.md`:
 ```markdown
 # CDC Badge on-device runbook
 
-Prereq: `nix develop`, Task-built OS image in `build/cdc-badge-os/.pio/build/`,
-plugin artifacts in `dist/`.
+Prereq: `nix develop`, OS image built by `scripts/os-build.sh` in
+`build/cdc-badge-os/.pio/build/`, plugin artifacts in `dist/`.
 
 ## 1. Connect and (if needed) enter download mode
 
@@ -536,10 +566,13 @@ first (pre-1.0: any flash can wipe everything).
 
     pio device monitor -e cdc_badge_usb --project-dir build/cdc-badge-os --port /dev/ttyACM0
 
+(If §1 showed a different `/dev/ttyACM*` port, substitute it for `--port`.)
+
 115200 baud. Secure serial is on: authenticate first with `AUTH <pin>`. The
-first-boot default PIN is documented in the cdc-badge-os website docs
-(`references/cdc-badge-os/website/` — dev/serial-commands); confirm the exact
-default at execution time.
+first-boot default PIN is `123456`, documented in
+`references/cdc-badge-os/website/src/content/docs/start/first-boot.md`. The
+full serial command reference is at
+`references/cdc-badge-os/website/src/content/docs/dev/proto/serial-commands.md`.
 
 ## 4. Upload a plugin
 
