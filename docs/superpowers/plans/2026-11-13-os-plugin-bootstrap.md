@@ -487,7 +487,7 @@ Expected: all three files exist with non-trivial sizes (firmware ~2.5 MB — mea
 - [ ] **Step 7: Commit**
 
 ```bash
-git add scripts/os-build.sh patches/os-platformio.patch
+git add scripts/os-pio-env.sh scripts/os-build.sh patches/os-platformio.patch
 git commit -m "build: OS source build script with pinned clone, local patches, hermetic PIO"
 ```
 
