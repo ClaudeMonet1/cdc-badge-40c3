@@ -268,6 +268,7 @@ DIST="dist"
 WASM_SRC="target/wasm32-unknown-unknown/release/${PLUGIN}.wasm"
 
 cargo build --release --target wasm32-unknown-unknown -p "${PLUGIN}"
+mkdir -p "${DIST}"   # wasm-opt cannot create parent dirs; dist/ is gitignored
 wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int \
   "${WASM_SRC}" -o "${DIST}/${PLUGIN}.wasm"
 cp "plugins/${PLUGIN}/meta.json" "${DIST}/${PLUGIN}.meta.json"
