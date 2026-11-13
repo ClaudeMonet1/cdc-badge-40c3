@@ -604,7 +604,7 @@ Expected: both sha256 values identical. If they differ, stop and investigate (th
 
 ```bash
 rm -rf build/cdc-badge-os/.pio/build
-bash scripts/os-build.sh
+nix develop -c bash -c 'bash scripts/os-build.sh'   # the script requires the nix pio wrapper
 sha256sum build/cdc-badge-os/.pio/build/cdc_badge_usb/firmware.bin
 ```
 
