@@ -9,7 +9,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 OS_DIR="build/cdc-badge-os"
-export PLATFORMIO_CORE_DIR="$(pwd)/build/.platformio"
+
+source "$(dirname "$0")/os-pio-env.sh"
 
 if [ -n "${1:-}" ]; then
   pio run -e cdc_badge_usb --project-dir "${OS_DIR}" -t upload --upload-port "$1"

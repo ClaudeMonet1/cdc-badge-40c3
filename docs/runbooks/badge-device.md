@@ -1,7 +1,7 @@
 # CDC Badge on-device runbook
 
-Prereq: `nix develop`, Task-built OS image in `build/cdc-badge-os/.pio/build/`,
-plugin artifacts in `dist/`.
+Prereq: `nix develop`, OS image built by `scripts/os-build.sh` in
+`build/cdc-badge-os/.pio/build/`, plugin artifacts in `dist/`.
 
 ## 1. Connect and (if needed) enter download mode
 
@@ -28,10 +28,13 @@ first (pre-1.0: any flash can wipe everything).
 
     pio device monitor -e cdc_badge_usb --project-dir build/cdc-badge-os --port /dev/ttyACM0
 
+(If §1 showed a different `/dev/ttyACM*` port, substitute it for `--port`.)
+
 115200 baud. Secure serial is on: authenticate first with `AUTH <pin>`. The
-first-boot default PIN is documented in the cdc-badge-os website docs
-(`references/cdc-badge-os/website/` — dev/serial-commands); confirm the exact
-default at execution time.
+first-boot default PIN is `123456`, documented in
+`references/cdc-badge-os/website/src/content/docs/start/first-boot.md`. The
+full serial command reference is at
+`references/cdc-badge-os/website/src/content/docs/dev/proto/serial-commands.md`.
 
 ## 4. Upload a plugin
 

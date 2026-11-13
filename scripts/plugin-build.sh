@@ -15,8 +15,11 @@ wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int \
   "${WASM_SRC}" -o "${DIST}/${PLUGIN}.wasm"
 cp "plugins/${PLUGIN}/meta.json" "${DIST}/${PLUGIN}.meta.json"
 
-# Check 1: only "cdc" module imports are allowed.
-IMPORTS="$(wasm-tools print "${DIST}/${PLUGIN}.wasm" | grep -E '^\s*\(import' || true)"
+# Check 1: only "cdc" module imports are allowed. The print runs as a
+# standalone statement so set -e aborts loudly on a wasm-tools failure
+# (corrupt wasm, missing tool) instead of passing vacuously.
+WAT="$(wasm-tools print "${DIST}/${PLUGIN}.wasm")"
+IMPORTS="$(printf '%s\n' "${WAT}" | grep -E '^\s*\(import' || true)"
 if [ -n "${IMPORTS}" ]; then
   BAD="$(printf '%s\n' "${IMPORTS}" | grep -vE 'import "cdc"' || true)"
   if [ -n "${BAD}" ]; then
