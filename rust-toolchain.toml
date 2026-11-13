@@ -1,0 +1,6 @@
+# Parity pin for rustup users. The authoritative toolchain for the nix dev
+# shell is flake.nix (rust-bin 1.100.0); keep the two in sync.
+[toolchain]
+channel = "1.100.0"
+targets = ["wasm32-unknown-unknown"]
+components = ["rustfmt", "clippy"]
