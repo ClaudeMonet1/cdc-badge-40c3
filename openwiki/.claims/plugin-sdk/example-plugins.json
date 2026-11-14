@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f050483ad5f82d663feb3771319008ecab05f4ada9697e14e05dc9ab4fd3e408",
+  "pageVersion": "sha256:54ce480c5ca0feeca5e9d1664a90a63c2ef781dc85ffdb8e834ba535b0268ba5",
   "claims": [
     {
       "id": "claim_fd2bff7503fa4249a1818a51d4619bdc",
@@ -99,10 +99,42 @@
           "version": "repo-file-v1:sha256:57d30bb7e5e45010e0a1fc08448721312b92e54ace3e12f5e6a27a171eff6633"
         }
       ]
+    },
+    {
+      "id": "claim_f59fdb19b554424fbf87a85268adbf23",
+      "statement": "plugins/snake is the first member of the root Cargo workspace: a verbatim copy of the upstream production snake (references/cdc-badge-plugins/plugins/snake) with only the SDK dependency repointed to the vendored path ../../references/cdc-badge-plugins/sdk/cdc-badge-plugin (feature panic_handler), and crate-type cdylib+rlib so the pure game logic is host-testable.",
+      "evidence": [
+        {
+          "resource": "repo://Cargo.toml",
+          "version": "repo-file-v1:sha256:5557b7fb7d5a4f4f3306d99eb32dbc3711c1dd808d64a4084e28b15ccd051fff"
+        },
+        {
+          "resource": "repo://plugins/snake/Cargo.toml",
+          "version": "repo-file-v1:sha256:b623c5eb4db933db8dc2c7540c88eb079481731a7bf1392b0464e108123fb77a"
+        }
+      ]
+    },
+    {
+      "id": "claim_78d1e09750254cdca6d6574668035d93",
+      "statement": "The in-repo snake declares host_api_level_min 0.8, 64 KB linear memory, ui_exclusive and nvs_namespace plg_snake; it has 18 host unit tests (cargo test -p snake), builds to a ~30 KB wasm that passed the in-repo contract checks, and was flashed and run on a real badge.",
+      "evidence": [
+        {
+          "resource": "repo://docs/runbooks/badge-device.md",
+          "version": "repo-file-v1:sha256:daf94627605bffc5435fc15993c61b858ecad85815db1abac0a8ee41cc4e3e5c"
+        },
+        {
+          "resource": "repo://plugins/snake/meta.json",
+          "version": "repo-file-v1:sha256:cf7788bb2c04e9911852e2967222b13858595ade7a48e5705d44a00c307bc3e1"
+        },
+        {
+          "resource": "repo://plugins/snake/src/game.rs",
+          "version": "repo-file-v1:sha256:c7f0e30c74d533f80d851f5f1a5a52d62da2c437259c122c43fc1bc7f6d04a7d"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "by": "openwiki/0.5.2",
+    "at": "2026-11-14T16:21:12.965Z"
   }
 }

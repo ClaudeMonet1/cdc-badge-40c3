@@ -1,12 +1,19 @@
 ---
-type: build and operations
-title: OS build, partitions and flashing
-description: How cdc-badge-os is built with PlatformIO/ESP-IDF, its build environments and security profiles, the 16 MB partition table (including the 2 MB FAT partition that holds plugins), and the ways to flash it — PlatformIO, flash_firmware.py, and the esp-web-tools browser flasher with its Update vs Factory Setup manifests.
-tags: [build, platformio, esp-idf, partitions, flashing, web-flasher, esptool, build-profile]
+type: "Reference"
+title: "OS build, partitions and flashing"
+openwiki_generated: true
 verified:
-  - by: openwiki/0.5.0
-    at: 2026-11-12T21:23:11.133Z
+  - by: openwiki/0.5.2
+    at: 2026-11-14T16:21:12.965Z
 sources:
+  - id: openwiki-source-04a51e7c865423d871bbe1b5
+    resource: repo://docs/runbooks/badge-device.md
+  - id: openwiki-source-509b419231691d6726c59308
+    resource: repo://docs/superpowers/plans/2026-11-13-os-plugin-bootstrap.md
+  - id: openwiki-source-3eda5d2b85501c78fc0ba02d
+    resource: repo://flake.nix
+  - id: openwiki-source-b944083caaf266422d3ce85d
+    resource: repo://patches/os-platformio.patch
   - id: openwiki-source-90130bdbc6cccafd51d570a5
     resource: repo://references/cdc-badge-os/.github/workflows/deploy-pages.yml
   - id: openwiki-source-9b1eaa02194157f882b92ba1
@@ -25,16 +32,103 @@ sources:
     resource: repo://references/cdc-badge-os/web-flasher/index.html
   - id: openwiki-source-3a6c5840cc6f224243bab769
     resource: repo://references/cdc-badge-os/website/src/content/docs/dev/build-system.md
-generated: { by: "claude-code", at: "2026-11-12T21:23:11.133Z" }
+  - id: openwiki-source-90f3fc29f4b3040a3560057d
+    resource: repo://scripts/os-build.sh
+  - id: openwiki-source-2c891942df9c55a6f3c50f62
+    resource: repo://scripts/os-flash.sh
+  - id: openwiki-source-a2cdf86a47a1903e01bce707
+    resource: repo://scripts/os-pio-env.sh
+generated: { by: "opencode", at: "2026-11-14T16:21:12.965Z" }
 ---
+
 
 # OS build, partitions and flashing
 
-We will normally run a released cdc-badge-os image and install our Rust plugin on
-top of it. Building the OS ourselves is only needed to change host functions or
-debug the runtime. This page covers both cases.
+For plugin-only work we normally run a released cdc-badge-os image and install
+our Rust plugin on top of it. Building the OS from source is needed to change
+host functions, debug the runtime, or flash a byte-reproducible DEBUG_MODE
+image — and it is now a first-class workflow in this repository. This page
+covers the in-repo pipeline, the upstream build environments, the partition
+table, and every way to flash the badge.
 
-## Build
+## In-repo source-build pipeline
+
+Everything runs from the [Nix dev shell](../overview/repository-and-references.md)
+(`nix develop`), which provides **PlatformIO 6.2.0** (a custom `python313`
+derivation in `flake.nix`, pinned by sdist SRI hash) alongside Rust 1.100.0 and
+the WASM tooling — no Docker, no separate PlatformIO install.
+
+```bash
+nix develop
+bash scripts/os-build.sh        # → build/cdc-badge-os/.pio/build/cdc_badge_usb/{firmware,bootloader,partitions}.bin
+bash scripts/os-flash.sh [PORT] # upload; factory wipe on first boot (see Flashing options)
+```
+
+### `scripts/os-build.sh`
+
+- Clones `krim404/cdc-badge-os` into the gitignored `build/cdc-badge-os` at the
+  pinned commit **`181a24d94353e0318835a7b0801f2ce8d4937fb4`** (if missing), and
+  then **guards that the clone is still at that commit**: a checkout on another
+  commit fails loudly with an `rm -rf build/cdc-badge-os` hint instead of
+  silently building the wrong commit (no auto-checkout — deliberate local edits
+  must not be clobbered).
+- `git submodule update --init --recursive` — the four submodules (WAMR,
+  libtropic, CalEPD, Adafruit-GFX) are **not vendored** in this repository
+  ([repository and references](../overview/repository-and-references.md)), so
+  an OS build fetches them from upstream.
+- Applies `patches/os-platformio.patch` idempotently (`apply --check --reverse`
+  guard), sources `scripts/os-pio-env.sh`, then runs
+  `pio run -e cdc_badge_usb --project-dir build/cdc-badge-os`.
+
+### `scripts/os-pio-env.sh` — the nix/PlatformIO bridge
+
+PlatformIO 6.2.0 runs the build in a **subprocess of the bare interpreter**,
+whose `sys.path` lacks the nix store site dirs (they are added only by the
+`pio` entry-point wrapper), so `import click` fails in
+`platformio/builder/main.py`. The espressif32 espidf framework then **strips
+`PYTHONPATH`** from the environment, so esptool children (bootloader/firmware
+`.bin` generation via `$PYTHONEXE`) lose the path and fail on `import serial`.
+The sourced snippet (used by both os-build.sh and os-flash.sh) fixes this at
+runtime, with no hardcoded store paths:
+
+- exports `PLATFORMIO_CORE_DIR=build/.platformio` (hermetic; gitignored);
+- derives the nix store site dirs from the `pio` wrapper's `site.addsitedir`
+  list (fails loudly if the wrapper format changes);
+- creates a `penv` venv with the same interpreter that runs `pio` and pins
+  `intelhex==2.3.0` into it — the OS's `tools/pio_python_deps.py` otherwise
+  pip-installs unpinned `intelhex>=2.3` on first run;
+- exports `PYTHONPATH` (site dirs + penv) for the SCons process, and points
+  `PYTHONEXEPATH` at a generated wrapper that re-adds those dirs for every
+  child python it launches.
+
+### `patches/os-platformio.patch` — local build edits
+
+Three edits to the clone's `platformio.ini` (the pristine upstream file in
+`references/cdc-badge-os/` is untouched):
+
+| Edit | Why |
+|---|---|
+| `framework-espidf @ ~3.50500.0` → exact `@ 3.50500.0` | the `~` range would drift the ESP-IDF version between builds |
+| Delete `-D BUILD_TIME=__TIME__` / `-D BUILD_DATE=__DATE__` | timestamp macros break byte-reproducible `firmware.bin`; the macros are unused in the tree |
+| Delete hardcoded macOS `monitor_port` | the port is passed explicitly by os-flash.sh / the runbook |
+
+**Determinism:** pinned commit + exact framework pin + no timestamp macros +
+pinned `intelhex` make clean rebuilds **byte-identical** — verified during
+development (firmware 2,462,320 bytes, identical hash across a wiped
+`.pio/build`). The pipeline was exercised end-to-end on a real badge (flash,
+serial AUTH, plugin upload, run).
+
+### Upstream build flow (inside a source checkout)
+
+If you work directly inside an OS checkout rather than through
+`scripts/os-build.sh`:
+
+```bash
+git submodule update --init --recursive   # WAMR, libtropic, CalEPD, Adafruit-GFX (ESP-IDF port)
+~/.platformio/penv/bin/pio run            # build
+~/.platformio/penv/bin/pio run -t upload  # flash
+~/.platformio/penv/bin/pio device monitor # 115200 baud
+```
 
 | Item | Value (`references/cdc-badge-os/platformio.ini`) |
 |---|---|
@@ -46,23 +140,7 @@ debug the runtime. This page covers both cases.
 | Release env | `cdc_badge_release`: `partitions.release.csv`, `DEBUG_MODE=0`, guarded by `tools/pio_release_guard.py` |
 | Host tests | `native` env with Unity, `test/host/*` |
 
-```bash
-git submodule update --init --recursive   # WAMR, libtropic, CalEPD, Adafruit-GFX (ESP-IDF port)
-~/.platformio/penv/bin/pio run            # build
-~/.platformio/penv/bin/pio run -t upload  # flash
-~/.platformio/penv/bin/pio device monitor # 115200 baud
-```
-
-The four submodules are **not vendored** in this repository (see
-[repository and references](../overview/repository-and-references.md)), so an
-OS build has to fetch them from upstream.
-
-Our Nix dev shell provides esptool, espflash and Python, but not PlatformIO.
-Building the OS needs a PlatformIO install or the
-`cdc-badge-development` container (see
-[plugin build and install](../workflows/plugin-build-and-install.md)).
-
-### Build profiles and security flags (ADR-0005, ADR-0012)
+## Build profiles and security flags (ADR-0005, ADR-0012)
 
 `components/cdc_core/include/cdc_core/feature_flags.h` holds `#ifndef`-guarded
 switches that can be overridden with `-D`:
@@ -118,9 +196,21 @@ formatting machinery (see [Rust SDK](../plugin-sdk/rust-sdk.md)).
 
 | Method | What it writes | Notes |
 |---|---|---|
-| `pio run -t upload` | Bootloader, partitions, app | From a source build |
+| `scripts/os-flash.sh [PORT]` (in-repo) | Bootloader, partitions, app from the source build | One command; sources `os-pio-env.sh`; explicit port optional (auto-detect); header warns of the factory wipe |
+| `pio run -t upload` | Bootloader, partitions, app | From a source build (upstream flow) |
 | `tools/flash_firmware.py --release latest \| --dir <bins>` | `0x0` bootloader, `0x8000` partitions, `0x50000` firmware | Pure Python (esptool + requests); esp32s3, 460800 baud, DIO, 80 MHz, 16 MB |
 | **Web flasher** (`web-flasher/index.html`, published at `https://krim404.github.io/cdc-badge-os/flasher/`) | See the two manifests below | `esp-web-tools@10` install buttons over Web Serial (Chrome/Edge desktop) |
+
+The in-repo `scripts/os-flash.sh` runs
+`pio run -e cdc_badge_usb --project-dir build/cdc-badge-os -t upload` (with an
+optional explicit port such as `/dev/ttyACM0`). **Factory wipe:** the source
+build is a `DEBUG_MODE` build, so flashing it onto a badge running release
+firmware changes the build-profile byte and the first boot does a **full
+factory wipe** (NVS + used TROPIC01 slots). Pre-1.0 firmware can wipe all stored
+data on any flash — confirm the badge holds no needed data first. The device
+session details (download mode, serial `AUTH`, plugin upload via
+`references/cdc-badge-os/tools/upload.py`, playing snake) are in
+`docs/runbooks/badge-device.md`.
 
 The web flasher offers two manifests, both generated by
 `.github/workflows/deploy-pages.yml`:

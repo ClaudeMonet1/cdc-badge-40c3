@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:a688d27612625764fa7f396e27c32326b71f0475b0962d9ccde92d15bcabf528",
+  "pageVersion": "sha256:32c2ed6e870a5c4fedc37cb9ea329e610cf06e13477c212012191c80b4078aab",
   "claims": [
     {
       "id": "claim_9998dc5347b54f3ebfa20fdd7e24f106",
@@ -89,10 +89,34 @@
           "version": "repo-file-v1:sha256:bf9090cbe7751d35c4db032a377607d21bf0778bfcc3a08117cc51211bda92cc"
         }
       ]
+    },
+    {
+      "id": "claim_5d919ec9e21d4db4889dd26f5963fc04",
+      "statement": "scripts/plugin-build.sh <id> is the in-repo build entry point: cargo build (workspace release profile opt-level=z/lto/codegen-units=1/panic=abort/strip) + wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int, then contract enforcement with loud failures — only 'cdc' imports (wasm-tools print as a standalone statement so set -e aborts on tool errors), size <= 786432 bytes, and the vendored validate_manifest.py on the manifest; artifacts land at dist/<id>.wasm + dist/<id>.meta.json.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/plugin-build.sh",
+          "version": "repo-file-v1:sha256:94281f9ed2a80216c227df71c89281ef5e1857e7f04c17ca92d95983540a1c47"
+        }
+      ]
+    },
+    {
+      "id": "claim_287586a893ac4f5ca38510ddf245abe6",
+      "statement": "Plugin builds through the in-repo pipeline are byte-identical across clean rebuilds, because of the committed Cargo.lock and the pinned workspace release profile (verified during development: snake 30,662 bytes with an identical hash after a clean rebuild).",
+      "evidence": [
+        {
+          "resource": "repo://Cargo.lock",
+          "version": "repo-file-v1:sha256:4e0add1621be80a1f83d0e57a09831594d1c850de9a74c56deeff791172e9235"
+        },
+        {
+          "resource": "repo://docs/superpowers/plans/2026-11-13-os-plugin-bootstrap.md",
+          "version": "repo-file-v1:sha256:f9eab6e6963c8a9fa104759bbe765a7b638945d1ec9449637dcb75eff185502f"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.5.0",
-    "at": "2026-11-12T21:23:11.133Z"
+    "by": "openwiki/0.5.2",
+    "at": "2026-11-14T16:21:12.965Z"
   }
 }

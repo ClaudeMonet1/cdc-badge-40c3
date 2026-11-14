@@ -1,11 +1,15 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:470ed1799719454773893958d2d04ce0c6bc35e298f7f83c0f5d0dbb27ea01d3",
+  "pageVersion": "sha256:02a3cf2babf5c9430d941863cca4fdb3a0691cb25464f68b7e15997aa693e9e7",
   "claims": [
     {
       "id": "claim_9c6d88691d1f450c88541aba19cd7827",
-      "statement": "badge-cdc aims to build a sandboxed WebAssembly application in Rust for the CDC Badge and currently contains only vendored reference material and the wiki.",
+      "statement": "badge-cdc aims to build sandboxed WebAssembly applications in Rust for the CDC Badge; the repository now contains the first plugin (plugins/snake), the in-repo build pipeline (scripts/, patches/), the vendored reference material and this wiki.",
       "evidence": [
+        {
+          "resource": "repo://Cargo.toml",
+          "version": "repo-file-v1:sha256:5557b7fb7d5a4f4f3306d99eb32dbc3711c1dd808d64a4084e28b15ccd051fff"
+        },
         {
           "resource": "repo://README.md",
           "version": "repo-file-v1:sha256:9de28fe21744c657b2337f9db371f0c968809cf67cd0e8d80340bec10d7042d5"
@@ -14,11 +18,11 @@
     },
     {
       "id": "claim_0e66602dba294cf0b6faf21bf5614d6e",
-      "statement": "The repository's Nix dev shell supplies the Rust wasm32 toolchain, WASM tooling, flashing tools, emulator build dependencies and Node 22 for OpenWiki.",
+      "statement": "The repository's Nix dev shell supplies Rust pinned to 1.100.0 with the wasm32 toolchain, WASM tooling (binaryen, wabt, wasm-tools, wasmtime), PlatformIO 6.2.0 for the OS source build, flashing tools (esptool/espflash), emulator build dependencies and Node 22 for OpenWiki.",
       "evidence": [
         {
           "resource": "repo://flake.nix",
-          "version": "repo-file-v1:sha256:0080b531668ade7ba12f72b06d236bf1cc0347a9dfbbf4c5e88f1a166de15600"
+          "version": "repo-file-v1:sha256:7417db843b9049e41a0ba0d635fde7250b58a057b2ebc3ed18bd75878bb624ce"
         }
       ]
     },
@@ -58,7 +62,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.5.0",
-    "at": "2026-11-12T21:38:30.389Z"
+    "by": "openwiki/0.5.2",
+    "at": "2026-11-14T16:21:12.965Z"
   }
 }

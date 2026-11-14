@@ -1,12 +1,15 @@
 ---
-type: developer workflow
-title: Building, packaging and installing a plugin
-description: End-to-end path from Rust source to a running plugin on the CDC Badge — cargo build for wasm32-unknown-unknown, wasm-opt flags, the dist/ artifact layout and catalog, the badge CLI (new/build/test/flash/monitor/emulate), the firmware upload.py and the PLUGIN serial command set with its raw-stream CRC32 upload protocol, the browser plugin installer, on-device management, and upstream CI.
-tags: [workflow, build, cargo, wasm-opt, upload, serial, badge-cli, installer, ci]
+type: "Reference"
+title: "Building, packaging and installing a plugin"
+openwiki_generated: true
 verified:
-  - by: openwiki/0.5.0
-    at: 2026-11-12T21:23:11.133Z
+  - by: openwiki/0.5.2
+    at: 2026-11-14T16:21:12.965Z
 sources:
+  - id: openwiki-source-16e6e7418602542c69565bde
+    resource: repo://Cargo.lock
+  - id: openwiki-source-509b419231691d6726c59308
+    resource: repo://docs/superpowers/plans/2026-11-13-os-plugin-bootstrap.md
   - id: openwiki-source-a46cc211e85b62a0281932e0
     resource: repo://references/cdc-badge-development/Dockerfile
   - id: openwiki-source-199033859ed56647754a5d26
@@ -25,24 +28,53 @@ sources:
     resource: repo://references/cdc-badge-plugins/tools/generate_catalog.py
   - id: openwiki-source-237bcaf85135d1787411513f
     resource: repo://references/cdc-badge-plugins/webflasher/js/chunk-protocol.js
-generated: { by: "claude-code", at: "2026-11-12T21:23:11.133Z" }
+  - id: openwiki-source-8889d9a88195e93cba20df1e
+    resource: repo://scripts/plugin-build.sh
+generated: { by: "opencode", at: "2026-11-14T16:21:12.965Z" }
 ---
+
 
 # Building, packaging and installing a plugin
 
 ```
 src/lib.rs ──cargo build --release --target wasm32-unknown-unknown──► target/.../<id>.wasm
-          ──wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int──► dist/<id>.wasm
+           ──wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int──► dist/<id>.wasm
 meta.json ───────────────────────────────────────────────────────────► dist/<id>.meta.json
-<id>.lang.json (optional) ───────────────────────────────────────────► dist/<id>.lang.json
-                           │
-         ┌─────────────────┼──────────────────────────┐
-   badge flash / upload.py │  browser installer        │  emulator (no hardware)
-   (USB-CDC serial)        │  (Web Serial)             │  see emulator page
-         └──────► /vfat/system/<id>.wasm|.meta|.lang on the badge
+                            │
+          ┌─────────────────┼──────────────────────────┐
+    badge flash / upload.py │  browser installer        │  emulator (no hardware)
+    (USB-CDC serial)        │  (Web Serial)             │  see emulator page
+          └──────► /vfat/system/<id>.wasm|.meta|.lang on the badge
 ```
 
 ## 1. Build
+
+### In-repo entry point: `scripts/plugin-build.sh <id>`
+
+From the nix dev shell, one command builds and enforces the contract:
+
+```bash
+scripts/plugin-build.sh snake   # → dist/snake.wasm + dist/snake.meta.json
+```
+
+- `cargo build --release --target wasm32-unknown-unknown -p <id>` under the
+  workspace release profile (`opt-level="z"`, LTO, `codegen-units=1`,
+  `panic="abort"`, `strip` — see [Rust SDK](../plugin-sdk/rust-sdk.md)), then
+  `wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int` into the
+  gitignored `dist/`.
+- Contract checks, all loud failures:
+  1. **Only `cdc` imports** — `wasm-tools print` runs as a standalone statement
+     (so `set -e` aborts on a tool error instead of passing vacuously), then any
+     non-`cdc` import line fails the build.
+  2. **Size ≤ 786432 bytes** (768 KiB, the upstream CI cap — the practical
+     ceiling given the 2 MB shared `vfat` partition).
+  3. **Manifest** — the vendored
+     `references/cdc-badge-plugins/tools/validate_manifest.py` (range and name
+     checks; see [manifest](../plugin-runtime/manifest-and-capabilities.md)).
+- Builds are **byte-identical across clean rebuilds** (committed `Cargo.lock` +
+  pinned profile); the snake build is 30,662 bytes.
+
+### Manual / upstream flow
 
 Plain cargo (from `cdc-badge-plugins/docs/getting_started.md`):
 
@@ -52,10 +84,12 @@ wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int \
   target/wasm32-unknown-unknown/release/<id>.wasm -o dist/<id>.wasm
 ```
 
-- Release profile: `opt-level="z"`, LTO, `codegen-units=1`, `panic="abort"`,
-  `strip` (see [Rust SDK](../plugin-sdk/rust-sdk.md)).
 - The wasm-opt feature flags match what WAMR accepts: bulk memory, and
   non-trapping float-to-int (rustc emits it by default).
+- For manual builds, apply the same contract checks as
+  `scripts/plugin-build.sh`: cdc-only imports (`wasm-tools print | grep import`
+  — only `(import "cdc" ...)` entries may appear), size ≤ 786432 bytes, and
+  `validate_manifest.py` on the manifest.
 - `cdc-badge-plugins/tools/build_all.sh` builds the whole workspace into
   `dist/`. `matrix` is built separately because it is a `std` crate: building it
   together with the `no_std` plugins unifies features and leaks `std` into them
@@ -63,13 +97,7 @@ wasm-opt -Oz --enable-bulk-memory --enable-nontrapping-float-to-int \
   equal the directory name**, since catalog URLs use the id and build output uses
   the directory.
 - Upstream CI (`.github/workflows/build.yml`) caps each `.wasm` at **768 KB**
-  (786,432 bytes). That is the practical size ceiling to design for, given the
-  2 MB shared `vfat` partition.
-- Validate the manifest with `python3 tools/validate_manifest.py` (range and
-  name checks; see [manifest](../plugin-runtime/manifest-and-capabilities.md)).
-- Check imports before uploading:
-  `wasm-tools print dist/<id>.wasm | grep import`. Only `(import "cdc" ...)`
-  entries may appear.
+  (786,432 bytes).
 
 Our Nix shell provides cargo with the wasm32 target, `wasm-opt`, `wasm-tools`
 and wabt.
@@ -161,8 +189,11 @@ is needed. A **Factory Setup** flash of the OS wipes every installed plugin.
 
 ## Suggested loop for badge-cdc
 
-1. Write pure logic and test it with `cargo test` on the host.
-2. `cargo build` + `wasm-opt`, check imports and size (≤ 768 KB, ideally much less).
+1. Write pure logic and test it with `cargo test` on the host
+   (`cargo test -p <id>`; the in-repo `snake` shows the layout).
+2. `scripts/plugin-build.sh <id>` — cargo + wasm-opt + contract checks
+   (cdc-only imports, size ≤ 768 KB, manifest) in one command; artifacts land at
+   `dist/<id>.wasm` + `dist/<id>.meta.json`.
 3. Run headless in the [emulator](emulator.md) with key scripts and snapshots
    (mind its older host-API pin).
 4. Upload with `upload.py`, then `PLUGIN START <id>` and watch the log

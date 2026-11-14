@@ -1,12 +1,14 @@
 ---
 type: quickstart
 title: Quickstart
-description: Entry point to the badge-cdc wiki — what this project is (a sandboxed Rust WebAssembly application for the CDC Badge running on cdc-badge-os), the ten facts to know before writing code, and a task-routing table pointing to the right page for pins, host functions, capabilities, building, installing and emulating.
+description: Entry point to the badge-cdc wiki — what this project is (a sandboxed Rust WebAssembly application for the CDC Badge running on cdc-badge-os; the first plugin, snake, and the in-repo build pipeline already live here), the ten facts to know before writing code, and a task-routing table pointing to the right page for pins, host functions, capabilities, building, installing and emulating.
 tags: [quickstart, index, routing, overview]
 verified:
-  - by: openwiki/0.5.0
-    at: 2026-11-12T21:38:30.389Z
+  - by: openwiki/0.5.2
+    at: 2026-11-14T16:21:12.965Z
 sources:
+  - id: openwiki-source-651d1fb6c9e49916a916ab51
+    resource: repo://Cargo.toml
   - id: openwiki-source-3eda5d2b85501c78fc0ba02d
     resource: repo://flake.nix
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
@@ -19,17 +21,19 @@ sources:
     resource: repo://references/cdc-badge-os/README.md
   - id: openwiki-source-50f6becdca203e7d479d053a
     resource: repo://references/cdc-badge-plugins/sdk/plugin_lifecycle.h
-generated: { by: "claude-code", at: "2026-11-12T21:38:30.389Z" }
+generated: { by: "opencode", at: "2026-11-14T16:21:12.965Z" }
 ---
 
 # Quickstart
 
-**badge-cdc** will be a **sandboxed WebAssembly application written in Rust**
-for the **CDC Badge** (ESP32-S3, 2.9" e-paper, TROPIC01 secure element, 12-key
+**badge-cdc** is a **sandboxed WebAssembly application written in Rust** for
+the **CDC Badge** (ESP32-S3, 2.9" e-paper, TROPIC01 secure element, 12-key
 keypad). It runs as a **plugin** inside the reference firmware
 **cdc-badge-os**, which hosts plugins in a WAMR interpreter and exposes a
-capability-gated C ABI. Today the repository holds only the vendored reference
-material (`references/`, see `references/SOURCES.md`) and this wiki.
+capability-gated C ABI. The repository already contains the first plugin
+(`plugins/snake`) and the build pipeline that compiles, checks, builds the OS
+and flashes it — alongside the vendored reference material (`references/`, see
+`references/SOURCES.md`) and this wiki.
 
 ## Ten things to know before writing code
 
@@ -74,7 +78,8 @@ material (`references/`, see `references/SOURCES.md`) and this wiki.
 | Read the battery, keep the badge awake, or understand sleep | [Power, charging and sleep](hardware/power-and-charging.md) |
 | Store secrets or sign with the TROPIC01 | [Secure element](hardware/secure-element.md) |
 | Understand how the OS is put together | [OS architecture](os/architecture.md) |
-| Build or flash the OS, or understand partitions | [OS build, partitions and flashing](os/build-flash-and-partitions.md) |
+| Build or flash the OS from source (in-repo pipeline), or understand partitions | [OS build, partitions and flashing](os/build-flash-and-partitions.md) |
+| Flash the source build and work the device (download mode, serial AUTH, upload, play) | [OS build, partitions and flashing](os/build-flash-and-partitions.md) + `docs/runbooks/badge-device.md` |
 | Know what the OS's GPG / OpenPGP card and cross-signing really check | [GPG module review](os/security/gpg-openpgp-module.md) |
 | Know what badge-to-badge Bluetooth transfer guarantees, and why plugin receive is broken | [BLE message transfer review](os/security/ble-message-transfer.md) |
 | Check FIDO2 / CTAP2 support and its bugs | [FIDO2 / CTAP2 review](os/security/fido2-ctap2.md) |
@@ -101,8 +106,8 @@ material (`references/`, see `references/SOURCES.md`) and this wiki.
 | Look up a host function, error code or calling convention | [Host API reference](plugin-runtime/host-api-reference.md) |
 | Structure exports, events and UI | [Lifecycle, events and UI](plugin-runtime/lifecycle-events-and-ui.md) |
 | Set up the Rust crate | [Rust SDK](plugin-sdk/rust-sdk.md) |
-| Find a plugin to copy from | [Example plugins](plugin-sdk/example-plugins.md) |
-| Build, upload and run on a badge | [Build and install](workflows/plugin-build-and-install.md) |
+| Find a plugin to copy from (in-repo `plugins/snake` or the upstream catalogue) | [Example plugins](plugin-sdk/example-plugins.md) |
+| Build (`scripts/plugin-build.sh`), upload and run on a badge | [Build and install](workflows/plugin-build-and-install.md) |
 | Test without hardware | [Emulator](workflows/emulator.md) |
 | Compare with the vendor's Arduino firmware | [Vendor nametag firmware](vendor/nametag-firmware.md) |
 | See known contradictions, constraints and open decisions | [Open questions and discrepancies](reference/open-questions-and-discrepancies.md) |
@@ -110,10 +115,15 @@ material (`references/`, see `references/SOURCES.md`) and this wiki.
 ## Getting a shell
 
 ```bash
-nix develop            # or: direnv allow  — Rust + wasm32, binaryen, wabt, wasm-tools,
-                       #   wasmtime, esptool/espflash, pyserial, cmake/SDL2, node 22
+nix develop            # or: direnv allow  — Rust pinned to 1.100.0 (wasm32), binaryen,
+                        #   wabt, wasm-tools, wasmtime, PlatformIO 6.2.0 (OS source build),
+                        #   esptool/espflash, pyserial, cmake/SDL2, node 22
 openwiki visualize     # browse the wiki graph
 ```
+
+From the same shell, the in-repo pipeline runs as:
+`scripts/plugin-build.sh <id>` (plugin → `dist/`) and `scripts/os-build.sh` /
+`scripts/os-flash.sh` (OS source build → flash).
 
 The official user and developer documentation for the OS is
 `references/cdc-badge-os/website/` (published at

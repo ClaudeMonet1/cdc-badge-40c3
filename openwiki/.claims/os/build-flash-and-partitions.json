@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:e7ebf25a0039ef8a19ff94579ce551a8dbfdeabac03af640aab40b69131ad5c9",
+  "pageVersion": "sha256:795c82fc768ba556404e4a2b1c13fe950c03a0a5bc6593f30283a7bc91fd38a3",
   "claims": [
     {
       "id": "claim_eaf8705a2ff046dc9f0967211bf55595",
@@ -101,10 +101,88 @@
           "version": "repo-file-v1:sha256:7fee337dbdf49af4198af654524a4884692bda82903f3ef2c0adfbbd1f7fc4fa"
         }
       ]
+    },
+    {
+      "id": "claim_e184b35252734bba962303006c2681f5",
+      "statement": "The Nix dev shell provides PlatformIO 6.2.0 via a custom python313 buildPythonPackage derivation pinned by sdist SRI hash, alongside Rust pinned to exactly 1.100.0 — no separate PlatformIO install or Docker is needed for the OS source build.",
+      "evidence": [
+        {
+          "resource": "repo://flake.nix#L31-L70",
+          "version": "repo-lines-v1:sha256:7bf841b0937017accf40c2ba1627696e63471ab253006cc96c75d8d1b3c4be82:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzODI0N2FmM2I5NDhlYzg3ZTJiMjY2M2IyODc3NzAyYTY5Mjg2ZDQ5ZjE5NzcxZjE4ZmExYmRhZjQwZTQ1YWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2ZmRhYmQ1NWNiNDk0MTFkZGFlNWJkNWY0NWIxZjlhMDNhNTY5YTVmMzExZTBkMTVjYWNlNmM1MzMxN2E4MzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ4ZWU0MWM0Nzk0MzJjZTIzMGQ2ZGQyZTI3Yjk5OTBmNDMzYzUzMjVlZjllM2M3ZWE1MDZmMmRhN2Y3MzE5NGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmYTIyYzE5MDM3NmZmOTVmNjFlNmZlNjJhNmZiZmI0NzdjN2VmYjczMGZmYzM2ZmUxM2JlOTIzMDUxOTdkNzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d4e0fb2af1c74512a0925430f8bf139a",
+      "statement": "scripts/os-build.sh builds cdc-badge-os from the pinned commit 181a24d94353e0318835a7b0801f2ce8d4937fb4 in the gitignored build/cdc-badge-os, and if an existing clone sits at a different commit it fails loudly (exit 1 with an rm -rf hint, no auto-checkout) instead of building the wrong commit.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/os-build.sh#L8-L27",
+          "version": "repo-lines-v1:sha256:57178bfe3ca4c81fac86ac8513cd8e3d9ff6376bfebe573d7831de670f781ecf:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllOTU5Nzk2NTFlMTg3YmRiN2I1ZWU2OGU4ZDhhYzNiNGI3ZDZjNGEyNzUxZmY3NWQyNWQyNTRjNzVhMTE1YjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3NjlkMjM3Y2Q0MjBiOWQzOGI5ODFhMGE0ZjY3NzAxOTBhNGE4M2RjYTFmZTU2YzRmNWJhMWUyY2JjMGVmNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3MTYwYzBkYzE2MDFhYmI4YjkwNjJhNDhmZGY2OTFiYmU3MzczMWNmZjg4YmI0MDZjNDg1YTM4NjcxYzBjZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxNzBjNDYzYjg5ZTJlYmMxMDNiNjYyMDNmODkyMTNlMmYxOTc1Yjc5NzMzNmM0ZWI4NjliNDU2OTc1ODg1ZDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb5571f6baf74cd0b254929da2a340e8",
+      "statement": "scripts/os-pio-env.sh makes PIO 6.2.0 work under the nix store layout: it derives the nix store site dirs at runtime from the pio wrapper's site.addsitedir list, creates a penv venv with intelhex==2.3.0 pinned, exports PYTHONPATH for the SCons subprocess, and points PYTHONEXEPATH at a generated wrapper for esptool children — because PIO runs the build in a bare-interpreter subprocess that lacks the nix site dirs and the espidf framework strips PYTHONPATH.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/os-pio-env.sh#L1-L55",
+          "version": "repo-lines-v1:sha256:a5510caf4f9b7fe51361a0a2c043f5a6eec01266208fca6a8d3ecafec23b6f82:eyJzZWxlY3RlZExpbmVDb3VudCI6NTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZTU4MDViNDJkMjg3NWYyN2RhODAwNTc1MmFjZjRjNTBiOWJhODhiY2NjNGNmNzYzZmFjMTBiYTM3MzNhYTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1MGZiMjI3Nzg1ZjA0MWMwMjZjYjk3N2FhNTAxZmZlMjc2Y2RkN2IwMmY4NzM4NGM5MTc4MGYzYTkzOTYzMzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dc5c1bd613874456a61c943355eb83b4",
+      "statement": "patches/os-platformio.patch applies three local edits to the clone's platformio.ini — exact framework-espidf 3.50500.0 pin (the ~ range would drift), deletion of the BUILD_TIME/BUILD_DATE timestamp macros for byte-reproducible firmware, and deletion of a hardcoded macOS monitor_port — and os-build.sh applies it idempotently via an apply --check --reverse guard.",
+      "evidence": [
+        {
+          "resource": "repo://patches/os-platformio.patch",
+          "version": "repo-file-v1:sha256:129f726a84d2d5e1095bc2121a8b1b7b07e8169f329febadd82ea062fd9f4978"
+        },
+        {
+          "resource": "repo://scripts/os-build.sh#L31-L35",
+          "version": "repo-lines-v1:sha256:527ae0be9dd50a08bc291fe7fe09077a6022c285754e5c4d97285e013adad073:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjc1OTkxZWYxYTI0MjdlMzhjNTI1NTFjZmViOGZkNGU0NjI1YWVkNjJlM2QyODc2MDY0NGYxOGU0NDNjOTU4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzc2OWQyMzdjZDQyMGI5ZDM4Yjk4MWEwYTRmNjc3MDE5MGE0YTgzZGNhMWZlNTZjNGY1YmExZTJjYmMwZWY3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDE3MGM0NjNiODllMmViYzEwM2I2NjIwM2Y4OTIxM2UyZjE5NzViNzk3MzM2YzRlYjg2OWI0NTY5NzU4ODVkNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjUyOTFkM2ZkYjY0NWVhMjE2N2FiMzEyMTU1Mjc2M2RkNTlmYWJlMDRiNDU1YmYyMGU4NDI3YzI2ODA1OWIwNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a782708d16144d138cae4fdbc6826da1",
+      "statement": "OS builds through the in-repo pipeline are byte-identical across clean rebuilds (verified during development: firmware 2,462,320 bytes with an identical hash after wiping .pio/build), because the pipeline pins the commit, the exact framework version, removes timestamp macros, and pins intelhex==2.3.0.",
+      "evidence": [
+        {
+          "resource": "repo://docs/superpowers/plans/2026-11-13-os-plugin-bootstrap.md#L485-L485",
+          "version": "repo-lines-v1:sha256:f3cba02d5c0e7f10c949a04290ff22239b848d1fa5fa60791d4105f5a5429564:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNjYmEwMmQ1YzBlN2YxMGM5NDlhMDQyOTBmZjIyMjM5Yjg0OGQxZmE1ZmE2MDc5MWQ0MTA1ZjVhNTQyOTU2NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNjYmEwMmQ1YzBlN2YxMGM5NDlhMDQyOTBmZjIyMjM5Yjg0OGQxZmE1ZmE2MDc5MWQ0MTA1ZjVhNTQyOTU2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDdkODM0OTcxNzdmYzcxNWQ0OTU3OWMzNjI3ZDUzNGI5MjNjYjIyMDM2ZDA0YjI0M2RiZjY2OGZjYmI2ZDdjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzg1ZjllMzIwNDM5ZTZiZTdjMTdiMzBlMzdlMmYyYTQ4NTkyMjIyMWM0MDJmZjMyNTM5ZmViNTRhNGFiYWE2NiJ9"
+        },
+        {
+          "resource": "repo://patches/os-platformio.patch",
+          "version": "repo-file-v1:sha256:129f726a84d2d5e1095bc2121a8b1b7b07e8169f329febadd82ea062fd9f4978"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0b00699f13d4fe4a2706cf15916017c",
+      "statement": "scripts/os-flash.sh uploads the source-built image via pio run -t upload (optional explicit port argument, auto-detect when omitted) and its header warns that flashing this DEBUG_MODE build onto a badge running release firmware changes the build-profile byte and triggers a full factory wipe on first boot.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/os-flash.sh#L1-L19",
+          "version": "repo-lines-v1:sha256:8c64844f33fa65ea18ac505bcc3e5a8b6b8fa8e7b611563020d193da10b43a6d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkOTVmYzA0YTgwYzk1MmY0OWNlNDE4ODYyN2M1M2IwZmJlOGM0NDA0MWI5NTJkNTkyYWNkMWRlOTk4NjE0NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3NjlkMjM3Y2Q0MjBiOWQzOGI5ODFhMGE0ZjY3NzAxOTBhNGE4M2RjYTFmZTU2YzRmNWJhMWUyY2JjMGVmNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c411bf803c7441c6bb182fa0bca73160",
+      "statement": "The on-device session — download mode via the Flash/Reset buttons, serial AUTH at 115200 baud (first-boot default PIN 123456 per the OS docs), plugin upload via references/cdc-badge-os/tools/upload.py, and starting snake — is documented in docs/runbooks/badge-device.md.",
+      "evidence": [
+        {
+          "resource": "repo://docs/runbooks/badge-device.md",
+          "version": "repo-file-v1:sha256:daf94627605bffc5435fc15993c61b858ecad85815db1abac0a8ee41cc4e3e5c"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.5.0",
-    "at": "2026-11-12T21:23:11.133Z"
+    "by": "openwiki/0.5.2",
+    "at": "2026-11-14T16:21:12.965Z"
   }
 }

@@ -1,46 +1,64 @@
 ---
 type: repository overview
 title: Repository layout and vendored references
-description: What the badge-cdc repository contains today — the Nix dev shell, nine vendored upstream snapshots under references/ with pinned commits and roles, the refresh script, nested submodules that are not vendored, the substitution for the missing krim404/cdc-badge repo, and how OpenWiki is wired in.
-tags: [repository, references, provenance, nix, dev-shell, openwiki]
+description: What the badge-cdc repository contains — the root Cargo workspace with the first in-repo plugin (snake), the build/flash scripts, local OS patches, the on-device runbook, the Nix dev shell (Rust 1.100.0 + PlatformIO 6.2.0), nine vendored upstream snapshots under references/ with pinned commits, the refresh script, and how OpenWiki is wired in.
+tags: [repository, references, provenance, nix, dev-shell, openwiki, workspace]
 verified:
-  - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+  - by: openwiki/0.5.2
+    at: 2026-11-14T16:21:12.965Z
 sources:
   - id: openwiki-source-f5a489e5822d87c0b8fc66ef
     resource: repo://.mcp.json
   - id: openwiki-source-e119253b3c3737247dc63f2a
     resource: repo://.openwikiignore
+  - id: openwiki-source-651d1fb6c9e49916a916ab51
+    resource: repo://Cargo.toml
+  - id: openwiki-source-04a51e7c865423d871bbe1b5
+    resource: repo://docs/runbooks/badge-device.md
   - id: openwiki-source-3eda5d2b85501c78fc0ba02d
     resource: repo://flake.nix
+  - id: openwiki-source-b944083caaf266422d3ce85d
+    resource: repo://patches/os-platformio.patch
   - id: openwiki-source-782754752a7fccf1126740d6
     resource: repo://references/cdc-badge-development/.gitmodules
   - id: openwiki-source-bc24ba55b19d9850e16a9b6c
     resource: repo://references/cdc-badge-os/.gitmodules
   - id: openwiki-source-edf57d425cf4973bb79fe308
     resource: repo://references/SOURCES.md
+  - id: openwiki-source-b7793decf9d7c9ba48e57e0f
+    resource: repo://rust-toolchain.toml
   - id: openwiki-source-5da280b914160b3778d1cee0
     resource: repo://scripts/fetch-references.sh
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+  - id: openwiki-source-90f3fc29f4b3040a3560057d
+    resource: repo://scripts/os-build.sh
+generated: { by: "opencode", at: "2026-11-14T16:21:12.965Z" }
 ---
 
 # Repository layout and vendored references
 
-`badge-cdc` will hold our **sandboxed Rust/WebAssembly application for the CDC
-Badge**. For now it is a reference workspace: no application code yet, only the
-upstream material we build against plus this wiki.
+`badge-cdc` holds our **sandboxed Rust/WebAssembly application for the CDC
+Badge**. It now contains the first plugin (`plugins/snake`) and the build
+pipeline that compiles, checks, builds the OS and flashes it — plus the
+upstream material we build against and this wiki.
 
 ```
 badge-cdc/
-├── flake.nix, flake.lock, .envrc   Nix dev shell (direnv: `use flake`)
+├── flake.nix, flake.lock, .envrc   Nix dev shell (direnv: `use flake`): Rust 1.100.0, WASM tools, PlatformIO 6.2.0
+├── Cargo.toml, rust-toolchain.toml, Cargo.lock   root workspace (member: plugins/snake); Rust pinned to 1.100.0
+├── plugins/snake/                   first in-repo plugin (copied from references/cdc-badge-plugins; SDK path-dep)
+├── scripts/                         fetch-references.sh + build pipeline: plugin-build.sh, os-build.sh, os-pio-env.sh, os-flash.sh
+├── patches/os-platformio.patch      local build edits applied to the OS clone by os-build.sh
+├── docs/runbooks/badge-device.md    on-device session runbook (download mode, serial AUTH, upload, play)
 ├── references/                      read-only upstream snapshots (plain files)
 │   └── SOURCES.md                   inventory: upstream, branch, commit, role
-├── scripts/fetch-references.sh      re-vendor references at branch tips
 ├── openwiki/                        this wiki (INSTRUCTIONS.md = wiki brief)
 ├── .openwikiignore                  bulk assets excluded from the wiki
 ├── .mcp.json                        OpenWiki MCP server for Claude Code
 └── .claude/skills/openwiki/         OpenWiki host skill
 ```
+
+`build/` (OS clone, hermetic PlatformIO state, build artifacts) and `dist/`
+(plugin artifacts) are gitignored pipeline output created by the scripts.
 
 ## Vendored references
 
@@ -84,8 +102,9 @@ Upstream pins these as submodules. They are empty in our snapshots:
 | cdc-badge-development | `vendor/cdc-badge-os`, `vendor/cdc-badge-plugins` | the two krim404 repos. Their pins are **older** than our vendored snapshots. |
 
 So WAMR internals, the libtropic C API and the CalEPD driver are only documented
-here through how the OS uses them. Building the OS or the emulator needs these
-submodules fetched from upstream.
+here through how the OS uses them. The in-repo OS build fetches these
+submodules from upstream on demand ([OS build, partitions and
+flashing](../os/build-flash-and-partitions.md)).
 
 ### Refreshing
 
@@ -109,16 +128,21 @@ this repository.
 
 | Purpose | Packages |
 |---|---|
-| Rust → WASM | Rust stable from rust-overlay with `rust-src`, rustfmt, clippy, rust-analyzer, targets `wasm32-unknown-unknown` and `wasm32-wasip1` |
+| Rust → WASM | Rust **1.100.0** (pinned via rust-overlay) with `rust-src`, rustfmt, clippy, rust-analyzer, targets `wasm32-unknown-unknown` and `wasm32-wasip1` |
 | WASM tooling | binaryen (`wasm-opt`), wabt (`wasm2wat`, `wasm-objdump`), wasm-tools, wasmtime |
+| OS source build | **PlatformIO 6.2.0** (custom `python313` derivation, sdist SRI hash) — state in gitignored `build/.platformio` |
 | Device I/O | Python 3 with pyserial (for `tools/badge.py`), esptool, espflash |
 | Emulator build | cmake, pkg-config, SDL2, gcc |
 | Docs and wiki | Node.js 22 (OpenWiki, Astro site, web flasher), git, gh |
 
-The Rust setup mirrors the toolchain in `cdc-badge-development/Dockerfile`
-(stable + `wasm32-unknown-unknown`). The shell hook prepends
-`~/.npm-global/bin` to `PATH`, where the `openwiki` CLI is installed. PlatformIO
-is **not** included, so building the OS itself needs a separate install.
+The Rust setup mirrors the toolchain in `cdc-badge-development/Dockerfile`, now
+pinned to exactly 1.100.0 (matched by `rust-toolchain.toml` so cargo and rustc
+agree outside the shell too). The shell hook prepends `~/.npm-global/bin` to
+`PATH`, where the `openwiki` CLI is installed, and exports
+`PLATFORMIO_CORE_DIR=build/.platformio` so all PlatformIO state stays inside the
+gitignored `build/`. The in-repo build pipeline runs entirely from this shell —
+see [OS build, partitions and flashing](../os/build-flash-and-partitions.md) and
+[plugin build and install](../workflows/plugin-build-and-install.md).
 
 ## OpenWiki setup
 

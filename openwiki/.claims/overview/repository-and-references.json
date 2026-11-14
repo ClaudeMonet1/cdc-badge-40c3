@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:052360f80b247cd678c16bc45ee49bc8f2dfca150580ed96ba07cbaa97291e34",
+  "pageVersion": "sha256:654bba5e55f6da7f20f0ee86fa3969f7501e4fa1c0adf1f9e04b742092413c96",
   "claims": [
     {
       "id": "claim_2b2781f2a66d4021b179660a9ef7c750",
@@ -52,11 +52,11 @@
     },
     {
       "id": "claim_e8340415b31246568f43c30fecc93d38",
-      "statement": "The Nix dev shell provides stable Rust with wasm32-unknown-unknown and wasm32-wasip1 targets, binaryen, wabt, wasm-tools, wasmtime, esptool, espflash, Python with pyserial, CMake/SDL2 for the emulator and Node 22, and prepends ~/.npm-global/bin to PATH.",
+      "statement": "The Nix dev shell provides Rust pinned to exactly 1.100.0 (rust-overlay, with rust-src/rustfmt/clippy/rust-analyzer and the wasm32-unknown-unknown + wasm32-wasip1 targets), binaryen, wabt, wasm-tools, wasmtime, PlatformIO 6.2.0 (custom python313 derivation pinned by sdist SRI hash), esptool, espflash, Python with pyserial, CMake/SDL2 for the emulator and Node 22; it prepends ~/.npm-global/bin to PATH and exports PLATFORMIO_CORE_DIR=build/.platformio.",
       "evidence": [
         {
-          "resource": "repo://flake.nix#L19-L60",
-          "version": "repo-lines-v1:sha256:5d32a4e77d7b8f8c2f63814846cd771e8f8f7a570d56301d63a2149fc75959bc:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1Y2RlZjgwODVhZTc0YWI2MzZkNjQ1OWY1YzZkNWZiZmIwZGIyNjRmMWIwZDc1YmFjNTE5YzliM2Y2NzE3YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiODdmYTk1ZmI0NDMyMzM1MjY5ZmY3YTI3ODQwZTliN2EzOWYyY2E4NzhhZDUzOTc5NjJmMTgwZWIzOTkxMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5YTlhMGQyY2I2N2M5N2Y0YmZjMTMxNTkxOWM5M2VlNjI1ODFlNjdhMWNiOTIyNDFjNmQ0YjY2MGQzOTU4MDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzNGMzODIwMjE3NGRlNGZlMDEzNjdhYzcwMDFiMTViNGRhNDM0N2UyMjMyNjBkZWM3ZTRiNTM4MWIzMmUzZDQifQ"
+          "resource": "repo://flake.nix#L23-L93",
+          "version": "repo-lines-v1:sha256:ea3bb778724974c9e062a0605a0688d21e936459db7924521f1166de15dc3bf7:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIwNmU3ZjdlNDhlMDY0NGU2N2U2YjMwY2I1ZjQwODM1OGM4ZTdmNzRiYzRhNjZjNmZhNTdhNGJmZGNhYWY5OTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiODdmYTk1ZmI0NDMyMzM1MjY5ZmY3YTI3ODQwZTliN2EzOWYyY2E4NzhhZDUzOTc5NjJmMTgwZWIzOTkxMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxZThkZjc0NzFmNDc3N2JkMDQ0ZmFiNmVjMmFjNWMwMmMzMmViMmNiNDkyMDFhY2M0OTAyZDAyOGI1MzEyYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzNGMzODIwMjE3NGRlNGZlMDEzNjdhYzcwMDFiMTViNGRhNDM0N2UyMjMyNjBkZWM3ZTRiNTM4MWIzMmUzZDQifQ"
         }
       ]
     },
@@ -79,10 +79,42 @@
           "version": "repo-file-v1:sha256:b363a6bf6e2ed17e551d8bfa74a6b052a12c42eb25ceb83991ce3d78ccad677a"
         }
       ]
+    },
+    {
+      "id": "claim_9f0e05cb48be4ee28ada90b4ce6b4bd0",
+      "statement": "The repository now contains application code: a root Cargo workspace (resolver 2, release profile opt-level=z/lto/codegen-units=1/panic=abort/strip) with plugins/snake as its first member, rust-toolchain.toml pinned to 1.100.0 with the wasm32-unknown-unknown target, and a committed Cargo.lock for reproducible builds.",
+      "evidence": [
+        {
+          "resource": "repo://Cargo.toml",
+          "version": "repo-file-v1:sha256:5557b7fb7d5a4f4f3306d99eb32dbc3711c1dd808d64a4084e28b15ccd051fff"
+        },
+        {
+          "resource": "repo://rust-toolchain.toml",
+          "version": "repo-file-v1:sha256:aaf0c1ff00bddb8119e3c1091ba0b454f90113f97554f4708d345ab6dbaf82d0"
+        }
+      ]
+    },
+    {
+      "id": "claim_20cd0b5af1844692b99325d2d1f0abe8",
+      "statement": "scripts/ holds the build pipeline — plugin-build.sh, os-build.sh, os-pio-env.sh, os-flash.sh — alongside fetch-references.sh; patches/os-platformio.patch carries the local OS build edits, docs/runbooks/badge-device.md documents the on-device session, and build/ and dist/ are gitignored pipeline state.",
+      "evidence": [
+        {
+          "resource": "repo://docs/runbooks/badge-device.md",
+          "version": "repo-file-v1:sha256:daf94627605bffc5435fc15993c61b858ecad85815db1abac0a8ee41cc4e3e5c"
+        },
+        {
+          "resource": "repo://patches/os-platformio.patch",
+          "version": "repo-file-v1:sha256:129f726a84d2d5e1095bc2121a8b1b7b07e8169f329febadd82ea062fd9f4978"
+        },
+        {
+          "resource": "repo://scripts/os-build.sh",
+          "version": "repo-file-v1:sha256:73a92d7d7e35aa30bd03d3f3c090f142e886c7543d213c4f948b07b725babf32"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.5.0",
-    "at": "2026-11-12T17:37:01.155Z"
+    "by": "openwiki/0.5.2",
+    "at": "2026-11-14T16:21:12.965Z"
   }
 }

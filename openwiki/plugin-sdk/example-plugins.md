@@ -1,12 +1,21 @@
 ---
-type: catalogue
-title: Example and production plugins
-description: Catalogue of every Rust plugin in cdc-badge-plugins (examples/ and plugins/) plus the starter plugin and SDK template — what each one demonstrates, the capabilities and prerequisites it declares, its size, and which to copy as a template for which kind of application.
-tags: [plugins, examples, templates, rust, capabilities, catalogue]
+type: "Reference"
+title: "Example and production plugins"
+openwiki_generated: true
 verified:
-  - by: openwiki/0.5.0
-    at: 2026-11-12T17:37:01.155Z
+  - by: openwiki/0.5.2
+    at: 2026-11-14T16:21:12.965Z
 sources:
+  - id: openwiki-source-651d1fb6c9e49916a916ab51
+    resource: repo://Cargo.toml
+  - id: openwiki-source-04a51e7c865423d871bbe1b5
+    resource: repo://docs/runbooks/badge-device.md
+  - id: openwiki-source-1297ec01979fd634d1962794
+    resource: repo://plugins/snake/Cargo.toml
+  - id: openwiki-source-4c340b7a731b439c6a33f78f
+    resource: repo://plugins/snake/meta.json
+  - id: openwiki-source-3c9b84a70c642739fffc76f3
+    resource: repo://plugins/snake/src/game.rs
   - id: openwiki-source-caf818c738c97140995ce83e
     resource: repo://references/cdc-badge-development/plugins/starter/Cargo.toml
   - id: openwiki-source-e6837e378cfce0baeec36e03
@@ -27,8 +36,9 @@ sources:
     resource: repo://references/cdc-badge-plugins/plugins/webserver/meta.json
   - id: openwiki-source-edf57d425cf4973bb79fe308
     resource: repo://references/SOURCES.md
-generated: { by: "claude-code", at: "2026-11-12T17:37:01.155Z" }
+generated: { by: "opencode", at: "2026-11-14T16:21:12.965Z" }
 ---
+
 
 # Example and production plugins
 
@@ -37,6 +47,29 @@ All of these are Rust crates built against the `cdc-badge-plugin` SDK (see
 plus a line count of `src/**/*.rs` in our snapshot. "API" is
 `host_api_level_min`. Plugins declaring 0.7 still load on a 0.8 host (same major,
 lower minor).
+
+## In-repo: `plugins/snake` (first workspace member)
+
+The repository's own first plugin is a **verbatim copy of the upstream
+production `snake`** (`references/cdc-badge-plugins/plugins/snake`) — the only
+change is that `Cargo.toml` points the SDK dependency at the vendored path
+`../../references/cdc-badge-plugins/sdk/cdc-badge-plugin` (feature
+`panic_handler`). It is the first member of the root `Cargo.toml` workspace, so
+it builds and tests directly:
+
+- `cargo test -p snake` — **18 host unit tests** on the pure game logic
+  (`src/game.rs`); `lib.rs`, `game.rs`, `render.rs`, `sprites.rs`.
+- `crate-type = ["cdylib", "rlib"]` so the same crate produces the badge
+  `cdylib` and a host-testable `rlib`.
+- `meta.json`: API 0.8, 64 KB linear memory, `ui_exclusive`,
+  `nvs_namespace plg_snake` — matches the upstream row in the production table.
+- `scripts/plugin-build.sh` compiles it to a **~30 KB wasm** that passed the
+  contract checks (cdc-only imports, size limit, manifest) and was **flashed
+  and run on a real badge** (see [plugin build and install](../workflows/plugin-build-and-install.md)
+  and `docs/runbooks/badge-device.md`).
+
+Copy it for new in-repo plugins: create `plugins/<id>/`, keep the path-dep on
+the vendored SDK, and add the directory to the workspace `members`.
 
 ## Templates and starters
 
@@ -70,7 +103,7 @@ empty in our snapshot. To build it here, point the path at
 | Plugin | API | Mem KB | Rust lines | Capabilities | Demonstrates |
 |---|---|---|---|---|---|
 | `name_badge` | 0.8 | 128 | 1928 | `prevent_sleep`, `ui_exclusive` | Animated name tag with eight e-paper effects (`fx/`: bounce, glitch, typewriter, wipe…), dithering, text fitting. Relevant to e-paper animation budgets. |
-| `snake` | 0.8 | 64 | 1637 | `ui_exclusive` | Game loop on e-paper with animated sprites, high scores in NVS |
+| `snake` | 0.8 | 64 | 1637 | `ui_exclusive` | Game loop on e-paper with animated sprites, high scores in NVS. **Copied in-repo as `plugins/snake`** — the copy source for new plugins. |
 | `home_assistant` | 0.7 | 1024 | 1807 | `wifi`, `http`, `ui_exclusive`, `rmem` [`ha_token`], ns `plugin_ha` | REST client, token in SE, browse/favorites UI |
 | `matrix` | 0.7 | 1024 | 5027 | `wifi`, `http`, `ui_exclusive`, `prevent_sleep`, `rmem` ×4, ns `plg_matrix` | The largest plugin: Matrix chat with Olm/Megolm E2EE (vodozemac), custom getrandom backend, 256 KiB shadow stack (`build.rs`), host-test stubs. It shows the upper bound of what fits. |
 | `ble_scanner` | 0.7 | 64 | 444 | `ble`, `prevent_sleep`, `vfat` | BLE central scanning, RSSI sorting, CSV export (`EXPORT.md`) |
@@ -83,6 +116,7 @@ empty in our snapshot. To build it here, point the path at
 
 | Our application needs… | Copy from |
 |---|---|
+| An in-tree plugin that builds and runs today | `plugins/snake` (first workspace member — the copy source for new plugins) |
 | A testable skeleton | `starter` (TDD layout) + `plugin_template_rust` |
 | Menus and settings with no custom drawing | `hello_world`, `news_feed` (lists) |
 | Custom screens or animation | `canvas_demo`, then `name_badge` / `snake` |
